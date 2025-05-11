@@ -49,7 +49,6 @@ const TopRight = () => {
     { name: "CAD", code: "cad", symbol: "C$" },
   ];
 
-  console.log(selectedCurr);
   return (
     <div className="flex items-center gap-6 ">
       <div
