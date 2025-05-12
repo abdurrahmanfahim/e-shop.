@@ -9,9 +9,9 @@ const MiddleHeader = () => {
     <>
       <Container>
         <div className="flex justify-between items-center font-['montserrat'] py-6  ">
-          <div>
+          <Link to={'/'}>
             <img src="images/logo.png" alt="logo" />
-          </div>
+          </Link>
 
           <div className="flex justify-center items-center ">
             <div className="relative">
