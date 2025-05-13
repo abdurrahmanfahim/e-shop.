@@ -1,6 +1,7 @@
 import { Outlet } from "react-router-dom";
 import Container from "./Container";
 import Header from "../headers/Header";
+import Footer from "../Footer";
 
 const CommonLayout = () => {
   return (
@@ -14,9 +15,7 @@ const CommonLayout = () => {
       </Container>
 
       {/* Footer */}
-      <Container>
-        <div>Footer</div>
-      </Container>
+      <Footer />
     </>
   );
 };

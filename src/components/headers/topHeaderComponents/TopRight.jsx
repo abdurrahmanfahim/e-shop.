@@ -177,7 +177,7 @@ const TopRight = () => {
 
       </div>
       <span className="w-[1px] h-8 bg-[#CBCBCB] "></span>
-      <div className="flex items-center gap-6 text-base">
+      <div className="flex items-center gap-6 text-lg">
         <Link to={"#"} target="_blank">
           <FaFacebookF className="hover:text-[#FF624C] transition-all duration-150 ease-in-out" />
         </Link>

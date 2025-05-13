@@ -3,8 +3,11 @@ import CartIcon from "../../icons/CartIcon";
 import UserIcon from "../../icons/UserIcon";
 import Container from "../layouts/Container";
 import { Link } from "react-router-dom";
+import { useState } from "react";
 
 const MiddleHeader = () => {
+  // eslint-disable-next-line no-unused-vars
+  const [notification, setNotification] = useState(true)
   return (
     <>
       <Container>
@@ -16,16 +19,16 @@ const MiddleHeader = () => {
           <div className="flex justify-center items-center ">
             <div className="relative">
               <input
-                className="text-[#303030] font-normal text-sm leading-5 py-[18px] px-6 rounded-[10px] border border-[#979797] w-[332px] bg-white  "
+                className="text-[#646464] font-normal text-sm leading-5 py-[18px] px-6 rounded-[10px] border border-[#979797] w-[332px] bg-white  "
                 type="text"
                 placeholder="Search Products ..."
               />
               <div className="absolute text-base right-6 top-1/2 -translate-y-1/2 ">
-                <IoIosSearch />
+                <IoIosSearch className="text-xl" />
               </div>
             </div>
             <Link to={'#'} className="relative px-12  ml-14 ">
-              <div className="absolute -left-[8px] top-1/2 -translate-y-1/2 after:content-[''] after:size-1.5 after:absolute after:bg-[#FF624C] after:rounded-full after:-right-1 after:-top-1  ">
+              <div className={`absolute -left-[8px] top-1/2 -translate-y-1/2 ${notification && "after:content-[''] after:size-1.5 after:absolute after:bg-[#FF624C] after:rounded-full after:-right-1 after:-top-1" } `}>
                 <CartIcon />
               </div>
               <p className="text-base font-normal leading-6 capitalize ">

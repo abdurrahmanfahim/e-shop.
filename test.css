@@ -1,0 +1,7 @@
+display: inline-flex;
+padding: 16px 40px;
+align-items: flex-start;
+gap: 10px;
+
+border-radius: 10px;
+background: var(--Orange, #FF624C);

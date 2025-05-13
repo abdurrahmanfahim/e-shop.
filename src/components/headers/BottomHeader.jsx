@@ -1,12 +1,19 @@
-import React from 'react'
-import Container from '../layouts/Container'
+import React from "react";
+import Container from "../layouts/Container";
+import BottomLeft from "./bottomHeaderComponent/BottomLeft";
+import BottomRight from "./bottomHeaderComponent/BottomRight";
 
 const BottomHeader = () => {
   return (
-    <Container>
-      bottom
-    </Container>
-  )
-}
+    <div className="bg-[#FF624C] w-full py-6 ">
+      <Container>
+        <div className="flex justify-between font-['montserrat'] text-base font-semibold leading-6 text-white capitalize ">
+          <BottomLeft />
+          <BottomRight />
+        </div>
+      </Container>
+    </div>
+  );
+};
 
-export default BottomHeader
+export default BottomHeader;
