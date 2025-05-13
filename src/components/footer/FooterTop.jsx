@@ -4,7 +4,7 @@ import Button from "../Button";
 const FooterTop = () => {
   return (
     <div
-      className=" py-[114px] px-[100px]  "
+      className=" py-[114px] px-[100px] rounded-3xl  "
       style={{
         background:
           "linear-gradient(90deg,rgba(244, 244, 244, 1) 40%, rgba(217, 217, 217, 1) 50%)",
