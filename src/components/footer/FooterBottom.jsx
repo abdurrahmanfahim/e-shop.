@@ -14,19 +14,19 @@ const FooterBottom = () => {
           </div>
           <ul className="font-normal text-base leading-6 flex flex-col gap-3 ">
             <li className="relative pl-8 ">
-              <span className="absolute top-1/2 -translate-1/2 left-2 ">
+              <span className="absolute top-1/2 -translate-1/2 left-2 text-[#646464] ">
                 <ImPhone />
               </span>{" "}
               +1 (555) 123-4567
             </li>
             <li className="relative pl-8 ">
-              <span className="absolute top-1/2 -translate-1/2 left-2 ">
+              <span className="absolute top-1/2 -translate-1/2 left-2 text-[#646464] ">
                 <BsFillEnvelopeFill />
               </span>
               information@eshop.com
             </li>
             <li className="relative pl-8 ">
-              <span className="absolute top-1/2 -translate-1/2 left-2 text-xl ">
+              <span className="absolute top-1/2 -translate-1/2 left-2 text-xl text-[#646464] ">
                 <MdLocationPin />
               </span>
               123 Main Street, Suite 105, Anytown USA
