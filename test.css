@@ -1,7 +1,21 @@
-display: inline-flex;
-padding: 16px 40px;
-align-items: flex-start;
-gap: 10px;
+.back {
 
-border-radius: 10px;
-background: var(--Orange, #FF624C);
+
+
+
+
+color: var(--Black, #303030);
+
+/* Heading 8 */
+font-family: Montserrat;
+font-size: 14px;
+font-style: normal;
+font-weight: 400;
+line-height: 20px; /* 142.857% */
+
+
+
+
+
+
+}

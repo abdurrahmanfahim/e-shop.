@@ -7,7 +7,7 @@ const FooterTop = () => {
       className=" py-[114px] px-[100px] rounded-3xl  "
       style={{
         background:
-          "linear-gradient(90deg,rgba(244, 244, 244, 1) 40%, rgba(217, 217, 217, 1) 50%)",
+          "linear-gradient(90deg,rgba(244, 244, 244, 1) 35%, rgba(217, 217, 217, 1) 50%)",
       }}
     >
       <h2 className="font-['Poppins'] text-4xl font-semibold leading-[46px]  ">

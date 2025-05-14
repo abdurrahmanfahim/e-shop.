@@ -12,7 +12,16 @@ const Button = ({
 }) => {
   return (
     <button
-      className={`bg-[${bg}] text-[${color}] py-[${py}] px-[${px}] font-[${font}] font-${weight} rounded-[${rounded}] `}
+      style={{
+        background: bg,
+        color: color,
+        padding: `${py} ${px}`,
+        fontFamily: font,
+        fontWeight: weight,
+        borderRadius: rounded,
+        border: 'none',
+        cursor: 'pointer',
+      }}
     >
       {text}
     </button>
