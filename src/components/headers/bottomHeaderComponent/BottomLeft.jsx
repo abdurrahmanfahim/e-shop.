@@ -7,13 +7,18 @@ import { Link } from "react-router-dom";
 
 const BottomLeft = () => {
   const products = [
-    "GAMING",
-    "LAPTOP",
-    "TELEVISION",
-    "CAMERA",
-    "AUDIO",
-    "TABLET",
-    "WATCH",
+    "Laptops & Desktops",
+    "Smartphones",
+    "Smart TVs",
+    "Bluetooth Speakers",
+    "DSLR Cameras",
+    "Gaming Consoles",
+    "Microwave Ovens",
+    "Wearable Devices",
+    "Printers",
+    "Smart Watches",
+    "VR Headsets",
+    "Projectors"
   ];
 
   const categories = [
@@ -32,6 +37,7 @@ const BottomLeft = () => {
   const [selectedProduct, setSelectedProduct] = useState("");
   const categoriesRef = useRef(null);
   const productsRef = useRef(null);
+  console.log(selectedCategory, selectedProduct)
 
   useEffect(() => {
     const handleClickOutSide = (event) => {
@@ -76,7 +82,7 @@ const BottomLeft = () => {
         <button onClick={() => setIsProRefOpen(!isProRefOpen)}>Products</button>
         <GrDown className="text-sm " />
         {isProRefOpen && (
-          <div className="absolute left-0 top-[150%]">
+          <div className="w-47 absolute left-0 top-[150%]">
             <ul className="bg-white text-black text-sm font-medium w-full shadow-lg z-10 ">
               {products.map((item) => (
                 <li

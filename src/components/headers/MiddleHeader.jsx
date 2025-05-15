@@ -27,7 +27,7 @@ const MiddleHeader = () => {
                 <IoIosSearch className="text-xl" />
               </div>
             </div>
-            <Link to={'#'} className="relative px-12  ml-14 ">
+            <Link to={'#'} className="relative px-12 ml-14 hover:text-[#FF624C] ">
               <div className={`absolute -left-[8px] top-1/2 -translate-y-1/2 ${notification && "after:content-[''] after:size-1.5 after:absolute after:bg-[#FF624C] after:rounded-full after:-right-1 after:-top-1" } `}>
                 <CartIcon />
               </div>
@@ -39,7 +39,7 @@ const MiddleHeader = () => {
               </span>
             </Link>
 
-            <Link to={'#'} className="relative pl-12 ml-12 after:absolute after:w-[1px] after:h-8 after:bg-[#979797] after:-left-12 after:top-1/2 after:-translate-y-1/2    ">
+            <Link to={'#'} className="relative pl-12 ml-12 after:absolute after:w-[1px] after:h-8 after:bg-[#979797] after:-left-12 after:top-1/2 after:-translate-y-1/2 hover:text-[#FF624C] ">
               <div className="absolute -left-[8px] top-1/2 -translate-y-1/2  ">
                 <UserIcon />
               </div>
