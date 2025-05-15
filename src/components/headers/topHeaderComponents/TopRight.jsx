@@ -1,13 +1,9 @@
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { FaFacebookF, FaInstagram, FaTwitter } from "react-icons/fa";
 import { GoChevronDown } from "react-icons/go";
 import { Link } from "react-router-dom";
 
 const TopRight = () => {
-  const [selectedLang, setSelectedLang] = useState(null);
-  const [selectedCurr, setSelectedCurr] = useState(null);
-  const [isOpen, setIsOpen] = useState(false);
-  const [isCurrOpen, setIsCurrOpen] = useState(false);
   const languages = [
     {
       name: "English",
@@ -37,7 +33,6 @@ const TopRight = () => {
       flag: "https://flagcdn.com/w40/jp.png",
     },
   ];
-
   const currency = [
     { name: "USD", code: "usd", symbol: "$" },
     { name: "BDT", code: "bdt", symbol: "৳" },
@@ -49,13 +44,34 @@ const TopRight = () => {
     { name: "CAD", code: "cad", symbol: "C$" },
   ];
 
+
+  const [selectedLang, setSelectedLang] = useState(null);
+  const [selectedCurr, setSelectedCurr] = useState(null);
+  const [isLangOpen, setIsLangOpen] = useState(false);
+  const [isCurrOpen, setIsCurrOpen] = useState(false);
+
+  const currRef = useRef(null);
+  const langRef = useRef(null);
+
+  useEffect(() => {
+    const handleClickOutSide = (event) => {
+      if (!langRef.current.contains(event.target)) {
+        setIsLangOpen(false);
+      }
+      if (!currRef.current.contains(event.target)) {
+        setIsCurrOpen(false);
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutSide);
+  }, []);
+
   return (
     <div className="flex items-center gap-6 ">
-      <div
+      <div ref={currRef}
         className="flex items-center gap-2 cursor-pointer relative"
         onClick={() => {
           setIsCurrOpen(!isCurrOpen);
-          setIsOpen(false);
         }}
       >
         <select
@@ -89,11 +105,13 @@ const TopRight = () => {
         {/* is Curr Open? dropDown */}
 
         {isCurrOpen && (
-          <ul className="absolute w-full bg-white shadow-lg z-10 top-[170%]">
+          <ul
+            className="absolute w-full bg-white shadow-lg z-10 top-[170%] "
+          >
             {currency?.map((curr) => (
               <li
                 key={curr?.code}
-                className="flex items-center gap-2 p-2 hover:bg-gray-200 cursor-pointer "
+                className="flex items-center gap-2 p-2 hover:bg-gray-100 cursor-pointer  hover:text-[#FF624C] border-b border-gray-100 "
                 onClick={() => {
                   setSelectedCurr(curr);
                   setIsCurrOpen(false);
@@ -105,15 +123,13 @@ const TopRight = () => {
           </ul>
         )}
 
-        <GoChevronDown className="text-base" />
-
+        <GoChevronDown className="text-base hover:text-[#FF624C] transition-all duration-150 ease-in-out" />
       </div>
       <span className="w-[1px] h-8 bg-[#CBCBCB] "></span>
-      <div
+      <div ref={langRef}
         className="flex items-center gap-2 cursor-pointer relative "
         onClick={() => {
-          setIsOpen(!isOpen);
-          setIsCurrOpen(false);
+          setIsLangOpen(!isLangOpen);
         }}
       >
         <select
@@ -151,15 +167,15 @@ const TopRight = () => {
 
         {/* is Open? dropDown */}
 
-        {isOpen && (
+        {isLangOpen && (
           <ul className="absolute w-full bg-white shadow-lg z-10 top-[170%]">
             {languages.map((lang) => (
               <li
                 key={lang?.code}
-                className="flex items-center gap-2 p-2 hover:bg-gray-200 cursor-pointer "
+                className="flex items-center gap-2 p-2 hover:bg-gray-100 cursor-pointer  hover:text-[#FF624C] border-b border-gray-100"
                 onClick={() => {
                   setSelectedLang(lang);
-                  setIsOpen(false);
+                  setIsLangOpen(false);
                 }}
               >
                 <img
@@ -173,8 +189,7 @@ const TopRight = () => {
           </ul>
         )}
 
-        <GoChevronDown className="text-base" />
-
+        <GoChevronDown className="text-base hover:text-[#FF624C] transition-all duration-150 ease-in-out" />
       </div>
       <span className="w-[1px] h-8 bg-[#CBCBCB] "></span>
       <div className="flex items-center gap-6 text-lg">
