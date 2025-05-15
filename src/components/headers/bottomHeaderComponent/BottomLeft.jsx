@@ -54,9 +54,9 @@ const BottomLeft = () => {
 
   return (
     <ul className="flex gap-20 ">
-      <li className="flex gap-4 relative  " ref={categoriesRef}>
+      <li className="relative  " ref={categoriesRef}>
+        <button className="flex gap-4 items-center " onClick={() => setIsCatRefOpen(!isCatRefOpen)}>
         <FiMenu className="text-2xl" />
-        <button onClick={() => setIsCatRefOpen(!isCatRefOpen)}>
           All Categories
         </button>
         {isCatRefOpen && (
@@ -79,8 +79,11 @@ const BottomLeft = () => {
         )}
       </li>
       <li className="flex gap-4 relative  " ref={productsRef}>
-        <button onClick={() => setIsProRefOpen(!isProRefOpen)}>Products</button>
-        <GrDown className="text-sm " />
+        <button className="flex gap-2 " onClick={() => setIsProRefOpen(!isProRefOpen)}>
+          Products
+
+        <GrDown className="text-sm mt-1 " />
+        </button>
         {isProRefOpen && (
           <div className="w-47 absolute left-0 top-[150%]">
             <ul className="bg-white text-black text-sm font-medium w-full shadow-lg z-10 ">
