@@ -1,9 +1,12 @@
 import React from 'react'
+import Banner from '../components/Banner'
+import Facility from '../components/Facility'
 
 const HomePage = () => {
   return (
     <>
-      <h1>home</h1>
+      <Banner />
+      <Facility />
     </>
   )
 }

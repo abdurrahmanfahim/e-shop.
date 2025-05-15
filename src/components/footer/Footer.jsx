@@ -1,7 +1,7 @@
 import React from 'react'
-import Container from './layouts/Container'
-import FooterTop from './footer/FooterTop'
-import FooterBottom from './footer/FooterBottom'
+import Container from '../layouts/Container'
+import FooterTop from './FooterTop'
+import FooterBottom from './FooterBottom'
 
 const Footer = () => {
   return (
