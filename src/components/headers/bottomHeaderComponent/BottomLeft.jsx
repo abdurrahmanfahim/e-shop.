@@ -57,7 +57,7 @@ const BottomLeft = () => {
   }, []);
 
   return (
-    <ul className="flex gap-20  leading-15 ">
+    <ul className="flex gap-20  leading-18 ">
       <li className="relative " ref={categoriesRef}>
         <button
           className="flex gap-4 items-center"
@@ -67,9 +67,9 @@ const BottomLeft = () => {
           All Categories
         </button>
         {isCatRefOpen && (
-          <div className="w-53 absolute left-0 top-full " ref={categoriesRef}>
+          <div className="w-53 absolute left-0 top-full border-t border-white " ref={categoriesRef}>
             <ul
-              className="bg-white text-black text-sm font-medium w-full shadow-lg z-10 "
+              className="bg-white text-black text-sm font-medium w-full shadow-lg z-10 border-t-4 border-[#FF624C] "
               onMouseLeave={() => setIsCatRefOpen(false)}
             >
               {categories.map((item) => (
@@ -94,12 +94,12 @@ const BottomLeft = () => {
           onMouseOver={() => setIsProRefOpen(true)}
         >
           Products
-          <GrDown className="text-sm align-middle mt-5 " />
+          <GrDown className="text-sm self-center " />
         </button>
         {isProRefOpen && (
-          <div className="w-47 absolute left-0 top-full" ref={productsRef}>
+          <div className="w-47 absolute left-0 top-full border-t border-white" ref={productsRef}>
             <ul
-              className="bg-white text-black text-sm font-medium w-full shadow-lg z-10 "
+              className="bg-white text-black text-sm font-medium w-full shadow-lg z-10 border-t-4 border-[#FF624C]"
               onMouseLeave={() => setIsProRefOpen(false)}
             >
               {products.map((item) => (
