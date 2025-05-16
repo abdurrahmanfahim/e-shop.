@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 const BottomRight = () => {
   return (
-     <ul className="flex gap-20 leading-15 ">
+     <ul className="flex gap-20 leading-18 ">
       <li>
         <Link className="flex gap-4 uppercase " to={"#"}>
           LIMITED SALE 👋🏻
