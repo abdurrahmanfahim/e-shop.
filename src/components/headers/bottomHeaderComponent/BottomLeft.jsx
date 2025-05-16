@@ -74,7 +74,7 @@ const BottomLeft = () => {
             >
               {categories.map((item) => (
                 <li
-                  className="flex items-center gap-2 p-2 hover:bg-gray-100 hover:text-[#FF624C] cursor-pointer border-b border-gray-100 uppercase "
+                  className="flex items-center gap-2 p-2 hover:bg-gray-100 hover:text-[#FF624C] cursor-pointer border-b border-gray-100 hover:shadow-xl uppercase "
                   key={item}
                   onClick={() => {
                     setIsCatRefOpen(false);
@@ -104,7 +104,7 @@ const BottomLeft = () => {
             >
               {products.map((item) => (
                 <li
-                  className="flex items-center gap-2 p-2 hover:bg-gray-100 hover:text-[#FF624C] cursor-pointer border-b border-gray-100 uppercase "
+                  className="flex items-center gap-2 p-2 hover:bg-gray-100 hover:text-[#FF624C] cursor-pointer border-b border-gray-100 hover:shadow-xl uppercase "
                   key={item}
                   onClick={() => {
                     setIsProRefOpen(false);

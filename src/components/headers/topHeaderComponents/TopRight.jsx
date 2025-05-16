@@ -119,7 +119,7 @@ const TopRight = () => {
             {currency?.map((curr) => (
               <li
                 key={curr?.code}
-                className="flex items-center gap-2 p-2 hover:bg-gray-100 cursor-pointer  hover:text-[#FF624C] border-b border-gray-100 "
+                className="flex items-center gap-2 p-2 hover:bg-gray-100 cursor-pointer  hover:text-[#FF624C] border-b border-gray-100 hover:shadow-xl "
                 onClick={() => {
                   setSelectedCurr(curr);
                   setIsCurrOpen(false);
@@ -188,7 +188,7 @@ const TopRight = () => {
             {languages.map((lang) => (
               <li
                 key={lang?.code}
-                className="flex items-center gap-2 p-2 hover:bg-gray-100 cursor-pointer  hover:text-[#FF624C] border-b border-gray-100"
+                className="flex items-center gap-2 p-2 hover:bg-gray-100 cursor-pointer  hover:text-[#FF624C] border-b border-gray-100 hover:shadow-xl "
                 onClick={() => {
                   setSelectedLang(lang);
                   setIsLangOpen(false);
