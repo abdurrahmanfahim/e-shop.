@@ -9,26 +9,30 @@ const ProductLayout = () => {
   return (
     <div className="p-6 bg-white border border-transparent rounded-[10px] hover:bg-[#F7F7F7] hover:border-[#C3C3C3] transition-all duration-300 ease-in-out text-[#303030] group ">
       <div className="relative ">
-        <img src="./images/productimg.jpg" alt="productimg" />
+        <img
+          className="mx-auto"
+          src="./images/productimg.jpg"
+          alt="productimg"
+        />
         <span className="absolute -top-2 -right-2 px-5 py-1.5 bg-[#FF624C] text-white font-['Montserrat'] font-bold leading-6 rounded-md ">
           50%
         </span>{" "}
         <div className="flex absolute justify-center gap-[18px] left-1/2 -translate-x-1/2 bottom-[6px] scale-0 group-hover:scale-100 transition-all duration-300 ease-in-out ">
           <Link
             to={"#"}
-            className="size-[50px] rounded-full text-[#FF624C] bg-white hover:text-white hover:bg-[#FF624C] flex items-center justify-center text-xl transition-all duration-300 ease-in-out  "
+            className="size-[50px] rounded-full text-[#FF624C] bg-white hover:text-white hover:bg-[#FF624C] flex items-center justify-center text-xl transition-all duration-300 ease-in-out border border-[#FF624C] "
           >
             <BsCart3 />
           </Link>
           <Link
             to={"#"}
-            className="size-[50px] rounded-full text-[#FF624C] bg-white hover:text-white hover:bg-[#FF624C] flex items-center justify-center text-xl transition-all duration-300 ease-in-out  "
+            className="size-[50px] rounded-full text-[#FF624C] bg-white hover:text-white hover:bg-[#FF624C] flex items-center justify-center text-xl transition-all duration-300 ease-in-out border border-[#FF624C] "
           >
             <GoHeart />
           </Link>
           <Link
             to={"#"}
-            className="size-[50px] rounded-full text-[#FF624C] bg-white hover:text-white hover:bg-[#FF624C] flex items-center justify-center text-xl transition-all duration-300 ease-in-out  "
+            className="size-[50px] rounded-full text-[#FF624C] bg-white hover:text-white hover:bg-[#FF624C] flex items-center justify-center text-xl transition-all duration-300 ease-in-out border border-[#FF624C] "
           >
             <IoShareSocialOutline />
           </Link>
