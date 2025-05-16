@@ -44,7 +44,6 @@ const TopRight = () => {
     { name: "CAD", code: "cad", symbol: "C$" },
   ];
 
-
   const [selectedLang, setSelectedLang] = useState(null);
   const [selectedCurr, setSelectedCurr] = useState(null);
   const [isLangOpen, setIsLangOpen] = useState(false);
@@ -54,7 +53,7 @@ const TopRight = () => {
   const langRef = useRef(null);
 
   useEffect(() => {
-    const handleClickOutSide = (event) => {
+    const handleHoverOutSide = (event) => {
       if (!langRef.current.contains(event.target)) {
         setIsLangOpen(false);
       }
@@ -63,12 +62,17 @@ const TopRight = () => {
       }
     };
 
-    document.addEventListener("mousedown", handleClickOutSide);
+    document.addEventListener("mouseover", handleHoverOutSide);
+
+    return () => {
+      document.removeEventListener("mouseover", handleHoverOutSide);
+    };
   }, []);
 
   return (
     <div className="flex items-center gap-6 ">
-      <div ref={currRef}
+      <div
+        ref={currRef}
         className="flex items-center gap-2 cursor-pointer relative"
         onClick={() => {
           setIsCurrOpen(!isCurrOpen);
@@ -94,7 +98,10 @@ const TopRight = () => {
 
         {selectedCurr ? (
           <>
-            <span className="hover:text-[#FF624C] transition-all duration-150 ease-in-out">
+            <span
+              className="hover:text-[#FF624C] transition-all duration-150 ease-in-out"
+              onMouseOver={() => setIsCurrOpen(true)}
+            >
               {selectedCurr?.name}
             </span>
           </>
@@ -106,7 +113,8 @@ const TopRight = () => {
 
         {isCurrOpen && (
           <ul
-            className="absolute w-full bg-white shadow-lg z-10 top-[170%] "
+            className="absolute w-full bg-white shadow-lg z-10 top-full leading-5 "
+            onMouseLeave={() => setIsCurrOpen(false)}
           >
             {currency?.map((curr) => (
               <li
@@ -126,7 +134,8 @@ const TopRight = () => {
         <GoChevronDown className="text-base hover:text-[#FF624C] transition-all duration-150 ease-in-out" />
       </div>
       <span className="w-[1px] h-8 bg-[#CBCBCB] "></span>
-      <div ref={langRef}
+      <div
+        ref={langRef}
         className="flex items-center gap-2 cursor-pointer relative "
         onClick={() => {
           setIsLangOpen(!isLangOpen);
@@ -156,8 +165,12 @@ const TopRight = () => {
               className="w-[27px] h-[16px] "
               src={selectedLang?.flag}
               alt={selectedLang?.name}
+              onMouseOver={() => setIsLangOpen(true)}
             />
-            <span className="hover:text-[#FF624C] transition-all duration-150 ease-in-out">
+            <span
+              className="hover:text-[#FF624C] transition-all duration-150 ease-in-out"
+              onMouseOver={() => setIsLangOpen(true)}
+            >
               {selectedLang?.name}
             </span>
           </>
@@ -168,7 +181,10 @@ const TopRight = () => {
         {/* is Open? dropDown */}
 
         {isLangOpen && (
-          <ul className="absolute w-full bg-white shadow-lg z-10 top-[170%]">
+          <ul
+            className="absolute w-full bg-white shadow-lg z-10 top-full leading-5 "
+            onMouseLeave={() => setIsLangOpen(false)}
+          >
             {languages.map((lang) => (
               <li
                 key={lang?.code}

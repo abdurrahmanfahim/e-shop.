@@ -18,7 +18,7 @@ const BottomLeft = () => {
     "Printers",
     "Smart Watches",
     "VR Headsets",
-    "Projectors"
+    "Projectors",
   ];
 
   const categories = [
@@ -37,10 +37,10 @@ const BottomLeft = () => {
   const [selectedProduct, setSelectedProduct] = useState("");
   const categoriesRef = useRef(null);
   const productsRef = useRef(null);
-  console.log(selectedCategory, selectedProduct)
+  console.log(selectedCategory, selectedProduct);
 
   useEffect(() => {
-    const handleClickOutSide = (event) => {
+    const handleHoverOutSide = (event) => {
       if (!categoriesRef.current.contains(event.target)) {
         setIsCatRefOpen(false);
       }
@@ -49,19 +49,29 @@ const BottomLeft = () => {
       }
     };
 
-    document.addEventListener("mousedown", handleClickOutSide);
+    document.addEventListener("mouseover", handleHoverOutSide);
+
+    return () => {
+      document.removeEventListener("mouseover", handleHoverOutSide);
+    };
   }, []);
 
   return (
-    <ul className="flex gap-20 ">
-      <li className="relative  " ref={categoriesRef}>
-        <button className="flex gap-4 items-center " onClick={() => setIsCatRefOpen(!isCatRefOpen)}>
-        <FiMenu className="text-2xl" />
+    <ul className="flex gap-20  leading-15 ">
+      <li className="relative " ref={categoriesRef}>
+        <button
+          className="flex gap-4 items-center"
+          onMouseOver={() => setIsCatRefOpen(true)}
+        >
+          <FiMenu className="text-2xl" />
           All Categories
         </button>
         {isCatRefOpen && (
-          <div className="w-53 absolute left-0 top-[150%]">
-            <ul className="bg-white text-black text-sm font-medium w-full shadow-lg z-10 ">
+          <div className="w-53 absolute left-0 top-full " ref={categoriesRef}>
+            <ul
+              className="bg-white text-black text-sm font-medium w-full shadow-lg z-10 "
+              onMouseLeave={() => setIsCatRefOpen(false)}
+            >
               {categories.map((item) => (
                 <li
                   className="flex items-center gap-2 p-2 hover:bg-gray-100 hover:text-[#FF624C] cursor-pointer border-b border-gray-100 uppercase "
@@ -79,14 +89,19 @@ const BottomLeft = () => {
         )}
       </li>
       <li className="flex gap-4 relative  " ref={productsRef}>
-        <button className="flex gap-2 " onClick={() => setIsProRefOpen(!isProRefOpen)}>
+        <button
+          className="flex gap-2 item-center"
+          onMouseOver={() => setIsProRefOpen(true)}
+        >
           Products
-
-        <GrDown className="text-sm mt-1 " />
+          <GrDown className="text-sm align-middle mt-5 " />
         </button>
         {isProRefOpen && (
-          <div className="w-47 absolute left-0 top-[150%]">
-            <ul className="bg-white text-black text-sm font-medium w-full shadow-lg z-10 ">
+          <div className="w-47 absolute left-0 top-full" ref={productsRef}>
+            <ul
+              className="bg-white text-black text-sm font-medium w-full shadow-lg z-10 "
+              onMouseLeave={() => setIsProRefOpen(false)}
+            >
               {products.map((item) => (
                 <li
                   className="flex items-center gap-2 p-2 hover:bg-gray-100 hover:text-[#FF624C] cursor-pointer border-b border-gray-100 uppercase "
@@ -103,10 +118,10 @@ const BottomLeft = () => {
           </div>
         )}
       </li>
-      <li>
+      <li className="">
         <Link to={"/blog"}>Blog</Link>
       </li>
-      <li>
+      <li className="">
         <Link to={"/contact"}>Contact</Link>
       </li>
     </ul>
