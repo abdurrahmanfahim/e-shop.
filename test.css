@@ -3,15 +3,14 @@
 
 
 
-color: var(--Black, #303030);
+color: var(--White, #FFF);
 
-/* Heading 7 */
+/* Heading 6 */
 font-family: Montserrat;
 font-size: 16px;
 font-style: normal;
-font-weight: 400;
+font-weight: 700;
 line-height: 24px; /* 150% */
-
 
 
 
