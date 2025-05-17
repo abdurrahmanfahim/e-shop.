@@ -100,7 +100,7 @@ const TopRight = () => {
           <>
             <span
               className="hover:text-[#FF624C] transition-all duration-150 ease-in-out"
-              onMouseOver={() => setIsCurrOpen(true)}
+              onClick={() => setIsCurrOpen(true)}
             >
               {selectedCurr?.name}
             </span>
@@ -165,11 +165,11 @@ const TopRight = () => {
               className="w-[27px] h-[16px] "
               src={selectedLang?.flag}
               alt={selectedLang?.name}
-              onMouseOver={() => setIsLangOpen(true)}
+              onClick={() => setIsLangOpen(true)}
             />
             <span
               className="hover:text-[#FF624C] transition-all duration-150 ease-in-out"
-              onMouseOver={() => setIsLangOpen(true)}
+              onClick={() => setIsLangOpen(true)}
             >
               {selectedLang?.name}
             </span>

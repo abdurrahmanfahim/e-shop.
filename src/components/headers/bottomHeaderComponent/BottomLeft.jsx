@@ -61,20 +61,20 @@ const BottomLeft = () => {
       <li className="relative " ref={categoriesRef}>
         <button
           className="flex gap-4 items-center"
-          onMouseOver={() => setIsCatRefOpen(true)}
+          onClick={() => setIsCatRefOpen(true)}
         >
           <FiMenu className="text-2xl" />
           All Categories
         </button>
         {isCatRefOpen && (
-          <div className="w-53 absolute left-0 top-full border-t border-white " ref={categoriesRef}>
+          <div className="w-54 absolute left-0 top-full border-t border-white " ref={categoriesRef}>
             <ul
               className="bg-white text-black text-sm font-medium w-full shadow-lg z-10 border-t-4 border-[#FF624C] "
               onMouseLeave={() => setIsCatRefOpen(false)}
             >
               {categories.map((item) => (
                 <li
-                  className="flex items-center gap-2 p-2 hover:bg-gray-100 hover:text-[#FF624C] cursor-pointer border-b border-gray-100 hover:shadow-xl uppercase "
+                  className="flex items-center gap-2 p-2 hover:bg-gray-100 hover:text-[#FF624C] cursor-pointer border-l-2 border-r-2 border-b border-b-gray-100 border-transparent hover:shadow-xl uppercase  hover:border-r-[#FF624C] hover:border-l-[#FF624C] "
                   key={item}
                   onClick={() => {
                     setIsCatRefOpen(false);
@@ -88,23 +88,26 @@ const BottomLeft = () => {
           </div>
         )}
       </li>
+
+
+
       <li className="flex gap-4 relative  " ref={productsRef}>
         <button
           className="flex gap-2 item-center"
-          onMouseOver={() => setIsProRefOpen(true)}
+          onClick={() => setIsProRefOpen(true)}
         >
           Products
           <GrDown className="text-sm self-center " />
         </button>
         {isProRefOpen && (
-          <div className="w-47 absolute left-0 top-full border-t border-white" ref={productsRef}>
+          <div className="w-48 absolute left-0 top-full border-t border-white" ref={productsRef}>
             <ul
               className="bg-white text-black text-sm font-medium w-full shadow-lg z-10 border-t-4 border-[#FF624C]"
               onMouseLeave={() => setIsProRefOpen(false)}
             >
               {products.map((item) => (
                 <li
-                  className="flex items-center gap-2 p-2 hover:bg-gray-100 hover:text-[#FF624C] cursor-pointer border-b border-gray-100 hover:shadow-xl uppercase "
+                  className="flex items-center gap-2 p-2 hover:bg-gray-100 hover:text-[#FF624C] cursor-pointer border-l-2 border-r-2 border-b border-b-gray-100 border-transparent hover:shadow-xl uppercase  hover:border-r-[#FF624C] hover:border-l-[#FF624C] "
                   key={item}
                   onClick={() => {
                     setIsProRefOpen(false);
