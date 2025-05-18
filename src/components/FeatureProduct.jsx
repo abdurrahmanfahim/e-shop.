@@ -94,6 +94,22 @@ const FeatureProduct = () => {
       price: "1,299.00",
     },
     {
+      type: "camera",
+      title: "ProShot DSLR 24MP Camera Bundle",
+      stars: 5,
+      rating: 45,
+      price: "799.00",
+      discounted: 30,
+      inStoke: 10,
+    },
+    {
+      type: "watch",
+      title: "SmartWatch Series 7 Fitness Tracker",
+      stars: 4,
+      rating: 150,
+      price: "299.00",
+    },
+    {
       type: "headphones",
       title: "Noise Cancelling Wireless Headphones",
       stars: 3,
@@ -109,13 +125,6 @@ const FeatureProduct = () => {
       rating: 150,
       price: "299.00",
     },
-    {
-      type: "watch",
-      title: "SmartWatch Series 7 Fitness Tracker",
-      stars: 4,
-      rating: 150,
-      price: "299.00",
-    },
     // {
     //   type: "tablet",
     //   title: "TabX 10.5\" HD Display Tablet",
@@ -123,15 +132,6 @@ const FeatureProduct = () => {
     //   rating: 60,
     //   price: "399.00",
     // },
-    {
-      type: "camera",
-      title: "ProShot DSLR 24MP Camera Bundle",
-      stars: 5,
-      rating: 45,
-      price: "799.00",
-      discounted: 30,
-      inStoke: 10,
-    },
     {
       type: "camera",
       title: "ProShot DSLR 24MP Camera Bundle",
