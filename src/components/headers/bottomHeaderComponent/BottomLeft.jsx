@@ -4,6 +4,8 @@ import { FiMenu } from "react-icons/fi";
 import { GoChevronDown } from "react-icons/go";
 import { GrDown } from "react-icons/gr";
 import { Link } from "react-router-dom";
+import i18n from "../../../../i18n";
+import { useTranslation } from "react-i18next";
 
 const BottomLeft = () => {
   const products = [
@@ -41,7 +43,10 @@ const BottomLeft = () => {
 
   useEffect(() => {
     const handleHoverOutSide = (event) => {
-      if (categoriesRef.current && !categoriesRef.current.contains(event.target)) {
+      if (
+        categoriesRef.current &&
+        !categoriesRef.current.contains(event.target)
+      ) {
         setIsCatRefOpen(false);
       }
       if (productsRef.current && !productsRef.current.contains(event.target)) {
@@ -55,19 +60,24 @@ const BottomLeft = () => {
       document.removeEventListener("mouseover", handleHoverOutSide);
     };
   }, []);
+  const { t } = useTranslation();
 
   return (
     <ul className="flex gap-20  leading-18 ">
       <li className="relative " ref={categoriesRef && categoriesRef}>
         <button
+          title="select for changing language!"
           className="flex gap-4 items-center"
           onClick={() => setIsCatRefOpen(true)}
         >
           <FiMenu className="text-2xl" />
-          All Categories
+          {t("All_Categories")}
         </button>
         {isCatRefOpen && (
-          <div className="w-54 absolute left-0 top-full border-t border-white " ref={categoriesRef}>
+          <div
+            className="w-54 absolute left-0 top-full border-t border-white "
+            ref={categoriesRef}
+          >
             <ul
               className="bg-white text-black text-sm font-medium w-full shadow-lg z-10 border-t-4 border-[#FF624C] "
               onMouseLeave={() => setIsCatRefOpen(false)}
@@ -79,6 +89,7 @@ const BottomLeft = () => {
                   onClick={() => {
                     setIsCatRefOpen(false);
                     setSelectedCategory(item);
+                    i18n.changeLanguage("bn");
                   }}
                 >
                   <Link to={"#"}>{item}</Link>
@@ -89,18 +100,19 @@ const BottomLeft = () => {
         )}
       </li>
 
-
-
       <li className="flex gap-4 relative  " ref={productsRef && productsRef}>
         <button
           className="flex gap-2 item-center"
           onClick={() => setIsProRefOpen(true)}
         >
-          Products
+          {t("Products")}
           <GrDown className="text-sm self-center " />
         </button>
         {isProRefOpen && (
-          <div className="w-48 absolute left-0 top-full border-t border-white" ref={productsRef}>
+          <div
+            className="w-48 absolute left-0 top-full border-t border-white"
+            ref={productsRef}
+          >
             <ul
               className="bg-white text-black text-sm font-medium w-full shadow-lg z-10 border-t-4 border-[#FF624C]"
               onMouseLeave={() => setIsProRefOpen(false)}
@@ -112,6 +124,7 @@ const BottomLeft = () => {
                   onClick={() => {
                     setIsProRefOpen(false);
                     setSelectedProduct(item);
+                    i18n.changeLanguage("en");
                   }}
                 >
                   <Link to={"#"}>{item}</Link>
@@ -122,10 +135,10 @@ const BottomLeft = () => {
         )}
       </li>
       <li className="">
-        <Link to={"/blog"}>Blog</Link>
+        <Link to={"/blog"}>{t("Blog")}</Link>
       </li>
       <li className="">
-        <Link to={"/contact"}>Contact</Link>
+        <Link to={"/contact"}>{t("Contact")}</Link>
       </li>
     </ul>
   );
