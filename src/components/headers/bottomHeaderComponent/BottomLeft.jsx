@@ -41,10 +41,10 @@ const BottomLeft = () => {
 
   useEffect(() => {
     const handleHoverOutSide = (event) => {
-      if (!categoriesRef.current.contains(event.target)) {
+      if (categoriesRef.current && !categoriesRef.current.contains(event.target)) {
         setIsCatRefOpen(false);
       }
-      if (!productsRef.current.contains(event.target)) {
+      if (productsRef.current && !productsRef.current.contains(event.target)) {
         setIsProRefOpen(false);
       }
     };
@@ -58,7 +58,7 @@ const BottomLeft = () => {
 
   return (
     <ul className="flex gap-20  leading-18 ">
-      <li className="relative " ref={categoriesRef}>
+      <li className="relative " ref={categoriesRef && categoriesRef}>
         <button
           className="flex gap-4 items-center"
           onClick={() => setIsCatRefOpen(true)}
@@ -91,7 +91,7 @@ const BottomLeft = () => {
 
 
 
-      <li className="flex gap-4 relative  " ref={productsRef}>
+      <li className="flex gap-4 relative  " ref={productsRef && productsRef}>
         <button
           className="flex gap-2 item-center"
           onClick={() => setIsProRefOpen(true)}
