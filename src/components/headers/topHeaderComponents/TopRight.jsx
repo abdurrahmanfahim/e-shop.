@@ -1,7 +1,8 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useContext, useEffect, useRef, useState } from "react";
 import { FaFacebookF, FaInstagram, FaTwitter } from "react-icons/fa";
 import { GoChevronDown } from "react-icons/go";
 import { Link } from "react-router-dom";
+import langContext from "../../../contexts/LangContext";
 
 const TopRight = () => {
   const languages = [
@@ -14,6 +15,11 @@ const TopRight = () => {
       name: "Bengali",
       code: "bengali",
       flag: "https://flagcdn.com/w40/bd.png",
+    },
+    {
+      name: "Arabic",
+      code: "arabic",
+      flag: "https://flagcdn.com/w40/sa.png",
     },
     {
       name: "Spanish",
@@ -43,6 +49,9 @@ const TopRight = () => {
     { name: "AUD", code: "aud", symbol: "A$" },
     { name: "CAD", code: "cad", symbol: "C$" },
   ];
+
+  const { lang, setLang } = useContext(langContext);
+  console.log(lang);
 
   const [selectedLang, setSelectedLang] = useState(null);
   const [selectedCurr, setSelectedCurr] = useState(null);
@@ -192,6 +201,7 @@ const TopRight = () => {
                 onClick={() => {
                   setSelectedLang(lang);
                   setIsLangOpen(false);
+                  setLang(lang.code);
                 }}
               >
                 <img
@@ -209,13 +219,25 @@ const TopRight = () => {
       </div>
       <span className="w-[1px] h-8 bg-[#CBCBCB] "></span>
       <div className="flex items-center gap-1.5 text-lg">
-        <Link className="size-8 rounded-full flex items-center justify-center bg-transparent hover:bg-gray-100 hover:text-[#FF624C] transition-all duration-150 ease-in-out  " to={"#"} target="_blank">
+        <Link
+          className="size-8 rounded-full flex items-center justify-center bg-transparent hover:bg-gray-100 hover:text-[#FF624C] transition-all duration-150 ease-in-out  "
+          to={"#"}
+          target="_blank"
+        >
           <FaFacebookF />
         </Link>
-        <Link className="size-8 rounded-full flex items-center justify-center bg-transparent hover:bg-gray-100 hover:text-[#FF624C] transition-all duration-150 ease-in-out]   " to={"#"} target="_blank">
+        <Link
+          className="size-8 rounded-full flex items-center justify-center bg-transparent hover:bg-gray-100 hover:text-[#FF624C] transition-all duration-150 ease-in-out]   "
+          to={"#"}
+          target="_blank"
+        >
           <FaTwitter />
         </Link>
-        <Link className="size-8 rounded-full flex items-center justify-center bg-transparent hover:bg-gray-100 hover:text-[#FF624C] transition-all duration-150 ease-in-out  " to={"#"} target="_blank">
+        <Link
+          className="size-8 rounded-full flex items-center justify-center bg-transparent hover:bg-gray-100 hover:text-[#FF624C] transition-all duration-150 ease-in-out  "
+          to={"#"}
+          target="_blank"
+        >
           <FaInstagram />
         </Link>
       </div>

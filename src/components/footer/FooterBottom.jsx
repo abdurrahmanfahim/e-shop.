@@ -14,27 +14,33 @@ const FooterBottom = () => {
           </div>
           <ul className="font-normal text-base leading-6 flex flex-col gap-3 ">
             <li className="relative pl-8 ">
-              <Link className="hover:text-[#FF624C]" to={'tel:161352163'}>
+              <Link className="hover:text-[#FF624C]" to={"tel:161352163"}>
                 <span className="absolute top-1/2 -translate-1/2 left-2 text-[#646464] ">
-                <ImPhone className='hover:text-[#FF624C]' />
-              </span>{" "}
-              +1 (555) 123-4567
+                  <ImPhone className="hover:text-[#FF624C]" />
+                </span>{" "}
+                +1 (555) 123-4567
               </Link>
             </li>
             <li className="relative pl-8 ">
-              <Link className="hover:text-[#FF624C]" to={'mailto:fahimahmad123go@gmail.com'}>
+              <Link
+                className="hover:text-[#FF624C]"
+                to={"mailto:fahimahmad123go@gmail.com"}
+              >
                 <span className="absolute top-1/2 -translate-1/2 left-2 text-[#646464] ">
-                <BsFillEnvelopeFill className='hover:text-[#FF624C]'  />
-              </span>
-              information@eshop.com
+                  <BsFillEnvelopeFill className="hover:text-[#FF624C]" />
+                </span>
+                information@eshop.com
               </Link>
             </li>
             <li className="relative pl-8 ">
-              <Link className="hover:text-[#FF624C]" to={'https://maps.app.goo.gl/GLKtcy2x3Lo6XxJq5'}>
+              <Link
+                className="hover:text-[#FF624C]"
+                to={"https://maps.app.goo.gl/GLKtcy2x3Lo6XxJq5"}
+              >
                 <span className="absolute top-1/2 -translate-1/2 left-2 text-xl text-[#646464] ">
-                <MdLocationPin className='hover:text-[#FF624C]'  />
-              </span>
-              123 Main Street, Suite 105, Anytown USA
+                  <MdLocationPin className="hover:text-[#FF624C]" />
+                </span>
+                123 Main Street, Suite 105, Anytown USA
               </Link>
             </li>
           </ul>
@@ -48,23 +54,38 @@ const FooterBottom = () => {
               <ul className="text-[#303030] font-normal text-base leading-6 flex flex-col gap-3 ">
                 <li>
                   {" "}
-                  <Link className="hover:text-[#FF624C]" to={"/product-list"}> Products List</Link>
+                  <Link className="hover:text-[#FF624C]" to={"/product-list"}>
+                    {" "}
+                    Products List
+                  </Link>
                 </li>
                 <li>
                   {" "}
-                  <Link className="hover:text-[#FF624C]" to={"#"}> Order Tracking</Link>
+                  <Link className="hover:text-[#FF624C]" to={"#"}>
+                    {" "}
+                    Order Tracking
+                  </Link>
                 </li>
                 <li>
                   {" "}
-                  <Link className="hover:text-[#FF624C]" to={"#"}> Products Guide</Link>
+                  <Link className="hover:text-[#FF624C]" to={"#"}>
+                    {" "}
+                    Products Guide
+                  </Link>
                 </li>
                 <li>
                   {" "}
-                  <Link className="hover:text-[#FF624C]" to={"#"}> Shopping Cart</Link>
+                  <Link className="hover:text-[#FF624C]" to={"#"}>
+                    {" "}
+                    Shopping Cart
+                  </Link>
                 </li>
                 <li>
                   {" "}
-                  <Link className="hover:text-[#FF624C]" to={"#"}> Tech Blog</Link>
+                  <Link className="hover:text-[#FF624C]" to={"#"}>
+                    {" "}
+                    Tech Blog
+                  </Link>
                 </li>
               </ul>
             </div>
@@ -75,27 +96,45 @@ const FooterBottom = () => {
               <ul className="text-[#303030] font-normal text-base leading-6 flex flex-col gap-3 ">
                 <li>
                   {" "}
-                  <Link className="hover:text-[#FF624C]" to={"#"}> About Us</Link>
+                  <Link className="hover:text-[#FF624C]" to={"#"}>
+                    {" "}
+                    About Us
+                  </Link>
                 </li>
                 <li>
                   {" "}
-                  <Link className="hover:text-[#FF624C]" to={"#"}> Privacy Policy</Link>
+                  <Link className="hover:text-[#FF624C]" to={"#"}>
+                    {" "}
+                    Privacy Policy
+                  </Link>
                 </li>
                 <li>
                   {" "}
-                  <Link className="hover:text-[#FF624C]" to={"#"}> Return Policy</Link>
+                  <Link className="hover:text-[#FF624C]" to={"#"}>
+                    {" "}
+                    Return Policy
+                  </Link>
                 </li>
                 <li>
                   {" "}
-                  <Link className="hover:text-[#FF624C]" to={"#"}> Help Centre</Link>
+                  <Link className="hover:text-[#FF624C]" to={"#"}>
+                    {" "}
+                    Help Centre
+                  </Link>
                 </li>
                 <li>
                   {" "}
-                  <Link className="hover:text-[#FF624C]" to={"#"}> Store Locations</Link>
+                  <Link className="hover:text-[#FF624C]" to={"#"}>
+                    {" "}
+                    Store Locations
+                  </Link>
                 </li>
                 <li>
                   {" "}
-                  <Link className="hover:text-[#FF624C]" to={"#"}> Careers</Link>
+                  <Link className="hover:text-[#FF624C]" to={"#"}>
+                    {" "}
+                    Careers
+                  </Link>
                 </li>
               </ul>
             </div>
@@ -108,31 +147,52 @@ const FooterBottom = () => {
               <ul className="text-[#303030] font-normal text-base leading-6 flex flex-col gap-3 ">
                 <li>
                   {" "}
-                  <Link className="hover:text-[#FF624C]" to={"#"}> Computers & Tablets</Link>
+                  <Link className="hover:text-[#FF624C]" to={"#"}>
+                    {" "}
+                    Computers & Tablets
+                  </Link>
                 </li>
                 <li>
                   {" "}
-                  <Link className="hover:text-[#FF624C]" to={"#"}> Mobile Phones & Accessories</Link>
+                  <Link className="hover:text-[#FF624C]" to={"#"}>
+                    {" "}
+                    Mobile Phones & Accessories
+                  </Link>
                 </li>
                 <li>
                   {" "}
-                  <Link className="hover:text-[#FF624C]" to={"#"}> TV & Home Theater</Link>
+                  <Link className="hover:text-[#FF624C]" to={"#"}>
+                    {" "}
+                    TV & Home Theater
+                  </Link>
                 </li>
                 <li>
                   {" "}
-                  <Link className="hover:text-[#FF624C]" to={"#"}> Audio & Headphones</Link>
+                  <Link className="hover:text-[#FF624C]" to={"#"}>
+                    {" "}
+                    Audio & Headphones
+                  </Link>
                 </li>
                 <li>
                   {" "}
-                  <Link className="hover:text-[#FF624C]" to={"#"}> Cameras & Camcorders</Link>
+                  <Link className="hover:text-[#FF624C]" to={"#"}>
+                    {" "}
+                    Cameras & Camcorders
+                  </Link>
                 </li>
                 <li>
                   {" "}
-                  <Link className="hover:text-[#FF624C]" to={"#"}> Gaming Equipment</Link>
+                  <Link className="hover:text-[#FF624C]" to={"#"}>
+                    {" "}
+                    Gaming Equipment
+                  </Link>
                 </li>
                 <li>
                   {" "}
-                  <Link className="hover:text-[#FF624C]" to={"#"}> Home Appliances</Link>
+                  <Link className="hover:text-[#FF624C]" to={"#"}>
+                    {" "}
+                    Home Appliances
+                  </Link>
                 </li>
               </ul>
             </div>
@@ -150,15 +210,24 @@ const FooterBottom = () => {
                 <ul className="text-[#303030] font-normal text-base leading-6 flex flex-col gap-3 ">
                   <li>
                     {" "}
-                    <Link className="hover:text-[#FF624C]" to={"#"}> Twitter</Link>
+                    <Link className="hover:text-[#FF624C]" to={"#"}>
+                      {" "}
+                      Twitter
+                    </Link>
                   </li>
                   <li>
                     {" "}
-                    <Link className="hover:text-[#FF624C]" to={"#"}> Instagram</Link>
+                    <Link className="hover:text-[#FF624C]" to={"#"}>
+                      {" "}
+                      Instagram
+                    </Link>
                   </li>
                   <li>
                     {" "}
-                    <Link className="hover:text-[#FF624C]" to={"#"}> Facebook</Link>
+                    <Link className="hover:text-[#FF624C]" to={"#"}>
+                      {" "}
+                      Facebook
+                    </Link>
                   </li>
                 </ul>
               </div>
@@ -170,9 +239,17 @@ const FooterBottom = () => {
       <div className="flex justify-between text-[#646464] font-['Montserrat'] font-normal text-sm leading-5 pt-2 ">
         <p>Copyright © 2023 E-Shop. All Rights Reserved.</p>
         <p>
-          <Link className="hover:text-[#FF624C]" to={"#"}>Privacy Policy</Link> |{" "}
-          <Link className="hover:text-[#FF624C]" to={"#"}>Terms & Condition</Link> |{" "}
-          <Link className="hover:text-[#FF624C]" to={"#"}>Sitemap</Link>
+          <Link className="hover:text-[#FF624C]" to={"#"}>
+            Privacy Policy
+          </Link>{" "}
+          |{" "}
+          <Link className="hover:text-[#FF624C]" to={"#"}>
+            Terms & Condition
+          </Link>{" "}
+          |{" "}
+          <Link className="hover:text-[#FF624C]" to={"#"}>
+            Sitemap
+          </Link>
         </p>
       </div>
     </div>

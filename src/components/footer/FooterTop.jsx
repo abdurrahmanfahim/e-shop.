@@ -1,7 +1,12 @@
 import React from "react";
 import Button from "../Button";
+import { useTranslation } from "react-i18next";
 
 const FooterTop = () => {
+  
+  const { t } = useTranslation();
+  const btnText = t("Subscribe");
+
   return (
     <div
       className=" py-[114px] px-[100px] rounded-3xl  "
@@ -11,11 +16,10 @@ const FooterTop = () => {
       }}
     >
       <h2 className="font-['Poppins'] text-4xl font-semibold leading-[46px]  ">
-        Get Our Updates
+        {t("Get_Our_Updates")}
       </h2>
       <p className="font-['Montserrat'] text-xl font-normal leading-[30px] w-[490px] pt-4 pb-8  ">
-        Browse our wide selection of electronics and find the perfect promo for
-        you from newsletter.
+        {t("Newsletter_Description")}
       </p>
 
       <input
@@ -24,7 +28,7 @@ const FooterTop = () => {
         placeholder="Enter your email address ..."
       />
       <br />
-      <Button text={'Subscribe'} />
+      <Button text={btnText} />
     </div>
   );
 };

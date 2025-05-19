@@ -4,7 +4,6 @@ import { FiMenu } from "react-icons/fi";
 import { GoChevronDown } from "react-icons/go";
 import { GrDown } from "react-icons/gr";
 import { Link } from "react-router-dom";
-import i18n from "../../../../i18n";
 import { useTranslation } from "react-i18next";
 
 const BottomLeft = () => {
@@ -89,7 +88,6 @@ const BottomLeft = () => {
                   onClick={() => {
                     setIsCatRefOpen(false);
                     setSelectedCategory(item);
-                    i18n.changeLanguage("bn");
                   }}
                 >
                   <Link to={"#"}>{item}</Link>
@@ -124,7 +122,6 @@ const BottomLeft = () => {
                   onClick={() => {
                     setIsProRefOpen(false);
                     setSelectedProduct(item);
-                    i18n.changeLanguage("en");
                   }}
                 >
                   <Link to={"#"}>{item}</Link>

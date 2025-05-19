@@ -6,10 +6,11 @@ import Contact from "./pages/Contact";
 import HomePage from "./pages/HomePage";
 import ProductDetailsPage from "./pages/ProductDetailsPage";
 import ProductListPage from "./pages/ProductListPage";
+import LangContextProvider from "./contexts/LangContextProvider";
 
 function App() {
   return (
-    <>
+    <LangContextProvider>
       <Routes>
         <Route path="/" element={<CommonLayout />}>
           <Route path="/" element={<HomePage />} />
@@ -20,7 +21,7 @@ function App() {
           <Route path="/contact" element={<Contact />} />
         </Route>
       </Routes>
-    </>
+    </LangContextProvider>
   );
 }
 
