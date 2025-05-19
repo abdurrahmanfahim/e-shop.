@@ -65,7 +65,6 @@ const BottomLeft = () => {
     <ul className="flex gap-20  leading-18 ">
       <li className="relative " ref={categoriesRef && categoriesRef}>
         <button
-          title="select for changing language!"
           className="flex gap-4 items-center"
           onClick={() => setIsCatRefOpen(true)}
         >
