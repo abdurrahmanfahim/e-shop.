@@ -51,7 +51,6 @@ const TopRight = () => {
   ];
 
   const { lang, setLang } = useContext(langContext);
-  console.log(lang);
 
   const [selectedLang, setSelectedLang] = useState(null);
   const [selectedCurr, setSelectedCurr] = useState(null);

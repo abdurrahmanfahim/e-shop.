@@ -9,6 +9,10 @@ const Button = ({
   font = 'Montserrat',
   weight = 'bold',
   rounded = '10px',
+  border = 'none',
+  fontSize = '20px',
+  leading = '30px'
+
 }) => {
   return (
     <button
@@ -19,8 +23,11 @@ const Button = ({
         fontFamily: font,
         fontWeight: weight,
         borderRadius: rounded,
-        border: 'none',
-        cursor: 'pointer',
+        border: `${border}`,
+        cursor: 'pointer', 
+        textTransform: 'capitalize',
+        fontSize: `${fontSize}`,
+        lineHeight: `${leading}`
       }}
     >
       {text}

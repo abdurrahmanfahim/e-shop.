@@ -1,10 +1,10 @@
-import React from "react";
-import ProductLayout from "./layouts/ProductLayout";
-import Container from "./layouts/Container";
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
-import Slider from "react-slick";
 import { HiOutlineChevronLeft, HiOutlineChevronRight } from "react-icons/hi";
+import Slider from "react-slick";
+import "slick-carousel/slick/slick-theme.css";
+import "slick-carousel/slick/slick.css";
+import LongArrow from "../icons/LongArrow";
+import Container from "./layouts/Container";
+import ProductLayout from "./layouts/ProductLayout";
 
 function SampleNextArrow(props) {
   const { className, style, onClick } = props;
@@ -72,30 +72,22 @@ const FeatureProduct = () => {
     slidesToScroll: 2,
     autoplay: true,
     speed: 1500,
-    autoplaySpeed: 5000,
+    autoplaySpeed: 3500,
     nextArrow: <SampleNextArrow />,
     prevArrow: <SamplePrevArrow />,
     pauseOnHover: true,
-
   };
   const productDetails = [
     {
       type: "laptop",
-      title: "UltraBook Pro 15 Slim Lightweight Laptop",
-      stars: 4,
-      rating: 85,
-      price: "1,299.00",
-    },
-    {
-      type: "laptop",
-      title: "UltraBook Pro 15 Slim Lightweight Laptop",
+      title: "UltraBook Pro 15 Slim Lightweight Laptop with 11th Gen Intel Core i7 Processor and 16GB RAM",
       stars: 4,
       rating: 85,
       price: "1,299.00",
     },
     {
       type: "camera",
-      title: "ProShot DSLR 24MP Camera Bundle",
+      title: "ProShot DSLR 24MP Camera Bundle with 18-55mm Lens, Tripod, and Carrying Case for Professional Photography",
       stars: 5,
       rating: 45,
       price: "799.00",
@@ -104,14 +96,14 @@ const FeatureProduct = () => {
     },
     {
       type: "watch",
-      title: "SmartWatch Series 7 Fitness Tracker",
+      title: "SmartWatch Series 7 Fitness Tracker with Heart Rate Monitor, GPS, and 1.8-inch AMOLED Display",
       stars: 4,
       rating: 150,
       price: "299.00",
     },
     {
       type: "headphones",
-      title: "Noise Cancelling Wireless Headphones",
+      title: "Noise Cancelling Wireless Headphones with 40-Hour Battery Life and Hi-Res Audio Support",
       stars: 3,
       rating: 200,
       price: "199.00",
@@ -120,21 +112,14 @@ const FeatureProduct = () => {
     },
     {
       type: "watch",
-      title: "SmartWatch Series 7 Fitness Tracker",
+      title: "SmartWatch Series 7 Fitness Tracker with Heart Rate Monitor, GPS, and 1.8-inch AMOLED Display",
       stars: 4,
       rating: 150,
       price: "299.00",
     },
-    // {
-    //   type: "tablet",
-    //   title: "TabX 10.5\" HD Display Tablet",
-    //   stars: 3.5,
-    //   rating: 60,
-    //   price: "399.00",
-    // },
     {
       type: "camera",
-      title: "ProShot DSLR 24MP Camera Bundle",
+      title: "ProShot DSLR 24MP Camera Bundle with 18-55mm Lens, Tripod, and Carrying Case for Professional Photography",
       stars: 5,
       rating: 45,
       price: "799.00",
@@ -143,7 +128,7 @@ const FeatureProduct = () => {
     },
     {
       type: "camera",
-      title: "ProShot DSLR 24MP Camera Bundle",
+      title: "ProShot DSLR 24MP Camera Bundle with 18-55mm Lens, Tripod, and Carrying Case for Professional Photography",
       stars: 5,
       rating: 45,
       price: "799.00",
@@ -153,7 +138,15 @@ const FeatureProduct = () => {
   ];
   return (
     <Container>
-      <Slider className="pb-20" {...settings}>
+      <div className="flex justify-between items-center w-full mb-12 ">
+        <h2 className="text-[#303030] font-['Poppins'] font-semibold leading-[46px] text-4xl ">
+          Featured Products
+        </h2>
+        <button className="flex items-center gap-4 font-['Montserrat'] text-base font-bold leading-6 text-[#FF624C] ">
+          View All <LongArrow />
+        </button>
+      </div>
+      <Slider className="pb-20 mx-10" {...settings}>
         {productDetails.map((item, index) => (
           <ProductLayout
             key={index}

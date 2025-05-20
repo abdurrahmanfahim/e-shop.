@@ -7,7 +7,7 @@ const Banner = () => {
     <div className='mt-8 mb-20 '>
       <Container>
         <Link to={"#"}>
-          <img src="./images/banner.jpg" alt="banner" />
+          <img className='rounded-[15px] ' src="./images/banner/banner.webp" alt="banner" />
         </Link>
       </Container>
     </div>

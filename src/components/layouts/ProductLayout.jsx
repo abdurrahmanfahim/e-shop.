@@ -26,7 +26,7 @@ const ProductLayout = ({
   return (
     <>
       {v2 || (
-        <div className="p-6  bg-white border border-transparent rounded-[10px] hover:bg-[#F7F7F7] hover:border-[#C3C3C3] transition-all duration-300 ease-in-out text-[#303030] group block ">
+        <div className="p-6  flex-1 bg-white border border-transparent rounded-[10px] hover:bg-[#F7F7F7] hover:border-[#C3C3C3] transition-all duration-300 ease-in-out text-[#303030] group block ">
           <div className="relative ">
             <img
               className="w-full"
@@ -63,9 +63,9 @@ const ProductLayout = ({
             <span className='font-["Montserrat"] text-sm font-normal leading-5 uppercase tracking-[5px] mt-10 mb-4 block '>
               {type}
             </span>
-            <h4 className='font-["Poppins"] text-xl font-semibold leading-[30px] group-hover:text-[#FF624C] group-hover:underline transition-all duration-300 ease-in-out  '>
+            <Link to={'#'} className="line-clamp-2 font-['Poppins'] text-xl font-semibold leading-[30px] group-hover:text-[#FF624C] group-hover:underline transition-all duration-300 ease-in-out">
               {title}
-            </h4>
+            </Link >
             <div className="flex gap-2 items-center mt-2 mb-6  ">
               <p className="flex text-[#FED550]">
                 {ratingStars.map((item, index) => (
@@ -95,7 +95,7 @@ const ProductLayout = ({
       )}
 
       {v2 && (
-        <div className="p-10 bg-white border border-transparent rounded-[10px] hover:bg-[#EAEAEA] hover:border-[#C3C3C3] transition-all duration-300 ease-in-out text-[#303030] group block ">
+        <div className="p-10  flex-1 bg-white border border-transparent rounded-[10px] hover:bg-[#EAEAEA] hover:border-[#C3C3C3] transition-all duration-300 ease-in-out text-[#303030] group block ">
           <div className="relative ">
             <img
               className="w-full"
@@ -112,9 +112,9 @@ const ProductLayout = ({
             <span className='font-["Montserrat"] text-sm font-normal leading-5 uppercase tracking-[5px] mt-10 mb-4 block '>
               {type}
             </span>
-            <h4 className='font-["Poppins"] text-xl font-semibold leading-[30px] group-hover:text-[#FF624C] group-hover:underline transition-all duration-300 ease-in-out  '>
+            <Link to={'#'} className="line-clamp-2 font-['Poppins'] text-xl font-semibold leading-[30px] group-hover:text-[#FF624C] group-hover:underline transition-all duration-300 ease-in-out">
               {title}
-            </h4>
+            </Link >
             <div className="flex gap-2 items-center mt-2 mb-6  ">
               <p className="flex text-[#FED550] group-hover:text-white ">
                 {ratingStars.map((item, index) => (

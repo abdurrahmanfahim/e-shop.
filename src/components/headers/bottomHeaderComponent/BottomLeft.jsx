@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import { useState, useRef, useEffect } from "react";
 import { BsChevronDown } from "react-icons/bs";
 import { FiMenu } from "react-icons/fi";
@@ -38,7 +39,6 @@ const BottomLeft = () => {
   const [selectedProduct, setSelectedProduct] = useState("");
   const categoriesRef = useRef(null);
   const productsRef = useRef(null);
-  console.log(selectedCategory, selectedProduct);
 
   useEffect(() => {
     const handleHoverOutSide = (event) => {

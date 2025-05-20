@@ -3,15 +3,14 @@
 
 
 
-color: var(--White, #FFF);
-text-align: center;
+color: var(--Orange, #FF624C);
 
-/* Heading 6 */
+/* Heading 5 */
 font-family: Montserrat;
-font-size: 16px;
+font-size: 20px;
 font-style: normal;
 font-weight: 700;
-line-height: 24px; /* 150% */
+line-height: 30px; /* 150% */
 
 
 
