@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { BsCart3 } from "react-icons/bs";
 import { GoHeart } from "react-icons/go";
 import { IoShareSocialOutline } from "react-icons/io5";
@@ -26,10 +26,10 @@ const ProductLayout = ({
   return (
     <>
       {v2 || (
-        <div className="p-6  flex-1 bg-white border border-transparent rounded-[10px] hover:bg-[#F7F7F7] hover:border-[#C3C3C3] transition-all duration-300 ease-in-out text-[#303030] group block ">
+        <div className="p-6 pb-11 flex-1 bg-white border border-transparent rounded-[10px] hover:border-[#C3C3C3] transition-all duration-300 ease-in-out text-[#303030] group block ">
           <div className="relative ">
             <img
-              className="w-full"
+              className="w-fit"
               src="./images/productimg.jpg"
               alt="productimg"
             />
@@ -38,7 +38,7 @@ const ProductLayout = ({
                 {discounted}%
               </span>
             )}
-            <div className="flex absolute justify-center gap-[18px] left-1/2 -translate-x-1/2 bottom-[6px] scale-0 group-hover:scale-100 transition-all duration-300 ease-in-out ">
+            <div className="flex absolute justify-center gap-[18px] left-1/2 -translate-x-1/2 -bottom-10 group-hover:bottom-[6px] opacity-0 group-hover:opacity-100 transition-all duration-300 ease-in-out ">
               <Link
                 to={"#"}
                 className="size-[50px] rounded-full text-[#FF624C] bg-white hover:text-white hover:bg-[#FF624C] flex items-center justify-center text-xl transition-all duration-300 ease-in-out border border-[#FF624C] "
@@ -63,9 +63,12 @@ const ProductLayout = ({
             <span className='font-["Montserrat"] text-sm font-normal leading-5 uppercase tracking-[5px] mt-10 mb-4 block '>
               {type}
             </span>
-            <Link to={'#'} className="line-clamp-2 font-['Poppins'] text-xl font-semibold leading-[30px] group-hover:text-[#FF624C] group-hover:underline transition-all duration-300 ease-in-out">
+            <Link
+              to={"#"}
+              className="line-clamp-2 font-['Poppins'] text-xl font-semibold leading-[30px] group-hover:text-[#FF624C] group-hover:underline transition-all duration-300 ease-in-out"
+            >
               {title}
-            </Link >
+            </Link>
             <div className="flex gap-2 items-center mt-2 mb-6  ">
               <p className="flex text-[#FED550]">
                 {ratingStars.map((item, index) => (
@@ -112,9 +115,12 @@ const ProductLayout = ({
             <span className='font-["Montserrat"] text-sm font-normal leading-5 uppercase tracking-[5px] mt-10 mb-4 block '>
               {type}
             </span>
-            <Link to={'#'} className="line-clamp-2 font-['Poppins'] text-xl font-semibold leading-[30px] group-hover:text-[#FF624C] group-hover:underline transition-all duration-300 ease-in-out">
+            <Link
+              to={"#"}
+              className="line-clamp-2 font-['Poppins'] text-xl font-semibold leading-[30px] group-hover:text-[#FF624C] group-hover:underline transition-all duration-300 ease-in-out"
+            >
               {title}
-            </Link >
+            </Link>
             <div className="flex gap-2 items-center mt-2 mb-6  ">
               <p className="flex text-[#FED550] group-hover:text-white ">
                 {ratingStars.map((item, index) => (

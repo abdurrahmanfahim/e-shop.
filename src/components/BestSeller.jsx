@@ -65,28 +65,8 @@ function SamplePrevArrow(props) {
   );
 }
 
-const FeatureProduct = () => {
-  var settings = {
-    dots: false,
-    infinite: true,
-    slidesToShow: 5,
-    slidesToScroll: 2,
-    autoplay: true,
-    speed: 1500,
-    autoplaySpeed: 3500,
-    nextArrow: <SampleNextArrow />,
-    prevArrow: <SamplePrevArrow />,
-    pauseOnHover: true,
-  };
+const BestSeller = () => {
   const productDetails = [
-    {
-      type: "laptop",
-      title:
-        "UltraBook Pro 15 Slim Lightweight Laptop with 11th Gen Intel Core i7 Processor and 16GB RAM",
-      stars: 4,
-      rating: 85,
-      price: "1,299.00",
-    },
     {
       type: "camera",
       title:
@@ -146,35 +126,44 @@ const FeatureProduct = () => {
   ];
   return (
     <Container>
-      <div className="flex justify-between items-center w-full mb-12 ">
-        <h2 className="text-[#303030] font-['Poppins'] font-semibold leading-[46px] text-4xl capitalize ">
-          Featured Products
-        </h2>
-        <button>
-          <Link
-            className="flex items-center gap-4 font-['Montserrat'] text-base font-bold leading-6 text-[#FF624C] capitalize "
-            to={"#"}
-          >
-            View All <LongArrow />
-          </Link>
-        </button>
+      <div className="flex justify-between items-start">
+        <div className="w-[902px]">
+          <div className="flex justify-between items-center w-full mb-12 ">
+            <h2 className="text-[#303030] font-['Poppins'] font-semibold leading-[46px] text-4xl capitalize">
+              Best Seller
+            </h2>
+            <button>
+              <Link
+                className="flex items-center gap-4 font-['Montserrat'] text-base font-bold leading-6 text-[#FF624C] capitalize "
+                to={"#"}
+              >
+                View All <LongArrow />
+              </Link>
+            </button>
+          </div>
+          <div className="flex flex-wrap gap-x-6 pb-20 ">
+            {productDetails.map((item, index) => (
+              <div className="flex-1/4">
+                <ProductLayout
+                  key={index}
+                  type={item.type}
+                  title={item.title}
+                  stars={item.stars}
+                  rating={item.rating}
+                  price={item.price}
+                  discounted={item.discounted}
+                  inStoke={item.inStoke}
+                />
+              </div>
+            ))}
+          </div>
+        </div>
+        <div className="w-[544px] ">
+          <img src="./images/playcard/buyonegetone.png" alt="buyonegetone" />
+        </div>
       </div>
-      <Slider className="pb-20 mx-10" {...settings}>
-        {productDetails.map((item, index) => (
-          <ProductLayout
-            key={index}
-            type={item.type}
-            title={item.title}
-            stars={item.stars}
-            rating={item.rating}
-            price={item.price}
-            discounted={item.discounted}
-            inStoke={item.inStoke}
-          />
-        ))}
-      </Slider>
     </Container>
   );
 };
 
-export default FeatureProduct;
+export default BestSeller;
