@@ -69,7 +69,7 @@ const ProductLayout = ({
             >
               {title}
             </Link>
-            <div className="flex gap-2 items-center mt-2 mb-6  ">
+            <div className="flex gap-2 items-center mt-1 mb-5  ">
               <p className="flex text-[#FED550]">
                 {ratingStars.map((item, index) => (
                   <MdOutlineStar key={index} />

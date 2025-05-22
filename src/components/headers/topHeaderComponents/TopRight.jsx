@@ -121,13 +121,13 @@ const TopRight = () => {
 
         {isCurrOpen && (
           <ul
-            className="absolute w-full bg-white shadow-lg z-10 top-full leading-5 "
+            className="absolute w-full bg-white shadow-2xl z-10 top-full leading-5 border-t-4 border-[#FF624C] "
             onMouseLeave={() => setIsCurrOpen(false)}
           >
             {currency?.map((curr) => (
               <li
                 key={curr?.code}
-                className="flex items-center gap-2 p-2 hover:bg-gray-100 cursor-pointer  hover:text-[#FF624C] border-b border-gray-100 hover:shadow-xl "
+                className="flex items-center gap-2 p-2 hover:bg-gray-100 hover:text-[#FF624C] cursor-pointer border-l-2 border-r-2 border-b border-b-gray-100 border-transparent hover:shadow-xl hover:border-r-[#FF624C] hover:border-l-[#FF624C] "
                 onClick={() => {
                   setSelectedCurr(curr);
                   setIsCurrOpen(false);
@@ -144,7 +144,7 @@ const TopRight = () => {
       <span className="w-[1px] h-8 bg-[#CBCBCB] "></span>
       <div
         ref={langRef}
-        className="flex items-center gap-2 cursor-pointer relative "
+        className="w-32 flex items-center justify-between gap-2 cursor-pointer relative  "
         onClick={() => {
           setIsLangOpen(!isLangOpen);
         }}
@@ -190,13 +190,13 @@ const TopRight = () => {
 
         {isLangOpen && (
           <ul
-            className="absolute w-full bg-white shadow-lg z-10 top-full leading-5 "
+            className="absolute w-full bg-white shadow-2xl z-10 top-full leading-5 border-t-4 border-[#FF624C] "
             onMouseLeave={() => setIsLangOpen(false)}
           >
             {languages.map((lang) => (
               <li
                 key={lang?.code}
-                className="flex items-center gap-2 p-2 hover:bg-gray-100 cursor-pointer  hover:text-[#FF624C] border-b border-gray-100 hover:shadow-xl "
+                className="flex items-center gap-2 p-2 hover:bg-gray-100 hover:text-[#FF624C] cursor-pointer border-l-2 border-r-2 border-b border-b-gray-100 border-transparent hover:shadow-xl hover:border-r-[#FF624C] hover:border-l-[#FF624C] "
                 onClick={() => {
                   setSelectedLang(lang);
                   setIsLangOpen(false);

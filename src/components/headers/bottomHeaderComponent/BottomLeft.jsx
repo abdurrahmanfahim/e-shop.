@@ -77,7 +77,7 @@ const BottomLeft = () => {
             ref={categoriesRef}
           >
             <ul
-              className="bg-white text-black text-sm font-medium w-full shadow-lg z-10 border-t-4 border-[#FF624C] "
+              className="bg-white text-black text-sm font-medium w-full shadow-2xl z-10 border-t-4 border-[#FF624C] "
               onMouseLeave={() => setIsCatRefOpen(false)}
             >
               {categories.map((item) => (
@@ -111,7 +111,7 @@ const BottomLeft = () => {
             ref={productsRef}
           >
             <ul
-              className="bg-white text-black text-sm font-medium w-full shadow-lg z-10 border-t-4 border-[#FF624C]"
+              className="bg-white text-black text-sm font-medium w-full shadow-2xl z-10 border-t-4 border-[#FF624C]"
               onMouseLeave={() => setIsProRefOpen(false)}
             >
               {products.map((item) => (
