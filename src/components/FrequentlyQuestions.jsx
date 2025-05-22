@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Container from "./layouts/Container";
 import { VscChevronRight } from "react-icons/vsc";
-import Button from '../components/Button'
+import Button from "../components/Button";
 
 const FrequentlyQuestions = () => {
   const [isAccordionOpen, setIsAccordionOpen] = useState(false);
@@ -90,7 +90,7 @@ const FrequentlyQuestions = () => {
               Questions that get asked the most by our clients. Get any burning
               questions?
             </p>
-            <Button text={'Ask A Question'} />
+            <Button text={"Ask A Question"} />
           </div>
           <div className=" absolute top-16 right-0 ">
             <img src="./images/shapes/dots.svg" alt="" />

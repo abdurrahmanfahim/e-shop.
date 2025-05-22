@@ -7,7 +7,6 @@ import Spotify from "../icons/brands/Spotify";
 import Container from "./layouts/Container";
 import Slider from "react-slick";
 
-
 const Brands = () => {
   const settings = {
     dots: false,
@@ -18,7 +17,7 @@ const Brands = () => {
     autoplay: true,
     speed: 3000,
     autoplaySpeed: 0,
-    cssEase: "linear"
+    cssEase: "linear",
   };
 
   return (
