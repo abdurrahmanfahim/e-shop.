@@ -3,14 +3,19 @@
 
 
 
-color: var(--Orange, #FF624C);
+color: var(--Black, #303030);
 
-/* Heading 5 */
+/* Paragraph */
 font-family: Montserrat;
 font-size: 20px;
 font-style: normal;
-font-weight: 700;
+font-weight: 400;
 line-height: 30px; /* 150% */
+
+
+
+
+
 
 
 

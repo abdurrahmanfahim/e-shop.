@@ -1,8 +1,6 @@
 /* eslint-disable no-unused-vars */
 import { useState, useRef, useEffect } from "react";
-import { BsChevronDown } from "react-icons/bs";
 import { FiMenu } from "react-icons/fi";
-import { GoChevronDown } from "react-icons/go";
 import { GrDown } from "react-icons/gr";
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";

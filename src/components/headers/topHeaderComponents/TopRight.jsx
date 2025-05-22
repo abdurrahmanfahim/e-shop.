@@ -50,6 +50,7 @@ const TopRight = () => {
     { name: "CAD", code: "cad", symbol: "C$" },
   ];
 
+  // eslint-disable-next-line no-unused-vars
   const { lang, setLang } = useContext(langContext);
 
   const [selectedLang, setSelectedLang] = useState(null);
