@@ -16,7 +16,7 @@ const Brands = () => {
     slidesToShow: 5,
     slidesToScroll: 1,
     autoplay: true,
-    speed: 4500,
+    speed: 3000,
     autoplaySpeed: 0,
     cssEase: "linear"
   };
@@ -24,6 +24,25 @@ const Brands = () => {
   return (
     <Container>
       <Slider {...settings} className="py-[100px] brand ">
+        <div className="">
+          <Samsung />
+        </div>
+
+        <div className="">
+          <OpenAi />
+        </div>
+
+        <div className="">
+          <Amazon />
+        </div>
+
+        <div className="">
+          <Tencent />
+        </div>
+
+        <div className="">
+          <Spotify />
+        </div>
         <div className="">
           <Samsung />
         </div>
