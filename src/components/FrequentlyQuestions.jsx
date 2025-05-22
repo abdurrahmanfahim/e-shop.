@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Container from "./layouts/Container";
 import { VscChevronRight } from "react-icons/vsc";
+import Button from '../components/Button'
 
 const FrequentlyQuestions = () => {
   const [isAccordionOpen, setIsAccordionOpen] = useState(false);
@@ -30,7 +31,7 @@ const FrequentlyQuestions = () => {
   return (
     <div className="bg-[#F4F4F4] ">
       <Container>
-        <div className="pt-16 pb-17 flex justify-center items-end ">
+        <div className="pt-16 pb-17 flex justify-between items-end relative ">
           <div className="w-[926px] flex flex-col gap-6   ">
             {faqs.map((item) => (
               <button
@@ -81,7 +82,19 @@ const FrequentlyQuestions = () => {
               </button>
             ))}
           </div>
-          <div className="w-[482px]  ">2</div>
+          <div className="w-[482px] text-[#303030] ">
+            <h2 className="font-['Poppins'] text-4xl font-semibold leading-[46px] ">
+              Frequently Asked Questions
+            </h2>
+            <p className="font-['Montserrat'] font-normal text-xl leading-[30px] mt-6 mb-16 max-w-[392px] ">
+              Questions that get asked the most by our clients. Get any burning
+              questions?
+            </p>
+            <Button text={'Ask A Question'} />
+          </div>
+          <div className=" absolute top-16 right-0 ">
+            <img src="./images/shapes/dots.svg" alt="" />
+          </div>
         </div>
       </Container>
     </div>

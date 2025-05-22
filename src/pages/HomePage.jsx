@@ -6,6 +6,7 @@ import Offers from '../components/Offers'
 import NewProducts from '../components/NewProducts'
 import BestSeller from '../components/BestSeller'
 import FrequentlyQuestions from '../components/FrequentlyQuestions'
+import Brands from '../components/Brands'
 
 const HomePage = () => {
   return (
@@ -17,6 +18,7 @@ const HomePage = () => {
       <NewProducts />
       <BestSeller />
       <FrequentlyQuestions />
+      <Brands />
     </>
   )
 }

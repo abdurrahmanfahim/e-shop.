@@ -1,2 +1,7 @@
 @import "tailwindcss";
 
+.brand.slick-slider .slick-track {
+  display: flex;
+  justify-content: center;
+  gap: 198px;
+}
