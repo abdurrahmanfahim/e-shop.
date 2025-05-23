@@ -15,16 +15,11 @@ const AccordionItem = ({ question, answer, index, onToggle, isOpen }) => {
               ? "bg-transparent text-[#FF624C] "
               : "bg-[#FF624C] text-white "
           } `}
-          // style={{
-          //   background: isOpen ? "transparent" : "#FF624C",
-          //   color: isOpen ? "#FF624C" : "white",
-          // }}
         >
           <VscChevronRight
-            className="text-sm self-center  transition-all duration-300 "
-            style={{
-              rotate: isOpen ? "90deg" : "0deg",
-            }}
+            className={`text-sm self-center  transition-all duration-300 ${
+              isOpen ? "rotate-90" : "rotate-0"
+            } `}
           />
         </span>
         <h3 className="font-['Poppins'] text-2xl font-semibold">{question}</h3>
