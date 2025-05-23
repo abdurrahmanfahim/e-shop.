@@ -5,7 +5,7 @@ import FeatureProduct from '../components/FeatureProduct'
 import Offers from '../components/Offers'
 import NewProducts from '../components/NewProducts'
 import BestSeller from '../components/BestSeller'
-import FrequentlyQuestions from '../components/FrequentlyQuestions'
+import FAQ from '../components/FAQ'
 import Brands from '../components/Brands'
 
 const HomePage = () => {
@@ -17,7 +17,7 @@ const HomePage = () => {
       <Offers />
       <NewProducts />
       <BestSeller />
-      <FrequentlyQuestions />
+      <FAQ />
       <Brands />
     </>
   )

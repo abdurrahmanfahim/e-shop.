@@ -143,9 +143,8 @@ const BestSeller = () => {
           </div>
           <div className="flex flex-wrap gap-x-6 pb-20 ">
             {productDetails.map((item, index) => (
-              <div className="flex-1/4">
+              <div className="flex-1/4" key={item.price + index}>
                 <ProductLayout
-                  key={index}
                   type={item.type}
                   title={item.title}
                   stars={item.stars}
