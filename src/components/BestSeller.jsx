@@ -126,7 +126,7 @@ const BestSeller = () => {
   ];
   return (
     <Container>
-      <div className="flex justify-between items-start">
+      <div className="flex justify-between items-start py-20">
         <div className="w-[902px]">
           <div className="flex justify-between items-center w-full mb-12 ">
             <h2 className="text-[#303030] font-['Poppins'] font-semibold leading-[46px] text-4xl capitalize">
@@ -141,7 +141,7 @@ const BestSeller = () => {
               </Link>
             </button>
           </div>
-          <div className="flex flex-wrap gap-x-6 pb-20 ">
+          <div className="flex flex-wrap gap-x-6 ">
             {productDetails.map((item, index) => (
               <div className="flex-1/4" key={item.price + index}>
                 <ProductLayout

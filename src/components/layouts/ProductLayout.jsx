@@ -21,7 +21,8 @@ const ProductLayout = ({
     return (price - (price * discounted) / 100).toFixed(2);
   };
 
-  const [ratingStars] = useState(new Array(+stars).fill(stars));
+  const safeStars = Number.isFinite(+stars) && +stars > 0 ? Math.floor(+stars) : 0;
+  const [ratingStars] = useState(new Array(safeStars).fill(1));
 
   return (
     <>
@@ -98,10 +99,10 @@ const ProductLayout = ({
       )}
 
       {v2 && (
-        <div className="p-10  flex-1 bg-white border border-transparent rounded-[10px] hover:bg-[#EAEAEA] hover:border-[#C3C3C3] transition-all duration-300 ease-in-out text-[#303030] group block ">
+        <div className="p-10 shrink flex-1 bg-white border border-transparent rounded-[10px] hover:bg-[#EAEAEA] hover:border-[#C3C3C3] transition-all duration-300 ease-in-out text-[#303030] group block ">
           <div className="relative ">
             <img
-              className="w-full"
+              className="w-fit"
               src="./images/productimgv2.jpg"
               alt="productimg"
             />
@@ -117,11 +118,11 @@ const ProductLayout = ({
             </span>
             <Link
               to={"#"}
-              className="line-clamp-2 font-['Poppins'] text-xl font-semibold leading-[30px] group-hover:text-[#FF624C] group-hover:underline transition-all duration-300 ease-in-out"
+              className="line-clamp-2 text-[#FF624C] font-['Poppins'] underline text-xl font-semibold leading-[30px] group-hover:text-[#303030] group-hover:no-underline  transition-all duration-300 ease-in-out "
             >
               {title}
             </Link>
-            <div className="flex gap-2 items-center mt-2 mb-6  ">
+            <div className="flex gap-2 items-center mt-1 mb-5  ">
               <p className="flex text-[#FED550] group-hover:text-white ">
                 {ratingStars.map((item, index) => (
                   <MdOutlineStar key={index} />
@@ -141,13 +142,13 @@ const ProductLayout = ({
                 </span>
               </>
             ) : (
-              <h3 className='font-["Poppins"] font-semibold leading-[30px] text-2xl  '>
+              <h3 className='font-["Poppins"] font-semibold leading-[30px] text-2xl hidden  '>
                 ${price}
               </h3>
             )}
 
             <div className="bg-[#E0E0E0] relative text-white rounded-3xl mt-8  ">
-              <div className="bg-black rounded-3xl w-4/6 text-center h-[30px] ">
+              <div className="bg-black rounded-3xl w-4/6 text-center h-[30px] group-hover:bg-[#FF624C] ">
                 <p className="absolute left-1/2 -translate-1/2 top-1/2 font-['Montserrat'] font-bold text-base leading-6  ">
                   {inStoke} AVAILABLE
                 </p>

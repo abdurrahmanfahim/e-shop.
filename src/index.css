@@ -8,3 +8,11 @@
 .feature_product_slide.slick-slider .slick-track {
   @apply flex gap-1;
 }
+
+.spring_sale.slick-slider .slick-track {
+  @apply flex gap-6;
+}
+
+.slick-prev:before, .slick-next:before {
+  display: none;
+}
