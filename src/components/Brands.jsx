@@ -15,13 +15,13 @@ const Brands = () => {
     slidesToShow: 5,
     slidesToScroll: 1,
     autoplay: true,
-    speed: 3000,
+    speed: 5000,
     autoplaySpeed: 0,
     cssEase: "linear",
   };
 
   return (
-    <Container>
+    // <Container>
       <Slider {...settings} className="py-[100px] brand ">
         <div className="">
           <Samsung />
@@ -62,7 +62,7 @@ const Brands = () => {
           <Spotify />
         </div>
       </Slider>
-    </Container>
+    // </Container>
   );
 };
 

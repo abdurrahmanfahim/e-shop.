@@ -7,6 +7,7 @@ import NewProducts from '../components/NewProducts'
 import BestSeller from '../components/BestSeller'
 import FAQ from '../components/FAQ'
 import Brands from '../components/Brands'
+import SpringSale from '../components/SpringSale'
 
 const HomePage = () => {
   return (
@@ -16,6 +17,7 @@ const HomePage = () => {
       <FeatureProduct />
       <Offers />
       <NewProducts />
+      <SpringSale />
       <BestSeller />
       <FAQ />
       <Brands />

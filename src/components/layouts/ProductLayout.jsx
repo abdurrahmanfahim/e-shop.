@@ -38,7 +38,7 @@ const ProductLayout = ({
                 {discounted}%
               </span>
             )}
-            <div className="flex absolute justify-center gap-[18px] left-1/2 -translate-x-1/2 -bottom-10 group-hover:bottom-[6px] opacity-0 group-hover:opacity-100 transition-all duration-300 ease-in-out ">
+            <div className="flex absolute justify-center gap-[18px] left-1/2 -translate-x-1/2 -bottom-10 group-hover:bottom-[6px] opacity-0 group-hover:opacity-100 transition-all duration-300 ease-in-out delay-75 ">
               <Link
                 to={"#"}
                 className="size-[50px] rounded-full text-[#FF624C] bg-white hover:text-white hover:bg-[#FF624C] flex items-center justify-center text-xl transition-all duration-300 ease-in-out border border-[#FF624C] "

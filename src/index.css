@@ -1,7 +1,10 @@
 @import "tailwindcss";
+/* stylelint-disable at-rule-no-unknown */
 
 .brand.slick-slider .slick-track {
-  display: flex;
-  justify-content: center;
-  gap: 198px;
+  @apply flex justify-center gap-[198px];
+}
+
+.feature_product_slide.slick-slider .slick-track {
+  @apply flex gap-1;
 }
