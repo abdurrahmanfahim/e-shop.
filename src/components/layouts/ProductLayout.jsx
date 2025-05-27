@@ -31,7 +31,7 @@ const ProductLayout = ({
         <div className="p-6 pb-11 flex-1 bg-white border border-transparent rounded-[10px] hover:border-[#C3C3C3] transition-all duration-300 ease-in-out text-[#303030] group block ">
           <div className="relative ">
             <img
-              className="w-fit"
+              className="w-full"
               src="./images/productimg.jpg"
               alt="productimg"
             />
@@ -103,7 +103,7 @@ const ProductLayout = ({
         <div className="p-10 shrink flex-1 bg-white border border-transparent rounded-[10px] hover:bg-[#EAEAEA] transition-all duration-300 ease-in-out text-[#303030] group block ">
           <div className="relative ">
             <img
-              className="w-fit"
+              className="w-full "
               src="./images/productimgv2.jpg"
               alt="productimg"
             />

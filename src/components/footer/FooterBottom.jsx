@@ -1,8 +1,8 @@
 import React from "react";
-import { BsFillEnvelopeFill } from "react-icons/bs";
-import { ImPhone } from "react-icons/im";
-import { MdLocationPin } from "react-icons/md";
 import { Link } from "react-router-dom";
+import PhoneFooter from "../../icons/PhoneFooter";
+import EnvelopeFooter from "../../icons/EnvelopeFooter";
+import LocationFooter from "../../icons/LocationFooter";
 
 const FooterBottom = () => {
   return (
@@ -10,13 +10,15 @@ const FooterBottom = () => {
       <div className='flex justify-between font-["Montserrat"] text-[#303030] mb-20 '>
         <div className="flex flex-col justify-between">
           <div>
-            <img src="./images/logo.png" alt="footerLogo" />
+            <Link to={"/"}>
+              <img src="./images/logo.png" alt="footerLogo" />
+            </Link>
           </div>
           <ul className="font-normal text-base leading-6 flex flex-col gap-3 ">
             <li className="relative pl-8 ">
               <Link className="hover:text-[#FF624C]" to={"tel:161352163"}>
                 <span className="absolute top-1/2 -translate-1/2 left-2 text-[#646464] ">
-                  <ImPhone className="hover:text-[#FF624C]" />
+                  <PhoneFooter />
                 </span>{" "}
                 +1 (555) 123-4567
               </Link>
@@ -27,7 +29,7 @@ const FooterBottom = () => {
                 to={"mailto:fahimahmad123go@gmail.com"}
               >
                 <span className="absolute top-1/2 -translate-1/2 left-2 text-[#646464] ">
-                  <BsFillEnvelopeFill className="hover:text-[#FF624C]" />
+                  <EnvelopeFooter />
                 </span>
                 information@eshop.com
               </Link>
@@ -38,7 +40,7 @@ const FooterBottom = () => {
                 to={"https://maps.app.goo.gl/GLKtcy2x3Lo6XxJq5"}
               >
                 <span className="absolute top-1/2 -translate-1/2 left-2 text-xl text-[#646464] ">
-                  <MdLocationPin className="hover:text-[#FF624C]" />
+                  <LocationFooter />
                 </span>
                 123 Main Street, Suite 105, Anytown USA
               </Link>

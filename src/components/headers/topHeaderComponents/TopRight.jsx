@@ -218,7 +218,7 @@ const TopRight = () => {
         <GoChevronDown className="text-base hover:text-[#FF624C] transition-all duration-150 ease-in-out" />
       </div>
       <span className="w-[1px] h-8 bg-[#CBCBCB] "></span>
-      <div className="flex items-center gap-1.5 text-lg">
+      <div className="flex items-center gap-1.5 text-base">
         <Link
           className="size-8 rounded-full flex items-center justify-center bg-transparent hover:bg-gray-100 hover:text-[#FF624C] transition-all duration-150 ease-in-out  "
           to={"#"}
