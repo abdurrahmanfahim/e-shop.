@@ -10,7 +10,7 @@ const Facility = () => {
     <div className='mb-20 '>
       <Container>
         <div className="flex justify-between">
-          <div className="flex gap-6 ">
+          <div className="flex gap-6 items-center ">
             <div>
               <HeadPhone />
             </div>
@@ -19,7 +19,7 @@ const Facility = () => {
               <p className='font-normal'>Customer service available 24/7</p>
             </div>
           </div>
-          <div className="flex gap-6 ">
+          <div className="flex gap-6 items-center ">
             <div>
               <Shield />
             </div>
@@ -28,7 +28,7 @@ const Facility = () => {
               <p className='font-normal'>Certified marketplace since 2017</p>
             </div>
           </div>
-          <div className="flex gap-6 ">
+          <div className="flex gap-6 items-center ">
             <div>
               <Shipping />
             </div>
@@ -37,7 +37,7 @@ const Facility = () => {
               <p className='font-normal'>Free, fast, and reliable worldwide</p>
             </div>
           </div>
-          <div className="flex gap-6 ">
+          <div className="flex gap-6 items-center ">
             <div>
               <Transparent />
             </div>
