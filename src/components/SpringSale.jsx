@@ -99,10 +99,10 @@ const SpringSale = () => {
     dots: false,
     infinite: true,
     slidesToShow: 2,
-    slidesToScroll: 2,
+    slidesToScroll: 1,
     autoplay: true,
-    speed: 1500,
-    autoplaySpeed: 3500,
+    speed: 2500,
+    autoplaySpeed: 8500,
     nextArrow: <SampleNextArrow />,
     pauseOnHover: true,
   };
