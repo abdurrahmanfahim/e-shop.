@@ -62,7 +62,7 @@ const TopRight = () => {
   const langRef = useRef(null);
 
   useEffect(() => {
-    const handleHoverOutSide = (event) => {
+    const handleClickOutSide = (event) => {
       if (!langRef.current.contains(event.target)) {
         setIsLangOpen(false);
       }
@@ -71,10 +71,10 @@ const TopRight = () => {
       }
     };
 
-    document.addEventListener("mouseover", handleHoverOutSide);
+    document.addEventListener("mousedown", handleClickOutSide);
 
     return () => {
-      document.removeEventListener("mouseover", handleHoverOutSide);
+      document.removeEventListener("mousedown", handleClickOutSide);
     };
   }, []);
 
@@ -123,7 +123,7 @@ const TopRight = () => {
         {isCurrOpen && (
           <ul
             className="absolute w-full bg-white shadow-2xl z-10 top-full leading-5 border-t-4 border-[#FF624C] "
-            onMouseLeave={() => setIsCurrOpen(false)}
+            onClick={() => setIsCurrOpen(false)}
           >
             {currency?.map((curr) => (
               <li
@@ -192,7 +192,7 @@ const TopRight = () => {
         {isLangOpen && (
           <ul
             className="absolute w-full bg-white shadow-2xl z-10 top-full leading-5 border-t-4 border-[#FF624C] "
-            onMouseLeave={() => setIsLangOpen(false)}
+            onClick={() => setIsLangOpen(false)}
           >
             {languages.map((lang) => (
               <li

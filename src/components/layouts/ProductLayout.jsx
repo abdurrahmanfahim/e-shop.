@@ -150,7 +150,7 @@ const ProductLayout = ({
 
             <div
               className={` ${
-                inStoke === 0 ? "bg-[#FF624C]" : "bg-[#E0E0E0]"
+                !inStoke ? "bg-[#FF624C]" : "bg-[#E0E0E0]"
               } relative text-white rounded-3xl mt-8  `}
             >
               <div
@@ -161,12 +161,12 @@ const ProductLayout = ({
               ></div>
               <p
                 className={`absolute ${
-                  inStoke > 35 || inStoke === 0
+                  inStoke > 35 || !inStoke
                     ? "text-white"
                     : "text-[#FF624C]"
-                } left-1/2 -translate-x-1/2 -translate-y-1/2 top-1/2 font-['Montserrat'] font-bold text-base leading-6  `}
+                } left-1/2 -translate-x-1/2 -translate-y-1/2 top-1/2 font-['Montserrat'] font-bold text-base leading-6 uppercase `}
               >
-                {inStoke} AVAILABLE
+                {inStoke ? inStoke + ' ' + 'available': 'not available'}
               </p>
             </div>
           </div>

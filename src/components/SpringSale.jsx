@@ -138,8 +138,8 @@ const SpringSale = () => {
   return (
     <div className="bg-[#F4F4F4] py-16 ">
       <Container>
-        <div className="flex justify-between items-center gap-32 ">
-          <div className="">
+        <div className="flex justify-between gap-32 relative ">
+          <div className="mt-43">
             <h1 className="text-[#303030] font-['Poppins'] font-bold leading-[68px] text-[56px] ">
               Spring Sale
             </h1>
@@ -194,6 +194,9 @@ const SpringSale = () => {
                 />
               ))}
             </Slider>
+          </div>
+          <div className=" absolute bottom-0 left-0 ">
+            <img src="./images/shapes/dots_two.svg" alt="" />
           </div>
         </div>
       </Container>

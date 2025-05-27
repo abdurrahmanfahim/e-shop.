@@ -39,7 +39,7 @@ const BottomLeft = () => {
   const productsRef = useRef(null);
 
   useEffect(() => {
-    const handleHoverOutSide = (event) => {
+    const handleClickOutSide = (event) => {
       if (
         categoriesRef.current &&
         !categoriesRef.current.contains(event.target)
@@ -51,10 +51,10 @@ const BottomLeft = () => {
       }
     };
 
-    document.addEventListener("mousedown", handleHoverOutSide);
+    document.addEventListener("mousedown", handleClickOutSide);
 
     return () => {
-      document.removeEventListener("mousedown", handleHoverOutSide);
+      document.removeEventListener("mousedown", handleClickOutSide);
     };
   }, []);
   const { t } = useTranslation();
