@@ -6,20 +6,17 @@ import Slider from "react-slick";
 import { HiOutlineChevronRight } from "react-icons/hi";
 import NextArrow from "../icons/NextArrow";
 
-
-
 function SampleNextArrow(props) {
   const { className, onClick } = props;
   return (
     <div
-      className={`${className} grid place-items-center mr-5`}
+      className={`${className} grid place-items-center mr-5 !top-[46.5%]`}
       onClick={onClick}
     >
       <NextArrow />
     </div>
   );
 }
-
 
 const SpringSale = () => {
   const productDetails = [
@@ -95,7 +92,7 @@ const SpringSale = () => {
     },
   ];
 
-    var settings = {
+  var settings = {
     dots: false,
     infinite: true,
     slidesToShow: 2,
@@ -107,37 +104,37 @@ const SpringSale = () => {
     pauseOnHover: true,
   };
 
-  const [timerLeft, setTimerLeft] = useState('')
+  const [timerLeft, setTimerLeft] = useState("");
 
   function calculateTimeLeft() {
-    const saleEndDate = new Date('May 29, 2025 10:00 AM +06').getTime()
-    const now = new Date().getTime()
+    const saleEndDate = new Date("May 29, 2025 10:00 AM +06").getTime();
+    const now = new Date().getTime();
 
-    const different = saleEndDate - now
+    const different = saleEndDate - now;
 
     if (different < 0) {
-      return { days: 0, hours: 0, minutes: 0, seconds: 0}
+      return { days: 0, hours: 0, minutes: 0, seconds: 0 };
     }
 
-    const pad = (num) => String(num).padStart(2, '0');
+    const pad = (num) => String(num).padStart(2, "0");
     return {
       days: pad(Math.floor(different / (1000 * 60 * 60 * 24))),
-      hours: pad(Math.floor(different % (1000 * 60 * 60 * 24) / (1000 * 60 * 60))),
-      minutes: pad(Math.floor(different % (1000 * 60 * 60) / (1000 * 60))),
-      seconds: pad(Math.floor(different % (1000 * 60) / 1000)),
-    }
-    
+      hours: pad(
+        Math.floor((different % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60))
+      ),
+      minutes: pad(Math.floor((different % (1000 * 60 * 60)) / (1000 * 60))),
+      seconds: pad(Math.floor((different % (1000 * 60)) / 1000)),
+    };
   }
 
   useEffect(() => {
     const timer = setInterval(() => {
-      setTimerLeft(calculateTimeLeft())
+      setTimerLeft(calculateTimeLeft());
     }, 1000);
-  
-    return () => clearInterval(timer)
-    
-  }, [])
-  
+
+    return () => clearInterval(timer);
+  }, []);
+
   return (
     <div className="bg-[#F4F4F4] py-16 ">
       <Container>
@@ -184,10 +181,19 @@ const SpringSale = () => {
           </div>
           <div className="w-[992px] mr-10 ">
             <Slider className="spring_sale " {...settings}>
-            {productDetails.map((item) => (
-              <ProductLayout v2={true} title={item.title} stars={item.stars} type={item.type}rating={item.rating} price={item.price} discounted={item.discounted} inStoke={item.inStoke} />
-            ))}
-          </Slider>
+              {productDetails.map((item) => (
+                <ProductLayout
+                  v2={true}
+                  title={item.title}
+                  stars={item.stars}
+                  type={item.type}
+                  rating={item.rating}
+                  price={item.price}
+                  discounted={item.discounted}
+                  inStoke={item.inStoke}
+                />
+              ))}
+            </Slider>
           </div>
         </div>
       </Container>
