@@ -147,12 +147,15 @@ const ProductLayout = ({
               </h3>
             )}
 
-            <div className="bg-[#E0E0E0] relative text-white rounded-3xl mt-8  ">
-              <div className="bg-black rounded-3xl w-4/6 text-center h-[30px] group-hover:bg-[#FF624C] ">
-                <p className="absolute left-1/2 -translate-1/2 top-1/2 font-['Montserrat'] font-bold text-base leading-6  ">
+            <div className={` ${inStoke === 0 ? 'bg-[#FF624C]' : 'bg-[#E0E0E0]'} relative text-white rounded-3xl mt-8  `}>
+              <div
+                className={` ${(inStoke < 35)? 'bg-[#FF624C]' : 'bg-black'} rounded-3xl text-center h-[30px] group-hover:bg-[#FF624C] `}
+                style={{ width: `${inStoke}%` }}
+              >
+              </div>
+                <p className={`absolute ${(inStoke > 35 || inStoke === 0) ? 'text-white' : 'text-[#FF624C]'} left-1/2 -translate-x-1/2 -translate-y-1/2 top-1/2 font-['Montserrat'] font-bold text-base leading-6  `}>
                   {inStoke} AVAILABLE
                 </p>
-              </div>
             </div>
           </div>
         </div>

@@ -29,9 +29,9 @@ const SpringSale = () => {
         "LP78245 Smart TV OLED 43 Inch 4K HD Dynamic Color Enhancer USB Movie ..",
       stars: 4,
       rating: 85,
-      price: "4599.00",
+      price: "499.00",
       discounted: 50,
-      inStoke: 20,
+      inStoke: 25,
     },
     {
       type: "camera",
@@ -39,9 +39,9 @@ const SpringSale = () => {
         "ProShot DSLR 24MP Camera Bundle with 18-55mm Lens, Tripod, and Carrying Case for Professional Photography",
       stars: 5,
       rating: 45,
-      price: "3799.00",
+      price: "399.00",
       discounted: 30,
-      inStoke: 10,
+      inStoke: 70,
     },
     {
       type: "watch",
@@ -49,7 +49,7 @@ const SpringSale = () => {
         "SmartWatch Series 7 Fitness Tracker with Heart Rate Monitor, GPS, and 1.8-inch AMOLED Display",
       stars: 4,
       rating: 150,
-      price: "299.00",
+      price: "899.00",
       discounted: 80,
       inStoke: 30,
     },
@@ -61,7 +61,7 @@ const SpringSale = () => {
       rating: 45,
       price: "799.00",
       discounted: 30,
-      inStoke: 10,
+      inStoke: 60,
     },
     {
       type: "headphones",
@@ -89,9 +89,9 @@ const SpringSale = () => {
         "ProShot DSLR 24MP Camera Bundle with 18-55mm Lens, Tripod, and Carrying Case for Professional Photography",
       stars: 5,
       rating: 45,
-      price: "799.00",
+      price: "599.00",
       discounted: 30,
-      inStoke: 10,
+      inStoke: 80,
     },
   ];
 
