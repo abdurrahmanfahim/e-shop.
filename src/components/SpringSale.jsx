@@ -102,7 +102,7 @@ const SpringSale = () => {
     slidesToScroll: 1,
     autoplay: true,
     speed: 2500,
-    autoplaySpeed: 8500,
+    autoplaySpeed: 5000,
     nextArrow: <SampleNextArrow />,
     pauseOnHover: true,
   };
