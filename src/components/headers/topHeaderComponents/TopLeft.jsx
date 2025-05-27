@@ -1,6 +1,4 @@
 import React from "react";
-import { LiaPhoneSolid } from "react-icons/lia";
-import { TfiLocationPin } from "react-icons/tfi";
 import { Link } from "react-router-dom";
 import LocationHeader from "../../../icons/LocationHeader";
 import PhoneHeader from "../../../icons/PhoneHeader";
