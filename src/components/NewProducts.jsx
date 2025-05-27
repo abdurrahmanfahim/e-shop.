@@ -69,6 +69,7 @@ const NewProducts = () => {
 
   const categoriesRef = useRef(null);
   const [isCatRefOpen, setIsCatRefOpen] = useState(false);
+  const [selectedProduct, setSelectedProduct] = useState("All Categories");
 
   useEffect(() => {
     const handleHoverOutSide = (event) => {
@@ -105,8 +106,8 @@ const NewProducts = () => {
             <span className="text-[#303030] font-normal text-base leading-6 pr-4 ">
               Sort by
             </span>
-            All Categories
-            <GrDown className="text-xs text-[#303030] ml-[100px] " />
+            <span className="w-[218px] text-left">{selectedProduct}</span>
+            <GrDown className="text-xs text-[#303030] " />
           </button>
 
           {isCatRefOpen && (
@@ -124,6 +125,7 @@ const NewProducts = () => {
                     key={item}
                     onClick={() => {
                       setIsCatRefOpen(false);
+                      setSelectedProduct(item);
                     }}
                   >
                     <Link to={"#"}>{item}</Link>
