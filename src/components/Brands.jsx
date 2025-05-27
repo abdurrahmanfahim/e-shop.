@@ -23,42 +23,42 @@ const Brands = () => {
   return (
     <Container>
       <Slider {...settings} className="py-[100px] brand ">
-        <div className="">
+        <div>
           <Samsung />
         </div>
 
-        <div className="">
+        <div>
           <OpenAi />
         </div>
 
-        <div className="">
+        <div>
           <Amazon />
         </div>
 
-        <div className="">
+        <div>
           <Tencent />
         </div>
 
-        <div className="">
+        <div>
           <Spotify />
         </div>
-        <div className="">
+        <div>
           <Samsung />
         </div>
 
-        <div className="">
+        <div>
           <OpenAi />
         </div>
 
-        <div className="">
+        <div>
           <Amazon />
         </div>
 
-        <div className="">
+        <div>
           <Tencent />
         </div>
 
-        <div className="">
+        <div>
           <Spotify />
         </div>
       </Slider>
