@@ -179,8 +179,8 @@ const SpringSale = () => {
               <Button text={"Shop Now"} />
             </div>
           </div>
-          <div className="w-[992px] mr-10 ">
-            <Slider className="spring_sale overflow-hidden " {...settings}>
+          <div className="max-w-[992px] mr-10 ">
+            <Slider className="spring_sale " {...settings}>
               {productDetails.map((item) => (
                 <ProductLayout
                   v2={true}
