@@ -180,7 +180,7 @@ const SpringSale = () => {
             </div>
           </div>
           <div className="w-[992px] mr-10 ">
-            <Slider className="spring_sale " {...settings}>
+            <Slider className="spring_sale overflow-hidden " {...settings}>
               {productDetails.map((item) => (
                 <ProductLayout
                   v2={true}

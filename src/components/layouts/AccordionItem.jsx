@@ -25,12 +25,12 @@ const AccordionItem = ({ question, answer, index, onToggle, isOpen }) => {
         <h3 className="font-['Poppins'] text-2xl font-semibold">{question}</h3>
       </div>
       <div
-        className={`transition-all duration-500 ${
+        className={`${
           isOpen ? " mt-4" : "mt-0"
         }  `}
       >
         <p
-          className={`font-['Montserrat'] font-normal text-xl pl-16 text-start  transition-all duration-500 leading-[30px] ${
+          className={`font-['Montserrat'] font-normal text-xl pl-16 text-start leading-[30px] ${
             isOpen ? " block" : " hidden"
           } `}
         >
