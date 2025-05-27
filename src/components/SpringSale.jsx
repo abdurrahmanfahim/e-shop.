@@ -12,7 +12,7 @@ function SampleNextArrow(props) {
   const { className, onClick } = props;
   return (
     <div
-      className={`${className} grid place-items-center`}
+      className={`${className} grid place-items-center mr-5`}
       onClick={onClick}
     >
       <NextArrow />
@@ -50,8 +50,8 @@ const SpringSale = () => {
       stars: 4,
       rating: 150,
       price: "299.00",
-      discounted: 0,
-      inStoke: 0,
+      discounted: 80,
+      inStoke: 30,
     },
     {
       type: "headphones",
@@ -70,7 +70,7 @@ const SpringSale = () => {
       stars: 4,
       rating: 150,
       price: "299.00",
-      discounted: 0,
+      discounted: 20,
       inStoke: 0,
     },
     {
@@ -97,14 +97,14 @@ const SpringSale = () => {
 
     var settings = {
     dots: false,
-    // infinite: true,
+    infinite: true,
     slidesToShow: 2,
-    // slidesToScroll: 2,
-    // autoplay: true,
-    // speed: 1500,
-    // autoplaySpeed: 3500,
+    slidesToScroll: 2,
+    autoplay: true,
+    speed: 1500,
+    autoplaySpeed: 3500,
     nextArrow: <SampleNextArrow />,
-    // pauseOnHover: true,
+    pauseOnHover: true,
   };
 
   return (
@@ -151,7 +151,7 @@ const SpringSale = () => {
               <Button text={"Shop Now"} />
             </div>
           </div>
-          <div className="w-[992px] ">
+          <div className="w-[992px] mr-10 ">
             <Slider className="spring_sale " {...settings}>
             {productDetails.map((item) => (
               <ProductLayout v2={true} title={item.title} stars={item.stars} type={item.type}rating={item.rating} price={item.price} discounted={item.discounted} inStoke={item.inStoke} />
