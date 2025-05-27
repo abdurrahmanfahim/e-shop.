@@ -21,7 +21,7 @@ const Brands = () => {
   };
 
   return (
-    // <Container>
+    <Container>
       <Slider {...settings} className="py-[100px] brand ">
         <div className="">
           <Samsung />
@@ -62,7 +62,7 @@ const Brands = () => {
           <Spotify />
         </div>
       </Slider>
-    // </Container>
+    </Container>
   );
 };
 
