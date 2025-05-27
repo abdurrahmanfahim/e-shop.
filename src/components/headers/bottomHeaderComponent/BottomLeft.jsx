@@ -51,10 +51,10 @@ const BottomLeft = () => {
       }
     };
 
-    document.addEventListener("mouseover", handleHoverOutSide);
+    document.addEventListener("mousedown", handleHoverOutSide);
 
     return () => {
-      document.removeEventListener("mouseover", handleHoverOutSide);
+      document.removeEventListener("mousedown", handleHoverOutSide);
     };
   }, []);
   const { t } = useTranslation();
@@ -76,7 +76,7 @@ const BottomLeft = () => {
           >
             <ul
               className="bg-white text-black text-sm font-medium w-full shadow-2xl z-10 border-t-4 border-[#FF624C] "
-              onMouseLeave={() => setIsCatRefOpen(false)}
+              onClick={() => setIsCatRefOpen(false)}
             >
               {categories.map((item) => (
                 <li
@@ -110,7 +110,7 @@ const BottomLeft = () => {
           >
             <ul
               className="bg-white text-black text-sm font-medium w-full shadow-2xl z-10 border-t-4 border-[#FF624C]"
-              onMouseLeave={() => setIsProRefOpen(false)}
+              onClick={() => setIsProRefOpen(false)}
             >
               {products.map((item) => (
                 <li

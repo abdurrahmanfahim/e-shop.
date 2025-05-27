@@ -108,7 +108,7 @@ const ProductLayout = ({
               alt="productimg"
             />
             {discounted && (
-              <span className="absolute top-0 right-0 size-[100px] bg-[#FF624C] text-white font-['Montserrat'] font-bold leading-6 rounded-full flex justify-center items-center ">
+              <span className="absolute top-0 right-0 size-[100px] bg-[#FF624C] text-2xl text-white font-['Montserrat'] font-bold leading-6 rounded-full flex justify-center items-center ">
                 {discounted}%
               </span>
             )}
@@ -139,7 +139,7 @@ const ProductLayout = ({
                   ${getDiscountedPrice(price, discounted)}
                 </h3>
                 <span className="font-['Montserrat'] text-base font-normal text-[#979797] line-through ml-2.5 ">
-                  {price}
+                  ${price}
                 </span>
               </>
             ) : (
