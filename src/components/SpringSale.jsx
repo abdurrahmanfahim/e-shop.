@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Container from "../components/layouts/Container";
 import ProductLayout from "../components/layouts/ProductLayout";
 import Button from "../components/Button";
@@ -54,6 +54,16 @@ const SpringSale = () => {
       inStoke: 30,
     },
     {
+      type: "camera",
+      title:
+        "ProShot DSLR 24MP Camera Bundle with 18-55mm Lens, Tripod, and Carrying Case for Professional Photography",
+      stars: 5,
+      rating: 45,
+      price: "799.00",
+      discounted: 30,
+      inStoke: 10,
+    },
+    {
       type: "headphones",
       title:
         "Noise Cancelling Wireless Headphones with 40-Hour Battery Life and Hi-Res Audio Support",
@@ -83,16 +93,6 @@ const SpringSale = () => {
       discounted: 30,
       inStoke: 10,
     },
-    {
-      type: "camera",
-      title:
-        "ProShot DSLR 24MP Camera Bundle with 18-55mm Lens, Tripod, and Carrying Case for Professional Photography",
-      stars: 5,
-      rating: 45,
-      price: "799.00",
-      discounted: 30,
-      inStoke: 10,
-    },
   ];
 
     var settings = {
@@ -107,6 +107,37 @@ const SpringSale = () => {
     pauseOnHover: true,
   };
 
+  const [timerLeft, setTimerLeft] = useState('')
+
+  function calculateTimeLeft() {
+    const saleEndDate = new Date('May 29, 2025 10:00 AM +06').getTime()
+    const now = new Date().getTime()
+
+    const different = saleEndDate - now
+
+    if (different < 0) {
+      return { days: 0, hours: 0, minutes: 0, seconds: 0}
+    }
+
+    const pad = (num) => String(num).padStart(2, '0');
+    return {
+      days: pad(Math.floor(different / (1000 * 60 * 60 * 24))),
+      hours: pad(Math.floor(different % (1000 * 60 * 60 * 24) / (1000 * 60 * 60))),
+      minutes: pad(Math.floor(different % (1000 * 60 * 60) / (1000 * 60))),
+      seconds: pad(Math.floor(different % (1000 * 60) / 1000)),
+    }
+    
+  }
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setTimerLeft(calculateTimeLeft())
+    }, 1000);
+  
+    return () => clearInterval(timer)
+    
+  }, [])
+  
   return (
     <div className="bg-[#F4F4F4] py-16 ">
       <Container>
@@ -119,28 +150,28 @@ const SpringSale = () => {
             <div>
               <div className="font-['Poppins'] font-semibold leading-[46px] text-4xl text-[#FF624C] flex gap-6 text-center pt-10 pb-18 ">
                 <p>
-                  <span>00</span>
+                  <span>{timerLeft.days}</span>
                   <span className="text-[#303030] font-['Montserrat'] font-normal text-base leading-6 block ">
                     Days
                   </span>
                 </p>
                 :
                 <p>
-                  <span>03</span>
+                  <span>{timerLeft.hours}</span>
                   <span className="text-[#303030] font-['Montserrat'] font-normal text-base leading-6 block ">
                     Hours
                   </span>
                 </p>
                 :
                 <p>
-                  <span>40</span>
+                  <span>{timerLeft.minutes}</span>
                   <span className="text-[#303030] font-['Montserrat'] font-normal text-base leading-6 block ">
                     Minutes
                   </span>
                 </p>
                 :
                 <p>
-                  <span>12</span>
+                  <span>{timerLeft.seconds}</span>
                   <span className="text-[#303030] font-['Montserrat'] font-normal text-base leading-6 block ">
                     Seconds
                   </span>
