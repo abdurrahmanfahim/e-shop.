@@ -87,7 +87,7 @@ const ProductLayout = ({
                   ${getDiscountedPrice(price, discounted)}
                 </h3>
                 <span className="font-['Montserrat'] text-base font-normal text-[#979797] line-through ml-2.5 ">
-                  {price}
+                  ${price}
                 </span>
               </>
             ) : (
