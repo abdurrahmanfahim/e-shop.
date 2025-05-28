@@ -1,6 +1,6 @@
-import Container from "../layouts/Container";
-import TopLeft from "./topHeaderComponents/TopLeft";
-import TopRight from "./topHeaderComponents/TopRight";
+import Container from "../../layouts/Container";
+import TopLeft from "./TopLeft";
+import TopRight from "./TopRight";
 
 const TopHeader = () => {
   return (

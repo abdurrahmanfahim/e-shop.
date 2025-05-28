@@ -1,7 +1,7 @@
 import { IoIosSearch } from "react-icons/io";
-import CartIcon from "../../icons/CartIcon";
-import UserIcon from "../../icons/UserIcon";
-import Container from "../layouts/Container";
+import CartIcon from "../../../icons/CartIcon";
+import UserIcon from "../../../icons/UserIcon";
+import Container from "../../layouts/Container";
 import { Link } from "react-router-dom";
 import { useState } from "react";
 import { useTranslation } from "react-i18next";

@@ -1,7 +1,7 @@
 import React from "react";
-import Container from "../layouts/Container";
-import BottomLeft from "./bottomHeaderComponent/BottomLeft";
-import BottomRight from "./bottomHeaderComponent/BottomRight";
+import Container from "../../layouts/Container";
+import BottomLeft from "./BottomLeft";
+import BottomRight from "./BottomRight";
 
 const BottomHeader = () => {
   return (
