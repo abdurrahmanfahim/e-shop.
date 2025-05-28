@@ -39,7 +39,7 @@ const MiddleHeader = () => {
                   "after:content-[''] after:size-1.5 after:absolute after:bg-[#FF624C] after:rounded-full after:-right-1 after:-top-1"
                 } `}
               >
-                <CartIcon />
+                <CartIcon className='cart-icon' hoverColor={'#FF624C'} />
               </div>
               <p className="text-base font-normal leading-6 capitalize ">
                 {t("Cart")}

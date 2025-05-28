@@ -2,7 +2,7 @@ import React from "react";
 
 const NextArrow = () => {
   return (
-    <svg
+    <svg className='icon'
       width="72"
       height="72"
       viewBox="0 0 72 72"

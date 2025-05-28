@@ -2,7 +2,7 @@ import React from "react";
 
 const LongArrow = ({ color = "#FF624C", width = "29px", height= "8px" }) => {
   return (
-    <svg
+    <svg className='icon'
       xmlns="http://www.w3.org/2000/svg"
       width={width}
       height={height}

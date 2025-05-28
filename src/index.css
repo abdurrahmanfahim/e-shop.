@@ -1,5 +1,4 @@
 @import "tailwindcss";
-/* stylelint-disable at-rule-no-unknown */
 
 .brand.slick-slider .slick-track {
   @apply flex justify-center gap-[198px];
@@ -13,6 +12,11 @@
   @apply flex gap-6;
 }
 
-.slick-prev:before, .slick-next:before {
+.slick-prev:before,
+.slick-next:before {
   display: none;
+}
+
+.icon:hover path {
+  fill: #FF624C;
 }
