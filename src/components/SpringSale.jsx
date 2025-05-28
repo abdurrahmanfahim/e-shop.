@@ -1,10 +1,11 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import Container from "../components/layouts/Container";
 import ProductLayout from "../components/layouts/ProductLayout";
 import Button from "../components/Button";
 import Slider from "react-slick";
 import { HiOutlineChevronRight } from "react-icons/hi";
 import NextArrow from "../icons/NextArrow";
+import langContext from "../contexts/LangContext";
 
 function SampleNextArrow(props) {
   const { className, onClick } = props;
@@ -104,26 +105,30 @@ const SpringSale = () => {
     pauseOnHover: true,
   };
 
+  
+  // eslint-disable-next-line no-unused-vars
+  const { springSaleEnd } = useContext(langContext);
+  
   const [timerLeft, setTimerLeft] = useState("");
 
   function calculateTimeLeft() {
-    const saleEndDate = new Date("May 29, 2025 10:00 AM +06").getTime();
+    
     const now = new Date().getTime();
-
+    const saleEndDate = new Date("May 31, 2025 10:00 AM +06").getTime();
+    
     const different = saleEndDate - now;
 
     if (different < 0) {
       return { days: 0, hours: 0, minutes: 0, seconds: 0 };
     }
-
-    const pad = (num) => String(num).padStart(2, "0");
+    
     return {
-      days: pad(Math.floor(different / (1000 * 60 * 60 * 24))),
-      hours: pad(
+      days: (Math.floor(different / (1000 * 60 * 60 * 24))),
+      hours: (
         Math.floor((different % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60))
       ),
-      minutes: pad(Math.floor((different % (1000 * 60 * 60)) / (1000 * 60))),
-      seconds: pad(Math.floor((different % (1000 * 60)) / 1000)),
+      minutes: (Math.floor((different % (1000 * 60 * 60)) / (1000 * 60))),
+      seconds: (Math.floor((different % (1000 * 60)) / 1000)),
     };
   }
 
@@ -143,32 +148,31 @@ const SpringSale = () => {
             <h1 className="text-[#303030] font-['Poppins'] font-bold leading-[68px] text-[56px] ">
               Spring Sale
             </h1>
-
             <div>
               <div className="font-['Poppins'] font-semibold leading-[46px] text-4xl text-[#FF624C] flex gap-6 text-center pt-10 pb-18 ">
                 <p>
-                  <span>{timerLeft.days}</span>
+                  <span>{timerLeft.days <= 9 ? `0${timerLeft.days}` : timerLeft.days}</span>
                   <span className="text-[#303030] font-['Montserrat'] font-normal text-base leading-6 block ">
                     Days
                   </span>
                 </p>
                 :
                 <p>
-                  <span>{timerLeft.hours}</span>
+                  <span>{timerLeft.hours <= 9 ? `0${timerLeft.hours}` : timerLeft.hours}</span>
                   <span className="text-[#303030] font-['Montserrat'] font-normal text-base leading-6 block ">
                     Hours
                   </span>
                 </p>
                 :
                 <p>
-                  <span>{timerLeft.minutes}</span>
+                  <span>{timerLeft.minutes <= 9 ? `0${timerLeft.minutes}` : timerLeft.minutes}</span>
                   <span className="text-[#303030] font-['Montserrat'] font-normal text-base leading-6 block ">
                     Minutes
                   </span>
                 </p>
                 :
                 <p>
-                  <span>{timerLeft.seconds}</span>
+                  <span>{timerLeft.seconds <= 9 ? `0${timerLeft.seconds}` : timerLeft.seconds}</span>
                   <span className="text-[#303030] font-['Montserrat'] font-normal text-base leading-6 block ">
                     Seconds
                   </span>

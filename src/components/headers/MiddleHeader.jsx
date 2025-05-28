@@ -21,7 +21,7 @@ const MiddleHeader = () => {
           <div className="flex justify-center items-center ">
             <div className="relative">
               <input
-                className="text-[#646464] font-normal font-['Montserrat'] text-sm leading-5 py-[18px] px-6 rounded-[10px] border border-[#979797] w-[332px] bg-white  "
+                className="text-[#646464] font-normal font-['Montserrat'] text-sm leading-5 py-[18px] px-6 rounded-[10px] border border-[#979797] w-[332px] bg-white capitalize "
                 type="text"
                 placeholder="Search Products ..."
               />

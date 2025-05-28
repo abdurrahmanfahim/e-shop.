@@ -7,6 +7,7 @@ import HomePage from "./pages/HomePage";
 import ProductDetailsPage from "./pages/ProductDetailsPage";
 import ProductListPage from "./pages/ProductListPage";
 import LangContextProvider from "./contexts/LangContextProvider";
+import Dashboard from "./dashboardForTesting/Dashboard";
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
           <Route path="/blog" element={<BlogPage />} />
           <Route path="/checkout" element={<CheckoutPage />} />
           <Route path="/contact" element={<Contact />} />
+          <Route path="/dashboard" element={<Dashboard />} />
         </Route>
       </Routes>
     </LangContextProvider>

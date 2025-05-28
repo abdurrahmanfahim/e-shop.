@@ -11,7 +11,8 @@ const Button = ({
   rounded = '10px',
   border = 'none',
   fontSize = '20px',
-  leading = '30px'
+  leading = '30px',
+  onClick
 
 }) => {
   return (
@@ -29,6 +30,7 @@ const Button = ({
         fontSize: `${fontSize}`,
         lineHeight: `${leading}`
       }}
+      onClick={onClick}
     >
       {text}
     </button>
