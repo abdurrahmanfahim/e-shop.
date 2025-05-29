@@ -59,7 +59,7 @@ const SpringSale = () => {
       rating: 45,
       price: "799.00",
       discounted: 30,
-      inStoke: 60,
+      inStoke: 260,
     },
     {
       type: "headphones",
@@ -89,7 +89,7 @@ const SpringSale = () => {
       rating: 45,
       price: "599.00",
       discounted: 30,
-      inStoke: 80,
+      inStoke: 20,
     },
   ];
 
