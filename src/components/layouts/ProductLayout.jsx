@@ -157,7 +157,7 @@ const ProductLayout = ({
                 className={` ${
                   inStoke < 35 ? "bg-[#FF624C]" : "bg-black"
                 } rounded-3xl text-center h-[30px] group-hover:bg-[#FF624C] `}
-                style={{ width: `${inStoke}%` }}
+                style={{ width: `${inStoke < 100 ? inStoke : '100'}%` }}
               ></div>
               <p
                 className={`absolute ${

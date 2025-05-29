@@ -29,7 +29,7 @@ const SpringSale = () => {
       rating: 85,
       price: "499.00",
       discounted: 50,
-      inStoke: 25,
+      inStoke: 125,
     },
     {
       type: "camera",
