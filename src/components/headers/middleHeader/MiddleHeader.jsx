@@ -5,6 +5,7 @@ import Container from "../../layouts/Container";
 import { Link } from "react-router-dom";
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
+import SearchIcon from "../../../icons/SearchIcon";
 
 const MiddleHeader = () => {
   const { t } = useTranslation();
@@ -26,7 +27,7 @@ const MiddleHeader = () => {
                 placeholder="Search Products ..."
               />
               <div className="absolute text-base right-6 top-1/2 -translate-y-1/2 ">
-                <IoIosSearch className="text-xl" />
+                <SearchIcon />
               </div>
             </div>
             <Link
@@ -39,7 +40,7 @@ const MiddleHeader = () => {
                   "after:content-[''] after:size-1.5 after:absolute after:bg-[#FF624C] after:rounded-full after:-right-1 after:-top-1"
                 } `}
               >
-                <CartIcon className='cart-icon' hoverColor={'#FF624C'} />
+                <CartIcon className="cart-icon" hoverColor={"#FF624C"} />
               </div>
               <p className="text-base font-normal leading-6 capitalize ">
                 {t("Cart")}
