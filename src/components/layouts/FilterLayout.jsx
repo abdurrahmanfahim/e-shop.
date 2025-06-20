@@ -8,12 +8,22 @@ const FilterLayout = ({ bg = "#F4F4F4" }) => {
   const [maxPrice, setMaxPrice] = useState(5000);
 
   const updateSlider = (type, price) => {
-    if (type == "min") {
-      const newMin = Math.min(parseInt(price), maxPrice - 10);
-      setMinPrice(newMin);
+    const parseValue = parseInt(price);
+
+    if (isNaN(parseValue)) return;
+
+    if (type === "min") {
+      if (parseValue > maxPrice) {
+        setMinPrice(maxPrice);
+      } else {
+        setMinPrice(parseValue);
+      }
     } else {
-      const newMax = Math.max(parseInt(price), minPrice - 10);
-      setMaxPrice(newMax);
+      if (parseValue < minPrice) {
+        setMaxPrice(minPrice);
+      } else {
+        setMaxPrice(parseValue);
+      }
     }
   };
 
@@ -119,32 +129,31 @@ const FilterLayout = ({ bg = "#F4F4F4" }) => {
           <div className="border border-[#929292] rounded-[10px] w-[124px] h-[74px] flex justify-center items-center text-center ">
             <span>$</span>
             <input
-              type="text"
+              type="number"
               value={minPrice}
               onChange={(e) => setMinPrice(e.target.value)}
-              className="w-12 pl-1"
+              className="w-12 pl-1 [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none"
             />
           </div>
 
           <div className="border border-[#929292] rounded-[10px] w-[124px] h-[74px] flex justify-center items-center text-center ">
             <span>$</span>
             <input
-              type="text"
+              type="number"
               value={maxPrice}
               onChange={(e) => setMaxPrice(e.target.value)}
-              className="w-13 pl-1"
+              className="w-13 pl-1 [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none"
             />
           </div>
-
-          
         </div>
 
-        <div className="relative w-full mt-9 bg-[#C3C3C3] h-0.5 ">
+        <div className="relative w-full mt-[30px] h-5 overflow-hidden  ">
+          <div className="absolute w-full top-2 bg-[#C3C3C3] h-0.5 "></div>
           <div
-            className="absolute left-0 h-0.5 bg-[#FF624C] rounded  "
+            className="absolute left-0 top-2 h-0.5 bg-[#FF624C] rounded  "
             style={{
               left: `${minPercent}%`,
-              width: `${maxPercent - minPercent}%`,
+              width: `${(maxPercent - minPercent) > 100 ? 100 : (maxPercent - minPercent)}%`,
             }}
           ></div>
           <input
@@ -153,7 +162,7 @@ const FilterLayout = ({ bg = "#F4F4F4" }) => {
             max={10000}
             step={10}
             value={minPrice}
-            className="absolute w-full bg-transparent pointer-events-none appearance-none -top-1.5 "
+            className="absolute w-full bg-transparent pointer-events-none appearance-none overflow-visible focus:outline-none  "
             onChange={(e) => updateSlider("min", e.target.value)}
           />
           <input
@@ -162,7 +171,7 @@ const FilterLayout = ({ bg = "#F4F4F4" }) => {
             max={10000}
             step={10}
             value={maxPrice}
-            className="absolute w-full bg-transparent pointer-events-none appearance-none -top-1.5 "
+            className="absolute w-full bg-transparent pointer-events-none appearance-none overflow-visible focus:outline-none  "
             onChange={(e) => updateSlider("max", e.target.value)}
           />
         </div>
