@@ -9,7 +9,7 @@
 }
 
 .spring_sale.slick-slider .slick-track {
-  @apply flex gap-6 ;
+  @apply flex gap-6;
 }
 
 .slick-prev:before,
@@ -18,20 +18,75 @@
 }
 
 .icon:hover path {
-  fill: #FF624C;
+  fill: #ff624c;
 }
 
-input[type=range]::-webkit-slider-thumb {
+input[type="range"]::-webkit-slider-thumb {
   width: 16px;
   height: 16px;
-  background: #FF624C;
+  background: #ff624c;
   border-radius: 50%;
   pointer-events: auto;
   cursor: pointer;
   -webkit-appearance: none;
 }
-input[type=range]::-moz-range-thumb {
+input[type="range"]::-moz-range-thumb {
+  width: 16px;
+  height: 16px;
+  background: #ff624c;
+  border-radius: 50%;
   pointer-events: auto;
   cursor: pointer;
   -webkit-appearance: none;
+}
+
+.input-wrapper input {
+  height: 100%;
+  text-overflow: ellipsis;
+  font-family: inherit;
+  background: none;
+  color: inherit;
+  top: 0;
+  left: 0;
+  font-size: inherit;
+  line-height: inherit;
+  padding: inherit;
+  position: absolute;
+  box-sizing: border-box;
+  width: 100%;
+}
+
+.size-span {
+  font-family: inherit;
+  white-space: pre;
+  height: 1em;
+  display: inline-block;
+  font-size: inherit;
+  line-height: inherit;
+  box-sizing: border-box;
+  position: relative;
+  opacity: 0;
+  min-width: 2px;
+  user-select: none;
+  vertical-align: top;
+}
+
+.input-wrapper {
+  border: 1px solid dodgerblue;
+  position: relative;
+  box-sizing: border-box;
+  line-height: 1em;
+  font-size: 14px;
+  padding: 4px 8px;
+  display: inline-block;
+  max-width: 100%;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+input {
+  border: none;
+  background: none;
+  outline: none;
+  color: inherit;
 }
