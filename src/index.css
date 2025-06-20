@@ -9,7 +9,7 @@
 }
 
 .spring_sale.slick-slider .slick-track {
-  @apply flex gap-6;
+  @apply flex gap-6 ;
 }
 
 .slick-prev:before,
@@ -19,4 +19,19 @@
 
 .icon:hover path {
   fill: #FF624C;
+}
+
+input[type=range]::-webkit-slider-thumb {
+  width: 16px;
+  height: 16px;
+  background: #FF624C;
+  border-radius: 50%;
+  pointer-events: auto;
+  cursor: pointer;
+  -webkit-appearance: none;
+}
+input[type=range]::-moz-range-thumb {
+  pointer-events: auto;
+  cursor: pointer;
+  -webkit-appearance: none;
 }

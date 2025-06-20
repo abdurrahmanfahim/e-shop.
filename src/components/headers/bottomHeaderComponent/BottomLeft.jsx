@@ -7,6 +7,7 @@ import { useTranslation } from "react-i18next";
 
 const BottomLeft = () => {
   const products = [
+    "All Products",
     "Laptops & Desktops",
     "Smartphones",
     "Smart TVs",
@@ -121,7 +122,7 @@ const BottomLeft = () => {
                     setSelectedProduct(item);
                   }}
                 >
-                  <Link to={"#"}>{item}</Link>
+                  <Link to={"/product-list"}>{item}</Link>
                 </li>
               ))}
             </ul>
