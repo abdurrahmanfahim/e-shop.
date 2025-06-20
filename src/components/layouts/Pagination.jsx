@@ -2,6 +2,7 @@ import React from "react";
 import PrevIcon from "../../icons/PrevIcon";
 import NextIcon from "../../icons/nextIcon";
 
+
 const Pagination = ({ totalItems, itemPerPage, currentPage, onPageChange }) => {
   const totalPages = Math.ceil(totalItems / itemPerPage);
   const maxPagesToShow = 10;
