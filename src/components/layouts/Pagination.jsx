@@ -1,5 +1,6 @@
 import React from "react";
 import PrevIcon from "../../icons/PrevIcon";
+import NextIcons from "../../icons/NextIcons";
 
 
 const Pagination = ({ totalItems, itemPerPage, currentPage, onPageChange }) => {
@@ -51,7 +52,7 @@ const Pagination = ({ totalItems, itemPerPage, currentPage, onPageChange }) => {
         disabled={currentPage === totalPages}
         className="size-8 flex items-center justify-center text-black disabled:opacity-50 hover:bg-gray-100 rounded   "
       >
-        
+        <NextIcons />
       </button>
     </div>
   );
