@@ -1,6 +1,6 @@
 import React from "react";
 import PrevIcon from "../../icons/PrevIcon";
-import NextIcon from "../../icons/nextIcon";
+import NextIcon from "../../icons/NextIcon";
 
 
 const Pagination = ({ totalItems, itemPerPage, currentPage, onPageChange }) => {

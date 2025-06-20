@@ -1,6 +1,6 @@
 import React from "react";
 
-const NextIcon = ({ color = "#303030", width = 32, height= 32 }) => {
+const NextIcon = ({ color = "#303030", width = 32, height = 32 }) => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"

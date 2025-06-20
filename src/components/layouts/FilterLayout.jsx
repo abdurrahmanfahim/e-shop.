@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { GrDown } from "react-icons/gr";
 import CheckBoxRect from "../../icons/CheckBoxRect";
 import CheckBoxChecked from "../../icons/CheckBoxChecked";
