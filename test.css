@@ -16,12 +16,14 @@
 color: var(--Black, #303030);
 text-align: center;
 
-/* Heading 4 */
-font-family: Poppins;
-font-size: 20px;
+color: var(--Orange, #FF624C);
+
+/* Heading 6 */
+font-family: Montserrat;
+font-size: 16px;
 font-style: normal;
-font-weight: 600;
-line-height: 30px; /* 150% */
+font-weight: 700;
+line-height: 24px; /* 150% */
 
 
 

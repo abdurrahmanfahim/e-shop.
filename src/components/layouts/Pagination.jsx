@@ -24,7 +24,7 @@ const Pagination = ({ totalItems, itemPerPage, currentPage, onPageChange }) => {
   }
 
   return (
-    <div className="w-[522px] mx-auto flex gap-16 items-center justify-center p-4 font-['Poppins'] font-semibold text-xl leading-[30px] text-center text-[#303030] ">
+    <div className="w-[522px] mx-auto flex gap-[18px] items-center justify-center p-4 font-['Poppins'] font-semibold text-xl leading-[30px] text-center text-[#303030] ">
       <button
         onClick={() => onPageChange(currentPage - 1)}
         disabled={currentPage === 1}
@@ -38,8 +38,8 @@ const Pagination = ({ totalItems, itemPerPage, currentPage, onPageChange }) => {
           <button
             onClick={() => onPageChange(number)}
             key={index}
-            className={`rounded-[5px] ${
-              number === currentPage && "py-[9px] px-[18px] bg-[#FF624C] text-white "
+            className={`rounded-[5px] py-[9px] px-[18px] cursor-pointer ${
+              number === currentPage && "bg-[#FF624C] text-white "
             } `}
           >
             {number}
