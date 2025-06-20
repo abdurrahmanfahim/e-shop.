@@ -1,6 +1,6 @@
 import React from "react";
 
-const LongArrow = ({ color = "#FF624C", width = "29px", height= "8px" }) => {
+const LongArrow = ({ color = "#FF624C", width = 29, height= 8 }) => {
   return (
     <svg className='icon'
       xmlns="http://www.w3.org/2000/svg"
