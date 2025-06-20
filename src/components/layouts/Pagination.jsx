@@ -39,8 +39,8 @@ const Pagination = ({ totalItems, itemPerPage, currentPage, onPageChange }) => {
             onClick={() => onPageChange(number)}
             key={index}
             className={`rounded-[5px] py-[9px] px-[18px] cursor-pointer ${
-              number === currentPage && "bg-[#FF624C] text-white "
-            } `}
+              number === currentPage ?"bg-[#FF624C] text-white hover:bg-[#FF624C]" : 'hover:bg-gray-100'
+            }  `}
           >
             {number}
           </button>
