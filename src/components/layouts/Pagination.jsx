@@ -1,5 +1,4 @@
 import React from "react";
-import { GrNext, GrPrevious } from "react-icons/gr";
 import PrevIcon from "../../icons/PrevIcon";
 import NextIcon from "../../icons/nextIcon";
 
