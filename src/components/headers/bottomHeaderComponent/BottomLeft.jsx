@@ -72,7 +72,7 @@ const BottomLeft = () => {
         </button>
         {isCatRefOpen && (
           <div
-            className="w-54 absolute left-0 top-full border-t border-white "
+            className="w-54 absolute left-0 top-full border-t border-white z-50 "
             ref={categoriesRef}
           >
             <ul
@@ -106,7 +106,7 @@ const BottomLeft = () => {
         </button>
         {isProRefOpen && (
           <div
-            className="w-48 absolute left-0 top-full border-t border-white"
+            className="w-48 absolute left-0 top-full border-t border-white z-50"
             ref={productsRef}
           >
             <ul
@@ -114,16 +114,18 @@ const BottomLeft = () => {
               onClick={() => setIsProRefOpen(false)}
             >
               {products.map((item) => (
-                <li
-                  className="flex items-center gap-2 p-2 hover:bg-gray-100 hover:text-[#FF624C] cursor-pointer border-l-2 border-r-2 border-b border-b-gray-100 border-transparent hover:shadow-xl uppercase  hover:border-r-[#FF624C] hover:border-l-[#FF624C] "
-                  key={item}
-                  onClick={() => {
-                    setIsProRefOpen(false);
-                    setSelectedProduct(item);
-                  }}
-                >
-                  <Link to={"/product-list"}>{item}</Link>
-                </li>
+                <Link to={item === "All Products" && "/product-list"}>
+                  <li
+                    className="flex items-center gap-2 p-2 hover:bg-gray-100 hover:text-[#FF624C] cursor-pointer border-l-2 border-r-2 border-b border-b-gray-100 border-transparent hover:shadow-xl uppercase  hover:border-r-[#FF624C] hover:border-l-[#FF624C] "
+                    key={item}
+                    onClick={() => {
+                      setIsProRefOpen(false);
+                      setSelectedProduct(item);
+                    }}
+                  >
+                    {item}
+                  </li>
+                </Link>
               ))}
             </ul>
           </div>

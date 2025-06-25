@@ -36,10 +36,10 @@ const FilterLayout = ({ bg = "#F4F4F4" }) => {
       style={{ backgroundColor: bg }}
     >
       <div>
-        <div className="flex justify-between items-start  mb-5  ">
+        <div className="flex justify-between items-start mb-5  ">
           <h5 className="text-xl font-bold leading-[30px] capitalize ">
             categories
-          </h5>{" "}
+          </h5>
           <GrDown className="text-xs self-center rotate-180  " />
         </div>
         <ul className="flex flex-col gap-3 ">
@@ -81,7 +81,7 @@ const FilterLayout = ({ bg = "#F4F4F4" }) => {
         <div className="flex justify-between items-start  mb-5  ">
           <h5 className="text-xl font-bold leading-[30px] capitalize ">
             Brands
-          </h5>{" "}
+          </h5>
           <GrDown className="text-xs self-center rotate-180  " />
         </div>
         <ul className="flex flex-col gap-3 ">
@@ -122,7 +122,7 @@ const FilterLayout = ({ bg = "#F4F4F4" }) => {
         <div className="flex justify-between items-start  mb-5  ">
           <h5 className="text-xl font-bold leading-[30px] capitalize ">
             Price
-          </h5>{" "}
+          </h5>
           <GrDown className="text-xs self-center rotate-180  " />
         </div>
         <div className="flex justify-between items-center font-['Montserrat'] text-base leading-6 text-[#030303] text-center ">

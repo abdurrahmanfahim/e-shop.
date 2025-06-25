@@ -8,7 +8,7 @@ import GridView from "../icons/GridView";
 import ListView from "../icons/ListView";
 
 const ProductListPage = () => {
-  const products = Array.from({ length: 160 }, (_, index) => ({
+  const products = Array.from({ length: 200 }, (_, index) => ({
     id: index + 1,
     name: `Product no. ${index + 1}`,
     price: (Math.random() * 100).toFixed(2),
@@ -34,7 +34,7 @@ const ProductListPage = () => {
             <div className="flex justify-between items-center mb-12  ">
               <div>
                 <p className="font-normal font-['Montserrat'] text-base leading-6  ">
-                  Showing {currentPage === 1 ? 1 : (currentPage * itemsPerPage) - (itemsPerPage - 1)} - {currentPage * itemsPerPage} of {products.length} results.
+                  Showing {currentPage === 1 ? 1 : (currentPage * itemsPerPage) - (itemsPerPage - 1)} - {products.length < currentPage * itemsPerPage ? products.length : currentPage * itemsPerPage} of {products.length} results.
                 </p>
               </div>
               <div className="flex justify-between items-center gap-6 ">
@@ -63,7 +63,7 @@ const ProductListPage = () => {
               </div>
             </div>
           </div>
-          <div className="w-[1140px] flex justify-between flex-wrap">
+          <div className="w-[1140px] flex justify-start flex-wrap">
             {currentProducts.map((item) => (
               <div className="w-1/4" key={item.id}>
                 <ProductLayout
@@ -78,7 +78,7 @@ const ProductListPage = () => {
           </div>
           <Pagination
             totalItems={products.length}
-            itemPerPage={itemsPerPage}
+            itemsPerPage={itemsPerPage}
             currentPage={currentPage}
             onPageChange={setCurrentPage}
           />

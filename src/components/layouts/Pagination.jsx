@@ -2,9 +2,8 @@ import React from "react";
 import PrevIcon from "../../icons/PrevIcon";
 import NextIcons from "../../icons/NextIcons";
 
-
-const Pagination = ({ totalItems, itemPerPage, currentPage, onPageChange }) => {
-  const totalPages = Math.ceil(totalItems / itemPerPage);
+const Pagination = ({ totalItems, itemsPerPage, currentPage, onPageChange }) => {
+  const totalPages = Math.ceil(totalItems / itemsPerPage);
   const maxPagesToShow = 10;
   const pagesToShowAfterBefore = 3;
 
@@ -39,7 +38,9 @@ const Pagination = ({ totalItems, itemPerPage, currentPage, onPageChange }) => {
             onClick={() => onPageChange(number)}
             key={index}
             className={`rounded-[5px] py-[9px] px-[18px] cursor-pointer ${
-              number === currentPage ?"bg-[#FF624C] text-white hover:bg-[#FF624C]" : 'hover:bg-gray-100'
+              number === currentPage
+                ? "bg-[#FF624C] text-white hover:bg-[#FF624C]"
+                : "hover:bg-gray-100"
             }  `}
           >
             {number}
