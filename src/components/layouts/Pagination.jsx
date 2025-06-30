@@ -2,7 +2,12 @@ import React from "react";
 import PrevIcon from "../../icons/PrevIcon";
 import NextIcons from "../../icons/NextIcons";
 
-const Pagination = ({ totalItems, itemsPerPage, currentPage, onPageChange }) => {
+const Pagination = ({
+  totalItems,
+  itemsPerPage,
+  currentPage,
+  onPageChange,
+}) => {
   const totalPages = Math.ceil(totalItems / itemsPerPage);
   const maxPagesToShow = 10;
   const pagesToShowAfterBefore = 3;
@@ -33,10 +38,12 @@ const Pagination = ({ totalItems, itemsPerPage, currentPage, onPageChange }) => 
       </button>
 
       {pageNumber.map((number, index) => (
-        <div className="w-full flex justify-center items-center  ">
+        <div
+          className="w-full flex justify-center items-center  "
+          key={index * index * 7}
+        >
           <button
             onClick={() => onPageChange(number)}
-            key={index}
             className={`rounded-[5px] py-[9px] px-[18px] cursor-pointer ${
               number === currentPage
                 ? "bg-[#FF624C] text-white hover:bg-[#FF624C]"

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { GrDown } from "react-icons/gr";
 import CheckBoxRect from "../../icons/CheckBoxRect";
 import CheckBoxChecked from "../../icons/CheckBoxChecked";
@@ -30,19 +30,39 @@ const FilterLayout = ({ bg = "#F4F4F4" }) => {
   const minPercent = (minPrice / 10000) * 100;
   const maxPercent = (maxPrice / 10000) * 100;
 
+  const [isOpenCategoryAcc, setIsOpenCategoryAcc] = useState(false);
+  const [isOpenBrandAcc, setIsOpenBrandAcc] = useState(false);
+
+  useEffect(() => {
+    setIsOpenBrandAcc(true)
+    setIsOpenCategoryAcc(true)
+  }, [])
+  
+
   return (
     <div
       className='p-12 font-["Montserrat"] rounded-[25px]'
       style={{ backgroundColor: bg }}
     >
-      <div>
+      <div
+        className="pb-10 cursor-pointer "
+        onClick={() => setIsOpenCategoryAcc(!isOpenCategoryAcc)}
+      >
         <div className="flex justify-between items-start mb-5  ">
           <h5 className="text-xl font-bold leading-[30px] capitalize ">
             categories
           </h5>
-          <GrDown className="text-xs self-center rotate-180  " />
+          <GrDown
+            className={`text-xs self-center  transition-all duration-300 ${
+              isOpenCategoryAcc ? "rotate-0" : "rotate-180"
+            } `}
+          />
         </div>
-        <ul className="flex flex-col gap-3 ">
+        <ul
+          className={`flex flex-col gap-3 overflow-hidden ${
+            isOpenCategoryAcc ? "max-h-full" : "h-0"
+          }`}
+        >
           <li className="flex gap-2 items-center  ">
             <input type="checkbox" className="accent-[#ff624c] size-4 " />
             <CheckBoxRect />
@@ -75,16 +95,27 @@ const FilterLayout = ({ bg = "#F4F4F4" }) => {
           </li>
         </ul>
       </div>
-      <hr className="w-full border-t border-t-[#C3C3C3] my-10   " />
+      <hr className="w-full border-t border-t-[#C3C3C3] mb-10   " />
 
-      <div>
-        <div className="flex justify-between items-start  mb-5  ">
+      <div
+        className="pb-10 cursor-pointer "
+        onClick={() => setIsOpenBrandAcc(!isOpenBrandAcc)}
+      >
+        <div className="flex justify-between items-start mb-5  ">
           <h5 className="text-xl font-bold leading-[30px] capitalize ">
             Brands
           </h5>
-          <GrDown className="text-xs self-center rotate-180  " />
+          <GrDown
+            className={`text-xs self-center  transition-all duration-300 ${
+              isOpenBrandAcc ? "rotate-0" : "rotate-180"
+            } `}
+          />
         </div>
-        <ul className="flex flex-col gap-3 ">
+        <ul
+          className={`flex flex-col gap-3 overflow-hidden ${
+            isOpenBrandAcc ? "max-h-full" : "h-0"
+          }`}
+        >
           <li className="flex gap-2 items-center  ">
             <input type="checkbox" className="accent-[#ff624c] size-4 " />
             <CheckBoxRect />
@@ -117,7 +148,7 @@ const FilterLayout = ({ bg = "#F4F4F4" }) => {
           </li>
         </ul>
       </div>
-      <hr className="w-full border-t border-t-[#C3C3C3] my-10   " />
+      <hr className="w-full border-t border-t-[#C3C3C3] mb-10   " />
       <div>
         <div className="flex justify-between items-start  mb-5  ">
           <h5 className="text-xl font-bold leading-[30px] capitalize ">
@@ -153,7 +184,9 @@ const FilterLayout = ({ bg = "#F4F4F4" }) => {
             className="absolute left-0 top-2 h-0.5 bg-[#FF624C] rounded  "
             style={{
               left: `${minPercent}%`,
-              width: `${(maxPercent - minPercent) > 100 ? 100 : (maxPercent - minPercent)}%`,
+              width: `${
+                maxPercent - minPercent > 100 ? 100 : maxPercent - minPercent
+              }%`,
             }}
           ></div>
           <input
