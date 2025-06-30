@@ -73,7 +73,7 @@ const BottomLeft = () => {
         {isCatRefOpen && (
           <div
             className="w-54 absolute left-0 top-full border-t border-white z-50 "
-            ref={categoriesRef}
+            ref={categoriesRef && categoriesRef}
           >
             <ul
               className="bg-white text-black text-sm font-medium w-full shadow-2xl z-10 border-t-4 border-[#FF624C] "
@@ -107,7 +107,7 @@ const BottomLeft = () => {
         {isProRefOpen && (
           <div
             className="w-48 absolute left-0 top-full border-t border-white z-50"
-            ref={productsRef}
+            ref={productsRef && productsRef}
           >
             <ul
               className="bg-white text-black text-sm font-medium w-full shadow-2xl z-10 border-t-4 border-[#FF624C]"

@@ -44,33 +44,33 @@ const FilterLayout = ({ bg = "#F4F4F4" }) => {
         </div>
         <ul className="flex flex-col gap-3 ">
           <li className="flex gap-2 items-center  ">
-            <input type="checkbox" className="accent-[#ff624c size-4 " />
+            <input type="checkbox" className="accent-[#ff624c] size-4 " />
             <CheckBoxRect />
             <CheckBoxChecked />
             Computers & Tablets
           </li>
           <li className="flex gap-2 items-center  ">
-            <input type="checkbox" className="accent-[#ff624c size-4 " />
+            <input type="checkbox" className="accent-[#ff624c] size-4 " />
             Mobile & Accessories
           </li>
           <li className="flex gap-2 items-center  ">
-            <input type="checkbox" className="accent-[#ff624c size-4 " />
+            <input type="checkbox" className="accent-[#ff624c] size-4 " />
             TV & Home Theater
           </li>
           <li className="flex gap-2 items-center  ">
-            <input type="checkbox" className="accent-[#ff624c size-4 " />
+            <input type="checkbox" className="accent-[#ff624c] size-4 " />
             Audio & Headphones
           </li>
           <li className="flex gap-2 items-center  ">
-            <input type="checkbox" className="accent-[#ff624c size-4 " />
+            <input type="checkbox" className="accent-[#ff624c] size-4 " />
             Cameras & Camcorders
           </li>
           <li className="flex gap-2 items-center  ">
-            <input type="checkbox" className="accent-[#ff624c size-4 " />
+            <input type="checkbox" className="accent-[#ff624c] size-4 " />
             Gaming Equipment
           </li>
           <li className="flex gap-2 items-center  ">
-            <input type="checkbox" className="accent-[#ff624c size-4 " />
+            <input type="checkbox" className="accent-[#ff624c] size-4 " />
             Home Appliances
           </li>
         </ul>
@@ -86,33 +86,33 @@ const FilterLayout = ({ bg = "#F4F4F4" }) => {
         </div>
         <ul className="flex flex-col gap-3 ">
           <li className="flex gap-2 items-center  ">
-            <input type="checkbox" className="accent-[#ff624c size-4 " />
+            <input type="checkbox" className="accent-[#ff624c] size-4 " />
             <CheckBoxRect />
             <CheckBoxChecked />
             Computers & Tablets
           </li>
           <li className="flex gap-2 items-center  ">
-            <input type="checkbox" className="accent-[#ff624c size-4 " />
+            <input type="checkbox" className="accent-[#ff624c] size-4 " />
             Mobile & Accessories
           </li>
           <li className="flex gap-2 items-center  ">
-            <input type="checkbox" className="accent-[#ff624c size-4 " />
+            <input type="checkbox" className="accent-[#ff624c] size-4 " />
             TV & Home Theater
           </li>
           <li className="flex gap-2 items-center  ">
-            <input type="checkbox" className="accent-[#ff624c size-4 " />
+            <input type="checkbox" className="accent-[#ff624c] size-4 " />
             Audio & Headphones
           </li>
           <li className="flex gap-2 items-center  ">
-            <input type="checkbox" className="accent-[#ff624c size-4 " />
+            <input type="checkbox" className="accent-[#ff624c] size-4 " />
             Cameras & Camcorders
           </li>
           <li className="flex gap-2 items-center  ">
-            <input type="checkbox" className="accent-[#ff624c size-4 " />
+            <input type="checkbox" className="accent-[#ff624c] size-4 " />
             Gaming Equipment
           </li>
           <li className="flex gap-2 items-center  ">
-            <input type="checkbox" className="accent-[#ff624c size-4 " />
+            <input type="checkbox" className="accent-[#ff624c] size-4 " />
             Home Appliances
           </li>
         </ul>

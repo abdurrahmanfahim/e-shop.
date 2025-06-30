@@ -5,63 +5,53 @@ import Amazon from "../icons/brands/Amazon";
 import Tencent from "../icons/brands/Tencent";
 import Spotify from "../icons/brands/Spotify";
 import Container from "./layouts/Container";
-import Slider from "react-slick";
+import Marquee from "react-fast-marquee";
 
 const Brands = () => {
-  const settings = {
-    dots: false,
-    infinite: true,
-    // speed: 500,
-    slidesToShow: 5,
-    slidesToScroll: 1,
-    autoplay: true,
-    speed: 5000,
-    autoplaySpeed: 0,
-    cssEase: "linear",
-  };
-
   return (
     <Container>
-      <Slider {...settings} className="py-[100px] brand ">
-        <div>
-          <Samsung />
-        </div>
+      <Marquee speed={60}>
+        <div className="flex items-center justify-between py-[100px] ">
+          <div className="ml-[200px] " >
+            <Samsung />
+          </div>
 
-        <div>
-          <OpenAi />
-        </div>
+          <div className="ml-[200px] " >
+            <OpenAi />
+          </div>
 
-        <div>
-          <Amazon />
-        </div>
+          <div className="ml-[200px] " >
+            <Amazon />
+          </div>
 
-        <div>
-          <Tencent />
-        </div>
+          <div className="ml-[200px] " >
+            <Tencent />
+          </div>
 
-        <div>
-          <Spotify />
-        </div>
-        <div>
-          <Samsung />
-        </div>
+          <div className="ml-[200px] " >
+            <Spotify />
+          </div>
+          <div className="ml-[200px] " >
+            <Samsung />
+          </div>
 
-        <div>
-          <OpenAi />
-        </div>
+          <div className="ml-[200px] " >
+            <OpenAi />
+          </div>
 
-        <div>
-          <Amazon />
-        </div>
+          <div className="ml-[200px] " >
+            <Amazon />
+          </div>
 
-        <div>
-          <Tencent />
-        </div>
+          <div className="ml-[200px] " >
+            <Tencent />
+          </div>
 
-        <div>
-          <Spotify />
+          <div className="ml-[200px] " >
+            <Spotify />
+          </div>
         </div>
-      </Slider>
+      </Marquee>
     </Container>
   );
 };
