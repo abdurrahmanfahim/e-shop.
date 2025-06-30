@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import FilterLayout from "../components/layouts/FilterLayout";
 import Container from "../components/layouts/Container";
 import Pagination from "../components/layouts/Pagination";
@@ -6,8 +6,14 @@ import ProductLayout from "../components/layouts/ProductLayout";
 import DownIcon from "../icons/DownIcon";
 import GridView from "../icons/GridView";
 import ListView from "../icons/ListView";
+import { Link } from "react-router-dom";
+import Dropdown from "../components/Dropdown";
 
 const ProductListPage = () => {
+  const sortOneOptions = ["Popularity", "Newest", "Rating", "Discount"];
+
+  const priceOptions = ["Price Low-to-High", "Price High-to-Low"];
+
   const products = Array.from({ length: 200 }, (_, index) => ({
     id: index + 1,
     name: `Product no. ${index + 1}`,
@@ -15,10 +21,19 @@ const ProductListPage = () => {
   }));
 
   const [currentPage, setCurrentPage] = useState(1);
-  const itemsPerPage = 16
+  const itemsPerPage = 16;
 
   const startIndex = (currentPage - 1) * itemsPerPage;
   const currentProducts = products.slice(startIndex, startIndex + itemsPerPage);
+
+  const [isSortOneOpen, setIsSortOneOpen] = useState(false);
+  const [isSortTwoOpen, setIsSortTwoOpen] = useState(false);
+
+  const [sortedItemOne, setSortedItemOne] = useState("Popularity");
+  const [sortedItemTwo, setSortedItemTwo] = useState("Price Low-to-High");
+
+  const sortOneRef = useRef();
+  const sortTwoRef = useRef();
 
   return (
     <Container>
@@ -34,23 +49,59 @@ const ProductListPage = () => {
             <div className="flex justify-between items-center mb-12  ">
               <div>
                 <p className="font-normal font-['Montserrat'] text-base leading-6  ">
-                  Showing {currentPage === 1 ? 1 : (currentPage * itemsPerPage) - (itemsPerPage - 1)} - {products.length < currentPage * itemsPerPage ? products.length : currentPage * itemsPerPage} of {products.length} results.
+                  <span className="mr-1">Showing</span>  
+                  {currentPage === 1
+                    ? 1
+                    : currentPage * itemsPerPage - (itemsPerPage - 1)}
+                  <span className="ml-1">- </span>
+                  {products.length < currentPage * itemsPerPage
+                    ? products.length
+                    : currentPage * itemsPerPage}
+                  <span className="ml-1">of </span>{products.length} results.
                 </p>
               </div>
               <div className="flex justify-between items-center gap-6 ">
-                <div className="flex justify-between items-center">
-                  <span className="mr-4">Sort by</span>
-                  <span className="font-['Montserrat'] font-bold text-base leading-6 text-[#FF624C] mr-12  ">
-                    Popularity
+                <div
+                  className="flex justify-between items-center relative cursor-pointer "
+                  onClick={() => setIsSortOneOpen(!isSortOneOpen)}
+                >
+                  <span className="text-[#303030] font-normal text-base leading-6 pr-4 ">
+                    Sort by
                   </span>
+                  <span className="font-['Montserrat'] font-bold text-base leading-6 text-[#FF624C] mr-12 text-left">
+                    {sortedItemOne}
+                  </span>
+                  <div className="absolute left-17 top-full z-50 text-sm font-medium ">
+                    <Dropdown
+                      data={sortOneOptions}
+                      ref={sortOneRef}
+                      isOpen={isSortOneOpen}
+                      setIsOpen={setIsSortOneOpen}
+                      setSelected={setSortedItemOne}
+                    />
+                  </div>
                   <span>
                     <DownIcon />
                   </span>
                 </div>
                 <span className="bg-[#CBCBCB] w-[1px] h-8 block "></span>
-                <div className="flex justify-between items-center">
-                  <span className="font-['Montserrat'] font-bold text-base leading-6 text-[#FF624C] mr-12  ">
-                    Price Low-to-High
+                <div
+                  className="flex justify-between items-center relative cursor-pointer "
+                  onClick={() => setIsSortTwoOpen(!isSortTwoOpen)}
+                >
+                  <span>
+                    <span className="font-['Montserrat'] font-bold text-base leading-6 text-[#FF624C] mr-12 text-left">
+                      {sortedItemTwo}
+                    </span>
+                    <div className="absolute left-0 top-full z-50 text-sm font-medium ">
+                      <Dropdown
+                        data={priceOptions}
+                        ref={sortTwoRef}
+                        isOpen={isSortTwoOpen}
+                        setIsOpen={setIsSortTwoOpen}
+                        setSelected={setSortedItemTwo}
+                      />
+                    </div>
                   </span>
                   <DownIcon />
                 </div>

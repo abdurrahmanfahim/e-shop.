@@ -4,6 +4,7 @@ import { FiMenu } from "react-icons/fi";
 import { GrDown } from "react-icons/gr";
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
+import Dropdown from "../../Dropdown";
 
 const BottomLeft = () => {
   const products = [
@@ -70,30 +71,17 @@ const BottomLeft = () => {
           <FiMenu className="text-2xl" />
           {t("All_Categories")}
         </button>
-        {isCatRefOpen && (
-          <div
-            className="w-54 absolute left-0 top-full border-t border-white z-50 "
-            ref={categoriesRef && categoriesRef}
-          >
-            <ul
-              className="bg-white text-black text-sm font-medium w-full shadow-2xl z-10 border-t-4 border-[#FF624C] "
-              onClick={() => setIsCatRefOpen(false)}
-            >
-              {categories.map((item) => (
-                <li
-                  className="flex items-center gap-2 p-2 hover:bg-gray-100 hover:text-[#FF624C] cursor-pointer border-l-2 border-r-2 border-b border-b-gray-100 border-transparent hover:shadow-xl uppercase  hover:border-r-[#FF624C] hover:border-l-[#FF624C] "
-                  key={item}
-                  onClick={() => {
-                    setIsCatRefOpen(false);
-                    setSelectedCategory(item);
-                  }}
-                >
-                  <Link to={"#"}>{item}</Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-        )}
+        
+
+        <div className="w-54 absolute left-0 top-full border-t border-white text-sm font-medium ">
+          <Dropdown
+            data={categories}
+            ref={categoriesRef}
+            isOpen={isCatRefOpen}
+            setIsOpen={setIsCatRefOpen}
+            setSelected={setSelectedCategory}
+          />
+        </div>
       </li>
 
       <li className="flex gap-4 relative  " ref={productsRef && productsRef}>
@@ -104,32 +92,16 @@ const BottomLeft = () => {
           {t("Products")}
           <GrDown className="text-sm self-center " />
         </button>
-        {isProRefOpen && (
-          <div
-            className="w-48 absolute left-0 top-full border-t border-white z-50"
-            ref={productsRef && productsRef}
-          >
-            <ul
-              className="bg-white text-black text-sm font-medium w-full shadow-2xl z-10 border-t-4 border-[#FF624C]"
-              onClick={() => setIsProRefOpen(false)}
-            >
-              {products.map((item) => (
-                <Link to={item === "All Products" && "/product-list"}>
-                  <li
-                    className="flex items-center gap-2 p-2 hover:bg-gray-100 hover:text-[#FF624C] cursor-pointer border-l-2 border-r-2 border-b border-b-gray-100 border-transparent hover:shadow-xl uppercase  hover:border-r-[#FF624C] hover:border-l-[#FF624C] "
-                    key={item}
-                    onClick={() => {
-                      setIsProRefOpen(false);
-                      setSelectedProduct(item);
-                    }}
-                  >
-                    {item}
-                  </li>
-                </Link>
-              ))}
-            </ul>
-          </div>
-        )}
+
+        <div className="w-54 bg-white absolute left-0 top-full border-t border-white text-sm font-medium z-50 ">
+          <Dropdown
+            data={products}
+            ref={productsRef}
+            isOpen={isProRefOpen}
+            setIsOpen={setIsProRefOpen}
+            setSelected={setSelectedProduct}
+          />
+        </div>
       </li>
       <li className="">
         <Link to={"/blog"}>{t("Blog")}</Link>

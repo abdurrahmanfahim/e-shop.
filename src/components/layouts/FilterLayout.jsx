@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { GrDown } from "react-icons/gr";
 import CheckBoxRect from "../../icons/CheckBoxRect";
 import CheckBoxChecked from "../../icons/CheckBoxChecked";
@@ -163,7 +163,7 @@ const FilterLayout = ({ bg = "#F4F4F4" }) => {
               type="number"
               value={minPrice}
               onChange={(e) => setMinPrice(e.target.value)}
-              className="w-12 pl-1 [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none"
+              className="w-12 pl-1 outline-0 [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none"
             />
           </div>
 
@@ -173,7 +173,7 @@ const FilterLayout = ({ bg = "#F4F4F4" }) => {
               type="number"
               value={maxPrice}
               onChange={(e) => setMaxPrice(e.target.value)}
-              className="w-13 pl-1 [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none"
+              className="w-14 block pl-1 outline-0 [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none"
             />
           </div>
         </div>
