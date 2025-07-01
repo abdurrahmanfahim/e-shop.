@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { GrDown } from "react-icons/gr";
-import CheckBoxRect from "../../icons/CheckBoxRect";
-import CheckBoxChecked from "../../icons/CheckBoxChecked";
+import ProductFilterAcc from "../ProductFilterAcc";
+import CustomCheckBox from "../CustomCheckBox";
 
 const FilterLayout = ({ bg = "#F4F4F4" }) => {
   const [minPrice, setMinPrice] = useState(100);
@@ -30,124 +30,30 @@ const FilterLayout = ({ bg = "#F4F4F4" }) => {
   const minPercent = (minPrice / 10000) * 100;
   const maxPercent = (maxPrice / 10000) * 100;
 
-  const [isOpenCategoryAcc, setIsOpenCategoryAcc] = useState(false);
-  const [isOpenBrandAcc, setIsOpenBrandAcc] = useState(false);
+const categories = [
+  { name: "Computers & Tablets" },
+  { name: "Mobile & Accessories" },
+  { name: "TV & Home Theater" },
+  { name: "Audio & Headphones" },
+  { name: "Cameras & Camcorders" },
+  { name: "Gaming Equipment" },
+  { name: "Home Appliances" }
+];
 
-  useEffect(() => {
-    setIsOpenBrandAcc(true)
-    setIsOpenCategoryAcc(true)
-  }, [])
-  
+
 
   return (
     <div
       className='p-12 font-["Montserrat"] rounded-[25px]'
       style={{ backgroundColor: bg }}
     >
-      <div
-        className="pb-10 cursor-pointer "
-        onClick={() => setIsOpenCategoryAcc(!isOpenCategoryAcc)}
-      >
-        <div className="flex justify-between items-start mb-5  ">
-          <h5 className="text-xl font-bold leading-[30px] capitalize ">
-            categories
-          </h5>
-          <GrDown
-            className={`text-xs self-center  transition-all duration-300 ${
-              isOpenCategoryAcc ? "rotate-0" : "rotate-180"
-            } `}
-          />
-        </div>
-        <ul
-          className={`flex flex-col gap-3 overflow-hidden ${
-            isOpenCategoryAcc ? "max-h-full" : "h-0"
-          }`}
-        >
-          <li className="flex gap-2 items-center  ">
-            <input type="checkbox" className="accent-[#ff624c] size-4 " />
-            <CheckBoxRect />
-            <CheckBoxChecked />
-            Computers & Tablets
-          </li>
-          <li className="flex gap-2 items-center  ">
-            <input type="checkbox" className="accent-[#ff624c] size-4 " />
-            Mobile & Accessories
-          </li>
-          <li className="flex gap-2 items-center  ">
-            <input type="checkbox" className="accent-[#ff624c] size-4 " />
-            TV & Home Theater
-          </li>
-          <li className="flex gap-2 items-center  ">
-            <input type="checkbox" className="accent-[#ff624c] size-4 " />
-            Audio & Headphones
-          </li>
-          <li className="flex gap-2 items-center  ">
-            <input type="checkbox" className="accent-[#ff624c] size-4 " />
-            Cameras & Camcorders
-          </li>
-          <li className="flex gap-2 items-center  ">
-            <input type="checkbox" className="accent-[#ff624c] size-4 " />
-            Gaming Equipment
-          </li>
-          <li className="flex gap-2 items-center  ">
-            <input type="checkbox" className="accent-[#ff624c] size-4 " />
-            Home Appliances
-          </li>
-        </ul>
-      </div>
+
+      <ProductFilterAcc heading={'categories'} data={categories} />
+
       <hr className="w-full border-t border-t-[#C3C3C3] mb-10   " />
 
-      <div
-        className="pb-10 cursor-pointer "
-        onClick={() => setIsOpenBrandAcc(!isOpenBrandAcc)}
-      >
-        <div className="flex justify-between items-start mb-5  ">
-          <h5 className="text-xl font-bold leading-[30px] capitalize ">
-            Brands
-          </h5>
-          <GrDown
-            className={`text-xs self-center  transition-all duration-300 ${
-              isOpenBrandAcc ? "rotate-0" : "rotate-180"
-            } `}
-          />
-        </div>
-        <ul
-          className={`flex flex-col gap-3 overflow-hidden ${
-            isOpenBrandAcc ? "max-h-full" : "h-0"
-          }`}
-        >
-          <li className="flex gap-2 items-center  ">
-            <input type="checkbox" className="accent-[#ff624c] size-4 " />
-            <CheckBoxRect />
-            <CheckBoxChecked />
-            Computers & Tablets
-          </li>
-          <li className="flex gap-2 items-center  ">
-            <input type="checkbox" className="accent-[#ff624c] size-4 " />
-            Mobile & Accessories
-          </li>
-          <li className="flex gap-2 items-center  ">
-            <input type="checkbox" className="accent-[#ff624c] size-4 " />
-            TV & Home Theater
-          </li>
-          <li className="flex gap-2 items-center  ">
-            <input type="checkbox" className="accent-[#ff624c] size-4 " />
-            Audio & Headphones
-          </li>
-          <li className="flex gap-2 items-center  ">
-            <input type="checkbox" className="accent-[#ff624c] size-4 " />
-            Cameras & Camcorders
-          </li>
-          <li className="flex gap-2 items-center  ">
-            <input type="checkbox" className="accent-[#ff624c] size-4 " />
-            Gaming Equipment
-          </li>
-          <li className="flex gap-2 items-center  ">
-            <input type="checkbox" className="accent-[#ff624c] size-4 " />
-            Home Appliances
-          </li>
-        </ul>
-      </div>
+      <ProductFilterAcc heading={'Brands'} data={categories} />
+
       <hr className="w-full border-t border-t-[#C3C3C3] mb-10   " />
       <div>
         <div className="flex justify-between items-start  mb-5  ">

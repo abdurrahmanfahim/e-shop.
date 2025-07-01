@@ -1,5 +1,13 @@
 @import "tailwindcss";
 
+@theme {
+  --color-orange: #FF624C; 
+  --color-black: #303030; 
+  --color-yellow: #FED550; 
+  --color-lightGray: #F4F4F4; 
+  --color-orTen: #FFEFED; 
+}
+
 .brand.slick-slider .slick-track {
   @apply flex justify-center gap-[198px];
 }
@@ -38,5 +46,14 @@ input[type="range"]::-moz-range-thumb {
   pointer-events: auto;
   cursor: pointer;
   -webkit-appearance: none;
+}
+
+.targetInput:checked + .customCheckBox {
+  background: var(--color-orange);
+  border:  var(--color-orange);
+}
+
+.targetInputParen:has(.targetInput:checked ){
+  font-weight: 700;
 }
 
