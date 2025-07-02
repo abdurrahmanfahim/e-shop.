@@ -71,7 +71,6 @@ const BottomLeft = () => {
           <FiMenu className="text-2xl" />
           {t("All_Categories")}
         </button>
-        
 
         <div className="w-54 absolute left-0 top-full border-t border-white text-sm font-medium ">
           <Dropdown

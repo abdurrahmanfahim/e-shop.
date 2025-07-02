@@ -29,7 +29,7 @@ const Pagination = ({
 
       pages.push(uniquePages[i])
       
-      if (i < uniquePages.length - 1 && uniquePages[i + 1] - uniquePages[1] > 1) {
+      if (i < uniquePages.length - 1 && uniquePages[i + 1] - uniquePages[i] > 1) {
         pages.push("...")
       }
     }
