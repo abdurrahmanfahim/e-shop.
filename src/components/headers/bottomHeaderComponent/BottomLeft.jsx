@@ -99,6 +99,7 @@ const BottomLeft = () => {
             isOpen={isProRefOpen}
             setIsOpen={setIsProRefOpen}
             setSelected={setSelectedProduct}
+            isLink={true}
           />
         </div>
       </li>
