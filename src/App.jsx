@@ -15,7 +15,7 @@ function App() {
       <Routes>
         <Route path="/" element={<CommonLayout />}>
           <Route path="/" element={<HomePage />} />
-          <Route path="/product-list" element={<ProductListPage />} />
+          <Route path="/all-products" element={<ProductListPage />} />
           <Route path="/product-details" element={<ProductDetailsPage />} />
           <Route path="/blog" element={<BlogPage />} />
           <Route path="/checkout" element={<CheckoutPage />} />

@@ -1,14 +1,18 @@
 import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 
-const Dropdown = ({ data, ref, isOpen, setIsOpen, setSelected, textStyle }) => {
-
-    useEffect(() => {
+const Dropdown = ({
+  data,
+  ref,
+  isOpen,
+  setIsOpen,
+  setSelected,
+  textStyle,
+  isLink,
+}) => {
+  useEffect(() => {
     const handleClickOutSide = (event) => {
-      if (
-        ref.current &&
-        !ref.current.contains(event.target)
-      ) {
+      if (ref.current && !ref.current.contains(event.target)) {
         setIsOpen(false);
       }
     };
@@ -18,7 +22,7 @@ const Dropdown = ({ data, ref, isOpen, setIsOpen, setSelected, textStyle }) => {
     return () => {
       document.removeEventListener("mousedown", handleClickOutSide);
     };
-  },  [ref, setIsOpen]);
+  }, [ref, setIsOpen]);
 
   if (!isOpen) return null;
 
@@ -40,7 +44,11 @@ const Dropdown = ({ data, ref, isOpen, setIsOpen, setSelected, textStyle }) => {
               setSelected(item);
             }}
           >
-            <span>{item}</span>
+            {isLink ? (
+              <Link to={item.toLowerCase().split(" ").join("-")}>{item}</Link>
+            ) : (
+              <span>{item}</span>
+            )}
           </li>
         ))}
       </ul>
