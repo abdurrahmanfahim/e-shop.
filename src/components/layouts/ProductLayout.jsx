@@ -66,7 +66,7 @@ const ProductLayout = ({
               {type}
             </span>
             <Link
-              to={"#"}
+              to={"/product-details"}
               className="line-clamp-2 font-['Poppins'] text-xl font-semibold leading-[30px] group-hover:text-[#FF624C] group-hover:underline transition-all duration-300 ease-in-out"
             >
               {title}

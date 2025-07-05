@@ -6,6 +6,8 @@
   --color-yellow: #FED550; 
   --color-lightGray: #F4F4F4; 
   --color-orTen: #FFEFED; 
+  --font-montserrat: 'Montserrat'; 
+  --font-poppins: 'Poppins'; 
 }
 
 .brand.slick-slider .slick-track {
