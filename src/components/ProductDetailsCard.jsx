@@ -13,8 +13,8 @@ const ProductDetailsCard = () => {
     setNav2(sliderRef2);
   }, []);
   return (
-    <div className="flex justify-between ">
-        <div className="mt-12 relative ">
+    <div className="flex justify-between mt-12 ">
+        <div className="relative ">
             <img src="./images/productDetails.png" alt="productDetails" />
             <div className="absolute py-2 px-2 right-4 top-0 cursor-nesw-resize ">
               <GrExpand />
