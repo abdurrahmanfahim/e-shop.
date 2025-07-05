@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { GrDown } from "react-icons/gr";
 import CustomCheckBox from "./CustomCheckBox";
 
-const ProductFilterAcc = ({ data, heading }) => {
+const ProductFilterAcc = ({ data, heading, children }) => {
   const [isOpen, setIsOpen] = useState(false);
 
   useEffect(() => {
@@ -12,7 +12,8 @@ const ProductFilterAcc = ({ data, heading }) => {
   console.log(data)
 
   return (
-    <div className="pb-10 cursor-pointer ">
+    !children ?
+      <div className="pb-10 cursor-pointer ">
       <div
         className="flex justify-between items-start mb-5  "
         onClick={() => setIsOpen(!isOpen)}
@@ -33,10 +34,37 @@ const ProductFilterAcc = ({ data, heading }) => {
       >
         {data.map((item, index) => (
           <li key={index * index + 5*3}>
-            <CustomCheckBox text={item.name} itemCount={item.count} />
+            <CustomCheckBox text={item.name} itemCount={item.value} />
           </li>
         ))}
       </ul>
+    </div>
+      : 
+      
+      <div className="pb-10 cursor-pointer ">
+        
+      <div
+        className="flex justify-between items-start mb-5  "
+          onClick={() => setIsOpen(!isOpen)}
+          
+      >
+        <h5 className="text-xl font-bold leading-[30px] capitalize ">
+          {heading}
+        </h5>
+        <GrDown
+          className={`text-xs self-center  transition-all duration-300 ${
+            isOpen ? "rotate-0" : "rotate-180"
+          } `}
+        />
+        </div>
+        <div
+          className={`flex flex-col gap-3 overflow-hidden ${
+          isOpen ? "max-h-full" : "h-0"
+        }`}
+          
+        >
+      {children}
+      </div>
     </div>
   );
 };
