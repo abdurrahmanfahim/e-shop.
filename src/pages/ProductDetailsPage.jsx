@@ -5,7 +5,7 @@ import ProductDetailsCard from "../components/ProductDetailsCard";
 const ProductDetailsPage = () => {
   return (
     <Container>
-      <div className=" mt-16 mb-[100px] ">
+      <div className=" mt-16 ">
         <div className="flex gap-4 items-center text-black font-montserrat text-base leading-6 ">
         <span>Home</span> <span>|</span> <span>Computers & Tablets</span>
       <span>|</span> <span>Laptop</span> <span>|</span>
