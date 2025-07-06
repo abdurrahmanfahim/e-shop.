@@ -33,7 +33,7 @@ const Dropdown = ({
       style={{ position: "absolute", minWidth: 180 }}
     >
       <ul
-        className={`w-full shadow-2xl z-10 border-t-4 border-[#FF624C] ${textStyle}`}
+        className={`w-full shadow-2xl z-50 border-t-4 border-[#FF624C] ${textStyle}`}
       >
         {data.map((item) => (
           <li

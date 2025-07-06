@@ -1,4 +1,4 @@
-.back {
+.li {
 
 
 
@@ -15,12 +15,12 @@
 
 color: var(--Black, #303030);
 
-/* Heading 4 */
-font-family: Poppins;
-font-size: 20px;
+/* Heading 6 */
+font-family: Montserrat;
+font-size: 2rem;
 font-style: normal;
-font-weight: 600;
-line-height: 30px; /* 150% */
+font-weight: 700;
+line-height: 24px; /* 150% */
 
 
 
