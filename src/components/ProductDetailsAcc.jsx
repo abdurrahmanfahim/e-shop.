@@ -71,7 +71,7 @@ const ProductDetailsAcc = ({ productData }) => {
         )}
 
         {activeAccordion === "specification" && (
-          <ul className="flex flex-col flex-wrap gap-8 h-[430px]  ">
+          <ul className="flex flex-col flex-wrap gap-8 max-h-[430px]  ">
             {productData.Specification.map((item) => (
               <li
                 key={item.name}
