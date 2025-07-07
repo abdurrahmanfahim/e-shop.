@@ -12,11 +12,13 @@ const Button = ({
   border = 'none',
   fontSize = '20px',
   leading = '30px',
-  onClick
+  onClick,
+  className,
 
 }) => {
   return (
     <button
+      className={className}
       style={{
         background: bg,
         color: color,

@@ -6,57 +6,9 @@ import ProductLayout from "./layouts/ProductLayout";
 import { GrDown } from "react-icons/gr";
 import Button from "./Button";
 import { Link } from "react-router-dom";
+import { productDetails } from "../productDetailsArrays";
 
 const NewProducts = () => {
-  const productDetails = [
-    {
-      type: "laptop",
-      title:
-        "UltraBook Pro 15 Slim Lightweight Laptop with 11th Gen Intel Core i7 Processor and 16GB RAM",
-      stars: 4,
-      rating: 85,
-      price: "1,299.00",
-    },
-    {
-      type: "camera",
-      title:
-        "ProShot DSLR 24MP Camera Bundle with 18-55mm Lens, Tripod, and Carrying Case for Professional Photography",
-      stars: 5,
-      rating: 45,
-      price: "799.00",
-      discounted: 30,
-      inStoke: 10,
-    },
-    {
-      type: "headphones",
-      title:
-        "Noise Cancelling Wireless Headphones with 40-Hour Battery Life and Hi-Res Audio Support",
-      stars: 3,
-      rating: 200,
-      price: "199.00",
-      discounted: 50,
-      inStoke: 50,
-    },
-    {
-      type: "watch",
-      title:
-        "SmartWatch Series 7 Fitness Tracker with Heart Rate Monitor, GPS, and 1.8-inch AMOLED Display",
-      stars: 4,
-      rating: 150,
-      price: "299.00",
-    },
-    {
-      type: "camera",
-      title:
-        "ProShot DSLR 24MP Camera Bundle with 18-55mm Lens, Tripod, and Carrying Case for Professional Photography",
-      stars: 5,
-      rating: 45,
-      price: "799.00",
-      discounted: 30,
-      inStoke: 10,
-    },
-  ];
-
   const categories = [
     "Computers & Tablets",
     "Mobile & Accessories",

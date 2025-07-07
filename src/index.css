@@ -7,7 +7,10 @@
   --color-lightGray: #F4F4F4; 
   --color-orTen: #FFEFED; 
   --font-montserrat: 'Montserrat'; 
-  --font-poppins: 'Poppins'; 
+  --font-poppins: 'Poppins';
+  
+  --radius-10p: 10px; 
+  --radius-25p: 25px; 
 }
 
 .brand.slick-slider .slick-track {
@@ -65,3 +68,6 @@ input[type="range"]::-moz-range-thumb {
     border-color: rgb(255, 98, 76);
     border-image: initial;
 }
+
+
+

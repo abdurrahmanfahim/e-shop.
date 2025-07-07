@@ -3,9 +3,9 @@ import Container from "../components/layouts/Container";
 import ProductLayout from "../components/layouts/ProductLayout";
 import Button from "../components/Button";
 import Slider from "react-slick";
-import { HiOutlineChevronRight } from "react-icons/hi";
 import NextArrow from "../icons/NextArrow";
 import langContext from "../contexts/LangContext";
+import { springProductDetails } from "../productDetailsArrays";
 
 function SampleNextArrow(props) {
   const { className, onClick } = props;
@@ -20,79 +20,6 @@ function SampleNextArrow(props) {
 }
 
 const SpringSale = () => {
-  const productDetails = [
-    {
-      type: "television",
-      title:
-        "LP78245 Smart TV OLED 43 Inch 4K HD Dynamic Color Enhancer USB Movie ..",
-      stars: 4,
-      rating: 85,
-      price: "499.00",
-      discounted: 50,
-      inStoke: 125,
-    },
-    {
-      type: "camera",
-      title:
-        "ProShot DSLR 24MP Camera Bundle with 18-55mm Lens, Tripod, and Carrying Case for Professional Photography",
-      stars: 5,
-      rating: 45,
-      price: "399.00",
-      discounted: 30,
-      inStoke: 70,
-    },
-    {
-      type: "watch",
-      title:
-        "SmartWatch Series 7 Fitness Tracker with Heart Rate Monitor, GPS, and 1.8-inch AMOLED Display",
-      stars: 4,
-      rating: 150,
-      price: "899.00",
-      discounted: 80,
-      inStoke: 30,
-    },
-    {
-      type: "camera",
-      title:
-        "ProShot DSLR 24MP Camera Bundle with 18-55mm Lens, Tripod, and Carrying Case for Professional Photography",
-      stars: 5,
-      rating: 45,
-      price: "799.00",
-      discounted: 30,
-      inStoke: 260,
-    },
-    {
-      type: "headphones",
-      title:
-        "Noise Cancelling Wireless Headphones with 40-Hour Battery Life and Hi-Res Audio Support",
-      stars: 3,
-      rating: 200,
-      price: "199.00",
-      discounted: 50,
-      inStoke: 50,
-    },
-    {
-      type: "watch",
-      title:
-        "SmartWatch Series 7 Fitness Tracker with Heart Rate Monitor, GPS, and 1.8-inch AMOLED Display",
-      stars: 4,
-      rating: 150,
-      price: "299.00",
-      discounted: 20,
-      inStoke: 0,
-    },
-    {
-      type: "camera",
-      title:
-        "ProShot DSLR 24MP Camera Bundle with 18-55mm Lens, Tripod, and Carrying Case for Professional Photography",
-      stars: 5,
-      rating: 45,
-      price: "599.00",
-      discounted: 30,
-      inStoke: 20,
-    },
-  ];
-
   var settings = {
     dots: false,
     infinite: true,
@@ -105,30 +32,26 @@ const SpringSale = () => {
     pauseOnHover: true,
   };
 
-  
   // eslint-disable-next-line no-unused-vars
   const { springSaleEnd } = useContext(langContext);
-  
+
   const [timerLeft, setTimerLeft] = useState("");
 
   function calculateTimeLeft() {
-    
     const now = new Date().getTime();
     const saleEndDate = new Date("May 31, 2025 10:00 AM +06").getTime();
-    
+
     const different = saleEndDate - now;
 
     if (different < 0) {
       return { days: 0, hours: 0, minutes: 0, seconds: 0 };
     }
-    
+
     return {
-      days: (Math.floor(different / (1000 * 60 * 60 * 24))),
-      hours: (
-        Math.floor((different % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60))
-      ),
-      minutes: (Math.floor((different % (1000 * 60 * 60)) / (1000 * 60))),
-      seconds: (Math.floor((different % (1000 * 60)) / 1000)),
+      days: Math.floor(different / (1000 * 60 * 60 * 24)),
+      hours: Math.floor((different % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)),
+      minutes: Math.floor((different % (1000 * 60 * 60)) / (1000 * 60)),
+      seconds: Math.floor((different % (1000 * 60)) / 1000),
     };
   }
 
@@ -151,28 +74,44 @@ const SpringSale = () => {
             <div>
               <div className="font-['Poppins'] font-semibold leading-[46px] text-4xl text-[#FF624C] flex gap-6 text-center pt-10 pb-18 ">
                 <p>
-                  <span>{timerLeft.days <= 9 ? `0${timerLeft.days}` : timerLeft.days}</span>
+                  <span>
+                    {timerLeft.days <= 9
+                      ? `0${timerLeft.days}`
+                      : timerLeft.days}
+                  </span>
                   <span className="text-[#303030] font-['Montserrat'] font-normal text-base leading-6 block ">
                     Days
                   </span>
                 </p>
                 :
                 <p>
-                  <span>{timerLeft.hours <= 9 ? `0${timerLeft.hours}` : timerLeft.hours}</span>
+                  <span>
+                    {timerLeft.hours <= 9
+                      ? `0${timerLeft.hours}`
+                      : timerLeft.hours}
+                  </span>
                   <span className="text-[#303030] font-['Montserrat'] font-normal text-base leading-6 block ">
                     Hours
                   </span>
                 </p>
                 :
                 <p>
-                  <span>{timerLeft.minutes <= 9 ? `0${timerLeft.minutes}` : timerLeft.minutes}</span>
+                  <span>
+                    {timerLeft.minutes <= 9
+                      ? `0${timerLeft.minutes}`
+                      : timerLeft.minutes}
+                  </span>
                   <span className="text-[#303030] font-['Montserrat'] font-normal text-base leading-6 block ">
                     Minutes
                   </span>
                 </p>
                 :
                 <p>
-                  <span>{timerLeft.seconds <= 9 ? `0${timerLeft.seconds}` : timerLeft.seconds}</span>
+                  <span>
+                    {timerLeft.seconds <= 9
+                      ? `0${timerLeft.seconds}`
+                      : timerLeft.seconds}
+                  </span>
                   <span className="text-[#303030] font-['Montserrat'] font-normal text-base leading-6 block ">
                     Seconds
                   </span>
@@ -185,7 +124,7 @@ const SpringSale = () => {
           </div>
           <div className="max-w-[992px] pr-7.5 ">
             <Slider className="spring_sale " {...settings}>
-              {productDetails.map((item) => (
+              {springProductDetails.map((item) => (
                 <ProductLayout
                   v2={true}
                   title={item.title}

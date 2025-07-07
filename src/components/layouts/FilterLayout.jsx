@@ -52,7 +52,7 @@ const FilterLayout = ({ bg = "#F4F4F4" }) => {
 
   return (
     <div
-      className='p-12 font-["Montserrat"] rounded-[25px]'
+      className='sticky -top-10 p-12 font-["Montserrat"] rounded-[25px]'
       style={{ backgroundColor: bg }}
     >
       <ProductFilterAcc heading={"categories"} data={categories} />
