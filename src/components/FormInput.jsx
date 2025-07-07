@@ -6,6 +6,7 @@ const FormInput = ({
   placeholder,
   star = false,
   textAria = false,
+  height
 }) => {
   return (
     <>
@@ -14,9 +15,10 @@ const FormInput = ({
       </label>
       {textAria ? (
         <textarea
-          className="h-[174px] font-montserrat text-xl leading-[30px] text-black rounded-[10px] px-8 py-6 w-full border border-[#CBCBCB] mt-3  "
+          className="font-montserrat text-xl leading-[30px] text-black rounded-[10px] px-8 py-6 w-full border border-[#CBCBCB] mt-3  "
           type={inpType}
           placeholder={placeholder}
+          style={{height: height }}
         />
       ) : (
         <input

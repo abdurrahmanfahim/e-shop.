@@ -77,6 +77,7 @@ const InformationAccPart = () => {
               textAria={true}
               label={"Order Notes"}
               placeholder={"Enter your order notes ..."}
+              height={'173px'}
             />
           </div>
         </div>
