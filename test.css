@@ -14,13 +14,14 @@
 
 
 color: var(--Black, #303030);
+text-align: center;
 
-/* Heading 3 */
+/* Heading 1 */
 font-family: Poppins;
-font-size: 24px;
+font-size: 56px;
 font-style: normal;
-font-weight: 600;
-line-height: 30px; /* 125% */
+font-weight: 700;
+line-height: 68px; /* 121.429% */
 
 
 

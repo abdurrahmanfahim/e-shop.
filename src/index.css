@@ -59,3 +59,9 @@ input[type="range"]::-moz-range-thumb {
   font-weight: 700;
 }
 
+.secondSlider .slick-current img {
+    border-width: 2px;
+    border-style: solid;
+    border-color: rgb(255, 98, 76);
+    border-image: initial;
+}

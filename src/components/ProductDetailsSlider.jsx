@@ -13,6 +13,16 @@ const ProductDetailsSlider = ({ setActiveModalSrc, setIsModalOpen }) => {
     setNav1(sliderRef1.current);
     setNav2(sliderRef2.current);
   }, []);
+
+    var settingsTwo = {
+
+    infinite: false,
+    speed: 500,
+    slidesToShow: 3,
+    slidesToScroll: 1,
+    focusOnSelect: true,
+  };
+
   return (
     <div>
       <div className="slider-container w-[834px] ">
@@ -51,17 +61,18 @@ const ProductDetailsSlider = ({ setActiveModalSrc, setIsModalOpen }) => {
         </Slider>
 
         <Slider
+          {...settingsTwo}
           asNavFor={nav1}
           ref={sliderRef2}
           slidesToShow={3}
           swipeToSlide={true}
           focusOnSelect={true}
-          className="w-[330px] mt-6 "
+          className="w-[330px] mt-6 secondSlider"
         >
           <div>
             <div className="w-[94px] h-[82px] overflow-hidden">
               <img
-                className="object-cover"
+                className="object-cover border border-[#AFAFAF] rounded-[10px] p-3 focus:border-orange"
                 src="./images/productimg.jpg"
                 alt="productDetails"
               />
@@ -70,7 +81,7 @@ const ProductDetailsSlider = ({ setActiveModalSrc, setIsModalOpen }) => {
           <div>
             <div className="w-[94px] h-[82px] overflow-hidden">
               <img
-                className=" object-cover"
+                className=" object-cover border border-[#AFAFAF] rounded-[10px] p-3 focus:border-orange"
                 src="./images/sliderSmall.png"
                 alt="sliderSmall"
               />
@@ -79,7 +90,7 @@ const ProductDetailsSlider = ({ setActiveModalSrc, setIsModalOpen }) => {
           <div>
             <div className="w-[94px] h-[82px] overflow-hidden">
               <img
-                className=" object-cover"
+                className=" object-cover border border-[#AFAFAF] rounded-[10px] p-3 focus:border-orange"
                 src="./images/sliderSmall.png"
                 alt="sliderSmall"
               />
