@@ -31,7 +31,7 @@ const MiddleHeader = () => {
               </div>
             </div>
             <Link
-              to={"#"}
+              to={"/cart"}
               className="relative px-12 ml-14 hover:text-[#FF624C] "
             >
               <div
