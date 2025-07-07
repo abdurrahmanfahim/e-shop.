@@ -188,9 +188,9 @@ const ProductDetailsCard = () => {
           </div>
           <div className="flex items-center gap-4 ">
             <Button text={"Buy Now"} />
-            <button className="p-[17px] border border-orange rounded-[10px] cursor-pointer ">
+            <Link to={'/cart'} className="p-[17px] border border-orange rounded-[10px] cursor-pointer ">
               <CartIcon color="#FF624C" />
-            </button>
+            </Link>
           </div>
         </div>
       </div>
