@@ -1,10 +1,10 @@
 import { cartData } from "../productDetailsArrays";
 import Container from "../components/layouts/Container";
 import { Link } from "react-router-dom";
-import { HiOutlineShare } from "react-icons/hi";
 import { AiOutlineDelete } from "react-icons/ai";
 import ProductCounter from "../components/ProductCounter";
 import Button from "../components/Button";
+import { IoShareSocialOutline } from "react-icons/io5";
 
 const CartPage = () => {
   
@@ -78,7 +78,7 @@ const CartPage = () => {
                         to={"#"}
                         className="size-[50px] rounded-full text-[#FF624C] bg-white hover:text-white hover:bg-[#FF624C] flex items-center justify-center text-xl transition-all duration-300 ease-out border border-[#FF624C] "
                       >
-                        <HiOutlineShare />
+                        <IoShareSocialOutline />
                       </Link>
                       <Link
                         to={"#"}
