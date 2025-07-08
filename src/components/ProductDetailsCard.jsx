@@ -18,7 +18,7 @@ import { laptopDetails, relatedProducts } from "../productDetailsArrays";
 const ProductDetailsCard = () => {
   let [activeModalSrc, setActiveModalSrc] = useState("");
   let [isModalOpen, setIsModalOpen] = useState(false);
-  let [quantity, setQuantity] = useState(1);
+  let [quantity, setQuantity] = useState(0);
 
   const handleQuantity = (value) => {
     if (value === "minus") {

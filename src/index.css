@@ -10,7 +10,9 @@
   --font-poppins: 'Poppins';
   
   --radius-10p: 10px; 
-  --radius-25p: 25px; 
+  --radius-15p: 15px; 
+
+  
 }
 
 .brand.slick-slider .slick-track {
@@ -69,5 +71,12 @@ input[type="range"]::-moz-range-thumb {
     border-image: initial;
 }
 
+.countInput {
+  -moz-appearance: textfield;
+}
 
-
+.countInput::-webkit-outer-spin-button,
+.countInput::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
