@@ -148,6 +148,7 @@ const productDetails = [
     discounted: 30,
     inStoke: 10,
   },
+
 ];
 
 const springProductDetails = [
@@ -222,6 +223,8 @@ const springProductDetails = [
     inStoke: 20,
   },
 ];
+
+
 
 const orderSummary = [
   {
@@ -299,6 +302,22 @@ const cartData = [
   }
 ];
 
+const fetchProducts = () => {
+  return fetch("https://fakestoreapi.com/products")
+    .then((response) => response.json())
+    .then((data) => {
+      return data.map((item) => ({
+        id: item.id,
+        type: item.category,
+        title: item.title,
+        star: parseInt(item.rating.rate),
+        rating: item.rating.count,
+        price: item.price.toString(),
+        image: item.image
+      }));
+    });
+};
+
 
 export {
   laptopDetails,
@@ -307,4 +326,5 @@ export {
   springProductDetails,
   orderSummary,
   cartData,
+  fetchProducts,
 };

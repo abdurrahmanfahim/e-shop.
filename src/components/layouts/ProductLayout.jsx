@@ -14,6 +14,7 @@ const ProductLayout = ({
   price,
   discounted,
   inStoke,
+  image="./images/productimg.jpg"
 }) => {
   // Helper to calculate discounted price
   const getDiscountedPrice = (price, discounted) => {
@@ -28,13 +29,15 @@ const ProductLayout = ({
   return (
     <>
       {v2 || (
-        <div className="p-6 pb-11 flex-1 bg-white border border-transparent rounded-[10px] hover:border-[#C3C3C3] transition-all duration-300 ease-in-out text-[#303030] group block cursor-pointer ">
+        <div className="h-[496px] p-6 pb-11 flex-1 bg-white border border-transparent rounded-[10px] hover:border-[#C3C3C3] transition-all duration-300 ease-in-out text-[#303030] group block cursor-pointer ">
           <div className="relative ">
-            <img
-              className="w-full"
-              src="./images/productimg.jpg"
-              alt="productimg"
+            <div className=" w-[236px] h-[214px] ">
+              <img
+              className=" object-contain size-full "
+              src={image}
+              alt={image}
             />
+            </div>
             {discounted && (
               <span className="absolute -top-2 -right-2 px-5 py-1.5 bg-[#FF624C] text-white font-['Montserrat'] font-bold leading-6 rounded-md ">
                 {discounted}%
@@ -67,7 +70,7 @@ const ProductLayout = ({
             </span>
             <Link
               to={"/product-details"}
-              className="line-clamp-2 font-['Poppins'] text-xl font-semibold leading-[30px] group-hover:text-[#FF624C] group-hover:underline transition-all duration-300 ease-in-out"
+              className="h-[60px] line-clamp-2 font-['Poppins'] text-xl font-semibold leading-[30px] group-hover:text-[#FF624C] group-hover:underline transition-all duration-300 ease-in-out"
             >
               {title}
             </Link>
@@ -100,13 +103,17 @@ const ProductLayout = ({
       )}
 
       {v2 && (
-        <div className="p-10 shrink flex-1 bg-white border border-transparent rounded-[10px] hover:bg-[#EAEAEA] transition-all duration-300 ease-in-out text-[#303030] group block cursor-pointer ">
+        <div className="h-[463px] p-10 shrink flex-1 bg-white border border-transparent rounded-[10px] hover:bg-[#EAEAEA] transition-all duration-300 ease-in-out text-[#303030] group block cursor-pointer ">
           <div className="relative ">
-            <img
-              className="w-full "
-              src="./images/productimgv2.jpg"
-              alt="productimg"
-            />
+
+            <div className=" w-full h-[345px] ">
+              <img
+                className=" object-contain size-full "
+                src={image}
+                alt={image}
+              />
+            </div>
+            
             {discounted && (
               <span className="absolute top-0 right-0 size-[100px] bg-[#FF624C] text-2xl text-white font-['Montserrat'] font-bold leading-6 rounded-full flex justify-center items-center ">
                 {discounted}%
@@ -119,7 +126,7 @@ const ProductLayout = ({
             </span>
             <Link
               to={"#"}
-              className="line-clamp-2 text-[#FF624C] font-['Poppins'] underline text-xl font-semibold leading-[30px] group-hover:text-[#303030] group-hover:no-underline  transition-all duration-300 ease-in-out "
+              className="line-clamp-2 h-[60px] text-[#FF624C] font-['Poppins'] underline text-xl font-semibold leading-[30px] group-hover:text-[#303030] group-hover:no-underline  transition-all duration-300 ease-in-out "
             >
               {title}
             </Link>

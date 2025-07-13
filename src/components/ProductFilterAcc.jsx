@@ -9,8 +9,6 @@ const ProductFilterAcc = ({ data, heading, children }) => {
     setIsOpen(true);
   }, []);
 
-  console.log(data)
-
   return (
     !children ?
       <div className="pb-10 cursor-pointer ">

@@ -7,7 +7,6 @@ import Button from "../components/Button";
 import { IoShareSocialOutline } from "react-icons/io5";
 
 const CartPage = () => {
-  
   return (
     <Container>
       <div className=" mt-16 ">
@@ -40,7 +39,7 @@ const CartPage = () => {
                     <img
                       className="w-[237px] h-[214px] object-cover  "
                       src="./images/productimg.jpg"
-                      alt=""
+                      alt="productimg"
                     />
                     <div className="w-[314px] mr-[100px] flex flex-col justify-center ">
                       <span className='font-["Montserrat"] text-sm font-normal leading-5 uppercase tracking-[5px] block '>
@@ -93,23 +92,43 @@ const CartPage = () => {
             </div>
             <div className="flex justify-between items-start mt-7 ">
               <div className=" relative">
-                <input className=" w-[618px] font-montserrat text-base leading-6 placeholder:text-black p-9 border border-[#CBCBCB] rounded-10p  " type="text" placeholder="Enter coupon code (ex: FIRSTPAY)" name="coupon-code" />
-                <button className="font-poppins text-xl font-semibold leading-[30px] text-black underline absolute top-1/2 right-9 -translate-y-1/2 cursor-pointer ">Apply Code</button>
+                <input
+                  className=" w-[618px] font-montserrat text-base leading-6 placeholder:text-black p-9 border border-[#CBCBCB] rounded-10p  "
+                  type="text"
+                  placeholder="Enter coupon code (ex: FIRSTPAY)"
+                  name="coupon-code"
+                />
+                <button className="font-poppins text-xl font-semibold leading-[30px] text-black underline absolute top-1/2 right-9 -translate-y-1/2 cursor-pointer ">
+                  Apply Code
+                </button>
               </div>
               <div className="">
                 <div className=" w-[618px] p-9 bg-lightGray rounded-10p font-montserrat flex justify-between items-center   ">
-                  <h6 className="text-base font-bold leading-6 text-black ">SUB TOTAL</h6>
+                  <h6 className="text-base font-bold leading-6 text-black ">
+                    SUB TOTAL
+                  </h6>
                   <p className="flex gap-6 items-center ">
-                    <b className="font-poppins text-2xl font-semibold leading-[30px] text-orange ">{cartData.reduce((acc, item) => acc + (item.price * item.quantity), 0).toLocaleString("en-US", {
-                        style: "currency",
-                        currency: "USD",
-                      })}</b>
+                    <b className="font-poppins text-2xl font-semibold leading-[30px] text-orange ">
+                      {cartData
+                        .reduce(
+                          (acc, item) => acc + item.price * item.quantity,
+                          0
+                        )
+                        .toLocaleString("en-US", {
+                          style: "currency",
+                          currency: "USD",
+                        })}
+                    </b>
                     <p>( excl. shipping fee )</p>
                   </p>
                 </div>
                 <div className="flex justify-end mt-8 mb-[100px] ">
-                  <Button text={'Continue Shopping'} bg="white" color="#303030" />
-                  <Button text={'Update Cart'} />
+                  <Button
+                    text={"Continue Shopping"}
+                    bg="white"
+                    color="#303030"
+                  />
+                  <Button text={"Update Cart"} />
                 </div>
               </div>
             </div>

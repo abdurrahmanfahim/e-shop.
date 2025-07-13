@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useRef, useState, useEffect } from "react";
 import FilterLayout from "../components/layouts/FilterLayout";
 import Container from "../components/layouts/Container";
 import Pagination from "../components/layouts/Pagination";
@@ -6,19 +6,23 @@ import ProductLayout from "../components/layouts/ProductLayout";
 import DownIcon from "../icons/DownIcon";
 import GridView from "../icons/GridView";
 import ListView from "../icons/ListView";
-import { Link } from "react-router-dom";
 import Dropdown from "../components/Dropdown";
+import { fetchProducts } from "../productDetailsArrays";
 
 const ProductListPage = () => {
   const sortOneOptions = ["Popularity", "Newest", "Rating", "Discount"];
 
   const priceOptions = ["Price Low-to-High", "Price High-to-Low"];
 
-  const products = Array.from({ length: 200 }, (_, index) => ({
-    id: index + 1,
-    name: `Product no. ${index + 1}`,
-    price: (Math.random() * 100).toFixed(2),
-  }));
+  const [products, setProducts] = useState([]);
+
+useEffect(() => {
+  fetchProducts().then(products => {
+    setProducts(products);
+  });
+}, []);
+
+  console.log(products)
 
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 16;
@@ -49,7 +53,7 @@ const ProductListPage = () => {
             <div className="flex justify-between items-center mb-12  ">
               <div>
                 <p className="font-normal font-['Montserrat'] text-base leading-6  ">
-                  <span className="mr-1">Showing</span>  
+                  <span className="mr-1">Showing</span>
                   {currentPage === 1
                     ? 1
                     : currentPage * itemsPerPage - (itemsPerPage - 1)}
@@ -57,7 +61,8 @@ const ProductListPage = () => {
                   {products.length < currentPage * itemsPerPage
                     ? products.length
                     : currentPage * itemsPerPage}
-                  <span className="ml-1">of </span>{products.length} results.
+                  <span className="ml-1">of </span>
+                  {products.length} results.
                 </p>
               </div>
               <div className="flex justify-between items-center gap-6 ">
@@ -118,11 +123,12 @@ const ProductListPage = () => {
             {currentProducts.map((item) => (
               <div className="w-1/4" key={item.id}>
                 <ProductLayout
-                  type={"product test"}
-                  title={item.name}
-                  stars={5}
-                  rating={item.price}
+                  type={item.type}
+                  title={item.title}
+                  stars={item.star}
+                  rating={item.rating}
                   price={item.price}
+                  image={item.image}
                 />
               </div>
             ))}
