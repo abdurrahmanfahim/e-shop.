@@ -16,13 +16,13 @@ const ProductListPage = () => {
 
   const [products, setProducts] = useState([]);
 
-useEffect(() => {
-  fetchProducts().then(products => {
-    setProducts(products);
-  });
-}, []);
+  useEffect(() => {
+    fetchProducts().then((products) => {
+      setProducts(products);
+    });
+  }, []);
 
-  console.log(products)
+  console.log(products);
 
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 16;

@@ -6,7 +6,8 @@ import LongArrow from "../icons/LongArrow";
 import Container from "./layouts/Container";
 import ProductLayout from "./layouts/ProductLayout";
 import { Link } from "react-router-dom";
-import { productDetails } from "../productDetailsArrays";
+import { fetchProducts } from "../productDetailsArrays";
+import { useEffect, useState } from "react";
 
 function SampleNextArrow(props) {
   const { className, style, onClick } = props;
@@ -80,6 +81,14 @@ const FeatureProduct = () => {
     pauseOnHover: true,
   };
 
+  const [products, setProducts] = useState([]);
+
+  useEffect(() => {
+    fetchProducts().then((products) => {
+      setProducts(products);
+    });
+  }, []);
+
   return (
     <Container>
       <div className="flex justify-between items-center w-full mb-12 ">
@@ -96,9 +105,10 @@ const FeatureProduct = () => {
         </button>
       </div>
       <Slider className="pb-20 mx-10 feature_product_slide" {...settings}>
-        {productDetails.map((item, index) => (
+        {products.map((item, index) => (
           <ProductLayout
             key={index}
+            image={item.image}
             type={item.type}
             title={item.title}
             stars={item.stars}

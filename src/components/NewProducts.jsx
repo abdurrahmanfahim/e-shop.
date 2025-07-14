@@ -6,7 +6,7 @@ import ProductLayout from "./layouts/ProductLayout";
 import { GrDown } from "react-icons/gr";
 import Button from "./Button";
 import { Link } from "react-router-dom";
-import { productDetails } from "../productDetailsArrays";
+import { fetchProducts } from "../productDetailsArrays";
 
 const NewProducts = () => {
   const categories = [
@@ -39,6 +39,16 @@ const NewProducts = () => {
       document.removeEventListener("mouseover", handleHoverOutSide);
     };
   }, []);
+
+  const [products, setProducts] = useState([]);
+
+  useEffect(() => {
+    fetchProducts().then((products) => {
+      setProducts(products);
+    });
+  }, []);
+
+  const currentProducts = products.slice(0, 5);
 
   return (
     <Container>
@@ -89,9 +99,10 @@ const NewProducts = () => {
         </div>
       </div>
       <div className="flex mb-16 gap-6 ">
-        {productDetails.map((item, index) => (
+        {currentProducts.map((item, index) => (
           <ProductLayout
             key={index}
+            image={item.image}
             type={item.type}
             title={item.title}
             stars={item.stars}

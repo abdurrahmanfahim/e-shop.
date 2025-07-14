@@ -6,7 +6,8 @@ import LongArrow from "../icons/LongArrow";
 import Container from "./layouts/Container";
 import ProductLayout from "./layouts/ProductLayout";
 import { Link } from "react-router-dom";
-import { productDetails } from '../productDetailsArrays'
+import { useEffect, useState } from "react";
+import { fetchProducts } from "../productDetailsArrays";
 
 function SampleNextArrow(props) {
   const { className, style, onClick } = props;
@@ -68,6 +69,18 @@ function SamplePrevArrow(props) {
 
 const BestSeller = () => {
 
+
+  const [products, setProducts] = useState([]);
+
+  useEffect(() => {
+    fetchProducts().then((products) => {
+      setProducts(products);
+    });
+  }, []);
+
+    const currentProducts = products.slice(0, 6);
+
+
   return (
     <Container>
       <div className="flex justify-between items-start py-20">
@@ -86,7 +99,7 @@ const BestSeller = () => {
             </button>
           </div>
           <div className="flex flex-wrap gap-x-5.5 ">
-            {productDetails.map((item, index) => (
+            {currentProducts.map((item, index) => (
               <div className="max-w-[285px] " key={item.price + index}>
                 <ProductLayout
                   type={item.type}
@@ -94,6 +107,7 @@ const BestSeller = () => {
                   stars={item.stars}
                   rating={item.rating}
                   price={item.price}
+                  image={item.image}
                   discounted={item.discounted}
                   inStoke={item.inStoke}
                 />

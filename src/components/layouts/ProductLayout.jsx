@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { BsCart3 } from "react-icons/bs";
 import { GoHeart } from "react-icons/go";
 import { IoShareSocialOutline } from "react-icons/io5";
@@ -22,9 +21,7 @@ const ProductLayout = ({
     return (price - (price * discounted) / 100).toFixed(2);
   };
 
-  const safeStars =
-    Number.isFinite(+stars) && +stars > 0 ? Math.floor(+stars) : 0;
-  const [ratingStars] = useState(new Array(safeStars).fill(1));
+  const starCount = stars && !isNaN(stars) ? Math.round(Number(stars)) : 4;
 
   return (
     <>
@@ -76,7 +73,7 @@ const ProductLayout = ({
             </Link>
             <div className="flex gap-2 items-center mt-1 mb-5  ">
               <p className="flex text-[#FED550]">
-                {ratingStars.map((item, index) => (
+                {starCount > 0 && [...Array(starCount)].map((_, index) => (
                   <MdOutlineStar key={index} />
                 ))}
               </p>
@@ -103,7 +100,7 @@ const ProductLayout = ({
       )}
 
       {v2 && (
-        <div className="h-[463px] p-10 shrink flex-1 bg-white border border-transparent rounded-[10px] hover:bg-[#EAEAEA] transition-all duration-300 ease-in-out text-[#303030] group block cursor-pointer ">
+        <div className="h-[702px] p-10 shrink flex-1 bg-white border border-transparent rounded-[10px] hover:bg-[#EAEAEA] transition-all duration-300 ease-in-out text-[#303030] group block cursor-pointer ">
           <div className="relative ">
 
             <div className=" w-full h-[345px] ">
@@ -132,7 +129,7 @@ const ProductLayout = ({
             </Link>
             <div className="flex gap-2 items-center mt-1 mb-5  ">
               <p className="flex text-[#FED550] group-hover:text-white ">
-                {ratingStars.map((item, index) => (
+                {starCount > 0 && [...Array(starCount)].map((_, index) => (
                   <MdOutlineStar key={index} />
                 ))}
               </p>

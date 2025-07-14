@@ -5,7 +5,7 @@ import Button from "../components/Button";
 import Slider from "react-slick";
 import NextArrow from "../icons/NextArrow";
 import langContext from "../contexts/LangContext";
-import { springProductDetails } from "../productDetailsArrays";
+import { fetchProducts, springProductDetails } from "../productDetailsArrays";
 
 function SampleNextArrow(props) {
   const { className, onClick } = props;
@@ -61,6 +61,15 @@ const SpringSale = () => {
     }, 1000);
 
     return () => clearInterval(timer);
+  }, []);
+
+  
+  const [products, setProducts] = useState([]);
+
+  useEffect(() => {
+    fetchProducts().then((products) => {
+      setProducts(products);
+    });
   }, []);
 
   return (
@@ -124,7 +133,7 @@ const SpringSale = () => {
           </div>
           <div className="max-w-[992px] pr-7.5 ">
             <Slider className="spring_sale " {...settings}>
-              {springProductDetails.map((item) => (
+              {products.map((item) => (
                 <ProductLayout
                   v2={true}
                   title={item.title}
@@ -132,8 +141,9 @@ const SpringSale = () => {
                   type={item.type}
                   rating={item.rating}
                   price={item.price}
-                  discounted={item.discounted}
-                  inStoke={item.inStoke}
+                  image={item.image}
+                  discounted={20}
+                  inStoke={100}
                 />
               ))}
             </Slider>

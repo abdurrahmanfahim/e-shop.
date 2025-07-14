@@ -14,8 +14,7 @@ const ProductDetailsSlider = ({ setActiveModalSrc, setIsModalOpen }) => {
     setNav2(sliderRef2.current);
   }, []);
 
-    var settingsTwo = {
-
+  var settingsTwo = {
     infinite: false,
     speed: 500,
     slidesToShow: 3,
@@ -28,7 +27,17 @@ const ProductDetailsSlider = ({ setActiveModalSrc, setIsModalOpen }) => {
       <div className="slider-container w-[834px] ">
         <Slider asNavFor={nav2} ref={sliderRef1}>
           <div>
-            <div className="w-[834px] h-[542px] overflow-hidden">
+            <div className="w-[834px] h-[542px] flex items-center justify-center">
+              <img
+                className=" object-cover"
+                src="./images/lrgTv.jpg"
+                alt="productDetails"
+                onMouseOver={() => setActiveModalSrc("./images/lrgTv.jpg")}
+              />
+            </div>
+          </div>
+          <div>
+            <div className="w-[834px] h-[542px] flex items-center justify-center">
               <img
                 className="w-2/3 mx-auto h-auto object-cover"
                 src="./images/productimg.jpg"
@@ -38,23 +47,12 @@ const ProductDetailsSlider = ({ setActiveModalSrc, setIsModalOpen }) => {
             </div>
           </div>
           <div>
-            <div className="w-[834px] h-[542px] overflow-hidden">
+            <div className="w-[834px] h-[542px] flex items-center justify-center">
               <img
                 className=" object-cover"
-                src="./images/productDetails.png"
+                src="./images/tv.jpg"
                 alt="productDetails"
-                onMouseOver={() =>
-                  setActiveModalSrc("./images/productDetails.png")
-                }
-              />
-            </div>
-          </div>
-          <div>
-            <div className="w-[834px] h-[542px] overflow-hidden">
-              <img
-                className=" object-cover"
-                src="./images/productDetails.png"
-                alt="productDetails"
+                onMouseOver={() => setActiveModalSrc("./images/tv.jpg")}
               />
             </div>
           </div>
@@ -69,8 +67,17 @@ const ProductDetailsSlider = ({ setActiveModalSrc, setIsModalOpen }) => {
           focusOnSelect={true}
           className="w-[330px] mt-6 secondSlider"
         >
+          <div className=" overflow-visible">
+            <div className="w-[94px] h-[82px] flex items-center justify-center">
+              <img
+                className=" object-cover border border-[#AFAFAF] rounded-[10px] p-3 focus:border-orange"
+                src="./images/lrgTv.jpg"
+                alt="sliderSmall"
+              />
+            </div>
+          </div>
           <div>
-            <div className="w-[94px] h-[82px] overflow-hidden">
+            <div className="w-[94px] h-[82px] flex items-center justify-center">
               <img
                 className="object-cover border border-[#AFAFAF] rounded-[10px] p-3 focus:border-orange"
                 src="./images/productimg.jpg"
@@ -79,19 +86,10 @@ const ProductDetailsSlider = ({ setActiveModalSrc, setIsModalOpen }) => {
             </div>
           </div>
           <div>
-            <div className="w-[94px] h-[82px] overflow-hidden">
+            <div className="w-[94px] h-[82px] flex items-center justify-center">
               <img
                 className=" object-cover border border-[#AFAFAF] rounded-[10px] p-3 focus:border-orange"
-                src="./images/sliderSmall.png"
-                alt="sliderSmall"
-              />
-            </div>
-          </div>
-          <div>
-            <div className="w-[94px] h-[82px] overflow-hidden">
-              <img
-                className=" object-cover border border-[#AFAFAF] rounded-[10px] p-3 focus:border-orange"
-                src="./images/sliderSmall.png"
+                src="./images/tv.jpg"
                 alt="sliderSmall"
               />
             </div>
