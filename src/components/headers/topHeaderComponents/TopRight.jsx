@@ -79,7 +79,7 @@ const TopRight = () => {
 
         {isCurrOpen && (
           <ul
-            className="absolute w-full bg-white shadow-2xl z-10 top-full leading-5 border-t-4 border-[#FF624C] "
+            className="absolute w-full bg-white shadow-2xl z-50 top-full leading-5 border-t-4 border-[#FF624C] "
             onClick={() => setIsCurrOpen(false)}
           >
             {currency?.map((curr) => (
@@ -148,7 +148,7 @@ const TopRight = () => {
 
         {isLangOpen && (
           <ul
-            className="absolute w-full bg-white shadow-2xl z-10 top-full leading-5 border-t-4 border-[#FF624C] "
+            className="absolute w-full bg-white shadow-2xl z-50 top-full leading-5 border-t-4 border-[#FF624C] "
             onClick={() => setIsLangOpen(false)}
           >
             {languages.map((lang) => (

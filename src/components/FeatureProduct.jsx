@@ -16,7 +16,7 @@ function SampleNextArrow(props) {
       className={`${className} grid place-items-center`}
       style={{
         ...style,
-        zIndex: "999",
+        zIndex: "2",
         borderRadius: "50%",
         border: "1px solid #303030",
         right: "-40px",
@@ -45,7 +45,7 @@ function SamplePrevArrow(props) {
       className={`${className} grid place-items-center`}
       style={{
         ...style,
-        zIndex: "999",
+        zIndex: "2",
         left: "-50px",
         marginLeft: "10px",
         display: "flex",
