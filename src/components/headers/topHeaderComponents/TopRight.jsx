@@ -36,7 +36,7 @@ const TopRight = () => {
   }, []);
 
   return (
-    <div className="flex items-center justify-between sm:gap-6 px-2 sm:px-0 ">
+    <div className="flex items-center justify-between gap-3 lg:gap-6 ">
       <div
         ref={currRef}
         className="flex items-center gap-2 cursor-pointer relative"
