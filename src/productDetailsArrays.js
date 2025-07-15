@@ -302,6 +302,51 @@ const cartData = [
   }
 ];
 
+  const languages = [
+    {
+      name: "English",
+      code: "english",
+      flag: "https://flagcdn.com/w40/gb.png",
+    },
+    {
+      name: "Bengali",
+      code: "bengali",
+      flag: "https://flagcdn.com/w40/bd.png",
+    },
+    {
+      name: "Arabic",
+      code: "arabic",
+      flag: "https://flagcdn.com/w40/sa.png",
+    },
+    {
+      name: "Spanish",
+      code: "spanish",
+      flag: "https://flagcdn.com/w40/es.png",
+    },
+    { name: "French", code: "french", flag: "https://flagcdn.com/w40/fr.png" },
+    { name: "German", code: "german", flag: "https://flagcdn.com/w40/de.png" },
+    {
+      name: "Chinese",
+      code: "chinese",
+      flag: "https://flagcdn.com/w40/cn.png",
+    },
+    {
+      name: "Japanese",
+      code: "japanese",
+      flag: "https://flagcdn.com/w40/jp.png",
+    },
+  ];
+  const currency = [
+    { name: "USD", code: "usd", symbol: "$" },
+    { name: "BDT", code: "bdt", symbol: "৳" },
+    { name: "EUR", code: "eur", symbol: "€" },
+    { name: "GBP", code: "gbp", symbol: "£" },
+    { name: "JPY", code: "jpy", symbol: "¥" },
+    { name: "INR", code: "inr", symbol: "₹" },
+    { name: "AUD", code: "aud", symbol: "A$" },
+    { name: "CAD", code: "cad", symbol: "C$" },
+  ];
+
 const fetchProducts = () => {
   return fetch("https://fakestoreapi.com/products")
     .then((response) => response.json())
@@ -339,4 +384,6 @@ export {
   orderSummary,
   cartData,
   fetchProducts,
+  languages, 
+  currency
 };

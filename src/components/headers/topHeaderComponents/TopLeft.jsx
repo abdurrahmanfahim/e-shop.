@@ -5,14 +5,14 @@ import PhoneHeader from "../../../icons/PhoneHeader";
 
 const TopLeft = () => {
   return (
-    <div className="flex items-center gap-6 ">
+    <div className="flex items-center sm:gap-6 justify-between px-2 sm:px-0 ">
       <div>
         <Link className="flex items-center gap-2 hover:text-[#FF624C] transition-all duration-150 ease-in-out" to={"https://maps.app.goo.gl/Q2Sc2SEXxMzaRDRA9"} target="_blank">
         <LocationHeader />
         123 Main Street, AnyTown USA
       </Link>
       </div>
-      <span className="w-[1px] h-8 bg-[#CBCBCB] "></span>
+      <span className="w-[1px] h-6 sm:h-8 bg-[#CBCBCB] "></span>
       <div>
       <Link className="flex items-center gap-2 hover:text-[#FF624C] transition-all duration-150 ease-in-out" to={"tel:1613529163"} target="_blank">
         <PhoneHeader />

@@ -5,7 +5,7 @@ import BottomRight from "./BottomRight";
 
 const BottomHeader = () => {
   return (
-    <div className="bg-[#FF624C] w-full ">
+    <div className="bg-[#FF624C] w-full sticky top-0 z-50 ">
       <Container>
         <div className="flex justify-between font-['montserrat'] text-base font-semibold leading-6 text-white capitalize ">
           <BottomLeft />
