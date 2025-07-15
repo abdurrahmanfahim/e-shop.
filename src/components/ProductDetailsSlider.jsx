@@ -32,7 +32,6 @@ const ProductDetailsSlider = ({ setActiveModalSrc, setIsModalOpen }) => {
                 className=" object-cover"
                 src="./images/lrgTv.jpg"
                 alt="productDetails"
-                onMouseOver={() => setActiveModalSrc("./images/lrgTv.jpg")}
               />
             </div>
           </div>
@@ -42,7 +41,6 @@ const ProductDetailsSlider = ({ setActiveModalSrc, setIsModalOpen }) => {
                 className="w-2/3 mx-auto h-auto object-cover"
                 src="./images/productimg.jpg"
                 alt="productDetails"
-                onMouseOver={() => setActiveModalSrc("./images/productimg.jpg")}
               />
             </div>
           </div>
@@ -52,7 +50,6 @@ const ProductDetailsSlider = ({ setActiveModalSrc, setIsModalOpen }) => {
                 className=" object-cover"
                 src="./images/tv.jpg"
                 alt="productDetails"
-                onMouseOver={() => setActiveModalSrc("./images/tv.jpg")}
               />
             </div>
           </div>
@@ -68,27 +65,36 @@ const ProductDetailsSlider = ({ setActiveModalSrc, setIsModalOpen }) => {
           className="w-[330px] mt-6 secondSlider"
         >
           <div className=" overflow-visible">
-            <div className="w-[94px] h-[82px] flex items-center justify-center">
+            <div
+              className="w-[94px] h-[82px] flex items-center justify-center"
+              onClick={() => setActiveModalSrc("./images/lrgTv.jpg")}
+            >
               <img
-                className=" object-cover border border-[#AFAFAF] rounded-[10px] p-3 focus:border-orange"
+                className=" object-cover size-full border border-[#AFAFAF] rounded-[10px] p-3 focus:border-orange"
                 src="./images/lrgTv.jpg"
                 alt="sliderSmall"
               />
             </div>
           </div>
           <div>
-            <div className="w-[94px] h-[82px] flex items-center justify-center">
+            <div
+              className="w-[94px] h-[82px] flex items-center justify-center"
+              onClick={() => setActiveModalSrc("./images/productimg.jpg")}
+            >
               <img
-                className="object-cover border border-[#AFAFAF] rounded-[10px] p-3 focus:border-orange"
+                className="object-cover size-full border border-[#AFAFAF] rounded-[10px] p-3 focus:border-orange"
                 src="./images/productimg.jpg"
                 alt="productDetails"
               />
             </div>
           </div>
           <div>
-            <div className="w-[94px] h-[82px] flex items-center justify-center">
+            <div
+              className="w-[94px] h-[82px] flex items-center justify-center"
+              onClick={() => setActiveModalSrc("./images/tv.jpg")}
+            >
               <img
-                className=" object-cover border border-[#AFAFAF] rounded-[10px] p-3 focus:border-orange"
+                className=" object-cover size-full border border-[#AFAFAF] rounded-[10px] p-3 focus:border-orange"
                 src="./images/tv.jpg"
                 alt="sliderSmall"
               />
