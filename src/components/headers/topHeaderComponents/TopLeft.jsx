@@ -5,7 +5,7 @@ import PhoneHeader from "../../../icons/PhoneHeader";
 
 const TopLeft = () => {
   return (
-    <div className="flex items-center gap-2 lg:gap-6 justify-between ">
+    <div className="flex items-center gap-2 sm:gap-4 lg:gap-6 justify-between ">
       <div>
         <Link className="flex items-center gap-2 hover:text-[#FF624C] transition-all duration-150 ease-in-out" to={"https://maps.app.goo.gl/Q2Sc2SEXxMzaRDRA9"} target="_blank">
         <LocationHeader />

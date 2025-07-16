@@ -345,6 +345,32 @@ const cartData = [
     { name: "INR", code: "inr", symbol: "₹" },
     { name: "AUD", code: "aud", symbol: "A$" },
     { name: "CAD", code: "cad", symbol: "C$" },
+];
+  
+  const products = [
+    "All Products",
+    "Laptops & Desktops",
+    "Smartphones",
+    "Smart TVs",
+    "Bluetooth Speakers",
+    "DSLR Cameras",
+    "Gaming Consoles",
+    "Microwave Ovens",
+    "Wearable Devices",
+    "Printers",
+    "Smart Watches",
+    "VR Headsets",
+    "Projectors",
+  ];
+
+  const categories = [
+    "Computers & Tablets",
+    "Mobile & Accessories",
+    "TV & Home Theater",
+    "Audio & Headphones",
+    "Cameras & Camcorders",
+    "Gaming Equipment",
+    "Home Appliances",
   ];
 
 const fetchProducts = () => {
@@ -376,6 +402,8 @@ const fetchProducts = () => {
 };
 
 
+
+
 export {
   laptopDetails,
   relatedProducts,
@@ -385,5 +413,7 @@ export {
   cartData,
   fetchProducts,
   languages, 
-  currency
+  currency,
+  products, 
+  categories
 };

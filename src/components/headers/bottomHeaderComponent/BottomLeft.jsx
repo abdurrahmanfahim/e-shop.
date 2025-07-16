@@ -5,33 +5,9 @@ import { GrDown } from "react-icons/gr";
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import Dropdown from "../../Dropdown";
+import { products, categories } from "../../../productDetailsArrays";
 
 const BottomLeft = () => {
-  const products = [
-    "All Products",
-    "Laptops & Desktops",
-    "Smartphones",
-    "Smart TVs",
-    "Bluetooth Speakers",
-    "DSLR Cameras",
-    "Gaming Consoles",
-    "Microwave Ovens",
-    "Wearable Devices",
-    "Printers",
-    "Smart Watches",
-    "VR Headsets",
-    "Projectors",
-  ];
-
-  const categories = [
-    "Computers & Tablets",
-    "Mobile & Accessories",
-    "TV & Home Theater",
-    "Audio & Headphones",
-    "Cameras & Camcorders",
-    "Gaming Equipment",
-    "Home Appliances",
-  ];
 
   const [isCatRefOpen, setIsCatRefOpen] = useState(false);
   const [isProRefOpen, setIsProRefOpen] = useState(false);
