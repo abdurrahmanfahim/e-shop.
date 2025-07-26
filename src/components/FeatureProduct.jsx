@@ -104,7 +104,7 @@ const FeatureProduct = () => {
           </Link>
         </button>
       </div>
-      <Slider className="pb-20 mx-10 feature_product_slide" {...settings}>
+      <Slider className="w-full pb-20 mx-10 feature_product_slide" {...settings}>
         {products.map((item, index) => (
           <ProductLayout
             key={index}

@@ -34,9 +34,9 @@ const MiddleHeader = () => {
   return (
     <>
       <Container>
-        <div className="flex justify-between items-center gap-2 sm:gap-4 lg:gap-6 font-['Montserrat'] py-2 sm:py-6 px-2 lg:px-0  ">
+        <div className={`flex justify-between items-center gap-2 sm:gap-4 lg:gap-6 font-['Montserrat'] py-2 sm:py-6 px-2 lg:px-0  `}>
           <div
-            className={`mr-3 py-3 ${!activeSearchBar ? "block" : "hidden"} `}
+            className={`mr-3 py-3 ${!activeSearchBar ? "block mr-0 py-0 " : "hidden "} `}
           >
             <Link to={"/"}>
               <img src="images/logo.png" alt="logo" />
@@ -47,11 +47,18 @@ const MiddleHeader = () => {
             <div className="relative" ref={searchRef}>
               <input
                 className={`text-[#646464] font-normal font-['Montserrat'] text-xs sm:text-sm leading-5 py-[18px] px-6 rounded-[10px] border border-[#979797] w-[332px] bg-white capitalize "
-                type="text sm:block  ${activeSearchBar ? "block" : "hidden"} `}
+                type="text sm:block  ${activeSearchBar ? "block w-screen" : "hidden"} `}
                 placeholder="Search Products ..."
               />
               <span
-                className={`absolute -right-5 top-1/2 -translate-y-1/2 sm:right-6 scale-170 sm:scale-100 ${
+                className={`absolute -right-5 top-1/2 -translate-y-1/2 sm:right-6 scale-170 sm:scale-100 `}
+                onClick={() => setActiveSearchBar(true)}
+              >
+                <SearchIcon />
+              </span>
+              
+              <span
+                className={`absolute right-6 top-1/2 -translate-y-1/2 hidden sm:block ${
                   !activeSearchBar ? "block" : "-right-10"
                 } `}
                 onClick={() => setActiveSearchBar(true)}
@@ -64,7 +71,7 @@ const MiddleHeader = () => {
               <Link
                 to={"/cart"}
                 className={`flex items-center hover:text-[#FF624C] ${
-                  !activeSearchBar ? "block" : "hidden"
+                  !activeSearchBar ? "block" : " "
                 } `}
               >
                 <span
@@ -92,7 +99,7 @@ const MiddleHeader = () => {
               <Link
                 to={"#"}
                 className={`flex items-center hover:text-[#FF624C] ${
-                  !activeSearchBar ? "block" : "hidden"
+                  !activeSearchBar ? "block" : " "
                 } `}
               >
                 <span className="flex justify-center ">
