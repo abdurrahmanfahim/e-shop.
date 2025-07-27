@@ -34,9 +34,11 @@ const MiddleHeader = () => {
   return (
     <>
       <Container>
-        <div className={`flex justify-between items-center gap-2 sm:gap-4 lg:gap-6 font-['Montserrat'] py-2 sm:py-6 px-2 lg:px-0  `}>
+        <div
+          className={`flex justify-between items-center gap-2 sm:gap-4 lg:gap-6 font-['Montserrat'] py-2 sm:py-6  `}
+        >
           <div
-            className={`mr-3 py-3 ${!activeSearchBar ? "block mr-0 py-0 " : "hidden "} `}
+            className={`mr-3 py-3 ${activeSearchBar && 'hidden'}`}
           >
             <Link to={"/"}>
               <img src="images/logo.png" alt="logo" />
@@ -44,35 +46,33 @@ const MiddleHeader = () => {
           </div>
 
           <div className="flex justify-center items-center gap-12  ">
-            <div className="relative" ref={searchRef}>
+            {/* SearchBar start here */}
+            <div className="relative w-auto " ref={searchRef}>
               <input
-                className={`text-[#646464] font-normal font-['Montserrat'] text-xs sm:text-sm leading-5 py-[18px] px-6 rounded-[10px] border border-[#979797] w-[332px] bg-white capitalize "
-                type="text sm:block  ${activeSearchBar ? "block w-screen" : "hidden"} `}
+                className={`w-[calc(100vw-1rem)] sm:max-w-[332px] text-[#646464] font-normal font-['Montserrat'] text-xs sm:text-sm leading-5 py-[18px] px-6 rounded-[10px] border border-[#979797] bg-white capitalize "
+                type="text sm:block  ${
+                  activeSearchBar ? "block" : "hidden"
+                } `}
                 placeholder="Search Products ..."
               />
               <span
-                className={`absolute -right-5 top-1/2 -translate-y-1/2 sm:right-6 scale-170 sm:scale-100 `}
+                className={`absolute -right-5 top-1/2 -translate-y-1/2 sm:right-6 scale-170 sm:scale-100 block ${activeSearchBar && 'hidden'} sm:hidden `}
                 onClick={() => setActiveSearchBar(true)}
               >
                 <SearchIcon />
               </span>
-              
+
               <span
-                className={`absolute right-6 top-1/2 -translate-y-1/2 hidden sm:block ${
-                  !activeSearchBar ? "block" : "-right-10"
-                } `}
-                onClick={() => setActiveSearchBar(true)}
+                className={`absolute right-6 top-1/2 -translate-y-1/2 ${!activeSearchBar && 'hidden sm:block '} `}
               >
                 <SearchIcon />
               </span>
             </div>
 
-            <div className="flex items-center gap-6 sm:gap-6 lg:gap-12 ">
+            <div className={`flex items-center gap-6 lg:gap-12 ${activeSearchBar && 'hidden'} `}>
               <Link
                 to={"/cart"}
-                className={`flex items-center hover:text-[#FF624C] ${
-                  !activeSearchBar ? "block" : " "
-                } `}
+                className={`flex gap-0 lg:gap-6 justify-between items-center hover:text-[#FF624C]  `}
               >
                 <span
                   className={`flex justify-center ${
@@ -98,9 +98,7 @@ const MiddleHeader = () => {
 
               <Link
                 to={"#"}
-                className={`flex items-center hover:text-[#FF624C] ${
-                  !activeSearchBar ? "block" : " "
-                } `}
+                className={`flex gap-0 lg:gap-6 justify-between items-center hover:text-[#FF624C]  `}
               >
                 <span className="flex justify-center ">
                   <UserIcon />
@@ -116,9 +114,8 @@ const MiddleHeader = () => {
               </Link>
             </div>
 
-            <div className="text-3xl block sm:hidden "
-            onClick={()=> {}}>
-              <FiMenu />
+            <div className={`text-3xl block ${activeSearchBar && 'hidden'} sm:hidden `} onClick={() => {}}>
+              <FiMenu className="hover:text-orange focus:text-orange " />
             </div>
           </div>
         </div>
