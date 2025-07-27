@@ -116,7 +116,7 @@ const MiddleHeader = () => {
               </Link>
             </div>
 
-            <div className={`text-3xl block ${activeSearchBar && 'hidden'} sm:hidden `} onClick={() => setMobileNavOpen(true)}>
+            <div className={`text-3xl block ${activeSearchBar && 'hidden'} lg:hidden `} onClick={() => setMobileNavOpen(true)}>
               <FiMenu className="hover:text-orange focus:text-orange " />
             </div>
           </div>

@@ -38,7 +38,7 @@ const BottomLeft = () => {
   const { t } = useTranslation();
 
   return (
-    <ul className="flex gap-20  leading-18 ">
+    <ul className="flex gap-20 leading-18 ">
       <li className="relative " ref={categoriesRef && categoriesRef}>
         <button
           className="flex gap-4 items-center"
