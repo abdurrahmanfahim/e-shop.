@@ -7,6 +7,7 @@ import { useEffect, useRef, useState } from "react";
 import { useTranslation } from "react-i18next";
 import SearchIcon from "../../../icons/SearchIcon";
 import { FiMenu } from "react-icons/fi";
+import MiddleNav from "./MiddleNav";
 
 const MiddleHeader = () => {
   const { t } = useTranslation();
@@ -14,6 +15,7 @@ const MiddleHeader = () => {
   const [notification, setNotification] = useState(true);
 
   const [activeSearchBar, setActiveSearchBar] = useState(false);
+  const [mobileNavOpen, setMobileNavOpen] = useState(false);
 
   const searchRef = useRef();
 
@@ -114,12 +116,13 @@ const MiddleHeader = () => {
               </Link>
             </div>
 
-            <div className={`text-3xl block ${activeSearchBar && 'hidden'} sm:hidden `} onClick={() => {}}>
+            <div className={`text-3xl block ${activeSearchBar && 'hidden'} sm:hidden `} onClick={() => setMobileNavOpen(true)}>
               <FiMenu className="hover:text-orange focus:text-orange " />
             </div>
           </div>
         </div>
       </Container>
+      <MiddleNav isOpen={mobileNavOpen} onClose={() => setMobileNavOpen(false)} />
     </>
   );
 };
