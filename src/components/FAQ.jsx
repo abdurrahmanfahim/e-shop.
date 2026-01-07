@@ -32,8 +32,8 @@ const FAQ = () => {
   return (
     <div className="bg-[#F4F4F4] ">
       <Container>
-        <div className="pt-16 pb-17 flex justify-between items-end relative ">
-          <div className="w-[926px] flex flex-col gap-6   ">
+        <div className="pt-12 lg:pt-16 pb-12 lg:pb-17 flex flex-col lg:flex-row justify-between items-start lg:items-end gap-8 lg:gap-0 relative ">
+          <div className="w-full lg:w-[926px] flex flex-col gap-4 lg:gap-6 order-2 lg:order-1">
             {faqs.map((item, index) => (
               <AccordionItem
                 key={index * index + index}
@@ -46,17 +46,19 @@ const FAQ = () => {
               />
             ))}
           </div>
-          <div className="w-[482px] text-[#303030] ">
-            <h2 className="font-['Poppins'] text-4xl font-semibold leading-[46px] ">
+          <div className="w-full lg:w-[482px] text-[#303030] text-center lg:text-left order-1 lg:order-2">
+            <h2 className="font-['Poppins'] text-2xl lg:text-4xl font-semibold leading-[30px] lg:leading-[46px] ">
               Frequently Asked Questions
             </h2>
-            <p className="font-['Montserrat'] font-normal text-xl leading-[30px] mt-6 mb-16 max-w-[392px] ">
+            <p className="font-['Montserrat'] font-normal text-lg lg:text-xl leading-[26px] lg:leading-[30px] mt-4 lg:mt-6 mb-8 lg:mb-16 max-w-full lg:max-w-[392px] mx-auto lg:mx-0">
               Questions that get asked the most by our clients. Get any burning
               questions?
             </p>
-            <Button text={"Ask A Question"} />
+            <div className="flex justify-center lg:justify-start">
+              <Button text={"Ask A Question"} />
+            </div>
           </div>
-          <div className=" absolute top-16 right-0 ">
+          <div className="absolute top-12 lg:top-16 right-0 hidden lg:block">
             <img src="./images/shapes/dots.svg" alt="" />
           </div>
         </div>

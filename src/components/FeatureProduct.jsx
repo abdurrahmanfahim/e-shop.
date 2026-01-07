@@ -10,59 +10,25 @@ import { fetchProducts } from "../productDetailsArrays";
 import { useEffect, useState } from "react";
 
 function SampleNextArrow(props) {
-  const { className, style, onClick } = props;
+  const { className, onClick } = props;
   return (
     <div
-      className={`${className} grid place-items-center`}
-      style={{
-        ...style,
-        zIndex: "2",
-        borderRadius: "50%",
-        border: "1px solid #303030",
-        right: "-40px",
-        marginLeft: "10px",
-        display: "flex",
-        background: "#fff",
-        width: "40px",
-        height: "40px",
-        cursor: "pointer",
-      }}
+      className={`${className} !flex !items-center !justify-center !w-10 !h-10 !bg-white !border !border-gray-800 !rounded-full !cursor-pointer !z-10 hover:!bg-gray-50 !-right-5`}
       onClick={onClick}
     >
-      <HiOutlineChevronRight
-        size={16}
-        color="#303030"
-        className=" absolute top-[50%] left-[50%] -translate-[50%]"
-      />
+      <HiOutlineChevronRight size={16} color="#303030" />
     </div>
   );
 }
 
 function SamplePrevArrow(props) {
-  const { className, style, onClick } = props;
+  const { className, onClick } = props;
   return (
     <div
-      className={`${className} grid place-items-center`}
-      style={{
-        ...style,
-        zIndex: "2",
-        left: "-50px",
-        marginLeft: "10px",
-        display: "flex",
-        background: "#fff",
-        width: "40px",
-        height: "40px",
-        borderRadius: "50%",
-        border: "1px solid #303030",
-        cursor: "pointer",
-      }}
+      className={`${className} !flex !items-center !justify-center !w-10 !h-10 !bg-white !border !border-gray-800 !rounded-full !cursor-pointer !z-10 hover:!bg-gray-50 !-left-5`}
       onClick={onClick}
     >
-      <HiOutlineChevronLeft
-        size={16}
-        color="#303030 "
-        className=" absolute top-[50%] left-[50%] -translate-[50%]"
-      />
+      <HiOutlineChevronLeft size={16} color="#303030" />
     </div>
   );
 }
@@ -79,6 +45,38 @@ const FeatureProduct = () => {
     nextArrow: <SampleNextArrow />,
     prevArrow: <SamplePrevArrow />,
     pauseOnHover: true,
+    responsive: [
+      {
+        breakpoint: 1280,
+        settings: {
+          slidesToShow: 4,
+          slidesToScroll: 1,
+        }
+      },
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 3,
+          slidesToScroll: 1,
+        }
+      },
+      {
+        breakpoint: 768,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 1,
+        }
+      },
+      {
+        breakpoint: 640,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+          arrows: false,
+          dots: false
+        }
+      }
+    ]
   };
 
   const [products, setProducts] = useState([]);
@@ -92,7 +90,7 @@ const FeatureProduct = () => {
   return (
     <Container>
       <div className="flex justify-between items-center w-full mb-12 ">
-        <h2 className="text-[#303030] font-['Poppins'] font-semibold leading-[46px] text-4xl capitalize ">
+        <h2 className="text-[#303030] font-['Poppins'] font-semibold leading-[46px] text-2xl md:text-4xl capitalize ">
           Featured Products
         </h2>
         <button>
@@ -104,21 +102,23 @@ const FeatureProduct = () => {
           </Link>
         </button>
       </div>
-      <Slider className="w-full pb-20 mx-10 feature_product_slide" {...settings}>
-        {products.map((item, index) => (
-          <ProductLayout
-            key={index}
-            image={item.image}
-            type={item.type}
-            title={item.title}
-            stars={item.stars}
-            rating={item.rating}
-            price={item.price}
-            discounted={item.discounted}
-            inStoke={item.inStoke}
-          />
-        ))}
-      </Slider>
+      <div className="relative">
+        <Slider className="w-full pb-20 feature_product_slide" {...settings}>
+          {products.map((item, index) => (
+            <ProductLayout
+              key={index}
+              image={item.image}
+              type={item.type}
+              title={item.title}
+              stars={item.stars}
+              rating={item.rating}
+              price={item.price}
+              discounted={item.discounted}
+              inStoke={item.inStoke}
+            />
+          ))}
+        </Slider>
+      </div>
     </Container>
   );
 };

@@ -22,7 +22,7 @@
 }
 
 .spring_sale.slick-slider .slick-track {
-  @apply flex gap-6;
+  @apply flex gap-2 lg:gap-6;
 }
 
 .slick-prev:before,

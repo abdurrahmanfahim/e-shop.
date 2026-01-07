@@ -83,24 +83,24 @@ const BestSeller = () => {
 
   return (
     <Container>
-      <div className="flex justify-between items-start py-20">
-        <div className="w-[902px]">
-          <div className="flex justify-between items-center w-full mb-12 ">
-            <h2 className="text-[#303030] font-['Poppins'] font-semibold leading-[46px] text-4xl capitalize">
+      <div className="flex flex-col lg:flex-row justify-between items-start gap-8 lg:gap-0 py-12 lg:py-20">
+        <div className="w-full lg:w-[902px]">
+          <div className="flex  justify-between items-start sm:items-center w-full mb-8 lg:mb-12 gap-4 sm:gap-0">
+            <h2 className="text-[#303030] font-['Poppins'] font-semibold leading-[30px] lg:leading-[46px] text-2xl lg:text-4xl capitalize">
               Best Seller
             </h2>
             <button>
               <Link
-                className="flex items-center gap-4 font-['Montserrat'] text-base font-bold leading-6 text-[#FF624C] capitalize "
+                className="flex items-center gap-4 font-['Montserrat'] text-sm lg:text-base font-bold leading-6 text-[#FF624C] capitalize "
                 to={"#"}
               >
                 View All <LongArrow />
               </Link>
             </button>
           </div>
-          <div className="flex flex-wrap gap-x-5.5 ">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-x-5.5">
             {currentProducts.map((item, index) => (
-              <div className="max-w-[285px] " key={item.price + index}>
+              <div key={item.price + index}>
                 <ProductLayout
                   type={item.type}
                   title={item.title}
@@ -115,8 +115,8 @@ const BestSeller = () => {
             ))}
           </div>
         </div>
-        <div className="w-[544px] ">
-          <img src="./images/playcard/buyonegetone.png" alt="buyonegetone" />
+        <div className="w-full lg:w-[544px]">
+          <img className="w-full h-auto" src="./images/playcard/buyonegetone.png" alt="buyonegetone" />
         </div>
       </div>
     </Container>

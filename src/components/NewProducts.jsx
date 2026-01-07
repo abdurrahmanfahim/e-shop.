@@ -53,12 +53,12 @@ const NewProducts = () => {
   return (
     <Container>
       <div className="flex justify-between gap-6 items-center w-full mb-12 ">
-        <h2 className="text-[#303030] font-['Poppins'] font-semibold leading-[46px] text-4xl ">
+        <h2 className="text-[#303030] font-['Poppins'] font-semibold leading-[46px] text-2xl md:text-4xl capitalize ">
           New Products
         </h2>
         <div className="relative">
           <button
-            className="flex items-center gap-4 font-['Montserrat'] text-base font-bold text-[#FF624C] cursor-pointer leading-11 "
+            className="flex flex-col md:flex-row items-center md:gap-4 font-['Montserrat'] text-base font-bold text-[#FF624C] cursor-pointer leading-11 "
             onClick={() => {
               setIsCatRefOpen(true);
               console.log(isCatRefOpen);
@@ -68,8 +68,8 @@ const NewProducts = () => {
             <span className="text-[#303030] font-normal text-base leading-6 pr-4 ">
               Sort by
             </span>
-            <span className="w-[218px] text-left">{selectedProduct}</span>
-            <GrDown className="text-xs text-[#303030] " />
+            <span className="md:w-[218px] text-left">{selectedProduct}</span>
+            <GrDown className="hidden md:block text-xs text-[#303030] " />
           </button>
 
           {isCatRefOpen && (
@@ -98,7 +98,7 @@ const NewProducts = () => {
           )}
         </div>
       </div>
-      <div className="flex mb-16 gap-6 ">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6 mb-16">
         {currentProducts.map((item, index) => (
           <ProductLayout
             key={index}

@@ -11,7 +11,7 @@ const Brands = () => {
   return (
     <Container>
       <Marquee speed={60}>
-        <div className="flex items-center justify-between py-[100px] ">
+        <div className="flex items-center justify-between py-12 md:py-[100px] ">
           <div className="ml-[200px] " >
             <Samsung />
           </div>
