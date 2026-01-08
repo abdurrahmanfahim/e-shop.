@@ -14,6 +14,7 @@ const Button = ({
   leading = '30px',
   onClick,
   className,
+  flexGrow = false,
 
 }) => {
   return (
@@ -30,7 +31,15 @@ const Button = ({
         cursor: 'pointer', 
         textTransform: 'capitalize',
         fontSize: `${fontSize}`,
-        lineHeight: `${leading}`
+        lineHeight: `${leading}`,
+        ...(flexGrow && {
+          display: 'flex',
+          flexDirection: 'row',
+          alignItems: 'flex-start',
+          justifyContent: 'center',
+          gap: '10px',
+          flexGrow: 1
+        })
       }}
       onClick={onClick}
     >

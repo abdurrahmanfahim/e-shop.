@@ -1,8 +1,9 @@
 import { BsCart3 } from "react-icons/bs";
-import { GoHeart } from "react-icons/go";
+import { GoHeart, GoHeartFill } from "react-icons/go";
 import { IoShareSocialOutline } from "react-icons/io5";
 import { MdOutlineStar } from "react-icons/md";
 import { Link } from "react-router-dom";
+import { useState } from "react";
 
 const ProductLayout = ({
   v2 = false,
@@ -22,6 +23,7 @@ const ProductLayout = ({
   };
 
   const starCount = stars && !isNaN(stars) ? Math.round(Number(stars)) : 4;
+  const [isFavorite, setIsFavorite] = useState(false);
 
   return (
     <>
@@ -42,17 +44,17 @@ const ProductLayout = ({
             )}
             <div className="flex absolute justify-center gap-3 sm:gap-[18px] left-1/2 -translate-x-1/2 -bottom-8 sm:-bottom-10 group-hover:bottom-[6px] opacity-0 group-hover:opacity-100 transition-transform duration-300 ease-in-out  ">
               <Link
-                to={"#"}
+                to={"/cart"}
                 className="size-10 sm:size-[50px] rounded-full text-[#FF624C] bg-white hover:text-white hover:bg-[#FF624C] flex items-center justify-center text-lg sm:text-xl transition-all duration-300 ease-in-out border border-[#FF624C] "
               >
                 <BsCart3 />
               </Link>
-              <Link
-                to={"#"}
+              <button
                 className="size-10 sm:size-[50px] rounded-full text-[#FF624C] bg-white hover:text-white hover:bg-[#FF624C] flex items-center justify-center text-lg sm:text-xl transition-all duration-300 ease-in-out border border-[#FF624C] "
+                onClick={() => setIsFavorite(!isFavorite)}
               >
-                <GoHeart />
-              </Link>
+                {isFavorite ? <GoHeartFill /> : <GoHeart />}
+              </button>
               <Link
                 to={"#"}
                 className="size-10 sm:size-[50px] rounded-full text-[#FF624C] bg-white hover:text-white hover:bg-[#FF624C] flex items-center justify-center text-lg sm:text-xl transition-all duration-300 ease-in-out border border-[#FF624C] "

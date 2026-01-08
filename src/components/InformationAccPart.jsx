@@ -1,18 +1,23 @@
 import React from "react";
-import { orderSummary } from "../productDetailsArrays";
 import FormInput from "./FormInput";
 import Button from "./Button";
+import OrderSummary from "./OrderSummary";
 
-const InformationAccPart = () => {
+const InformationAccPart = ({ setActive}) => {
+  const handleOrderNow = () => {
+    setActive("Shipping");
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
   return (
-    <>
-      <div className="">
-        <h2 className=" font-poppins text-4xl font-semibold leading-[46px] text-black mb-2 ">
+    <div className="flex flex-col lg:flex-row gap-8 lg:gap-0 lg:justify-between">
+      <div className="w-full lg:w-auto">
+        <h2 className=" font-poppins text-2xl lg:text-4xl font-semibold leading-[30px] lg:leading-[46px] text-black mb-2 ">
           Billing Details
         </h2>
 
-        <div className="mt-8 flex flex-wrap gap-x-4 gap-y-8 w-[870px]  ">
-          <div className="w-[424px] ">
+        <div className="mt-6 lg:mt-8 flex flex-wrap gap-x-4 gap-y-6 lg:gap-y-8 w-full lg:w-[870px]  ">
+          <div className="w-full sm:w-[calc(50%-8px)] lg:w-[424px] ">
             <FormInput
               label={"First Name"}
               star={true}
@@ -20,11 +25,11 @@ const InformationAccPart = () => {
             />
           </div>
 
-          <div className="w-[424px] ">
+          <div className="w-full sm:w-[calc(50%-8px)] lg:w-[424px] ">
             <FormInput label={"Last Name"} star={true} placeholder={"Watson"} />
           </div>
 
-          <div className="w-[424px] ">
+          <div className="w-full sm:w-[calc(50%-8px)] lg:w-[424px] ">
             <FormInput
               label={"Phone Number"}
               star={true}
@@ -32,7 +37,7 @@ const InformationAccPart = () => {
             />
           </div>
 
-          <div className="w-[424px] ">
+          <div className="w-full sm:w-[calc(50%-8px)] lg:w-[424px] ">
             <FormInput
               label={"Email Address"}
               star={true}
@@ -48,7 +53,7 @@ const InformationAccPart = () => {
             />
           </div>
 
-          <div className="w-[424px] ">
+          <div className="w-full sm:w-[calc(50%-8px)] lg:w-[424px] ">
             <FormInput
               label={"Country"}
               star={true}
@@ -56,7 +61,7 @@ const InformationAccPart = () => {
             />
           </div>
 
-          <div className="w-[424px] ">
+          <div className="w-full sm:w-[calc(50%-8px)] lg:w-[424px] ">
             <FormInput
               label={"State"}
               star={true}
@@ -64,11 +69,11 @@ const InformationAccPart = () => {
             />
           </div>
 
-          <div className="w-[424px] ">
+          <div className="w-full sm:w-[calc(50%-8px)] lg:w-[424px] ">
             <FormInput label={"City"} star={true} placeholder={"Samarinda"} />
           </div>
 
-          <div className="w-[424px] ">
+          <div className="w-full sm:w-[calc(50%-8px)] lg:w-[424px] ">
             <FormInput label={"ZIP Code"} placeholder={"555555"} />
           </div>
 
@@ -83,47 +88,10 @@ const InformationAccPart = () => {
         </div>
       </div>
 
-      <div className="w-[594px] ">
-        <div className="bg-[#F4F4F4] rounded-[25px] p-10   ">
-          <h3 className="font-poppins text-2xl leading-[30px] font-semibold text-black mb-12  ">
-            Order Summary
-          </h3>
-
-          <div className="flex flex-col gap-5 ">
-            {orderSummary.map((product) => (
-              <>
-                <ul className="font-montserrat text-xl text-black leading-[30px] flex justify-between items-start  ">
-                  <li className="w-[250px] ">
-                    <p>{product.item}</p>
-                  </li>
-                  <li>
-                    <b>{product.quantity}</b>
-                  </li>
-                  <li className="w-32 ">
-                    <b>
-                      {product.price.toLocaleString("en-US", {
-                        style: "currency",
-                        currency: "USD",
-                      })}
-                    </b>
-                  </li>
-                </ul>
-
-                <hr className="w-full border-t border-t-[#C3C3C3]  " />
-              </>
-            ))}
-
-            <div className="bg-white p-6 rounded-10p relative before:content-[''] before:absolute before:-top-6 before:bg-[#F4F4F4] before:w-full before:h-1.5 before:left-0  ">
-              <div className="font-montserrat font-bold text-xl text-black leading-[30px] flex justify-between items-center mb-7 ">
-                <h6 className="text-base ">Total</h6>
-                <p>$4,999.00</p>
-              </div>
-              <Button text={"Order Now"} className={"w-full"} py="24px" />
-            </div>
-          </div>
-        </div>
-      </div>
-    </>
+      <OrderSummary>
+        <Button text={"Order Now"} className={"w-full"} py="24px" flexGrow={true} onClick={handleOrderNow} />
+      </OrderSummary>
+    </div>
   );
 };
 

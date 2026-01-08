@@ -6,7 +6,7 @@ const MiddleNav = ({ isOpen, onClose }) => {
   if (!isOpen) return null;
 
   return (
-    <div className="fixed inset-0 bg-white z-50 flex flex-col p-6 md:hidden">
+    <div className="fixed inset-0 bg-white z-50 flex flex-col p-6 lg:hidden">
       <div className="flex justify-between items-center mb-8">
         <img src="images/logo.png" alt="logo" className="h-8" />
         <button onClick={onClose} className="text-3xl">
@@ -16,25 +16,39 @@ const MiddleNav = ({ isOpen, onClose }) => {
       
       <ul className="flex flex-col space-y-6 text-lg font-['Montserrat']">
         <li>
-          <Link to={"#"} onClick={onClose} className="block py-2 hover:text-[#FF624C]">All Categories</Link>
+          <Link to={"/all-products"} onClick={onClose} className="block py-2 hover:text-[#FF624C]">
+            All Categories
+          </Link>
         </li>
         <li>
-          <Link to={"#"} onClick={onClose} className="block py-2 hover:text-[#FF624C]">Products</Link>
+          <Link to={"/all-products"} onClick={onClose} className="block py-2 hover:text-[#FF624C]">
+            Products
+          </Link>
         </li>
         <li>
-          <Link to={"#"} onClick={onClose} className="block py-2 hover:text-[#FF624C]">Blog</Link>
+          <Link to={"/blog"} onClick={onClose} className="block py-2 hover:text-[#FF624C]">
+            Blog
+          </Link>
         </li>
         <li>
-          <Link to={"#"} onClick={onClose} className="block py-2 hover:text-[#FF624C]">Contact</Link>
+          <Link to={"/contact"} onClick={onClose} className="block py-2 hover:text-[#FF624C]">
+            Contact
+          </Link>
         </li>
         <li>
-          <Link to={"#"} onClick={onClose} className="block py-2 hover:text-[#FF624C]">LIMITED SALE 👋🏻</Link>
+          <Link to={"/all-products"} onClick={onClose} className="block py-2 hover:text-[#FF624C] uppercase">
+            Limited Sale 👋🏻
+          </Link>
         </li>
         <li>
-          <Link to={"#"} onClick={onClose} className="block py-2 hover:text-[#FF624C]">Best Seller</Link>
+          <Link to={"/all-products"} onClick={onClose} className="block py-2 hover:text-[#FF624C]">
+            Best Seller
+          </Link>
         </li>
         <li>
-          <Link to={"#"} onClick={onClose} className="block py-2 hover:text-[#FF624C]">New Arrival</Link>
+          <Link to={"/all-products"} onClick={onClose} className="block py-2 hover:text-[#FF624C]">
+            New Arrival
+          </Link>
         </li>
       </ul>
     </div>

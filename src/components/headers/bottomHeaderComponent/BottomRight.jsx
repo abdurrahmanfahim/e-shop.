@@ -7,17 +7,17 @@ const BottomRight = () => {
   return (
     <ul className="flex gap-20 leading-18 ">
       <li>
-        <Link className="flex gap-4 uppercase " to={"#"}>
+        <Link className="flex gap-4 uppercase " to={"/all-products"}>
           {t("Limited_Sale")}
         </Link>
       </li>
       <li>
-        <Link className="flex gap-2 items-center " to={"#"}>
+        <Link className="flex gap-2 items-center " to={"/all-products"}>
           {t("Best_Seller")}
         </Link>
       </li>
       <li>
-        <Link to={"#"}>{t("New_Arrival")}</Link>
+        <Link to={"/all-products"}>{t("New_Arrival")}</Link>
       </li>
     </ul>
   );

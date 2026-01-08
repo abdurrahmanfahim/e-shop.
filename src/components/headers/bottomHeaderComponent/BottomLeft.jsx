@@ -57,6 +57,7 @@ const BottomLeft = () => {
             setSelected={setSelectedCategory}
           />
         </div>
+        
       </li>
 
       <li className="flex gap-4 relative  " ref={productsRef && productsRef}>

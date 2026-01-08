@@ -178,21 +178,21 @@ const TopRight = () => {
       <div className="flex items-center gap-1.5 text-base">
         <Link
           className="size-8 rounded-full flex items-center justify-center bg-transparent hover:bg-gray-100 hover:text-[#FF624C] transition-all duration-150 ease-in-out  "
-          to={"#"}
+          to={"https://facebook.com"}
           target="_blank"
         >
           <FaFacebookF />
         </Link>
         <Link
           className="size-8 rounded-full flex items-center justify-center bg-transparent hover:bg-gray-100 hover:text-[#FF624C] transition-all duration-150 ease-in-out]   "
-          to={"#"}
+          to={"https://twitter.com"}
           target="_blank"
         >
           <FaTwitter />
         </Link>
         <Link
           className="size-8 rounded-full flex items-center justify-center bg-transparent hover:bg-gray-100 hover:text-[#FF624C] transition-all duration-150 ease-in-out  "
-          to={"#"}
+          to={"https://instagram.com"}
           target="_blank"
         >
           <FaInstagram />

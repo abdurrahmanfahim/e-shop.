@@ -44,9 +44,16 @@ const Dropdown = ({
             }}
           >
             {isLink ? (
-              <Link className="flex items-center gap-2 p-2 hover:bg-gray-100 hover:text-[#FF624C] cursor-pointer border-l-2 border-r-2 border-b border-b-gray-100 border-transparent hover:shadow-xl uppercase hover:border-r-[#FF624C] hover:border-l-[#FF624C]" to={item.toLowerCase().split(" ").join("-")}>{item}</Link>
+              <Link
+                className="flex items-center gap-2 p-2 hover:bg-gray-100 hover:text-[#FF624C] cursor-pointer border-l-2 border-r-2 border-b border-b-gray-100 border-transparent hover:shadow-xl uppercase hover:border-r-[#FF624C] hover:border-l-[#FF624C]"
+                to={item.toLowerCase().split(" ").join("-")}
+              >
+                {item}
+              </Link>
             ) : (
-              <span>{item}</span>
+              <p className="flex items-center gap-2 p-2 hover:bg-gray-100 hover:text-[#FF624C] cursor-pointer border-l-2 border-r-2 border-b border-b-gray-100 border-transparent hover:shadow-xl uppercase hover:border-r-[#FF624C] hover:border-l-[#FF624C]">
+                {item}
+              </p>
             )}
           </li>
         ))}

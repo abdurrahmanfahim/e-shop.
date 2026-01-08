@@ -10,7 +10,7 @@ import Dropdown from "../components/Dropdown";
 import { fetchProducts } from "../productDetailsArrays";
 
 const ProductListPage = () => {
-  const sortOneOptions = ["Popularity", "Newest", "Rating", "Discount"];
+  const sortOneOptions = ["Newest", "Rating", "Discount", "Popularity"];
 
   const priceOptions = ["Price Low-to-High", "Price High-to-Low"];
 
@@ -32,8 +32,9 @@ const ProductListPage = () => {
 
   const [isSortOneOpen, setIsSortOneOpen] = useState(false);
   const [isSortTwoOpen, setIsSortTwoOpen] = useState(false);
+  const [isFilterOpen, setIsFilterOpen] = useState(false);
 
-  const [sortedItemOne, setSortedItemOne] = useState("Popularity");
+  const [sortedItemOne, setSortedItemOne] = useState("Newest");
   const [sortedItemTwo, setSortedItemTwo] = useState("Price Low-to-High");
 
   const sortOneRef = useRef();
@@ -41,18 +42,46 @@ const ProductListPage = () => {
 
   return (
     <Container>
-      <div className="flex justify-between pt-16 pb-20">
-        <div className="w-[355px]  ">
+      <div className="flex flex-col lg:flex-row lg:justify-between pt-8 lg:pt-16 pb-12 lg:pb-20 gap-6 lg:gap-0">
+        {/* Mobile Filter Button */}
+        <button
+          onClick={() => setIsFilterOpen(true)}
+          className="lg:hidden fixed bottom-4 right-4 bg-[#FF624C] text-white px-4 py-3 rounded-full shadow-lg z-40 flex items-center gap-2"
+        >
+          <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 4a1 1 0 011-1h16a1 1 0 011 1v2.586a1 1 0 01-.293.707l-6.414 6.414a1 1 0 00-.293.707V17l-4 4v-6.586a1 1 0 00-.293-.707L3.293 7.207A1 1 0 013 6.5V4z" />
+          </svg>
+          Filter
+        </button>
+
+        {/* Mobile Filter Overlay */}
+        {isFilterOpen && (
+          <div className="lg:hidden fixed inset-0 bg-black bg-opacity-50 z-50" onClick={() => setIsFilterOpen(false)}>
+            <div className="absolute right-0 top-0 h-full w-80 bg-white overflow-y-auto" onClick={(e) => e.stopPropagation()}>
+              <div className="p-4 border-b flex justify-between items-center">
+                <h3 className="text-lg font-semibold">Filters</h3>
+                <button onClick={() => setIsFilterOpen(false)} className="text-2xl">&times;</button>
+              </div>
+              <div className="p-4">
+                <FilterLayout />
+              </div>
+            </div>
+          </div>
+        )}
+
+        {/* Desktop Filter */}
+        <div className="hidden lg:block w-[355px]">
           <FilterLayout />
         </div>
-        <div>
+        
+        <div className="w-full lg:w-auto">
           <div>
-            <h2 className="text-[#303030] font-['Poppins'] font-semibold leading-[46px] text-4xl capitalize mb-6  ">
+            <h2 className="text-[#303030] font-['Poppins'] font-semibold leading-8 lg:leading-[46px] text-2xl lg:text-4xl capitalize mb-4 lg:mb-6">
               Products
             </h2>
-            <div className="flex justify-between items-center mb-12  ">
+            <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center mb-6 lg:mb-12 gap-4 sm:gap-0">
               <div>
-                <p className="font-normal font-['Montserrat'] text-base leading-6  ">
+                <p className="font-normal font-['Montserrat'] text-sm lg:text-base leading-5 lg:leading-6">
                   <span className="mr-1">Showing</span>
                   {currentPage === 1
                     ? 1
@@ -65,18 +94,18 @@ const ProductListPage = () => {
                   {products.length} results.
                 </p>
               </div>
-              <div className="flex justify-between items-center gap-6 ">
+              <div className="flex flex-wrap sm:flex-nowrap justify-between items-center gap-3 lg:gap-6">
                 <div
-                  className="flex justify-between items-center relative cursor-pointer "
+                  className="flex justify-between items-center relative cursor-pointer"
                   onClick={() => setIsSortOneOpen(!isSortOneOpen)}
                 >
-                  <span className="text-[#303030] font-normal text-base leading-6 pr-4 ">
+                  <span className="text-[#303030] font-normal text-sm lg:text-base leading-5 lg:leading-6 pr-2 lg:pr-4">
                     Sort by
                   </span>
-                  <span className="font-['Montserrat'] font-bold text-base leading-6 text-[#FF624C] mr-12 text-left">
+                  <span className="font-['Montserrat'] font-bold text-sm lg:text-base leading-5 lg:leading-6 text-[#FF624C] mr-6 lg:mr-12 text-left">
                     {sortedItemOne}
                   </span>
-                  <div className="absolute left-17 top-full z-50 text-sm font-medium ">
+                  <div className="absolute left-17 top-full z-50 text-sm font-medium">
                     <Dropdown
                       data={sortOneOptions}
                       ref={sortOneRef}
@@ -89,16 +118,16 @@ const ProductListPage = () => {
                     <DownIcon />
                   </span>
                 </div>
-                <span className="bg-[#CBCBCB] w-[1px] h-8 block "></span>
+                <span className="bg-[#CBCBCB] w-[1px] h-6 lg:h-8 block hidden sm:block"></span>
                 <div
-                  className="flex justify-between items-center relative cursor-pointer "
+                  className="flex justify-between items-center relative cursor-pointer"
                   onClick={() => setIsSortTwoOpen(!isSortTwoOpen)}
                 >
                   <span>
-                    <span className="font-['Montserrat'] font-bold text-base leading-6 text-[#FF624C] mr-12 text-left">
+                    <span className="font-['Montserrat'] font-bold text-sm lg:text-base leading-5 lg:leading-6 text-[#FF624C] mr-6 lg:mr-12 text-left">
                       {sortedItemTwo}
                     </span>
-                    <div className="absolute left-0 top-full z-50 text-sm font-medium ">
+                    <div className="absolute left-0 top-full z-50 text-sm font-medium">
                       <Dropdown
                         data={priceOptions}
                         ref={sortTwoRef}
@@ -110,18 +139,18 @@ const ProductListPage = () => {
                   </span>
                   <DownIcon />
                 </div>
-                <span className="bg-[#CBCBCB] w-[1px] h-8 block "></span>
+                <span className="bg-[#CBCBCB] w-[1px] h-6 lg:h-8 block hidden sm:block"></span>
 
-                <div className="flex gap-3">
+                <div className="flex gap-2 lg:gap-3">
                   <GridView />
                   <ListView />
                 </div>
               </div>
             </div>
           </div>
-          <div className="w-[1140px] flex justify-start flex-wrap">
+          <div className="w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 lg:gap-6">
             {currentProducts.map((item) => (
-              <div className="w-1/4" key={item.id}>
+              <div key={item.id}>
                 <ProductLayout
                   type={item.type}
                   title={item.title}

@@ -92,7 +92,7 @@ const BestSeller = () => {
             <button>
               <Link
                 className="flex items-center gap-4 font-['Montserrat'] text-sm lg:text-base font-bold leading-6 text-[#FF624C] capitalize "
-                to={"#"}
+                to={"/all-products"}
               >
                 View All <LongArrow />
               </Link>

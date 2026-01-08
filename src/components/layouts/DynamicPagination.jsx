@@ -60,35 +60,40 @@ const DynamicPagination = () => {
   const pageNumbers = getPageNumbers();
 
   return (
-    <div>
-      <h2>Dynamic Pagination</h2>
+    <div className="p-4">
+      <h2 className="text-xl lg:text-2xl font-semibold mb-4">Dynamic Pagination</h2>
 
-      <label>
-        Items per page:{" "}
-        <select value={itemsPerPage} onChange={handleItemsPerPageChange}>
+      <label className="flex flex-col sm:flex-row sm:items-center gap-2 mb-4">
+        <span className="text-sm lg:text-base">Items per page:</span>
+        <select 
+          value={itemsPerPage} 
+          onChange={handleItemsPerPageChange}
+          className="px-3 py-2 border border-gray-300 rounded-md text-sm lg:text-base focus:outline-none focus:ring-2 focus:ring-blue-500"
+        >
           <option value={5}>5</option>
           <option value={10}>10</option>
           <option value={20}>20</option>
         </select>
       </label>
 
-      <div style={{ marginTop: "1rem", marginBottom: "1rem" }}>
+      <div className="my-4 space-y-2">
         {currentItems.map((item, idx) => (
-          <div key={idx}>{item}</div>
+          <div key={idx} className="p-2 bg-gray-50 rounded text-sm lg:text-base">{item}</div>
         ))}
       </div>
 
-      <div>
+      <div className="flex flex-wrap items-center justify-center gap-1 lg:gap-2">
         <button
           onClick={() => currentPage > 1 && setCurrentPage(currentPage - 1)}
           disabled={currentPage === 1}
+          className="px-2 lg:px-3 py-1 lg:py-2 text-sm lg:text-base border border-gray-300 rounded disabled:opacity-50 disabled:cursor-not-allowed hover:bg-gray-100"
         >
           {"<"}
         </button>
 
         {pageNumbers.map((page, idx) =>
           page === "..." ? (
-            <span key={`dots-${idx}`} style={{ margin: "0 4px" }}>
+            <span key={`dots-${idx}`} className="px-1 lg:px-2 text-sm lg:text-base">
               ...
             </span>
           ) : (
@@ -96,10 +101,9 @@ const DynamicPagination = () => {
               key={page}
               onClick={() => handlePageClick(page)}
               disabled={page === currentPage}
-              style={{
-                fontWeight: page === currentPage ? "bold" : "normal",
-                margin: "0 4px",
-              }}
+              className={`px-2 lg:px-3 py-1 lg:py-2 text-sm lg:text-base border border-gray-300 rounded hover:bg-gray-100 ${
+                page === currentPage ? 'bg-blue-500 text-white font-bold' : ''
+              }`}
             >
               {page}
             </button>
@@ -111,6 +115,7 @@ const DynamicPagination = () => {
             currentPage < totalPages && setCurrentPage(currentPage + 1)
           }
           disabled={currentPage === totalPages}
+          className="px-2 lg:px-3 py-1 lg:py-2 text-sm lg:text-base border border-gray-300 rounded disabled:opacity-50 disabled:cursor-not-allowed hover:bg-gray-100"
         >
           {">"}
         </button>

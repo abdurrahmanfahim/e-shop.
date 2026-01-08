@@ -20,34 +20,42 @@ const ProductDetailsSlider = ({ setActiveModalSrc, setIsModalOpen }) => {
     slidesToShow: 3,
     slidesToScroll: 1,
     focusOnSelect: true,
+    responsive: [
+      {
+        breakpoint: 768,
+        settings: {
+          slidesToShow: 2,
+        }
+      }
+    ]
   };
 
   return (
-    <div>
-      <div className="slider-container w-[834px] ">
+    <div className="relative">
+      <div className="slider-container w-full max-w-[834px]">
         <Slider asNavFor={nav2} ref={sliderRef1}>
           <div>
-            <div className="w-[834px] h-[542px] flex items-center justify-center">
+            <div className="w-full h-64 sm:h-80 lg:h-[542px] flex items-center justify-center bg-gray-50 rounded-lg">
               <img
-                className=" object-cover"
+                className="max-w-full max-h-full object-contain"
                 src="./images/lrgTv.jpg"
                 alt="productDetails"
               />
             </div>
           </div>
           <div>
-            <div className="w-[834px] h-[542px] flex items-center justify-center">
+            <div className="w-full h-64 sm:h-80 lg:h-[542px] flex items-center justify-center bg-gray-50 rounded-lg">
               <img
-                className="w-2/3 mx-auto h-auto object-cover"
+                className="max-w-full max-h-full object-contain"
                 src="./images/productimg.jpg"
                 alt="productDetails"
               />
             </div>
           </div>
           <div>
-            <div className="w-[834px] h-[542px] flex items-center justify-center">
+            <div className="w-full h-64 sm:h-80 lg:h-[542px] flex items-center justify-center bg-gray-50 rounded-lg">
               <img
-                className=" object-cover"
+                className="max-w-full max-h-full object-contain"
                 src="./images/tv.jpg"
                 alt="productDetails"
               />
@@ -62,39 +70,39 @@ const ProductDetailsSlider = ({ setActiveModalSrc, setIsModalOpen }) => {
           slidesToShow={3}
           swipeToSlide={true}
           focusOnSelect={true}
-          className="w-[330px] mt-6 secondSlider"
+          className="w-full max-w-[330px] mt-4 lg:mt-6 secondSlider"
         >
-          <div className=" overflow-visible">
+          <div className="overflow-visible px-1">
             <div
-              className="w-[94px] h-[82px] flex items-center justify-center"
+              className="w-16 h-14 sm:w-20 sm:h-16 lg:w-[94px] lg:h-[82px] flex items-center justify-center cursor-pointer"
               onClick={() => setActiveModalSrc("./images/lrgTv.jpg")}
             >
               <img
-                className=" object-cover size-full border border-[#AFAFAF] rounded-[10px] p-3 focus:border-orange"
+                className="object-cover size-full border border-[#AFAFAF] rounded-[10px] p-2 lg:p-3 focus:border-orange hover:border-orange"
                 src="./images/lrgTv.jpg"
                 alt="sliderSmall"
               />
             </div>
           </div>
-          <div>
+          <div className="px-1">
             <div
-              className="w-[94px] h-[82px] flex items-center justify-center"
+              className="w-16 h-14 sm:w-20 sm:h-16 lg:w-[94px] lg:h-[82px] flex items-center justify-center cursor-pointer"
               onClick={() => setActiveModalSrc("./images/productimg.jpg")}
             >
               <img
-                className="object-cover size-full border border-[#AFAFAF] rounded-[10px] p-3 focus:border-orange"
+                className="object-cover size-full border border-[#AFAFAF] rounded-[10px] p-2 lg:p-3 focus:border-orange hover:border-orange"
                 src="./images/productimg.jpg"
                 alt="productDetails"
               />
             </div>
           </div>
-          <div>
+          <div className="px-1">
             <div
-              className="w-[94px] h-[82px] flex items-center justify-center"
+              className="w-16 h-14 sm:w-20 sm:h-16 lg:w-[94px] lg:h-[82px] flex items-center justify-center cursor-pointer"
               onClick={() => setActiveModalSrc("./images/tv.jpg")}
             >
               <img
-                className=" object-cover size-full border border-[#AFAFAF] rounded-[10px] p-3 focus:border-orange"
+                className="object-cover size-full border border-[#AFAFAF] rounded-[10px] p-2 lg:p-3 focus:border-orange hover:border-orange"
                 src="./images/tv.jpg"
                 alt="sliderSmall"
               />
@@ -104,7 +112,7 @@ const ProductDetailsSlider = ({ setActiveModalSrc, setIsModalOpen }) => {
       </div>
 
       <span
-        className="absolute py-2 px-2 right-4 top-0 cursor-pointer z-0 "
+        className="absolute py-2 px-2 right-2 lg:right-4 top-2 lg:top-0 cursor-pointer z-10 bg-white rounded-full shadow-md hover:shadow-lg"
         onClick={() => {
           setIsModalOpen(true);
         }}
