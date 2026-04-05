@@ -373,32 +373,36 @@ const cartData = [
     "Home Appliances",
   ];
 
-const fetchProducts = () => {
-  return fetch("https://fakestoreapi.com/products")
-    .then((response) => response.json())
-    .then((data) => {
-      const electronics = data
-        .filter((item) => item.category === "electronics")
-        .map((item) => ({
-          id: item.id,
-          type: item.category,
-          title: item.title,
-          star: parseInt(item.rating.rate),
-          rating: item.rating.count,
-          price: item.price.toString(),
-          image: item.image
-        }));
-      
-      const repeated = [];
-      for (let i = 0; i < 160; i++) {
-        const originalItem = electronics[i % electronics.length];
-        repeated.push({
-          ...originalItem,
-          id: i + 1
-        });
-      }
-      return repeated;
-    });
+const ELECTRONICS_CATEGORIES = [
+  "laptops",
+  "smartphones",
+  "tablets",
+  "mobile-accessories"
+];
+
+const fetchProducts = async () => {
+  try {
+    const requests = ELECTRONICS_CATEGORIES.map((cat) =>
+      fetch(`https://dummyjson.com/products/category/${cat}?limit=30`).then((r) => r.json())
+    );
+    const results = await Promise.all(requests);
+    const all = results.flatMap((r) => r.products);
+
+    return all.map((item) => ({
+      id: item.id,
+      type: item.category,
+      title: item.title,
+      stars: Math.round(item.rating),
+      rating: item.stock,
+      price: item.price.toFixed(2),
+      discounted: item.discountPercentage ? Math.round(item.discountPercentage) : null,
+      inStoke: item.stock,
+      image: item.thumbnail,
+    }));
+  } catch (error) {
+    console.error("Failed to fetch products:", error);
+    return [];
+  }
 };
 
 

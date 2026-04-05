@@ -15,10 +15,12 @@ const ProductListPage = () => {
   const priceOptions = ["Price Low-to-High", "Price High-to-Low"];
 
   const [products, setProducts] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     fetchProducts().then((products) => {
       setProducts(products);
+      setLoading(false);
     });
   }, []);
 
@@ -149,18 +151,22 @@ const ProductListPage = () => {
             </div>
           </div>
           <div className="w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 lg:gap-6">
-            {currentProducts.map((item) => (
-              <div key={item.id}>
-                <ProductLayout
-                  type={item.type}
-                  title={item.title}
-                  stars={item.star}
-                  rating={item.rating}
-                  price={item.price}
-                  image={item.image}
-                />
-              </div>
-            ))}
+            {loading
+              ? Array.from({ length: 8 }).map((_, i) => (
+                  <div key={i} className="animate-pulse bg-gray-100 rounded-[15px] h-72" />
+                ))
+              : currentProducts.map((item) => (
+                  <div key={item.id}>
+                    <ProductLayout
+                      type={item.type}
+                      title={item.title}
+                      stars={item.stars}
+                      rating={item.rating}
+                      price={item.price}
+                      image={item.image}
+                    />
+                  </div>
+                ))}
           </div>
           <Pagination
             totalItems={products.length}
