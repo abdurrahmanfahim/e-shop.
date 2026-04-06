@@ -70,7 +70,7 @@ const ProductDetailsSlider = ({ setActiveModalSrc, setIsModalOpen }) => {
           slidesToShow={3}
           swipeToSlide={true}
           focusOnSelect={true}
-          className="w-full max-w-[330px] mt-4 lg:mt-6 secondSlider"
+          className="w-full max-w-[200px] sm:max-w-[280px] lg:max-w-[330px] mt-4 lg:mt-6 secondSlider"
         >
           <div className="overflow-visible px-1">
             <div

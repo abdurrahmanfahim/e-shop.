@@ -14,7 +14,7 @@ const FooterBottom = () => {
         <div className="flex flex-col justify-between max-sm:text-center grow ">
           <Link to={"/"}>
             <img
-              className="mx-auto lg:mx-0"
+              className="max-[855px]:mx-auto "
               src="./images/logo.png"
               alt="footerLogo"
             />

@@ -1,17 +1,15 @@
-import { useEffect, useRef, useState } from "react";
+import { useRef, useState } from "react";
 import { MdOutlineStar } from "react-icons/md";
 import { Link } from "react-router-dom";
 import CartIcon from "../icons/CartIcon";
-import LongArrow from "../icons/LongArrow";
 import MinusIcon from "../icons/MinusIcon";
 import PlusIcon from "../icons/PlusIcon";
 import Shield from "../icons/Shield";
 import Shipping from "../icons/Shipping";
 import Transparent from "../icons/Transparent";
-import { fetchProducts, laptopDetails } from "../productDetailsArrays";
+import { laptopDetails } from "../productDetailsArrays";
 import Button from "./Button";
 import ImageModal from "./ImageModal";
-import ProductLayout from "./layouts/ProductLayout";
 import ProductDetailsAcc from "./ProductDetailsAcc";
 import ProductDetailsSlider from "./ProductDetailsSlider";
 
@@ -19,11 +17,7 @@ const ProductDetailsCard = () => {
   let [activeModalSrc, setActiveModalSrc] = useState("");
   let [isModalOpen, setIsModalOpen] = useState(false);
   let [quantity, setQuantity] = useState(0);
-  const [relatedProducts, setRelatedProducts] = useState([]);
 
-  useEffect(() => {
-    fetchProducts().then((data) => setRelatedProducts(data.slice(0, 5)));
-  }, []);
 
   const handleQuantity = (value) => {
     if (value === "minus") {
@@ -41,21 +35,21 @@ const ProductDetailsCard = () => {
 
   return (
     <div className="mt-8 lg:mt-12">
-      <div className="flex flex-col lg:flex-row lg:justify-between gap-6 lg:gap-8">
+      <div className="flex flex-col lg:flex-row lg:justify-between gap-6 lg:gap-8 w-full">
         <ImageModal
           ref={imageModalRef}
           isModalOpen={isModalOpen}
           setIsModalOpen={setIsModalOpen}
           imgSrc={activeModalSrc}
         />
-        <div className="w-full lg:w-auto">
+        <div className="w-full lg:w-1/2 xl:w-auto">
           <ProductDetailsSlider
             setActiveModalSrc={setActiveModalSrc}
             setIsModalOpen={setIsModalOpen}
           />
         </div>
 
-        <div className="w-full lg:w-[632px]">
+        <div className="w-full lg:w-1/2 xl:w-[632px]">
           <div className="flex gap-2 items-center mt-1 mb-4 lg:mb-5">
             <p className="flex text-yellow">
               <MdOutlineStar />
@@ -69,11 +63,11 @@ const ProductDetailsCard = () => {
             </span>
           </div>
 
-          <h2 className="text-black font-poppins text-xl lg:text-4xl font-semibold leading-7 lg:leading-[46px] mb-4 lg:mb-0">
+          <h2 className="text-black font-poppins text-lg sm:text-xl lg:text-4xl font-semibold leading-7 lg:leading-[46px] mb-4 lg:mb-0">
             NexSUS ROCK Strix Scar 17 Gaming Laptop 15.7" 1TB SSD 16GB RAM Pro
           </h2>
 
-          <div className="flex items-center gap-3 lg:gap-[18px] mb-6 lg:mb-0">
+          <div className="flex items-center gap-3 lg:gap-[18px] mt-3 mb-4 lg:mb-0">
             <h1 className="font-poppins font-bold leading-10 lg:leading-[64px] text-2xl lg:text-[56px] text-orange">
               $2,999.99
             </h1>
@@ -82,7 +76,7 @@ const ProductDetailsCard = () => {
             </span>
           </div>
 
-          <ul className="mt-6 lg:mt-12 flex flex-col gap-3 lg:gap-4">
+          <ul className="mt-4 lg:mt-12 flex flex-col gap-3 lg:gap-4">
             <li className="text-black text-base lg:text-xl leading-6 lg:leading-[30px] flex flex-col sm:flex-row">
               <h4 className="w-full sm:w-[170px] font-poppins capitalize font-bold mb-1 sm:mb-0">
                 Brand
@@ -114,7 +108,7 @@ const ProductDetailsCard = () => {
               <h4 className="w-full sm:w-[170px] font-poppins capitalize font-bold mb-2 sm:mb-0">
                 Variant
               </h4>
-              <div className="w-full sm:w-[462px] font-montserrat text-sm lg:text-base flex flex-wrap gap-x-1 gap-y-2">
+              <div className="w-full sm:w-auto font-montserrat text-sm lg:text-base flex flex-wrap gap-x-1 gap-y-2">
                 <button className="py-2 lg:py-4 px-4 lg:px-8 font-bold border-[#979797] border bg-white rounded-[5px] hover:border-orange hover:text-orange capitalize">
                   Off White
                 </button>
@@ -136,8 +130,8 @@ const ProductDetailsCard = () => {
         </div>
       </div>
 
-      <div className="flex flex-col lg:flex-row lg:justify-between lg:items-center mt-8 lg:mt-16 gap-6 lg:gap-0">
-        <div className="flex flex-col sm:flex-row sm:gap-6 lg:gap-12 gap-4">
+      <div className="flex flex-col lg:flex-row lg:justify-between lg:items-center mt-8 lg:mt-16 gap-6">
+        <div className="flex flex-col xs:flex-row flex-wrap sm:flex-row gap-4 sm:gap-6 lg:gap-12">
           <div className="flex gap-4 lg:gap-6 items-center">
             <div>
               <Shipping />
@@ -169,8 +163,8 @@ const ProductDetailsCard = () => {
           </div>
         </div>
 
-        <div className="flex flex-col sm:flex-row gap-4 lg:gap-21 items-center">
-          <div className="flex gap-6 lg:gap-12 items-center">
+        <div className="flex flex-col sm:flex-row gap-4 lg:gap-12 items-center sm:items-start lg:items-center">
+          <div className="flex gap-4 lg:gap-12 items-center">
             <button
               className="size-12 lg:size-[56px] p-3 lg:p-4 rounded-full hover:bg-lightGray"
               onClick={() => handleQuantity("minus")}
@@ -203,42 +197,6 @@ const ProductDetailsCard = () => {
 
       <div className="mt-12 lg:mt-[100px]">
         <ProductDetailsAcc productData={laptopDetails} />
-      </div>
-
-      <hr className="w-full border-t border-t-[#C3C3C3] mt-12 lg:mt-20 pt-8 lg:pt-16" />
-
-      <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center w-full mb-6 lg:mb-12 gap-4 sm:gap-0">
-        <h2 className="text-black font-['Poppins'] font-semibold leading-8 lg:leading-[46px] text-2xl lg:text-4xl capitalize">
-          Related Products
-        </h2>
-        <button>
-          <Link
-            className="flex items-center gap-3 lg:gap-4 font-montserrat text-sm lg:text-base font-bold leading-5 lg:leading-6 text-orange capitalize"
-            to={"/all-products"}
-          >
-            View All <LongArrow />
-          </Link>
-        </button>
-      </div>
-
-      <div
-        className="
-      grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6 mb-6 md:mb-12 lg:mb-16
-      "
-      >
-        {relatedProducts.map((item) => (
-          <ProductLayout
-            key={item.title}
-            type={item.type}
-            title={item.title}
-            stars={item.stars}
-            rating={item.rating}
-            image={item.image}
-            price={item.price}
-            discounted={item.discounted}
-            inStoke={item.inStoke}
-          />
-        ))}
       </div>
     </div>
   );

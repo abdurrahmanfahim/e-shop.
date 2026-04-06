@@ -5,7 +5,7 @@ const ProductDetailsAcc = ({ productData }) => {
 
   return (
     <div>
-      <ul className="flex gap-12 font-poppins text-2xl font-semibold leading-[30px] ">
+      <ul className="flex gap-4 sm:gap-8 lg:gap-12 font-poppins text-sm sm:text-lg lg:text-2xl font-semibold leading-[30px] ">
         <li
           className={` cursor-pointer ${
             activeAccordion === "description" ? "text-black" : "text-[#CBCBCB] "
@@ -63,24 +63,24 @@ const ProductDetailsAcc = ({ productData }) => {
           ></span>
         </li>
       </ul>
-      <div className="flex pt-12 ">
+      <div className="flex pt-6 lg:pt-12 ">
         {activeAccordion === "description" && (
-          <p className=" text-black text-xl leading-[30px] font-montserrat capitalize ">
+          <p className=" text-black text-base lg:text-xl leading-[26px] lg:leading-[30px] font-montserrat capitalize ">
             {productData.Description}
           </p>
         )}
 
         {activeAccordion === "specification" && (
-          <ul className="flex flex-col flex-wrap gap-8 max-h-[430px]  ">
+          <ul className="flex flex-col gap-4 lg:gap-8 lg:flex-wrap lg:max-h-[430px] w-full ">
             {productData.Specification.map((item) => (
               <li
                 key={item.name}
-                className=" text-black text-xl leading-[30px] flex "
+                className=" text-black text-base lg:text-xl leading-[26px] lg:leading-[30px] flex flex-col sm:flex-row "
               >
-                <h4 className="w-[170px] capitalize ">
+                <h4 className="w-full sm:w-[170px] shrink-0 capitalize mb-1 sm:mb-0">
                   <b>{item.name}</b>
                 </h4>
-                <p className="font-montserrat w-[560px] ">{item.value}</p>
+                <p className="font-montserrat w-full lg:w-[560px] ">{item.value}</p>
               </li>
             ))}
           </ul>
@@ -91,7 +91,7 @@ const ProductDetailsAcc = ({ productData }) => {
             <h2 className="text-xl font-semibold mb-4 font-poppins">
               Return Policy
             </h2>
-            <div className="rounded-lg text-black text-xl leading-[30px] font-montserrat">
+            <div className="rounded-lg text-black text-base lg:text-xl leading-[26px] lg:leading-[30px] font-montserrat">
               {productData.Return}
             </div>
           </div>
@@ -108,7 +108,7 @@ const ProductDetailsAcc = ({ productData }) => {
                   {productData.Reviews.map((review, idx) => (
                     <li
                       key={idx}
-                      className="p-6 rounded-lg shadow"
+                      className="p-4 lg:p-6 rounded-lg shadow"
                     >
                       <div className="flex items-center mb-2">
                         <span className="font-semibold text-lg text-black mr-4">
@@ -121,7 +121,7 @@ const ProductDetailsAcc = ({ productData }) => {
                           {"★".repeat(5 - review.rating)}
                         </span>
                       </div>
-                      <p className="text-black text-xl leading-[30px] font-montserrat">
+                      <p className="text-black text-base lg:text-xl leading-[26px] lg:leading-[30px] font-montserrat">
                         {review.comment}
                       </p>
                       <span className="text-sm text-gray-400">
