@@ -1,11 +1,10 @@
-import React from "react";
-import FormInput from "./FormInput";
 import Button from "./Button";
+import FormInput from "./FormInput";
 
-const ShippingAccPart = ({ setActive}) => {
+const ShippingAccPart = ({ setActive }) => {
   const handleContinueToPayment = () => {
     setActive("Payment");
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
   return (
@@ -81,7 +80,7 @@ const ShippingAccPart = ({ setActive}) => {
       </div>
 
       <div className="w-full lg:w-[594px] ">
-        <div className="bg-[#F4F4F4] rounded-[25px] p-6 lg:p-10   ">
+        <div className="bg-lightGray rounded-[25px] p-6 lg:p-10   ">
           <h3 className="font-poppins text-xl lg:text-2xl leading-[25px] lg:leading-[30px] font-semibold text-black mb-8 lg:mb-12  ">
             Shipping Options
           </h3>
@@ -91,7 +90,9 @@ const ShippingAccPart = ({ setActive}) => {
               <div className="font-montserrat text-base lg:text-lg text-black leading-[25px] lg:leading-[30px] flex justify-between items-center mb-3 lg:mb-4">
                 <div>
                   <h6 className="font-semibold">Standard Shipping</h6>
-                  <p className="text-xs lg:text-sm text-gray-600">5-7 business days</p>
+                  <p className="text-xs lg:text-sm text-gray-600">
+                    5-7 business days
+                  </p>
                 </div>
                 <p className="font-bold">$9.99</p>
               </div>
@@ -100,7 +101,9 @@ const ShippingAccPart = ({ setActive}) => {
               <div className="font-montserrat text-base lg:text-lg text-black leading-[25px] lg:leading-[30px] flex justify-between items-center mb-3 lg:mb-4">
                 <div>
                   <h6 className="font-semibold">Express Shipping</h6>
-                  <p className="text-xs lg:text-sm text-gray-600">2-3 business days</p>
+                  <p className="text-xs lg:text-sm text-gray-600">
+                    2-3 business days
+                  </p>
                 </div>
                 <p className="font-bold">$19.99</p>
               </div>
@@ -109,15 +112,19 @@ const ShippingAccPart = ({ setActive}) => {
               <div className="font-montserrat text-base lg:text-lg text-black leading-[25px] lg:leading-[30px] flex justify-between items-center">
                 <div>
                   <h6 className="font-semibold">Overnight Shipping</h6>
-                  <p className="text-xs lg:text-sm text-gray-600">Next business day</p>
+                  <p className="text-xs lg:text-sm text-gray-600">
+                    Next business day
+                  </p>
                 </div>
                 <p className="font-bold">$39.99</p>
               </div>
             </div>
 
-            <div className="bg-white p-4 lg:p-6 rounded-10p relative before:content-[''] before:absolute before:-top-6 before:bg-[#F4F4F4] before:w-full before:h-1.5 before:left-0  ">
+            <div className="bg-white p-4 lg:p-6 rounded-10p relative before:content-[''] before:absolute before:-top-6 before:bg-lightGray before:w-full before:h-1.5 before:left-0  ">
               <div className="font-montserrat font-bold text-lg lg:text-xl text-black leading-[25px] lg:leading-[30px] flex justify-between items-center mb-5 lg:mb-7 ">
-                <h6 className="text-sm lg:text-base ">Selected: Standard Shipping</h6>
+                <h6 className="text-sm lg:text-base ">
+                  Selected: Standard Shipping
+                </h6>
                 <p>$9.99</p>
               </div>
               <Button

@@ -1,13 +1,13 @@
+import { useEffect, useState } from "react";
 import { HiOutlineChevronLeft, HiOutlineChevronRight } from "react-icons/hi";
+import { Link } from "react-router-dom";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick-theme.css";
 import "slick-carousel/slick/slick.css";
 import LongArrow from "../icons/LongArrow";
+import { fetchProducts } from "../productDetailsArrays";
 import Container from "./layouts/Container";
 import ProductLayout from "./layouts/ProductLayout";
-import { Link } from "react-router-dom";
-import { fetchProducts } from "../productDetailsArrays";
-import { useEffect, useState } from "react";
 
 function SampleNextArrow(props) {
   const { className, onClick } = props;
@@ -51,21 +51,21 @@ const FeatureProduct = () => {
         settings: {
           slidesToShow: 4,
           slidesToScroll: 1,
-        }
+        },
       },
       {
         breakpoint: 1024,
         settings: {
           slidesToShow: 3,
           slidesToScroll: 1,
-        }
+        },
       },
       {
         breakpoint: 768,
         settings: {
           slidesToShow: 3,
           slidesToScroll: 1,
-        }
+        },
       },
       {
         breakpoint: 640,
@@ -73,10 +73,10 @@ const FeatureProduct = () => {
           slidesToShow: 2,
           slidesToScroll: 1,
           arrows: false,
-          dots: false
-        }
-      }
-    ]
+          dots: false,
+        },
+      },
+    ],
   };
 
   const [products, setProducts] = useState([]);
@@ -90,12 +90,12 @@ const FeatureProduct = () => {
   return (
     <Container>
       <div className="flex justify-between items-center w-full mb-6 lg:mb-12 ">
-        <h2 className="text-[#303030] font-['Poppins'] font-semibold leading-[46px] text-2xl md:text-4xl capitalize ">
+        <h2 className="text-black font-['Poppins'] font-semibold leading-[46px] text-2xl md:text-4xl capitalize ">
           Featured Products
         </h2>
         <button>
           <Link
-            className="flex items-center gap-4 font-['Montserrat'] text-base font-bold leading-6 text-[#FF624C] capitalize "
+            className="flex items-center gap-4 font-montserrat text-base font-bold leading-6 text-orange capitalize "
             to={"/all-products"}
           >
             View All <LongArrow />
@@ -103,7 +103,10 @@ const FeatureProduct = () => {
         </button>
       </div>
       <div className="relative  ">
-        <Slider className="w-full pb-6 lg:pb-20 feature_product_slide" {...settings}>
+        <Slider
+          className="w-full pb-6 lg:pb-20 feature_product_slide"
+          {...settings}
+        >
           {products.map((item, index) => (
             <ProductLayout
               key={index}

@@ -1,6 +1,5 @@
-import React from "react";
-import PrevIcon from "../../icons/PrevIcon";
 import NextIcons from "../../icons/NextIcons";
+import PrevIcon from "../../icons/PrevIcon";
 
 const Pagination = ({
   totalItems,
@@ -20,21 +19,26 @@ const Pagination = ({
     const startPages = [1, 2, 3];
     const endPages = [totalPages - 1, totalPages];
     const middlePages = [currentPage - 1, currentPage, currentPage + 1].filter(
-      (p) => p > 3 && p < totalPages - 1
+      (p) => p > 3 && p < totalPages - 1,
     );
 
-    const uniquePages = Array.from(new Set([...startPages, ...middlePages, ...endPages])).sort((a, b) => a - b);
+    const uniquePages = Array.from(
+      new Set([...startPages, ...middlePages, ...endPages]),
+    ).sort((a, b) => a - b);
 
     for (let i = 0; i < uniquePages.length; i++) {
       pages.push(uniquePages[i]);
-      if (i < uniquePages.length - 1 && uniquePages[i + 1] - uniquePages[i] > 1) {
+      if (
+        i < uniquePages.length - 1 &&
+        uniquePages[i + 1] - uniquePages[i] > 1
+      ) {
         pages.push("...");
       }
     }
   }
 
   return (
-    <div className="w-[522px] mx-auto flex gap-[18px] items-center justify-center p-4 font-['Poppins'] font-semibold text-xl leading-[30px] text-center text-[#303030] ">
+    <div className="w-[522px] mx-auto flex gap-[18px] items-center justify-center p-4 font-['Poppins'] font-semibold text-xl leading-[30px] text-center text-black ">
       <button
         onClick={() => onPageChange(currentPage - 1)}
         disabled={currentPage === 1}
@@ -49,13 +53,13 @@ const Pagination = ({
           key={index * index * 7}
         >
           {number === "..." ? (
-            <span className="px-[10px] select-none">...</span>
+            <span className="px-10p select-none">...</span>
           ) : (
             <button
               onClick={() => onPageChange(number)}
               className={`rounded-[5px] py-[9px] px-[18px] cursor-pointer ${
                 number === currentPage
-                  ? "bg-[#FF624C] text-white hover:bg-[#FF624C]"
+                  ? "bg-orange text-white hover:bg-orange"
                   : "hover:bg-gray-100"
               }  `}
               disabled={number === currentPage}

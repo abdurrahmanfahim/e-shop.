@@ -1,10 +1,9 @@
-import React from "react";
 import { orderSummary } from "../productDetailsArrays";
 
 const OrderSummary = ({ title = "Order Summary", children }) => {
   return (
     <div className="w-full lg:w-[594px] ">
-      <div className="bg-[#F4F4F4] rounded-[25px] p-6 lg:p-10   ">
+      <div className="bg-lightGray rounded-[25px] p-6 lg:p-10   ">
         <h3 className="font-poppins text-xl lg:text-2xl leading-[25px] lg:leading-[30px] font-semibold text-black mb-8 lg:mb-12  ">
           {title}
         </h3>
@@ -33,7 +32,7 @@ const OrderSummary = ({ title = "Order Summary", children }) => {
             </>
           ))}
 
-          <div className="bg-white p-4 lg:p-6 rounded-10p relative before:content-[''] before:absolute before:-top-6 before:bg-[#F4F4F4] before:w-full before:h-1.5 before:left-0  ">
+          <div className="bg-white p-4 lg:p-6 rounded-10p relative before:content-[''] before:absolute before:-top-6 before:bg-lightGray before:w-full before:h-1.5 before:left-0  ">
             <div className="font-montserrat font-bold text-lg lg:text-xl text-black leading-[25px] lg:leading-[30px] flex justify-between items-center mb-5 lg:mb-7 ">
               <h6 className="text-sm lg:text-base ">Total</h6>
               <p>$4,999.00</p>

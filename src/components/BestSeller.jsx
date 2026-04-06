@@ -1,13 +1,12 @@
+import { useEffect, useState } from "react";
 import { HiOutlineChevronLeft, HiOutlineChevronRight } from "react-icons/hi";
-import Slider from "react-slick";
+import { Link } from "react-router-dom";
 import "slick-carousel/slick/slick-theme.css";
 import "slick-carousel/slick/slick.css";
 import LongArrow from "../icons/LongArrow";
+import { fetchProducts } from "../productDetailsArrays";
 import Container from "./layouts/Container";
 import ProductLayout from "./layouts/ProductLayout";
-import { Link } from "react-router-dom";
-import { useEffect, useState } from "react";
-import { fetchProducts } from "../productDetailsArrays";
 
 function SampleNextArrow(props) {
   const { className, style, onClick } = props;
@@ -68,8 +67,6 @@ function SamplePrevArrow(props) {
 }
 
 const BestSeller = () => {
-
-
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
@@ -78,27 +75,26 @@ const BestSeller = () => {
     });
   }, []);
 
-    const currentProducts = products.slice(0, 6);
-
+  const currentProducts = products.slice(0, 6);
 
   return (
     <Container>
       <div className="flex flex-col lg:flex-row justify-between items-start gap-8 lg:gap-2 py-12 lg:py-20">
         <div className="w-full lg:w-[902px]">
           <div className="flex  justify-between items-start sm:items-center w-full mb-8 lg:mb-12 gap-4 sm:gap-0">
-            <h2 className="text-[#303030] font-['Poppins'] font-semibold leading-[30px] lg:leading-[46px] text-2xl lg:text-4xl capitalize">
+            <h2 className="text-black font-['Poppins'] font-semibold leading-[30px] lg:leading-[46px] text-2xl lg:text-4xl capitalize">
               Best Seller
             </h2>
             <button>
               <Link
-                className="flex items-center gap-4 font-['Montserrat'] text-sm lg:text-base font-bold leading-6 text-[#FF624C] capitalize "
+                className="flex items-center gap-4 font-montserrat text-sm lg:text-base font-bold leading-6 text-orange capitalize "
                 to={"/all-products"}
               >
                 View All <LongArrow />
               </Link>
             </button>
           </div>
-          <div className="grid grid-cols-2 sm:grid-cols-3 gap-4 lg:gap-x-5.5">
+          <div className="grid grid-cols-2 sm:grid-cols-3 gap-2 sm:gap-4 lg:gap-x-5.5">
             {currentProducts.map((item, index) => (
               <div key={item.price + index}>
                 <ProductLayout
@@ -116,7 +112,11 @@ const BestSeller = () => {
           </div>
         </div>
         <Link to={"/all-products"} className="w-full lg:w-[544px]">
-          <img className="w-full h-auto" src="./images/playcard/buyonegetone.png" alt="buyonegetone" />
+          <img
+            className="w-full h-auto"
+            src="./images/playcard/buyonegetone.png"
+            alt="buyonegetone"
+          />
         </Link>
       </div>
     </Container>

@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 import { Link } from "react-router-dom";
 
 const Dropdown = ({
@@ -33,7 +33,7 @@ const Dropdown = ({
       style={{ position: "absolute", minWidth: 180 }}
     >
       <ul
-        className={`w-full shadow-2xl z-50 border-t-4 border-[#FF624C] ${textStyle}`}
+        className={`w-full shadow-2xl z-50 border-t-4 border-orange ${textStyle}`}
       >
         {data.map((item) => (
           <li
@@ -45,13 +45,13 @@ const Dropdown = ({
           >
             {isLink ? (
               <Link
-                className="flex items-center gap-2 p-2 hover:bg-gray-100 hover:text-[#FF624C] cursor-pointer border-l-2 border-r-2 border-b border-b-gray-100 border-transparent hover:shadow-xl uppercase hover:border-r-[#FF624C] hover:border-l-[#FF624C]"
+                className="flex items-center gap-2 p-2 hover:bg-gray-100 hover:text-orange cursor-pointer border-l-2 border-r-2 border-b border-b-gray-100 border-transparent hover:shadow-xl uppercase hover:border-r-orange hover:border-l-orange"
                 to={item.toLowerCase().split(" ").join("-")}
               >
                 {item}
               </Link>
             ) : (
-              <p className="flex items-center gap-2 p-2 hover:bg-gray-100 hover:text-[#FF624C] cursor-pointer border-l-2 border-r-2 border-b border-b-gray-100 border-transparent hover:shadow-xl uppercase hover:border-r-[#FF624C] hover:border-l-[#FF624C]">
+              <p className="flex items-center gap-2 p-2 hover:bg-gray-100 hover:text-orange cursor-pointer border-l-2 border-r-2 border-b border-b-gray-100 border-transparent hover:shadow-xl uppercase hover:border-r-orange hover:border-l-orange">
                 {item}
               </p>
             )}

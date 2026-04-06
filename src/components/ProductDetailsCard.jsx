@@ -1,19 +1,19 @@
 import { useEffect, useRef, useState } from "react";
 import { MdOutlineStar } from "react-icons/md";
-import ImageModal from "./ImageModal";
-import ProductDetailsSlider from "./ProductDetailsSlider";
+import { Link } from "react-router-dom";
+import CartIcon from "../icons/CartIcon";
+import LongArrow from "../icons/LongArrow";
+import MinusIcon from "../icons/MinusIcon";
+import PlusIcon from "../icons/PlusIcon";
+import Shield from "../icons/Shield";
 import Shipping from "../icons/Shipping";
 import Transparent from "../icons/Transparent";
-import Shield from "../icons/Shield";
+import { fetchProducts, laptopDetails } from "../productDetailsArrays";
 import Button from "./Button";
-import CartIcon from "../icons/CartIcon";
-import PlusIcon from "../icons/PlusIcon";
-import MinusIcon from "../icons/MinusIcon";
-import ProductDetailsAcc from "./ProductDetailsAcc";
-import { Link } from "react-router-dom";
-import LongArrow from "../icons/LongArrow";
+import ImageModal from "./ImageModal";
 import ProductLayout from "./layouts/ProductLayout";
-import { laptopDetails, fetchProducts } from "../productDetailsArrays";
+import ProductDetailsAcc from "./ProductDetailsAcc";
+import ProductDetailsSlider from "./ProductDetailsSlider";
 
 const ProductDetailsCard = () => {
   let [activeModalSrc, setActiveModalSrc] = useState("");
@@ -57,14 +57,14 @@ const ProductDetailsCard = () => {
 
         <div className="w-full lg:w-[632px]">
           <div className="flex gap-2 items-center mt-1 mb-4 lg:mb-5">
-            <p className="flex text-[#FED550]">
+            <p className="flex text-yellow">
               <MdOutlineStar />
               <MdOutlineStar />
               <MdOutlineStar />
               <MdOutlineStar />
               <MdOutlineStar />
             </p>
-            <span className='font-["Montserrat"] text-sm lg:text-base font-normal leading-5 lg:leading-6'>
+            <span className="font-montserrat text-sm lg:text-base font-normal leading-5 lg:leading-6">
               ( {152} )
             </span>
           </div>
@@ -142,7 +142,7 @@ const ProductDetailsCard = () => {
             <div>
               <Shipping />
             </div>
-            <div className='text-[#303030] font-["Montserrat"] text-sm lg:text-base leading-5 lg:leading-6'>
+            <div className="text-black font-montserrat text-sm lg:text-base leading-5 lg:leading-6">
               <h6 className="font-bold">Free Shipping</h6>
               <p className="font-normal">Worldwide available</p>
             </div>
@@ -152,7 +152,7 @@ const ProductDetailsCard = () => {
             <div>
               <Shield />
             </div>
-            <div className='text-[#303030] font-["Montserrat"] text-sm lg:text-base leading-5 lg:leading-6'>
+            <div className="text-black font-montserrat text-sm lg:text-base leading-5 lg:leading-6">
               <h6 className="font-bold">100% Guaranteed</h6>
               <p className="font-normal">Receive product first</p>
             </div>
@@ -162,7 +162,7 @@ const ProductDetailsCard = () => {
             <div>
               <Transparent />
             </div>
-            <div className='text-[#303030] font-["Montserrat"] text-sm lg:text-base leading-5 lg:leading-6'>
+            <div className="text-black font-montserrat text-sm lg:text-base leading-5 lg:leading-6">
               <h6 className="font-bold">Return Available</h6>
               <p className="font-normal">See return policy</p>
             </div>
@@ -172,7 +172,7 @@ const ProductDetailsCard = () => {
         <div className="flex flex-col sm:flex-row gap-4 lg:gap-21 items-center">
           <div className="flex gap-6 lg:gap-12 items-center">
             <button
-              className="size-12 lg:size-[56px] p-3 lg:p-4 rounded-full hover:bg-[#F4F4F4]"
+              className="size-12 lg:size-[56px] p-3 lg:p-4 rounded-full hover:bg-lightGray"
               onClick={() => handleQuantity("minus")}
             >
               <MinusIcon />
@@ -183,7 +183,7 @@ const ProductDetailsCard = () => {
               value={quantity}
             />
             <button
-              className="size-12 lg:size-[56px] p-3 lg:p-4 rounded-full hover:bg-[#F4F4F4]"
+              className="size-12 lg:size-[56px] p-3 lg:p-4 rounded-full hover:bg-lightGray"
               onClick={() => handleQuantity("plus")}
             >
               <PlusIcon />
@@ -191,7 +191,10 @@ const ProductDetailsCard = () => {
           </div>
           <div className="flex items-center gap-3 lg:gap-4">
             <Button text={"Buy Now"} />
-            <Link to={'/cart'} className="p-3 lg:p-[17px] border border-orange rounded-[10px] cursor-pointer">
+            <Link
+              to={"/cart"}
+              className="p-3 lg:p-[17px] border border-orange rounded-10p cursor-pointer"
+            >
               <CartIcon color="#FF624C" />
             </Link>
           </div>
@@ -205,12 +208,12 @@ const ProductDetailsCard = () => {
       <hr className="w-full border-t border-t-[#C3C3C3] mt-12 lg:mt-20 pt-8 lg:pt-16" />
 
       <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center w-full mb-6 lg:mb-12 gap-4 sm:gap-0">
-        <h2 className="text-[#303030] font-['Poppins'] font-semibold leading-8 lg:leading-[46px] text-2xl lg:text-4xl capitalize">
+        <h2 className="text-black font-['Poppins'] font-semibold leading-8 lg:leading-[46px] text-2xl lg:text-4xl capitalize">
           Related Products
         </h2>
         <button>
           <Link
-            className="flex items-center gap-3 lg:gap-4 font-['Montserrat'] text-sm lg:text-base font-bold leading-5 lg:leading-6 text-[#FF624C] capitalize"
+            className="flex items-center gap-3 lg:gap-4 font-montserrat text-sm lg:text-base font-bold leading-5 lg:leading-6 text-orange capitalize"
             to={"/all-products"}
           >
             View All <LongArrow />
@@ -218,9 +221,11 @@ const ProductDetailsCard = () => {
         </button>
       </div>
 
-      <div className="
+      <div
+        className="
       grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6 mb-6 md:mb-12 lg:mb-16
-      ">
+      "
+      >
         {relatedProducts.map((item) => (
           <ProductLayout
             key={item.title}

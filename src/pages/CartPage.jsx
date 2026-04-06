@@ -1,10 +1,10 @@
-import { cartData } from "../productDetailsArrays";
-import Container from "../components/layouts/Container";
-import { Link } from "react-router-dom";
 import { AiOutlineDelete } from "react-icons/ai";
-import ProductCounter from "../components/ProductCounter";
-import Button from "../components/Button";
 import { IoShareSocialOutline } from "react-icons/io5";
+import { Link } from "react-router-dom";
+import Button from "../components/Button";
+import Container from "../components/layouts/Container";
+import ProductCounter from "../components/ProductCounter";
+import { cartData } from "../productDetailsArrays";
 
 const CartPage = () => {
   return (
@@ -42,10 +42,10 @@ const CartPage = () => {
                       alt="productimg"
                     />
                     <div className="w-full lg:w-[314px] lg:mr-[100px] flex flex-col justify-center ">
-                      <span className='font-["Montserrat"] text-xs lg:text-sm font-normal leading-5 uppercase tracking-[3px] lg:tracking-[5px] block '>
+                      <span className="font-montserrat text-xs lg:text-sm font-normal leading-5 uppercase tracking-[3px] lg:tracking-[5px] block ">
                         {item.category}
                       </span>
-                      <h4 className="mt-2 lg:mt-4 mb-4 lg:mb-[46px] line-clamp-2 font-['Poppins'] text-lg lg:text-xl font-semibold leading-[25px] lg:leading-[30px] group-hover:text-[#FF624C] group-hover:underline transition-all duration-300 ease-out">
+                      <h4 className="mt-2 lg:mt-4 mb-4 lg:mb-[46px] line-clamp-2 font-['Poppins'] text-lg lg:text-xl font-semibold leading-[25px] lg:leading-[30px] group-hover:text-orange group-hover:underline transition-all duration-300 ease-out">
                         <Link to={"/product-details"}>{item.product}</Link>
                       </h4>
                       <p className=" font-montserrat text-sm lg:text-base leading-6 text-black font-normal flex gap-2  ">
@@ -83,13 +83,13 @@ const CartPage = () => {
                       <div className="flex lg:flex-col justify-center gap-3 lg:gap-[18px] opacity-100 lg:opacity-0 lg:group-hover:opacity-100 transition-all duration-300 ease-out  ">
                         <Link
                           to={"#"}
-                          className="size-10 lg:size-[50px] rounded-full text-[#FF624C] bg-white hover:text-white hover:bg-[#FF624C] flex items-center justify-center text-lg lg:text-xl transition-all duration-300 ease-out border border-[#FF624C] "
+                          className="size-10 lg:size-[50px] rounded-full text-orange bg-white hover:text-white hover:bg-orange flex items-center justify-center text-lg lg:text-xl transition-all duration-300 ease-out border border-orange "
                         >
                           <IoShareSocialOutline />
                         </Link>
                         <Link
                           to={"#"}
-                          className="size-10 lg:size-[50px] rounded-full text-[#FF624C] bg-white hover:text-white hover:bg-[#FF624C] flex items-center justify-center text-lg lg:text-xl transition-all duration-300 ease-out border border-[#FF624C] "
+                          className="size-10 lg:size-[50px] rounded-full text-orange bg-white hover:text-white hover:bg-orange flex items-center justify-center text-lg lg:text-xl transition-all duration-300 ease-out border border-orange "
                         >
                           <AiOutlineDelete />
                         </Link>
@@ -121,19 +121,21 @@ const CartPage = () => {
                       {cartData
                         .reduce(
                           (acc, item) => acc + item.price * item.quantity,
-                          0
+                          0,
                         )
                         .toLocaleString("en-US", {
                           style: "currency",
                           currency: "USD",
                         })}
                     </b>
-                    <p className="text-xs lg:text-base">( excl. shipping fee )</p>
+                    <p className="text-xs lg:text-base">
+                      ( excl. shipping fee )
+                    </p>
                   </p>
                 </div>
                 <div className="flex flex-col sm:flex-row justify-end gap-4 lg:gap-0 mt-6 lg:mt-8 mb-12 lg:mb-[100px] ">
-                  <Link 
-                    to={'/checkout'}
+                  <Link
+                    to={"/checkout"}
                     text={"Continue Shopping"}
                     bg="white"
                     color="#303030"

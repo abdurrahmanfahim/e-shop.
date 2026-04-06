@@ -1,12 +1,11 @@
-import { IoIosSearch } from "react-icons/io";
-import CartIcon from "../../../icons/CartIcon";
-import UserIcon from "../../../icons/UserIcon";
-import Container from "../../layouts/Container";
-import { Link } from "react-router-dom";
 import { useEffect, useRef, useState } from "react";
 import { useTranslation } from "react-i18next";
-import SearchIcon from "../../../icons/SearchIcon";
 import { FiMenu } from "react-icons/fi";
+import { Link } from "react-router-dom";
+import CartIcon from "../../../icons/CartIcon";
+import SearchIcon from "../../../icons/SearchIcon";
+import UserIcon from "../../../icons/UserIcon";
+import Container from "../../layouts/Container";
 import MiddleNav from "./MiddleNav";
 
 const MiddleHeader = () => {
@@ -37,7 +36,7 @@ const MiddleHeader = () => {
     <>
       <Container>
         <div
-          className={`flex justify-between items-center gap-3 sm:gap-4 lg:gap-6 font-['Montserrat'] py-2 sm:py-6  `}
+          className={`flex justify-between items-center gap-3 sm:gap-4 lg:gap-6 font-montserrat py-2 sm:py-6  `}
         >
           <div className={`mr-3 py-3 ${activeSearchBar && "hidden"}`}>
             <Link to={"/"}>
@@ -49,7 +48,7 @@ const MiddleHeader = () => {
             {/* SearchBar start here */}
             <div className="relative w-auto " ref={searchRef}>
               <input
-                className={`w-[calc(100vw-2rem)] sm:max-w-[280px] lg:max-w-[332px] text-[#646464] font-normal font-['Montserrat'] text-xs sm:text-sm leading-5 py-2.5 lg:py-4.5 px-3.5 lg:px-6 rounded-[10px] border border-[#979797] bg-white capitalize "
+                className={`w-[calc(100vw-2rem)] sm:max-w-[280px] lg:max-w-[332px] text-[#646464] font-normal font-montserrat text-xs sm:text-sm leading-5 py-2.5 lg:py-4.5 px-3.5 lg:px-6 rounded-10p border border-[#979797] bg-white capitalize "
                 type="text sm:block  ${activeSearchBar ? "block" : "hidden"} `}
                 placeholder="Search Products ..."
               />
@@ -78,12 +77,12 @@ const MiddleHeader = () => {
             >
               <Link
                 to={"/cart"}
-                className={`flex gap-0 lg:gap-6 justify-between items-center hover:text-[#FF624C]  `}
+                className={`flex gap-0 lg:gap-6 justify-between items-center hover:text-orange  `}
               >
                 <span
                   className={`flex justify-center ${
                     notification &&
-                    "after:content-[''] after:size-1.5 after:absolute after:bg-[#FF624C] after:rounded-full after:-right-1 after:-top-1"
+                    "after:content-[''] after:size-1.5 after:absolute after:bg-orange after:rounded-full after:-right-1 after:-top-1"
                   } `}
                 >
                   <CartIcon className="cart-icon" hoverColor={"#FF624C"} />
@@ -104,7 +103,7 @@ const MiddleHeader = () => {
 
               <Link
                 to={"/checkout"}
-                className={`flex gap-0 lg:gap-6 justify-between items-center hover:text-[#FF624C]  `}
+                className={`flex gap-0 lg:gap-6 justify-between items-center hover:text-orange  `}
               >
                 <span className="flex justify-center ">
                   <UserIcon />

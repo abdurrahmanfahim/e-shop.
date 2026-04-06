@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Slider from "react-slick";
 import ExpandIcon from "../icons/ExpandIcon";
 
@@ -25,9 +25,9 @@ const ProductDetailsSlider = ({ setActiveModalSrc, setIsModalOpen }) => {
         breakpoint: 768,
         settings: {
           slidesToShow: 2,
-        }
-      }
-    ]
+        },
+      },
+    ],
   };
 
   return (
@@ -78,7 +78,7 @@ const ProductDetailsSlider = ({ setActiveModalSrc, setIsModalOpen }) => {
               onClick={() => setActiveModalSrc("./images/lrgTv.jpg")}
             >
               <img
-                className="object-cover size-full border border-[#AFAFAF] rounded-[10px] p-2 lg:p-3 focus:border-orange hover:border-orange"
+                className="object-cover size-full border border-[#AFAFAF] rounded-10p p-2 lg:p-3 focus:border-orange hover:border-orange"
                 src="./images/lrgTv.jpg"
                 alt="sliderSmall"
               />
@@ -90,7 +90,7 @@ const ProductDetailsSlider = ({ setActiveModalSrc, setIsModalOpen }) => {
               onClick={() => setActiveModalSrc("./images/productimg.jpg")}
             >
               <img
-                className="object-cover size-full border border-[#AFAFAF] rounded-[10px] p-2 lg:p-3 focus:border-orange hover:border-orange"
+                className="object-cover size-full border border-[#AFAFAF] rounded-10p p-2 lg:p-3 focus:border-orange hover:border-orange"
                 src="./images/productimg.jpg"
                 alt="productDetails"
               />
@@ -102,7 +102,7 @@ const ProductDetailsSlider = ({ setActiveModalSrc, setIsModalOpen }) => {
               onClick={() => setActiveModalSrc("./images/tv.jpg")}
             >
               <img
-                className="object-cover size-full border border-[#AFAFAF] rounded-[10px] p-2 lg:p-3 focus:border-orange hover:border-orange"
+                className="object-cover size-full border border-[#AFAFAF] rounded-10p p-2 lg:p-3 focus:border-orange hover:border-orange"
                 src="./images/tv.jpg"
                 alt="sliderSmall"
               />

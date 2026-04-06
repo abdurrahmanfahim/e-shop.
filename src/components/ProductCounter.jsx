@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import MinusIcon from "../icons/MinusIcon";
 import PlusIcon from "../icons/PlusIcon";
 
@@ -19,7 +19,7 @@ const ProductCounter = () => {
   return (
     <div className="flex items-center h-full">
       <button
-        className=" size-10 flex justify-center items-center rounded-full hover:bg-[#F4F4F4] "
+        className=" size-10 flex justify-center items-center rounded-full hover:bg-lightGray "
         onClick={() => handleQuantity("minus")}
       >
         <MinusIcon height={16} width={16} />
@@ -30,7 +30,7 @@ const ProductCounter = () => {
         value={quantity}
       />
       <button
-        className=" size-10 flex justify-center items-center rounded-full hover:bg-[#F4F4F4] "
+        className=" size-10 flex justify-center items-center rounded-full hover:bg-lightGray "
         onClick={() => handleQuantity("plus")}
       >
         <PlusIcon height={16} width={16} />

@@ -1,12 +1,12 @@
-import React, { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
+import { GrDown } from "react-icons/gr";
+import { Link } from "react-router-dom";
 import "slick-carousel/slick/slick-theme.css";
 import "slick-carousel/slick/slick.css";
+import { fetchProducts, filterCategories } from "../productDetailsArrays";
+import Button from "./Button";
 import Container from "./layouts/Container";
 import ProductLayout from "./layouts/ProductLayout";
-import { GrDown } from "react-icons/gr";
-import Button from "./Button";
-import { Link } from "react-router-dom";
-import { fetchProducts, filterCategories } from "../productDetailsArrays";
 
 const NewProducts = () => {
   const categoriesRef = useRef(null);
@@ -43,23 +43,23 @@ const NewProducts = () => {
   return (
     <Container>
       <div className="flex justify-between gap-6 items-center w-full mb-6 lg:mb-12 ">
-        <h2 className="text-[#303030] font-['Poppins'] font-semibold leading-[46px] text-2xl md:text-4xl capitalize ">
+        <h2 className="text-black font-['Poppins'] font-semibold leading-[46px] text-2xl md:text-4xl capitalize ">
           New Products
         </h2>
         <div className="relative">
           <button
-            className="flex flex-col md:flex-row items-center md:gap-4 font-['Montserrat'] text-base font-bold text-[#FF624C] cursor-pointer leading-11 "
+            className="flex flex-col md:flex-row items-center md:gap-4 font-montserrat text-base font-bold text-orange cursor-pointer leading-11 "
             onClick={() => {
               setIsCatRefOpen(true);
               console.log(isCatRefOpen);
             }}
             ref={categoriesRef && categoriesRef}
           >
-            <span className="text-[#303030] font-normal text-base leading-6 pr-4 hidden md:block">
+            <span className="text-black font-normal text-base leading-6 pr-4 hidden md:block">
               Sort by
             </span>
             <span className="md:w-[218px] text-left">{selectedProduct}</span>
-            <GrDown className="hidden md:block text-xs text-[#303030] " />
+            <GrDown className="hidden md:block text-xs text-black " />
           </button>
 
           {isCatRefOpen && (
@@ -68,12 +68,12 @@ const NewProducts = () => {
               ref={categoriesRef && categoriesRef}
             >
               <ul
-                className="bg-white text-black text-sm font-medium w-full shadow-2xl z-10 border-t-4 border-[#FF624C] "
+                className="bg-white text-black text-sm font-medium w-full shadow-2xl z-10 border-t-4 border-orange "
                 onClick={() => setIsCatRefOpen(false)}
               >
                 {filterCategories.map((item) => (
                   <li
-                    className="flex items-center gap-2 p-2 hover:bg-gray-100 hover:text-[#FF624C] cursor-pointer border-l-2 border-r-2 border-b border-b-gray-100 border-transparent hover:shadow-xl uppercase  hover:border-r-[#FF624C] hover:border-l-[#FF624C] "
+                    className="flex items-center gap-2 p-2 hover:bg-gray-100 hover:text-orange cursor-pointer border-l-2 border-r-2 border-b border-b-gray-100 border-transparent hover:shadow-xl uppercase  hover:border-r-orange hover:border-l-orange "
                     key={item.name}
                     onClick={() => {
                       setIsCatRefOpen(false);
@@ -88,7 +88,7 @@ const NewProducts = () => {
           )}
         </div>
       </div>
-      <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6 mb-6 md:mb-12 lg:mb-16">
+      <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-2 sm:gap-4 lg:gap-x-5.5 mb-6 md:mb-12 lg:mb-16">
         {currentProducts.map((item, index) => (
           <ProductLayout
             key={index}
