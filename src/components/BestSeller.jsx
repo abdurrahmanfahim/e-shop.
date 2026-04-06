@@ -104,6 +104,7 @@ const BestSeller = () => {
                   rating={item.rating}
                   price={item.price}
                   image={item.image}
+                  id={item.id}
                   discounted={item.discounted}
                   inStoke={item.inStoke}
                 />

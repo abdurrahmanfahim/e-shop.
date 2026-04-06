@@ -37,10 +37,16 @@ const Pagination = ({
     }
   }
 
+  const handlePageChange = (page) => {
+    if (page < 1 || page > totalPages) return;
+    onPageChange(page);
+    setTimeout(() => window.scrollTo({ top: 0, behavior: "smooth" }), 50);
+  };
+
   return (
     <div className="w-[522px] mx-auto flex gap-[18px] items-center justify-center p-4 font-['Poppins'] font-semibold text-xl leading-[30px] text-center text-black ">
       <button
-        onClick={() => onPageChange(currentPage - 1)}
+        onClick={() => handlePageChange(currentPage - 1)}
         disabled={currentPage === 1}
         className="size-8 flex items-center justify-center text-black disabled:opacity-50 hover:bg-gray-100 rounded   "
       >
@@ -49,20 +55,19 @@ const Pagination = ({
 
       {pages.map((number, index) => (
         <div
-          className="w-full flex justify-center items-center  "
-          key={index * index * 7}
+          className="w-full flex justify-center items-center"
+          key={typeof number === "number" ? number : `dots-${index}`}
         >
           {number === "..." ? (
             <span className="px-10p select-none">...</span>
           ) : (
             <button
-              onClick={() => onPageChange(number)}
+              onClick={() => handlePageChange(number)}
               className={`rounded-[5px] py-[9px] px-[18px] cursor-pointer ${
                 number === currentPage
-                  ? "bg-orange text-white hover:bg-orange"
+                  ? "bg-orange text-white"
                   : "hover:bg-gray-100"
-              }  `}
-              disabled={number === currentPage}
+              }`}
             >
               {number}
             </button>
@@ -70,7 +75,7 @@ const Pagination = ({
         </div>
       ))}
       <button
-        onClick={() => onPageChange(currentPage + 1)}
+        onClick={() => handlePageChange(currentPage + 1)}
         disabled={currentPage === totalPages}
         className="size-8 flex items-center justify-center text-black disabled:opacity-50 hover:bg-gray-100 rounded   "
       >

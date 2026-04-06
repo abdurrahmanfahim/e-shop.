@@ -182,6 +182,8 @@ const ProductListPage = () => {
               : currentProducts.map((item) => (
                   <div key={item.id}>
                     <ProductLayout
+                      key={item.id}
+                      id={item.id}
                       type={item.type}
                       title={item.title}
                       stars={item.stars}

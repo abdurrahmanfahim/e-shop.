@@ -40,7 +40,7 @@ const MiddleHeader = () => {
         >
           <div className={`mr-3 py-3 ${activeSearchBar && "hidden"}`}>
             <Link to={"/"}>
-              <img src="images/logo.png" alt="logo" />
+              <img src="/images/logo.png" alt="logo" />
             </Link>
           </div>
 

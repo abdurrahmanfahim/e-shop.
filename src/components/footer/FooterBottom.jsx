@@ -11,11 +11,11 @@ const FooterBottom = () => {
   return (
     <div className="mt-12 lg:mt-[100px] mb-12 lg:mb-20">
       <div className="flex justify-between flex-wrap font-montserrat text-black mb-12 lg:mb-20 gap-6 ">
-        <div className="flex flex-col justify-between max-sm:text-center grow ">
+        <div className="flex flex-col gap-4 justify-between max-sm:text-center grow ">
           <Link to={"/"}>
             <img
               className="max-[855px]:mx-auto "
-              src="./images/logo.png"
+              src="/images/logo.png"
               alt="footerLogo"
             />
           </Link>
@@ -90,7 +90,7 @@ const FooterBottom = () => {
             </h4>
             <img
               className="mx-auto lg:mx-0 w-fit"
-              src="./images/payment.png"
+              src="/images/payment.png"
               alt="payment gateway"
             />
           </div>

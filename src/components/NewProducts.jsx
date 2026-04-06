@@ -92,6 +92,7 @@ const NewProducts = () => {
         {currentProducts.map((item, index) => (
           <ProductLayout
             key={index}
+            id={item.id}
             image={item.image}
             type={item.type}
             title={item.title}

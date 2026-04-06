@@ -483,7 +483,7 @@ const fetchProducts = async () => {
     const results = await Promise.all(requests);
     const all = results.flatMap((r) => r.products);
 
-    return all.map((item) => ({
+    const mapped = all.map((item) => ({
       id: item.id,
       type: item.category,
       title: item.title,
@@ -494,6 +494,22 @@ const fetchProducts = async () => {
       inStoke: item.stock,
       image: item.thumbnail,
     }));
+
+    // duplicate until we reach 160, giving each duplicate a unique id
+    const target = 160;
+    const result = [...mapped];
+    let round = 1;
+    while (result.length < target) {
+      const remaining = target - result.length;
+      const slice = mapped.slice(0, remaining).map((item) => ({
+        ...item,
+        id: item.id + round * 10000,
+      }));
+      result.push(...slice);
+      round++;
+    }
+
+    return result;
   } catch (error) {
     console.error("Failed to fetch products:", error);
     return [];

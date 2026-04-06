@@ -7,6 +7,7 @@ import { Link } from "react-router-dom";
 
 const ProductLayout = ({
   v2 = false,
+  id,
   type,
   title,
   stars,
@@ -68,7 +69,7 @@ const ProductLayout = ({
               {type}
             </p>
             <Link
-              to={"/product-details"}
+              to={`/product-details/${id}`}
               className="h-[50px] sm:h-[60px] line-clamp-2 font-['Poppins'] text-base lg:text-lg font-semibold leading-[25px] sm:leading-[30px] group-hover:text-orange group-hover:underline transition-all duration-300 ease-in-out"
             >
               {title}
