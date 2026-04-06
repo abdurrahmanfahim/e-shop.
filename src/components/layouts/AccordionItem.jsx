@@ -10,7 +10,7 @@ const AccordionItem = ({ question, answer, index, onToggle, isOpen }) => {
     >
       <div className=" flex gap-4 lg:gap-8 items-center ">
         <span
-          className={`size-6 lg:size-8 flex justify-center items-center border border-[#FF624C] rounded-full transition-transform duration-200  ${
+          className={`size-6 lg:size-8 shrink-0 flex justify-center items-center border border-[#FF624C] rounded-full transition-transform duration-200  ${
             isOpen
               ? "bg-transparent text-[#FF624C] "
               : "bg-[#FF624C] text-white "

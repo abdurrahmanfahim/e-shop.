@@ -168,7 +168,7 @@ const ProductLayout = ({
               <p
                 className={`absolute ${
                   inStoke > 35 || !inStoke ? "text-white" : "text-[#FF624C]"
-                } left-1/2 -translate-x-1/2 -translate-y-1/2 top-1/2 font-['Montserrat'] font-bold text-sm lg:text-base leading-6 uppercase `}
+                } left-1/2 -translate-x-1/2 -translate-y-1/2 top-1/2 font-['Montserrat'] font-bold text-xs lg:text-base leading-6 uppercase `}
               >
                 {inStoke ? inStoke + " " + "available" : "not available"}
               </p>

@@ -40,7 +40,7 @@ const SpringSale = () => {
       {
         breakpoint: 768,
         settings: {
-          slidesToShow: 1,
+          slidesToShow: 2,
           slidesToScroll: 1,
           arrows: false
         }
@@ -48,7 +48,7 @@ const SpringSale = () => {
       {
         breakpoint: 640,
         settings: {
-          slidesToShow: 1,
+          slidesToShow: 2,
           slidesToScroll: 1,
           arrows: false
         }
@@ -96,7 +96,7 @@ const SpringSale = () => {
   }, []);
 
   return (
-    <div className="bg-[#F4F4F4] py-16 ">
+    <div className="bg-[#F4F4F4] py-6 lg:py-16 ">
       <Container>
         <div className="flex flex-col lg:flex-row justify-between gap-8 lg:gap-32 relative ">
           <div className="mt-8 lg:mt-43 text-center lg:text-left">
@@ -172,7 +172,7 @@ const SpringSale = () => {
               ))}
             </Slider>
           </div>
-          <div className=" absolute bottom-0 left-0 hidden md:block ">
+          <div className=" absolute bottom-0 left-0 hidden lg:block ">
             <img src="./images/shapes/dots_two.svg" alt="" />
           </div>
         </div>

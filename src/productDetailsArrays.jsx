@@ -272,6 +272,16 @@ const faqs = [
   },
 ];
 
+import PhoneFooter from "./icons/PhoneFooter";
+import EnvelopeFooter from "./icons/EnvelopeFooter";
+import LocationFooter from "./icons/LocationFooter";
+
+const footerContact = [
+  { icon: <PhoneFooter />, label: "+1 (555) 123-4567", to: "tel:161352163", className: "" },
+  { icon: <EnvelopeFooter />, label: "information@eshop.com", to: "mailto:information@eshop.com", className: "" },
+  { icon: <LocationFooter />, label: "123 Main Street, Suite 105, Anytown USA", to: "https://maps.app.goo.gl/GLKtcy2x3Lo6XxJq5", className: "text-xl" },
+];
+
 const footerLinks = [
   { label: "Products List", to: "/all-products" },
   { label: "Order Tracking", to: "#" },
@@ -509,6 +519,7 @@ export {
   filterCategories,
   brandData,
   faqs,
+  footerContact,
   footerLinks,
   footerSupports,
   footerCategories,

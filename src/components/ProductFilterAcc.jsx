@@ -11,7 +11,7 @@ const ProductFilterAcc = ({ data, heading, children }) => {
 
   return (
     !children ?
-      <div className="md:pb-10 cursor-pointer ">
+      <div className="pb-4 xl:pb-10 cursor-pointer ">
       <div
         className="flex justify-between items-start mb-5  "
         onClick={() => setIsOpen(!isOpen)}
@@ -39,7 +39,7 @@ const ProductFilterAcc = ({ data, heading, children }) => {
     </div>
       : 
       
-      <div className="pb-10 cursor-pointer ">
+      <div className="pb-4 xl:pb-10 cursor-pointer ">
         
       <div
         className="flex justify-between items-start mb-5  "

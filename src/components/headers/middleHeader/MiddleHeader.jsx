@@ -37,7 +37,7 @@ const MiddleHeader = () => {
     <>
       <Container>
         <div
-          className={`flex justify-between items-center gap-2 sm:gap-4 lg:gap-6 font-['Montserrat'] py-2 sm:py-6  `}
+          className={`flex justify-between items-center gap-3 sm:gap-4 lg:gap-6 font-['Montserrat'] py-2 sm:py-6  `}
         >
           <div className={`mr-3 py-3 ${activeSearchBar && "hidden"}`}>
             <Link to={"/"}>
@@ -49,7 +49,7 @@ const MiddleHeader = () => {
             {/* SearchBar start here */}
             <div className="relative w-auto " ref={searchRef}>
               <input
-                className={`w-[calc(100vw-2rem)] sm:max-w-[280px] text-[#646464] font-normal font-['Montserrat'] text-xs sm:text-sm leading-5 py-2 md:py-4.5 px-3 md:px-6 rounded-[10px] border border-[#979797] bg-white capitalize "
+                className={`w-[calc(100vw-2rem)] sm:max-w-[280px] lg:max-w-[332px] text-[#646464] font-normal font-['Montserrat'] text-xs sm:text-sm leading-5 py-2.5 lg:py-4.5 px-3.5 lg:px-6 rounded-[10px] border border-[#979797] bg-white capitalize "
                 type="text sm:block  ${activeSearchBar ? "block" : "hidden"} `}
                 placeholder="Search Products ..."
               />

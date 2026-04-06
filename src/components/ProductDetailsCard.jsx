@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { MdOutlineStar } from "react-icons/md";
 import ImageModal from "./ImageModal";
 import ProductDetailsSlider from "./ProductDetailsSlider";
@@ -13,12 +13,17 @@ import ProductDetailsAcc from "./ProductDetailsAcc";
 import { Link } from "react-router-dom";
 import LongArrow from "../icons/LongArrow";
 import ProductLayout from "./layouts/ProductLayout";
-import { laptopDetails, relatedProducts } from "../productDetailsArrays";
+import { laptopDetails, fetchProducts } from "../productDetailsArrays";
 
 const ProductDetailsCard = () => {
   let [activeModalSrc, setActiveModalSrc] = useState("");
   let [isModalOpen, setIsModalOpen] = useState(false);
   let [quantity, setQuantity] = useState(0);
+  const [relatedProducts, setRelatedProducts] = useState([]);
+
+  useEffect(() => {
+    fetchProducts().then((data) => setRelatedProducts(data.slice(0, 5)));
+  }, []);
 
   const handleQuantity = (value) => {
     if (value === "minus") {
@@ -213,7 +218,9 @@ const ProductDetailsCard = () => {
         </button>
       </div>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 lg:gap-6 mb-8 lg:mb-16">
+      <div className="
+      grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6 mb-6 md:mb-12 lg:mb-16
+      ">
         {relatedProducts.map((item) => (
           <ProductLayout
             key={item.title}
@@ -221,6 +228,7 @@ const ProductDetailsCard = () => {
             title={item.title}
             stars={item.stars}
             rating={item.rating}
+            image={item.image}
             price={item.price}
             discounted={item.discounted}
             inStoke={item.inStoke}

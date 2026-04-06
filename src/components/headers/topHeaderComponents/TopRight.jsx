@@ -102,7 +102,7 @@ const TopRight = () => {
       <span className="w-[1px] h-6 sm:h-8 bg-[#CBCBCB] "></span>
       <div
         ref={langRef}
-        className="w-32 flex items-center justify-between gap-2 cursor-pointer relative  "
+        className="w-28 sm:w-32 flex items-center justify-between gap-2 cursor-pointer relative  "
         onClick={() => {
           setIsLangOpen(!isLangOpen);
         }}

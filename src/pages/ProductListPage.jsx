@@ -44,7 +44,7 @@ const ProductListPage = () => {
 
   return (
     <Container>
-      <div className="flex flex-col lg:flex-row lg:justify-between pt-8 lg:pt-16 pb-12 lg:pb-20 gap-6 lg:gap-0">
+      <div className="flex flex-col lg:flex-row lg:justify-between pt-6 lg:pt-16 pb-12 lg:pb-20 gap-6 ">
         {/* Mobile Filter Button */}
         <button
           onClick={() => setIsFilterOpen(true)}
@@ -120,7 +120,7 @@ const ProductListPage = () => {
                     <DownIcon />
                   </span>
                 </div>
-                <span className="bg-[#CBCBCB] w-[1px] h-6 lg:h-8 block hidden sm:block"></span>
+                <span className="bg-[#CBCBCB] w-[1px] h-6 lg:h-8 hidden sm:block"></span>
                 <div
                   className="flex justify-between items-center relative cursor-pointer"
                   onClick={() => setIsSortTwoOpen(!isSortTwoOpen)}
@@ -141,7 +141,7 @@ const ProductListPage = () => {
                   </span>
                   <DownIcon />
                 </div>
-                <span className="bg-[#CBCBCB] w-[1px] h-6 lg:h-8 block hidden sm:block"></span>
+                <span className="bg-[#CBCBCB] w-[1px] h-6 lg:h-8 hidden sm:block"></span>
 
                 <div className="flex gap-2 lg:gap-3">
                   <GridView />
@@ -150,7 +150,7 @@ const ProductListPage = () => {
               </div>
             </div>
           </div>
-          <div className="w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 lg:gap-6">
+          <div className="w-full grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-3 xl:grid-cols-4 gap-4 lg:gap-6">
             {loading
               ? Array.from({ length: 8 }).map((_, i) => (
                   <div key={i} className="animate-pulse bg-gray-100 rounded-[15px] h-72" />
