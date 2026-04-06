@@ -442,6 +442,16 @@ const cartData = [
     { name: "CAD", code: "cad", symbol: "C$" },
 ];
   
+  const categories = [
+    "Computers & Tablets",
+    "Mobile & Accessories",
+    "TV & Home Theater",
+    "Audio & Headphones",
+    "Cameras & Camcorders",
+    "Gaming Equipment",
+    "Home Appliances",
+  ];
+
   const products = [
     "All Products",
     "Laptops & Desktops",
@@ -456,16 +466,6 @@ const cartData = [
     "Smart Watches",
     "VR Headsets",
     "Projectors",
-  ];
-
-  const categories = [
-    "Computers & Tablets",
-    "Mobile & Accessories",
-    "TV & Home Theater",
-    "Audio & Headphones",
-    "Cameras & Camcorders",
-    "Gaming Equipment",
-    "Home Appliances",
   ];
 
 const ELECTRONICS_CATEGORIES = [
@@ -486,6 +486,7 @@ const fetchProducts = async () => {
     const mapped = all.map((item) => ({
       id: item.id,
       type: item.category,
+      brand: item.brand ?? null,
       title: item.title,
       stars: Math.round(item.rating),
       rating: item.stock,

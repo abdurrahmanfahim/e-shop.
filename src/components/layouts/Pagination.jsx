@@ -11,15 +11,17 @@ const Pagination = ({
   const maxPagesToShow = 5;
   const pages = [];
 
+  const isMobile = typeof window !== 'undefined' && window.innerWidth < 640;
+
   if (totalPages <= maxPagesToShow) {
     for (let i = 1; i <= totalPages; i++) {
       pages.push(i);
     }
   } else {
-    const startPages = [1, 2, 3];
-    const endPages = [totalPages - 1, totalPages];
+    const startPages = isMobile ? [1] : [1, 2, 3];
+    const endPages = isMobile ? [totalPages] : [totalPages - 1, totalPages];
     const middlePages = [currentPage - 1, currentPage, currentPage + 1].filter(
-      (p) => p > 3 && p < totalPages - 1,
+      (p) => p > (isMobile ? 1 : 3) && p < (isMobile ? totalPages : totalPages - 1),
     );
 
     const uniquePages = Array.from(
@@ -44,7 +46,7 @@ const Pagination = ({
   };
 
   return (
-    <div className="w-[522px] mx-auto flex gap-[18px] items-center justify-center p-4 font-['Poppins'] font-semibold text-xl leading-[30px] text-center text-black ">
+    <div className="w-full max-w-[522px] mx-auto flex gap-2 sm:gap-[18px] items-center justify-center p-4 font-['Poppins'] font-semibold text-base sm:text-xl leading-[30px] text-center text-black">
       <button
         onClick={() => handlePageChange(currentPage - 1)}
         disabled={currentPage === 1}
@@ -63,7 +65,7 @@ const Pagination = ({
           ) : (
             <button
               onClick={() => handlePageChange(number)}
-              className={`rounded-[5px] py-[9px] px-[18px] cursor-pointer ${
+              className={`rounded-[5px] py-1.5 px-3 sm:py-[9px] sm:px-[18px] cursor-pointer ${
                 number === currentPage
                   ? "bg-orange text-white"
                   : "hover:bg-gray-100"
