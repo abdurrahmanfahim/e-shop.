@@ -7,15 +7,15 @@ const Offers = () => {
       <div className="flex justify-between items-center mb-8 lg:mb-20 flex-col lg:flex-row gap-2">
         <Link to={"/all-products"}>
           <img
-            className="rounded-15p "
-            src="./images/offers/offer.webp"
+            className="rounded-15p w-full h-auto"
+            src="/images/offers/offer.webp"
             alt="banner"
           />
         </Link>
         <Link to={"/all-products"}>
           <img
-            className="rounded-15p "
-            src="./images/offers/black_friday.webp"
+            className="rounded-15p w-full h-auto"
+            src="/images/offers/black_friday.webp"
             alt="banner"
           />
         </Link>

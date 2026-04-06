@@ -101,7 +101,7 @@ const TopRight = () => {
       <span className="w-[1px] h-6 sm:h-8 bg-[#CBCBCB] "></span>
       <div
         ref={langRef}
-        className="w-28 sm:w-32 flex items-center justify-between gap-2 cursor-pointer relative  "
+        className="w-24 sm:w-32 flex items-center justify-between gap-2 cursor-pointer relative"
         onClick={() => {
           setIsLangOpen(!isLangOpen);
         }}
@@ -174,7 +174,7 @@ const TopRight = () => {
         <GoChevronDown className="text-base hover:text-orange transition-all duration-150 ease-in-out" />
       </div>
       <span className="w-[1px] h-6 sm:h-8 bg-[#CBCBCB] "></span>
-      <div className="flex items-center sm:gap-1.5 text-base">
+      <div className="flex items-center gap-1 sm:gap-1.5 text-base">
         <Link
           className="size-8 rounded-full flex items-center justify-center bg-transparent hover:bg-gray-100 hover:text-orange transition-all duration-150 ease-in-out  "
           to={"https://facebook.com"}

@@ -20,7 +20,7 @@ const Facility = () => {
           {facilityData.map((item) => (
             <div
               key={item.title}
-              className="flex flex-1 gap-3 lg:gap-6 items-center text-start lg:text-left"
+              className="flex w-full sm:w-[calc(50%-8px)] lg:flex-1 gap-3 lg:gap-6 items-center text-start lg:text-left"
             >
               <div className="flex-shrink-0">{iconMap[item.icon]}</div>
               <div className="text-black font-montserrat text-sm lg:text-base leading-5 lg:leading-6">

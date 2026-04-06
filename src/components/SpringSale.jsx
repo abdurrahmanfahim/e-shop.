@@ -111,7 +111,7 @@ const SpringSale = () => {
               Spring Sale
             </h1>
             <div>
-              <div className="font-['Poppins'] font-semibold leading-[30px] lg:leading-[46px] text-2xl lg:text-4xl text-orange flex gap-3 lg:gap-6 text-center pt-6 lg:pt-10 pb-8 lg:pb-18 justify-center lg:justify-start ">
+              <div className="font-['Poppins'] font-semibold leading-[30px] lg:leading-[46px] text-xl sm:text-2xl lg:text-4xl text-orange flex gap-3 lg:gap-6 text-center pt-6 lg:pt-10 pb-8 lg:pb-18 justify-center lg:justify-start ">
                 <p>
                   <span>
                     {timerLeft.days <= 9
@@ -180,7 +180,7 @@ const SpringSale = () => {
             </Slider>
           </div>
           <div className=" absolute bottom-0 left-0 hidden lg:block ">
-            <img src="./images/shapes/dots_two.svg" alt="" />
+            <img src="/images/shapes/dots_two.svg" alt="" />
           </div>
         </div>
       </Container>
