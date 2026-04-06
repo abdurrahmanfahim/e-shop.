@@ -36,7 +36,7 @@ const TopRight = () => {
   }, []);
 
   return (
-    <div className="flex items-center justify-between gap-3 lg:gap-6 ">
+    <div className="flex items-center justify-between gap-1 sm:gap-3 lg:gap-6 ">
       <div
         ref={currRef}
         className="flex items-center gap-2 cursor-pointer relative"
@@ -175,7 +175,7 @@ const TopRight = () => {
         <GoChevronDown className="text-base hover:text-[#FF624C] transition-all duration-150 ease-in-out" />
       </div>
       <span className="w-[1px] h-6 sm:h-8 bg-[#CBCBCB] "></span>
-      <div className="flex items-center gap-1.5 text-base">
+      <div className="flex items-center sm:gap-1.5 text-base">
         <Link
           className="size-8 rounded-full flex items-center justify-center bg-transparent hover:bg-gray-100 hover:text-[#FF624C] transition-all duration-150 ease-in-out  "
           to={"https://facebook.com"}

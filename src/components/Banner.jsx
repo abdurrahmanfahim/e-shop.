@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 
 const Banner = () => {
   return (
-    <div className='mt-6 lg:mt-8 mb-12 lg:mb-20'>
+    <div className='mt-0 lg:mt-8 mb-6 lg:mb-20'>
       <Container>
         <Link to={"/all-product"}>
           <img 

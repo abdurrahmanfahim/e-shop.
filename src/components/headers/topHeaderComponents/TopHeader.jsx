@@ -6,7 +6,7 @@ const TopHeader = () => {
   return (
     <div className="border-b border-[#CBCBCB] font-['montserrat'] text-xs md:text-sm font-normal leading-10 sm:leading-16 text-[#303030]  ">
       <Container>
-        <div className="flex justify-between flex-col sm:flex-row  ">
+        <div className="flex justify-evenly lg:justify-between items-center ">
           <TopLeft />
           <TopRight />
         </div>

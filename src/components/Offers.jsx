@@ -5,7 +5,7 @@ import Container from './layouts/Container'
 const Offers = () => {
   return (
     <Container>
-      <div className='flex justify-between items-center mb-20 flex-col lg:flex-row gap-2'>
+      <div className='flex justify-between items-center mb-8 lg:mb-20 flex-col lg:flex-row gap-2'>
       <Link to={"/all-products"}>
           <img className='rounded-[15px] ' src="./images/offers/offer.webp" alt="banner" />
       </Link>

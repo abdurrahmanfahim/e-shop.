@@ -45,16 +45,16 @@ const MiddleHeader = () => {
             </Link>
           </div>
 
-          <div className="flex justify-center items-center gap-12  ">
+          <div className="flex justify-center items-center gap-6 md:gap-12  ">
             {/* SearchBar start here */}
             <div className="relative w-auto " ref={searchRef}>
               <input
-                className={`w-[calc(100vw-1rem)] sm:max-w-[332px] text-[#646464] font-normal font-['Montserrat'] text-xs sm:text-sm leading-5 py-[18px] px-6 rounded-[10px] border border-[#979797] bg-white capitalize "
+                className={`w-[calc(100vw-2rem)] sm:max-w-[280px] text-[#646464] font-normal font-['Montserrat'] text-xs sm:text-sm leading-5 py-2 md:py-4.5 px-3 md:px-6 rounded-[10px] border border-[#979797] bg-white capitalize "
                 type="text sm:block  ${activeSearchBar ? "block" : "hidden"} `}
                 placeholder="Search Products ..."
               />
               <span
-                className={`absolute -right-5 top-1/2 -translate-y-1/2 sm:right-6 scale-170 sm:scale-100 block ${
+                className={`absolute -right-0 top-1/2 -translate-y-1/2 sm:right-6 scale-170 sm:scale-100 block ${
                   activeSearchBar && "hidden"
                 } sm:hidden `}
                 onClick={() => setActiveSearchBar(true)}

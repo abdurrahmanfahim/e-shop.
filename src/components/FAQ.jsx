@@ -3,31 +3,10 @@ import Container from "./layouts/Container";
 import { VscChevronRight } from "react-icons/vsc";
 import Button from "./Button";
 import AccordionItem from "./layouts/AccordionItem";
+import { faqs } from "../productDetailsArrays";
 
 const FAQ = () => {
   const [openIndex, setOpenIndex] = useState(false);
-  const faqs = [
-    {
-      question: "What payment methods do you accept?",
-      answer:
-        "We accept all major credit and debit cards, as well as PayPal, Apple Pay, and Google Pay for a seamless checkout experience.",
-    },
-    {
-      question: "How long does the product shipping take?",
-      answer:
-        "Shipping usually takes 3–7 business days depending on your location. Orders are processed within 24 hours on business days.",
-    },
-    {
-      question: "Do you offer international shipping?",
-      answer:
-        "Yes, we offer international shipping to most countries. Shipping times and costs may vary based on your location.",
-    },
-    {
-      question: "Can I track my order?",
-      answer:
-        "Absolutely! Once your order has been shipped, we'll send you a tracking number and a link to our carrier's website where you can track your package in real-time. You can also check the status of your order by logging into your account and viewing your order history.",
-    },
-  ];
 
   return (
     <div className="bg-[#F4F4F4] ">

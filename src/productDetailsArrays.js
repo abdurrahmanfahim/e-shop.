@@ -226,6 +226,91 @@ const springProductDetails = [
 
 
 
+const facilityData = [
+  { icon: "HeadPhone", title: "Responsive", description: "Customer service available 24/7" },
+  { icon: "Shield", title: "Secure", description: "Certified marketplace since 2017" },
+  { icon: "Shipping", title: "Shipping", description: "Free, fast, and reliable worldwide" },
+  { icon: "Transparent", title: "Transparent", description: "Hassle-free return policy" },
+];
+
+const filterCategories = [
+  { name: "Computers & Tablets" },
+  { name: "Mobile & Accessories" },
+  { name: "TV & Home Theater" },
+  { name: "Audio & Headphones" },
+  { name: "Cameras & Camcorders" },
+  { name: "Gaming Equipment" },
+  { name: "Home Appliances" },
+];
+
+const brandData = [
+  { name: "Apple", value: 565 },
+  { name: "Samsung", value: 428 },
+  { name: "ASUS", value: 323 },
+  { name: "Dell", value: 298 },
+  { name: "Lenovo", value: 180 },
+  { name: "HP", value: 98 },
+  { name: "Panasonic", value: 17 },
+];
+
+const faqs = [
+  {
+    question: "What payment methods do you accept?",
+    answer: "We accept all major credit and debit cards, as well as PayPal, Apple Pay, and Google Pay for a seamless checkout experience.",
+  },
+  {
+    question: "How long does the product shipping take?",
+    answer: "Shipping usually takes 3–7 business days depending on your location. Orders are processed within 24 hours on business days.",
+  },
+  {
+    question: "Do you offer international shipping?",
+    answer: "Yes, we offer international shipping to most countries. Shipping times and costs may vary based on your location.",
+  },
+  {
+    question: "Can I track my order?",
+    answer: "Absolutely! Once your order has been shipped, we'll send you a tracking number and a link to our carrier's website where you can track your package in real-time.",
+  },
+];
+
+const footerLinks = [
+  { label: "Products List", to: "/all-products" },
+  { label: "Order Tracking", to: "#" },
+  { label: "Products Guide", to: "#" },
+  { label: "Shopping Cart", to: "/cart" },
+  { label: "Tech Blog", to: "/blog" },
+];
+
+const footerSupports = [
+  { label: "About Us", to: "#" },
+  { label: "Privacy Policy", to: "#" },
+  { label: "Return Policy", to: "#" },
+  { label: "Help Centre", to: "#" },
+  { label: "Store Locations", to: "#" },
+  { label: "Careers", to: "#" },
+];
+
+const footerCategories = [
+  { label: "Computers & Tablets", to: "#" },
+  { label: "Mobile Phones & Accessories", to: "#" },
+  { label: "TV & Home Theater", to: "#" },
+  { label: "Audio & Headphones", to: "#" },
+  { label: "Cameras & Camcorders", to: "#" },
+  { label: "Gaming Equipment", to: "#" },
+  { label: "Home Appliances", to: "#" },
+];
+
+const footerSocials = [
+  { label: "Twitter", to: "https://twitter.com" },
+  { label: "Instagram", to: "https://instagram.com" },
+  { label: "Facebook", to: "https://facebook.com" },
+];
+
+const navLinks = [
+  { label: "Limited Sale 👋🏻", to: "/all-products", className: "uppercase" },
+  { label: "Best Seller", to: "/all-products" },
+  { label: "New Arrival", to: "/all-products" },
+];
+
 const orderSummary = [
   {
     item: "2019 Smart Laptop 256 GB 13 inch Pro Chip Core 1 TB HD SSD",
@@ -416,8 +501,17 @@ export {
   orderSummary,
   cartData,
   fetchProducts,
-  languages, 
+  languages,
   currency,
-  products, 
-  categories
+  products,
+  categories,
+  facilityData,
+  filterCategories,
+  brandData,
+  faqs,
+  footerLinks,
+  footerSupports,
+  footerCategories,
+  footerSocials,
+  navLinks,
 };

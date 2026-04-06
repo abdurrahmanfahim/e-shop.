@@ -98,7 +98,7 @@ const BestSeller = () => {
               </Link>
             </button>
           </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-x-5.5">
+          <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-x-5.5">
             {currentProducts.map((item, index) => (
               <div key={item.price + index}>
                 <ProductLayout

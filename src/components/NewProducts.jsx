@@ -6,19 +6,9 @@ import ProductLayout from "./layouts/ProductLayout";
 import { GrDown } from "react-icons/gr";
 import Button from "./Button";
 import { Link } from "react-router-dom";
-import { fetchProducts } from "../productDetailsArrays";
+import { fetchProducts, filterCategories } from "../productDetailsArrays";
 
 const NewProducts = () => {
-  const categories = [
-    "Computers & Tablets",
-    "Mobile & Accessories",
-    "TV & Home Theater",
-    "Audio & Headphones",
-    "Cameras & Camcorders",
-    "Gaming Equipment",
-    "Home Appliances",
-  ];
-
   const categoriesRef = useRef(null);
   const [isCatRefOpen, setIsCatRefOpen] = useState(false);
   const [selectedProduct, setSelectedProduct] = useState("All Categories");
@@ -52,7 +42,7 @@ const NewProducts = () => {
 
   return (
     <Container>
-      <div className="flex justify-between gap-6 items-center w-full mb-12 ">
+      <div className="flex justify-between gap-6 items-center w-full mb-6 lg:mb-12 ">
         <h2 className="text-[#303030] font-['Poppins'] font-semibold leading-[46px] text-2xl md:text-4xl capitalize ">
           New Products
         </h2>
@@ -65,7 +55,7 @@ const NewProducts = () => {
             }}
             ref={categoriesRef && categoriesRef}
           >
-            <span className="text-[#303030] font-normal text-base leading-6 pr-4 ">
+            <span className="text-[#303030] font-normal text-base leading-6 pr-4 hidden md:block">
               Sort by
             </span>
             <span className="md:w-[218px] text-left">{selectedProduct}</span>
@@ -81,16 +71,16 @@ const NewProducts = () => {
                 className="bg-white text-black text-sm font-medium w-full shadow-2xl z-10 border-t-4 border-[#FF624C] "
                 onClick={() => setIsCatRefOpen(false)}
               >
-                {categories.map((item) => (
+                {filterCategories.map((item) => (
                   <li
                     className="flex items-center gap-2 p-2 hover:bg-gray-100 hover:text-[#FF624C] cursor-pointer border-l-2 border-r-2 border-b border-b-gray-100 border-transparent hover:shadow-xl uppercase  hover:border-r-[#FF624C] hover:border-l-[#FF624C] "
-                    key={item}
+                    key={item.name}
                     onClick={() => {
                       setIsCatRefOpen(false);
-                      setSelectedProduct(item);
+                      setSelectedProduct(item.name);
                     }}
                   >
-                    <Link to={"#"}>{item}</Link>
+                    <Link to={"#"}>{item.name}</Link>
                   </li>
                 ))}
               </ul>
@@ -98,7 +88,7 @@ const NewProducts = () => {
           )}
         </div>
       </div>
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6 mb-16">
+      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6 mb-6 md:mb-12 lg:mb-16">
         {currentProducts.map((item, index) => (
           <ProductLayout
             key={index}
@@ -113,7 +103,7 @@ const NewProducts = () => {
           />
         ))}
       </div>
-      <div className="flex justify-center pb-20 ">
+      <div className="flex justify-center pb-6 md:pb-12 lg:pb-20 ">
         <Button
           text="Load More"
           border="#FF624C 1px solid "

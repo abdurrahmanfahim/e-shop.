@@ -70,7 +70,7 @@ const FeatureProduct = () => {
       {
         breakpoint: 640,
         settings: {
-          slidesToShow: 1,
+          slidesToShow: 2,
           slidesToScroll: 1,
           arrows: false,
           dots: false
@@ -89,7 +89,7 @@ const FeatureProduct = () => {
 
   return (
     <Container>
-      <div className="flex justify-between items-center w-full mb-12 ">
+      <div className="flex justify-between items-center w-full mb-6 lg:mb-12 ">
         <h2 className="text-[#303030] font-['Poppins'] font-semibold leading-[46px] text-2xl md:text-4xl capitalize ">
           Featured Products
         </h2>
@@ -102,8 +102,8 @@ const FeatureProduct = () => {
           </Link>
         </button>
       </div>
-      <div className="relative">
-        <Slider className="w-full pb-20 feature_product_slide" {...settings}>
+      <div className="relative  ">
+        <Slider className="w-full pb-6 lg:pb-20 feature_product_slide" {...settings}>
           {products.map((item, index) => (
             <ProductLayout
               key={index}

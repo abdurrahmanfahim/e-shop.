@@ -69,7 +69,7 @@ const ProductLayout = ({
             </span>
             <Link
               to={"/product-details"}
-              className="h-[50px] sm:h-[60px] line-clamp-2 font-['Poppins'] text-lg sm:text-xl font-semibold leading-[25px] sm:leading-[30px] group-hover:text-[#FF624C] group-hover:underline transition-all duration-300 ease-in-out"
+              className="h-[50px] sm:h-[60px] line-clamp-2 font-['Poppins'] text-lg sm:text-lg font-semibold leading-[25px] sm:leading-[30px] group-hover:text-[#FF624C] group-hover:underline transition-all duration-300 ease-in-out"
             >
               {title}
             </Link>
@@ -85,7 +85,7 @@ const ProductLayout = ({
             </div>
             {discounted ? (
               <>
-                <h3 className='font-["Poppins"] text-[#FF624C] font-semibold leading-[30px] text-xl sm:text-2xl inline-block '>
+                <h3 className='font-["Poppins"] text-[#FF624C] font-semibold leading-[30px] text-lg sm:text-2xl inline-block '>
                   ${getDiscountedPrice(price, discounted)}
                 </h3>
                 <span className="font-['Montserrat'] text-sm sm:text-base font-normal text-[#979797] line-through ml-2.5 ">
@@ -93,7 +93,7 @@ const ProductLayout = ({
                 </span>
               </>
             ) : (
-              <h3 className='font-["Poppins"] font-semibold leading-[30px] text-xl sm:text-2xl  '>
+              <h3 className='font-["Poppins"] font-semibold leading-[30px] text-lg sm:text-2xl  '>
                 ${price}
               </h3>
             )}
@@ -141,7 +141,7 @@ const ProductLayout = ({
             </div>
             {discounted ? (
               <>
-                <h3 className='font-["Poppins"] text-[#FF624C] font-semibold leading-[30px] text-xl lg:text-2xl inline-block '>
+                <h3 className='font-["Poppins"] text-[#FF624C] font-semibold leading-[30px] text-lg lg:text-2xl inline-block '>
                   ${getDiscountedPrice(price, discounted)}
                 </h3>
                 <span className="font-['Montserrat'] text-sm lg:text-base font-normal text-[#979797] line-through ml-2.5 ">
@@ -149,7 +149,7 @@ const ProductLayout = ({
                 </span>
               </>
             ) : (
-              <h3 className='font-["Poppins"] font-semibold leading-[30px] text-xl lg:text-2xl hidden  '>
+              <h3 className='font-["Poppins"] font-semibold leading-[30px] text-lg lg:text-2xl hidden  '>
                 ${price}
               </h3>
             )}

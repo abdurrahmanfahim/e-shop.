@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { GrDown } from "react-icons/gr";
 import ProductFilterAcc from "../ProductFilterAcc";
 import CustomCheckBox from "../CustomCheckBox";
+import { filterCategories, brandData } from "../../productDetailsArrays";
 
 const FilterLayout = ({ bg = "#F4F4F4" }) => {
   const [minPrice, setMinPrice] = useState(100);
@@ -30,32 +31,12 @@ const FilterLayout = ({ bg = "#F4F4F4" }) => {
   const minPercent = (minPrice / 10000) * 100;
   const maxPercent = (maxPrice / 10000) * 100;
 
-  const categories = [
-    { name: "Computers & Tablets" },
-    { name: "Mobile & Accessories" },
-    { name: "TV & Home Theater" },
-    { name: "Audio & Headphones" },
-    { name: "Cameras & Camcorders" },
-    { name: "Gaming Equipment" },
-    { name: "Home Appliances" },
-  ];
-
-  const brandData = [
-    { name: "Apple", value: 565 },
-    { name: "Samsung", value: 428 },
-    { name: "ASUS", value: 323 },
-    { name: "Dell", value: 298 },
-    { name: "Lenovo", value: 180 },
-    { name: "HP", value: 98 },
-    { name: "Panasonic", value: 17 },
-  ];
-
   return (
     <div
       className='sticky -top-10 p-6 md:p-12 font-["Montserrat"] rounded-[25px]'
       style={{ backgroundColor: bg }}
     >
-      <ProductFilterAcc heading={"categories"} data={categories} />
+      <ProductFilterAcc heading={"categories"} data={filterCategories} />
 
       <hr className="w-full border-t border-t-[#C3C3C3] mb-10   " />
 
