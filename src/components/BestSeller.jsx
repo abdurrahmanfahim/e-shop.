@@ -87,7 +87,7 @@ const BestSeller = () => {
             </h2>
             <button>
               <Link
-                className="flex items-center gap-4 font-montserrat text-sm lg:text-base font-bold leading-6 text-orange capitalize "
+                className="flex items-center gap-4 font-montserrat text-sm lg:text-base font-bold leading-6 text-green capitalize "
                 to={"/all-products"}
               >
                 View All <LongArrow />
@@ -113,11 +113,15 @@ const BestSeller = () => {
           </div>
         </div>
         <Link to={"/all-products"} className="w-full lg:w-[544px]">
-          <img
-            className="w-full h-auto"
-            src="./images/playcard/buyonegetone.png"
-            alt="buyonegetone"
-          />
+          <picture>
+            <source media="(max-width: 1023px)" srcSet="/images/promo/promo-banner-md.webp" />
+            <img
+              className="w-full h-auto"
+              src="/images/promo/promo-banner.webp"
+              alt="promo banner"
+              loading="lazy"
+            />
+          </picture>
         </Link>
       </div>
     </Container>

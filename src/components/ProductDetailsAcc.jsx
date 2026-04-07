@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 
 const ProductDetailsAcc = ({ productData }) => {
   const [activeAccordion, setActiveAccordion] = useState("specification");
@@ -15,7 +15,7 @@ const ProductDetailsAcc = ({ productData }) => {
           Description
           <span
             className={`w-full h-1 ${
-              activeAccordion === "description" ? "bg-orange" : "bg-transparent"
+              activeAccordion === "description" ? "bg-green" : "bg-transparent"
             } block mt-2 `}
           ></span>
         </li>
@@ -31,7 +31,7 @@ const ProductDetailsAcc = ({ productData }) => {
           <span
             className={`w-full h-1 ${
               activeAccordion === "specification"
-                ? "bg-orange"
+                ? "bg-green"
                 : "bg-transparent"
             } block mt-2 `}
           ></span>
@@ -45,7 +45,7 @@ const ProductDetailsAcc = ({ productData }) => {
           Return
           <span
             className={`w-full h-1 ${
-              activeAccordion === "return" ? "bg-orange" : "bg-transparent"
+              activeAccordion === "return" ? "bg-green" : "bg-transparent"
             } block mt-2 `}
           ></span>
         </li>
@@ -58,7 +58,7 @@ const ProductDetailsAcc = ({ productData }) => {
           Reviews
           <span
             className={`w-full h-1 ${
-              activeAccordion === "reviews" ? "bg-orange" : "bg-transparent"
+              activeAccordion === "reviews" ? "bg-green" : "bg-transparent"
             } block mt-2 `}
           ></span>
         </li>
@@ -80,7 +80,9 @@ const ProductDetailsAcc = ({ productData }) => {
                 <h4 className="w-full sm:w-[170px] shrink-0 capitalize mb-1 sm:mb-0">
                   <b>{item.name}</b>
                 </h4>
-                <p className="font-montserrat w-full lg:w-[560px] ">{item.value}</p>
+                <p className="font-montserrat w-full lg:w-[560px] ">
+                  {item.value}
+                </p>
               </li>
             ))}
           </ul>
@@ -106,15 +108,12 @@ const ProductDetailsAcc = ({ productData }) => {
               {productData.Reviews && productData.Reviews.length > 0 ? (
                 <ul className="space-y-6">
                   {productData.Reviews.map((review, idx) => (
-                    <li
-                      key={idx}
-                      className="p-4 lg:p-6 rounded-lg shadow"
-                    >
+                    <li key={idx} className="p-4 lg:p-6 rounded-lg shadow">
                       <div className="flex items-center mb-2">
                         <span className="font-semibold text-lg text-black mr-4">
                           {review.user}
                         </span>
-                        <span className="text-orange font-bold">
+                        <span className="text-green font-bold">
                           {"★".repeat(review.rating)}
                         </span>
                         <span className="text-[#CBCBCB] ">

@@ -23,7 +23,7 @@ const FooterBottom = () => {
             {footerContact.map((item) => (
               <li key={item.label} className="relative pl-0 lg:pl-8">
                 <Link
-                  className="hover:text-orange flex items-center max-[855px]:justify-center lg:justify-start gap-2"
+                  className="hover:text-green flex items-center max-[855px]:justify-center lg:justify-start gap-2"
                   to={item.to}
                 >
                   <span
@@ -46,7 +46,7 @@ const FooterBottom = () => {
             <ul className="text-black font-normal text-sm lg:text-base leading-6 flex flex-col gap-3">
               {footerLinks.map((item) => (
                 <li key={item.label}>
-                  <Link className="hover:text-orange" to={item.to}>
+                  <Link className="hover:text-green" to={item.to}>
                     {item.label}
                   </Link>
                 </li>
@@ -60,7 +60,7 @@ const FooterBottom = () => {
             <ul className="text-black font-normal text-sm lg:text-base leading-6 flex flex-col gap-3">
               {footerSupports.map((item) => (
                 <li key={item.label}>
-                  <Link className="hover:text-orange" to={item.to}>
+                  <Link className="hover:text-green" to={item.to}>
                     {item.label}
                   </Link>
                 </li>
@@ -74,7 +74,7 @@ const FooterBottom = () => {
             <ul className="text-black font-normal text-sm lg:text-base leading-6 flex flex-col gap-3">
               {footerCategories.map((item) => (
                 <li key={item.label}>
-                  <Link className="hover:text-orange" to={item.to}>
+                  <Link className="hover:text-green" to={item.to}>
                     {item.label}
                   </Link>
                 </li>
@@ -101,7 +101,7 @@ const FooterBottom = () => {
             <ul className="text-black font-normal text-sm lg:text-base leading-6 justify-center flex md:flex-col gap-3">
               {footerSocials.map((item) => (
                 <li key={item.label}>
-                  <Link className="hover:text-orange" to={item.to}>
+                  <Link className="hover:text-green" to={item.to}>
                     {item.label}
                   </Link>
                 </li>
@@ -117,15 +117,15 @@ const FooterBottom = () => {
           Copyright © {new Date().getFullYear()} E-Shop. All Rights Reserved.
         </p>
         <p>
-          <Link className="hover:text-orange" to={"#"}>
+          <Link className="hover:text-green" to={"#"}>
             Privacy Policy
           </Link>{" "}
           |{" "}
-          <Link className="hover:text-orange" to={"#"}>
+          <Link className="hover:text-green" to={"#"}>
             Terms & Condition
           </Link>{" "}
           |{" "}
-          <Link className="hover:text-orange" to={"#"}>
+          <Link className="hover:text-green" to={"#"}>
             Sitemap
           </Link>
         </p>

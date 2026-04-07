@@ -48,7 +48,7 @@ const NewProducts = () => {
         </h2>
         <div className="relative">
           <button
-            className="flex flex-col md:flex-row items-center md:gap-4 font-montserrat text-base font-bold text-orange cursor-pointer leading-11 "
+            className="flex flex-col md:flex-row items-center md:gap-4 font-montserrat text-base font-bold text-green cursor-pointer leading-11 "
             onClick={() => {
               setIsCatRefOpen(true);
               console.log(isCatRefOpen);
@@ -68,12 +68,12 @@ const NewProducts = () => {
               ref={categoriesRef && categoriesRef}
             >
               <ul
-                className="bg-white text-black text-sm font-medium w-full shadow-2xl z-10 border-t-4 border-orange "
+                className="bg-white text-black text-sm font-medium w-full shadow-2xl z-10 border-t-4 border-green "
                 onClick={() => setIsCatRefOpen(false)}
               >
                 {filterCategories.map((item) => (
                   <li
-                    className="flex items-center gap-2 p-2 hover:bg-gray-100 hover:text-orange cursor-pointer border-l-2 border-r-2 border-b border-b-gray-100 border-transparent hover:shadow-xl uppercase  hover:border-r-orange hover:border-l-orange "
+                    className="flex items-center gap-2 p-2 hover:bg-gray-100 hover:text-green cursor-pointer border-l-2 border-r-2 border-b border-b-gray-100 border-transparent hover:shadow-xl uppercase  hover:border-r-green hover:border-l-green "
                     key={item.name}
                     onClick={() => {
                       setIsCatRefOpen(false);
@@ -107,9 +107,9 @@ const NewProducts = () => {
       <div className="flex justify-center pb-6 md:pb-12 lg:pb-20 ">
         <Button
           text="Load More"
-          border="#FF624C 1px solid "
+          border="#023440 1px solid "
           bg="transparent"
-          color="#FF624C"
+          color="#023440"
         />
       </div>
     </Container>

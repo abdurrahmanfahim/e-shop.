@@ -77,15 +77,15 @@ const MiddleHeader = () => {
             >
               <Link
                 to={"/cart"}
-                className={`flex gap-0 lg:gap-6 justify-between items-center hover:text-orange  `}
+                className={`flex gap-0 lg:gap-6 justify-between items-center hover:text-green  `}
               >
                 <span
                   className={`flex justify-center ${
                     notification &&
-                    "after:content-[''] after:size-1.5 after:absolute after:bg-orange after:rounded-full after:-right-1 after:-top-1"
+                    "after:content-[''] after:size-1.5 after:absolute after:bg-green after:rounded-full after:-right-1 after:-top-1"
                   } `}
                 >
-                  <CartIcon className="cart-icon" hoverColor={"#FF624C"} />
+                  <CartIcon className="cart-icon" hoverColor={"#023440"} />
                 </span>
                 <span>
                   <p className="text-base font-normal leading-6 capitalize hidden lg:block ">
@@ -103,7 +103,7 @@ const MiddleHeader = () => {
 
               <Link
                 to={"/checkout"}
-                className={`flex gap-0 lg:gap-6 justify-between items-center hover:text-orange  `}
+                className={`flex gap-0 lg:gap-6 justify-between items-center hover:text-green  `}
               >
                 <span className="flex justify-center ">
                   <UserIcon />
@@ -125,7 +125,7 @@ const MiddleHeader = () => {
               } lg:hidden `}
               onClick={() => setMobileNavOpen(true)}
             >
-              <FiMenu className="hover:text-orange focus:text-orange " />
+              <FiMenu className="hover:text-green focus:text-green " />
             </div>
           </div>
         </div>

@@ -39,26 +39,26 @@ const ProductLayout = ({
               />
             </div>
             {discounted && (
-              <span className="absolute -top-2 -right-2 px-3 sm:px-5 py-1 sm:py-1.5 bg-orange text-white font-montserrat font-bold text-sm sm:text-base leading-6 rounded-md ">
+              <span className="absolute -top-2 -right-2 px-3 sm:px-5 py-1 sm:py-1.5 bg-green text-white font-montserrat font-bold text-sm sm:text-base leading-6 rounded-md ">
                 {discounted}%
               </span>
             )}
             <div className="flex absolute justify-center gap-3 sm:gap-[18px] left-1/2 -translate-x-1/2 -bottom-8 sm:-bottom-10 group-hover:bottom-[6px] opacity-0 group-hover:opacity-100 transition-transform duration-300 ease-in-out  ">
               <Link
                 to={"/cart"}
-                className="size-10 sm:size-[50px] rounded-full text-orange bg-white hover:text-white hover:bg-orange flex items-center justify-center text-lg sm:text-xl transition-all duration-300 ease-in-out border border-orange "
+                className="size-10 sm:size-[50px] rounded-full text-green bg-white hover:text-white hover:bg-green flex items-center justify-center text-lg sm:text-xl transition-all duration-300 ease-in-out border border-green "
               >
                 <BsCart3 />
               </Link>
               <button
-                className="size-10 sm:size-[50px] rounded-full text-orange bg-white hover:text-white hover:bg-orange flex items-center justify-center text-lg sm:text-xl transition-all duration-300 ease-in-out border border-orange "
+                className="size-10 sm:size-[50px] rounded-full text-green bg-white hover:text-white hover:bg-green flex items-center justify-center text-lg sm:text-xl transition-all duration-300 ease-in-out border border-green "
                 onClick={() => setIsFavorite(!isFavorite)}
               >
                 {isFavorite ? <GoHeartFill /> : <GoHeart />}
               </button>
               <Link
                 to={"#"}
-                className="size-10 sm:size-[50px] rounded-full text-orange bg-white hover:text-white hover:bg-orange flex items-center justify-center text-lg sm:text-xl transition-all duration-300 ease-in-out border border-orange "
+                className="size-10 sm:size-[50px] rounded-full text-green bg-white hover:text-white hover:bg-green flex items-center justify-center text-lg sm:text-xl transition-all duration-300 ease-in-out border border-green "
               >
                 <IoShareSocialOutline />
               </Link>
@@ -70,7 +70,7 @@ const ProductLayout = ({
             </p>
             <Link
               to={`/product-details/${id}`}
-              className="h-[50px] sm:h-[60px] line-clamp-2 font-['Poppins'] text-base lg:text-lg font-semibold leading-[25px] sm:leading-[30px] group-hover:text-orange group-hover:underline transition-all duration-300 ease-in-out"
+              className="h-[50px] sm:h-[60px] line-clamp-2 font-['Poppins'] text-base lg:text-lg font-semibold leading-[25px] sm:leading-[30px] group-hover:text-green group-hover:underline transition-all duration-300 ease-in-out"
             >
               {title}
             </Link>
@@ -91,7 +91,7 @@ const ProductLayout = ({
             <div className="flex">
               {discounted ? (
                 <>
-                  <h3 className="font-poppins text-orange font-semibold leading-[30px] text-lg sm:text-2xl inline-block ">
+                  <h3 className="font-poppins text-green font-semibold leading-[30px] text-lg sm:text-2xl inline-block ">
                     ${getDiscountedPrice(price, discounted)}
                   </h3>
                   <span className="font-montserrat text-sm sm:text-base font-normal text-[#979797] line-through ml-2.5 ">
@@ -109,7 +109,7 @@ const ProductLayout = ({
       )}
 
       {v2 && (
-        <div className="aspect-464/702 p-6 lg:p-10 shrink flex-1 bg-white border border-transparent rounded-10p hover:bg-[#EAEAEA] transition-all duration-300 ease-in-out text-black group block cursor-pointer ">
+        <div className="aspect-464/702 p-3 min-[450px]:p-4 min-[640px]:p-3 min-[1024px]:p-10 min-[1140px]:p-5 min-[1280px]:p-10 shrink flex-1 bg-white border border-transparent rounded-10p hover:bg-[#EAEAEA] transition-all duration-300 ease-in-out text-black group block cursor-pointer ">
           <div className="relative ">
             <div className=" w-full aspect-384/344  ">
               <img
@@ -120,7 +120,7 @@ const ProductLayout = ({
             </div>
 
             {discounted && (
-              <span className="absolute top-0 right-0 size-16 lg:size-[100px] bg-orange text-lg lg:text-2xl text-white font-montserrat font-bold leading-6 rounded-full flex justify-center items-center ">
+              <span className="absolute top-0 right-0 size-10 sm:size-14 md:size-16 lg:size-[72px] 2xl:size-[100px] bg-green text-xs sm:text-sm md:text-lg lg:text-xl xl:text-2xl text-white font-montserrat font-bold leading-6 rounded-full flex justify-center items-center ">
                 {discounted}%
               </span>
             )}
@@ -131,7 +131,7 @@ const ProductLayout = ({
             </span>
             <Link
               to={"#"}
-              className="line-clamp-2 h-[50px] lg:h-[60px] text-orange font-['Poppins'] underline text-lg lg:text-xl font-semibold leading-[25px] lg:leading-[30px] group-hover:text-black group-hover:no-underline  transition-all duration-300 ease-in-out "
+              className="line-clamp-2 h-[50px] lg:h-[60px] text-green font-['Poppins'] underline text-lg lg:text-xl font-semibold leading-[25px] lg:leading-[30px] group-hover:text-black group-hover:no-underline  transition-all duration-300 ease-in-out "
             >
               {title}
             </Link>
@@ -151,7 +151,7 @@ const ProductLayout = ({
             </div>
             {discounted ? (
               <>
-                <h3 className="font-poppins text-orange font-semibold leading-[30px] text-lg lg:text-2xl inline-block ">
+                <h3 className="font-poppins text-green font-semibold leading-[30px] text-lg lg:text-2xl inline-block ">
                   ${getDiscountedPrice(price, discounted)}
                 </h3>
                 <span className="font-montserrat text-sm lg:text-base font-normal text-[#979797] line-through ml-2.5 ">
@@ -166,18 +166,18 @@ const ProductLayout = ({
 
             <div
               className={` ${
-                !inStoke ? "bg-orange" : "bg-[#E0E0E0]"
+                !inStoke ? "bg-green" : "bg-[#E0E0E0]"
               } relative text-white rounded-3xl mt-6 lg:mt-8  `}
             >
               <div
                 className={` ${
-                  inStoke < 35 ? "bg-orange" : "bg-black"
-                } rounded-3xl text-center h-[25px] lg:h-[30px] group-hover:bg-orange `}
+                  inStoke < 35 ? "bg-green" : "bg-black"
+                } rounded-3xl text-center h-[25px] lg:h-[30px] group-hover:bg-green `}
                 style={{ width: `${inStoke < 100 ? inStoke : "100"}%` }}
               ></div>
               <p
                 className={`absolute w-full text-center ${
-                  inStoke > 35 || !inStoke ? "text-white" : "text-orange"
+                  inStoke > 35 || !inStoke ? "text-white" : "text-green"
                 } left-1/2 -translate-x-1/2 -translate-y-1/2 top-1/2 font-montserrat font-bold text-xs md:text-base leading-6 uppercase `}
               >
                 {inStoke ? inStoke + " " + "available" : "not available"}

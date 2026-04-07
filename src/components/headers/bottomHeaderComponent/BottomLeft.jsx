@@ -48,7 +48,7 @@ const BottomLeft = () => {
           {t("All_Categories")}
         </button>
 
-        <div className="w-54 absolute left-0 top-full border-t border-white text-sm font-medium ">
+        <div className={`w-54 absolute left-0 top-full text-sm font-medium ${isCatRefOpen && ' border-t border-white'}`}>
           <Dropdown
             data={categories}
             ref={categoriesRef}
@@ -69,7 +69,7 @@ const BottomLeft = () => {
           <GrDown className="text-sm self-center " />
         </button>
 
-        <div className="w-54 bg-white absolute left-0 top-full border-t border-white text-sm font-medium z-50 ">
+        <div className={`w-48 absolute left-0 top-full text-sm font-medium z-50 ${isProRefOpen && 'border-t border-white'}`}>
           <Dropdown
             data={products}
             ref={productsRef}

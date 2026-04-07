@@ -45,7 +45,7 @@ const CartPage = () => {
                       <span className="font-montserrat text-xs lg:text-sm font-normal leading-5 uppercase tracking-[3px] lg:tracking-[5px] block ">
                         {item.category}
                       </span>
-                      <h4 className="mt-2 lg:mt-4 mb-4 lg:mb-[46px] line-clamp-2 font-['Poppins'] text-lg lg:text-xl font-semibold leading-[25px] lg:leading-[30px] group-hover:text-orange group-hover:underline transition-all duration-300 ease-out">
+                      <h4 className="mt-2 lg:mt-4 mb-4 lg:mb-[46px] line-clamp-2 font-['Poppins'] text-lg lg:text-xl font-semibold leading-[25px] lg:leading-[30px] group-hover:text-green group-hover:underline transition-all duration-300 ease-out">
                         <Link to={"/product-details"}>{item.product}</Link>
                       </h4>
                       <p className=" font-montserrat text-sm lg:text-base leading-6 text-black font-normal flex gap-2  ">
@@ -83,13 +83,13 @@ const CartPage = () => {
                       <div className="flex lg:flex-col justify-center gap-3 lg:gap-[18px] opacity-100 lg:opacity-0 lg:group-hover:opacity-100 transition-all duration-300 ease-out  ">
                         <Link
                           to={"#"}
-                          className="size-10 lg:size-[50px] rounded-full text-orange bg-white hover:text-white hover:bg-orange flex items-center justify-center text-lg lg:text-xl transition-all duration-300 ease-out border border-orange "
+                          className="size-10 lg:size-[50px] rounded-full text-green bg-white hover:text-white hover:bg-green flex items-center justify-center text-lg lg:text-xl transition-all duration-300 ease-out border border-green "
                         >
                           <IoShareSocialOutline />
                         </Link>
                         <Link
                           to={"#"}
-                          className="size-10 lg:size-[50px] rounded-full text-orange bg-white hover:text-white hover:bg-orange flex items-center justify-center text-lg lg:text-xl transition-all duration-300 ease-out border border-orange "
+                          className="size-10 lg:size-[50px] rounded-full text-green bg-white hover:text-white hover:bg-green flex items-center justify-center text-lg lg:text-xl transition-all duration-300 ease-out border border-green "
                         >
                           <AiOutlineDelete />
                         </Link>
@@ -117,7 +117,7 @@ const CartPage = () => {
                     SUB TOTAL
                   </h6>
                   <p className="flex flex-col lg:flex-row gap-2 lg:gap-6 items-end lg:items-center ">
-                    <b className="font-poppins text-xl lg:text-2xl font-semibold leading-[30px] text-orange ">
+                    <b className="font-poppins text-xl lg:text-2xl font-semibold leading-[30px] text-green ">
                       {cartData
                         .reduce(
                           (acc, item) => acc + item.price * item.quantity,

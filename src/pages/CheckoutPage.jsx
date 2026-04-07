@@ -1,8 +1,8 @@
-import React, { useState } from "react";
-import Container from "../components/layouts/Container";
+import { useState } from "react";
 import InformationAccPart from "../components/InformationAccPart";
-import ShippingAccPart from "../components/ShippingAccPart";
+import Container from "../components/layouts/Container";
 import PaymentAccPart from "../components/PaymentAccPart";
+import ShippingAccPart from "../components/ShippingAccPart";
 
 const CheckoutPage = () => {
   let [active, setActive] = useState("Information");
@@ -27,7 +27,7 @@ const CheckoutPage = () => {
               onClick={() => setActive("Information")}
             >
               {active === "Information" && (
-                <div className=" size-8 sm:size-10 lg:size-[50px] flex justify-center items-center font-montserrat text-xs sm:text-sm lg:text-base font-bold leading-6 text-white text-center bg-orange rounded-full  ">
+                <div className=" size-8 sm:size-10 lg:size-[50px] flex justify-center items-center font-montserrat text-xs sm:text-sm lg:text-base font-bold leading-6 text-white text-center bg-green rounded-full  ">
                   01
                 </div>
               )}
@@ -39,7 +39,7 @@ const CheckoutPage = () => {
                 Information
                 <span
                   className={`h-1 w-full block mt-1 ${
-                    active === "Information" ? "bg-orange" : "bg-transparent"
+                    active === "Information" ? "bg-green" : "bg-transparent"
                   }`}
                 ></span>
               </p>
@@ -50,7 +50,7 @@ const CheckoutPage = () => {
               onClick={() => setActive("Shipping")}
             >
               {active === "Shipping" && (
-                <div className=" size-8 sm:size-10 lg:size-[50px] flex justify-center items-center font-montserrat text-xs sm:text-sm lg:text-base font-bold leading-6 text-white text-center bg-orange rounded-full  ">
+                <div className=" size-8 sm:size-10 lg:size-[50px] flex justify-center items-center font-montserrat text-xs sm:text-sm lg:text-base font-bold leading-6 text-white text-center bg-green rounded-full  ">
                   02
                 </div>
               )}
@@ -62,7 +62,7 @@ const CheckoutPage = () => {
                 Shipping
                 <span
                   className={`h-1 w-full block mt-1 ${
-                    active === "Shipping" ? "bg-orange" : "bg-transparent"
+                    active === "Shipping" ? "bg-green" : "bg-transparent"
                   }`}
                 ></span>
               </p>
@@ -73,7 +73,7 @@ const CheckoutPage = () => {
               onClick={() => setActive("Payment")}
             >
               {active === "Payment" && (
-                <div className=" size-8 sm:size-10 lg:size-[50px] flex justify-center items-center font-montserrat text-xs sm:text-sm lg:text-base font-bold leading-6 text-white text-center bg-orange rounded-full  ">
+                <div className=" size-8 sm:size-10 lg:size-[50px] flex justify-center items-center font-montserrat text-xs sm:text-sm lg:text-base font-bold leading-6 text-white text-center bg-green rounded-full  ">
                   03
                 </div>
               )}
@@ -85,7 +85,7 @@ const CheckoutPage = () => {
                 Payment
                 <span
                   className={`h-1 w-full block mt-1 ${
-                    active === "Payment" ? "bg-orange" : "bg-transparent"
+                    active === "Payment" ? "bg-green" : "bg-transparent"
                   }`}
                 ></span>
               </p>
@@ -93,9 +93,11 @@ const CheckoutPage = () => {
           </div>
 
           <div className="flex my-12 lg:my-20 justify-between ">
-            {active === "Information" && <InformationAccPart setActive={setActive} />}
-            {active === "Shipping" && <ShippingAccPart  setActive={setActive} />}
-            {active === "Payment" && <PaymentAccPart  setActive={setActive} />}
+            {active === "Information" && (
+              <InformationAccPart setActive={setActive} />
+            )}
+            {active === "Shipping" && <ShippingAccPart setActive={setActive} />}
+            {active === "Payment" && <PaymentAccPart setActive={setActive} />}
           </div>
         </div>
       </div>

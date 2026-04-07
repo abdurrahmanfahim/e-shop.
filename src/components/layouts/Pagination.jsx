@@ -11,7 +11,7 @@ const Pagination = ({
   const maxPagesToShow = 5;
   const pages = [];
 
-  const isMobile = typeof window !== 'undefined' && window.innerWidth < 640;
+  const isMobile = typeof window !== "undefined" && window.innerWidth < 640;
 
   if (totalPages <= maxPagesToShow) {
     for (let i = 1; i <= totalPages; i++) {
@@ -21,7 +21,8 @@ const Pagination = ({
     const startPages = isMobile ? [1] : [1, 2, 3];
     const endPages = isMobile ? [totalPages] : [totalPages - 1, totalPages];
     const middlePages = [currentPage - 1, currentPage, currentPage + 1].filter(
-      (p) => p > (isMobile ? 1 : 3) && p < (isMobile ? totalPages : totalPages - 1),
+      (p) =>
+        p > (isMobile ? 1 : 3) && p < (isMobile ? totalPages : totalPages - 1),
     );
 
     const uniquePages = Array.from(
@@ -67,7 +68,7 @@ const Pagination = ({
               onClick={() => handlePageChange(number)}
               className={`rounded-[5px] py-1.5 px-3 sm:py-[9px] sm:px-[18px] cursor-pointer ${
                 number === currentPage
-                  ? "bg-orange text-white"
+                  ? "bg-green text-white"
                   : "hover:bg-gray-100"
               }`}
             >

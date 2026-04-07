@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import Container from "../components/layouts/Container";
-import ProductDetailsCard from "../components/ProductDetailsCard";
 import ProductLayout from "../components/layouts/ProductLayout";
+import ProductDetailsCard from "../components/ProductDetailsCard";
 import LongArrow from "../icons/LongArrow";
 import { fetchProducts } from "../productDetailsArrays";
 
@@ -21,7 +21,9 @@ const ProductDetailsPage = () => {
         const data = await res.json();
         setProduct(data);
         const related = await fetchProducts();
-        setRelatedProducts(related.filter((p) => p.id !== Number(id)).slice(0, 5));
+        setRelatedProducts(
+          related.filter((p) => p.id !== Number(id)).slice(0, 5),
+        );
       } catch (e) {
         console.error(e);
       } finally {
@@ -31,8 +33,20 @@ const ProductDetailsPage = () => {
     load();
   }, [id]);
 
-  if (loading) return <Container><div className="py-20 text-center font-poppins text-xl">Loading...</div></Container>;
-  if (!product) return <Container><div className="py-20 text-center font-poppins text-xl">Product not found.</div></Container>;
+  if (loading)
+    return (
+      <Container>
+        <div className="py-20 text-center font-poppins text-xl">Loading...</div>
+      </Container>
+    );
+  if (!product)
+    return (
+      <Container>
+        <div className="py-20 text-center font-poppins text-xl">
+          Product not found.
+        </div>
+      </Container>
+    );
 
   return (
     <Container>
@@ -43,7 +57,9 @@ const ProductDetailsPage = () => {
           <span className="hidden sm:inline">|</span>
           <span className="font-bold">
             <span className="sm:hidden line-clamp-1">{product.title}</span>
-            <span className="hidden sm:inline line-clamp-1">{product.title}</span>
+            <span className="hidden sm:inline line-clamp-1">
+              {product.title}
+            </span>
           </span>
         </div>
         <ProductDetailsCard product={product} />
@@ -55,7 +71,7 @@ const ProductDetailsPage = () => {
           </h2>
           <button>
             <Link
-              className="flex items-center gap-3 lg:gap-4 font-montserrat text-sm lg:text-base font-bold leading-5 lg:leading-6 text-orange capitalize"
+              className="flex items-center gap-3 lg:gap-4 font-montserrat text-sm lg:text-base font-bold leading-5 lg:leading-6 text-green capitalize"
               to={"/all-products"}
             >
               View All <LongArrow />

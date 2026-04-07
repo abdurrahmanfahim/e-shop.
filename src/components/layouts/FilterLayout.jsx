@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
 import ProductFilterAcc from "../ProductFilterAcc";
 
 const FilterLayout = ({ bg = "#F4F4F4", onFilterChange, allProducts = [] }) => {
@@ -16,11 +16,21 @@ const FilterLayout = ({ bg = "#F4F4F4", onFilterChange, allProducts = [] }) => {
   }, [priceMax]);
 
   // derive unique categories and brands from actual products
-  const categories = [...new Set(allProducts.map((p) => p.type).filter(Boolean))].map((name) => ({ name }));
-  const brands = [...new Set(allProducts.map((p) => p.brand).filter(Boolean))].map((name) => ({ name }));
+  const categories = [
+    ...new Set(allProducts.map((p) => p.type).filter(Boolean)),
+  ].map((name) => ({ name }));
+  const brands = [
+    ...new Set(allProducts.map((p) => p.brand).filter(Boolean)),
+  ].map((name) => ({ name }));
 
   const notify = (cats, brands, min, max) => {
-    onFilterChange && onFilterChange({ categories: cats, brands, minPrice: min, maxPrice: max });
+    onFilterChange &&
+      onFilterChange({
+        categories: cats,
+        brands,
+        minPrice: min,
+        maxPrice: max,
+      });
   };
 
   const toggleCategory = (name) => {
@@ -104,16 +114,27 @@ const FilterLayout = ({ bg = "#F4F4F4", onFilterChange, allProducts = [] }) => {
         <div className="relative w-full mt-4 xl:mt-7.5 h-5">
           <div className="absolute w-full top-2 bg-[#C3C3C3] h-0.5"></div>
           <div
-            className="absolute top-2 h-0.5 bg-orange rounded"
-            style={{ left: `${minPercent}%`, width: `${maxPercent - minPercent}%` }}
+            className="absolute top-2 h-0.5 bg-green rounded"
+            style={{
+              left: `${minPercent}%`,
+              width: `${maxPercent - minPercent}%`,
+            }}
           ></div>
           <input
-            type="range" min={0} max={priceMax} step={10} value={minPrice}
+            type="range"
+            min={0}
+            max={priceMax}
+            step={10}
+            value={minPrice}
             className="absolute w-full bg-transparent appearance-none focus:outline-none cursor-pointer"
             onChange={(e) => updateSlider("min", e.target.value)}
           />
           <input
-            type="range" min={0} max={priceMax} step={10} value={maxPrice}
+            type="range"
+            min={0}
+            max={priceMax}
+            step={10}
+            value={maxPrice}
             className="absolute w-full bg-transparent appearance-none focus:outline-none cursor-pointer"
             onChange={(e) => updateSlider("max", e.target.value)}
           />

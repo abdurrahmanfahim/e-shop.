@@ -9,7 +9,7 @@ const FormInput = ({
   return (
     <>
       <label className="font-montserrat text-base lg:text-xl font-bold leading-6 lg:leading-[30px] text-black">
-        {label} <span className="text-orange">{star && "*"}</span>
+        {label} <span className="text-green">{star && "*"}</span>
       </label>
       {textAria ? (
         <textarea

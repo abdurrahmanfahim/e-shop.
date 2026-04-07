@@ -4,7 +4,11 @@ import { Link } from "react-router-dom";
 const links = [
   { to: "/", label: "Home" },
   { to: "/all-products", label: "All Products" },
-  { to: "/all-products", label: "Limited Sale 👋🏻", className: "uppercase text-orange" },
+  {
+    to: "/all-products",
+    label: "Limited Sale 👋🏻",
+    className: "uppercase text-green",
+  },
   { to: "/all-products", label: "Best Seller" },
   { to: "/all-products", label: "New Arrival" },
   { to: "/blog", label: "Blog" },
@@ -27,7 +31,10 @@ const MiddleNav = ({ isOpen, onClose }) => {
         {/* Header */}
         <div className="flex justify-between items-center px-6 py-5 border-b border-[#EBEBEB]">
           <img src="/images/logo.png" alt="logo" className="h-7" />
-          <button onClick={onClose} className="text-2xl hover:text-orange transition-colors">
+          <button
+            onClick={onClose}
+            className="text-2xl hover:text-green transition-colors"
+          >
             <IoClose />
           </button>
         </div>
@@ -39,7 +46,7 @@ const MiddleNav = ({ isOpen, onClose }) => {
               <Link
                 to={link.to}
                 onClick={onClose}
-                className={`block px-3 py-2.5 rounded-lg hover:bg-lightGray hover:text-orange transition-colors ${link.className ?? "text-black"}`}
+                className={`block px-3 py-2.5 rounded-lg hover:bg-lightGray hover:text-green transition-colors ${link.className ?? "text-black"}`}
               >
                 {link.label}
               </Link>

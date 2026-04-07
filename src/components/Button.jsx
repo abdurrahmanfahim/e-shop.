@@ -1,6 +1,6 @@
 const Button = ({
   text,
-  bg = '#FF624C',
+  bg = '#023440',
   color = '#fff',
   py = '12px',
   px = '24px',

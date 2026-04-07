@@ -64,7 +64,7 @@ const TopRight = () => {
         {selectedCurr ? (
           <>
             <span
-              className="hover:text-orange transition-all duration-150 ease-in-out"
+              className="hover:text-green transition-all duration-150 ease-in-out"
               onClick={() => setIsCurrOpen(true)}
             >
               {selectedCurr?.name}
@@ -78,13 +78,13 @@ const TopRight = () => {
 
         {isCurrOpen && (
           <ul
-            className="absolute w-full bg-white shadow-2xl z-50 top-full leading-5 border-t-4 border-orange "
+            className="absolute w-full bg-white shadow-2xl z-50 top-full leading-5 border-t-4 border-green "
             onClick={() => setIsCurrOpen(false)}
           >
             {currency?.map((curr) => (
               <li
                 key={curr?.code}
-                className="flex items-center gap-2 p-2 hover:bg-gray-100 hover:text-orange cursor-pointer border-l-2 border-r-2 border-b border-b-gray-100 border-transparent hover:shadow-xl hover:border-r-orange hover:border-l-orange "
+                className="flex items-center gap-2 p-2 hover:bg-gray-100 hover:text-green cursor-pointer border-l-2 border-r-2 border-b border-b-gray-100 border-transparent hover:shadow-xl hover:border-r-green hover:border-l-green "
                 onClick={() => {
                   setSelectedCurr(curr);
                   setIsCurrOpen(false);
@@ -96,7 +96,7 @@ const TopRight = () => {
           </ul>
         )}
 
-        <GoChevronDown className="text-base hover:text-orange transition-all duration-150 ease-in-out" />
+        <GoChevronDown className="text-base hover:text-green transition-all duration-150 ease-in-out" />
       </div>
       <span className="w-[1px] h-6 sm:h-8 bg-[#CBCBCB] "></span>
       <div
@@ -133,7 +133,7 @@ const TopRight = () => {
               onClick={() => setIsLangOpen(true)}
             />
             <span
-              className="hover:text-orange transition-all duration-150 ease-in-out"
+              className="hover:text-green transition-all duration-150 ease-in-out"
               onClick={() => setIsLangOpen(true)}
             >
               {selectedLang?.name}
@@ -147,13 +147,13 @@ const TopRight = () => {
 
         {isLangOpen && (
           <ul
-            className="absolute w-full bg-white shadow-2xl z-50 top-full leading-5 border-t-4 border-orange "
+            className="absolute w-full bg-white shadow-2xl z-50 top-full leading-5 border-t-4 border-green "
             onClick={() => setIsLangOpen(false)}
           >
             {languages.map((lang) => (
               <li
                 key={lang?.code}
-                className="flex items-center gap-2 p-2 hover:bg-gray-100 hover:text-orange cursor-pointer border-l-2 border-r-2 border-b border-b-gray-100 border-transparent hover:shadow-xl hover:border-r-orange hover:border-l-orange "
+                className="flex items-center gap-2 p-2 hover:bg-gray-100 hover:text-green cursor-pointer border-l-2 border-r-2 border-b border-b-gray-100 border-transparent hover:shadow-xl hover:border-r-green hover:border-l-green "
                 onClick={() => {
                   setSelectedLang(lang);
                   setIsLangOpen(false);
@@ -171,26 +171,26 @@ const TopRight = () => {
           </ul>
         )}
 
-        <GoChevronDown className="text-base hover:text-orange transition-all duration-150 ease-in-out" />
+        <GoChevronDown className="text-base hover:text-green transition-all duration-150 ease-in-out" />
       </div>
       <span className="w-[1px] h-6 sm:h-8 bg-[#CBCBCB] "></span>
       <div className="flex items-center gap-1 sm:gap-1.5 text-base">
         <Link
-          className="size-8 rounded-full flex items-center justify-center bg-transparent hover:bg-gray-100 hover:text-orange transition-all duration-150 ease-in-out  "
+          className="size-8 rounded-full flex items-center justify-center bg-transparent hover:bg-gray-100 hover:text-green transition-all duration-150 ease-in-out  "
           to={"https://facebook.com"}
           target="_blank"
         >
           <FaFacebookF />
         </Link>
         <Link
-          className="size-8 rounded-full flex items-center justify-center bg-transparent hover:bg-gray-100 hover:text-orange transition-all duration-150 ease-in-out]   "
+          className="size-8 rounded-full flex items-center justify-center bg-transparent hover:bg-gray-100 hover:text-green transition-all duration-150 ease-in-out]   "
           to={"https://twitter.com"}
           target="_blank"
         >
           <FaTwitter />
         </Link>
         <Link
-          className="size-8 rounded-full flex items-center justify-center bg-transparent hover:bg-gray-100 hover:text-orange transition-all duration-150 ease-in-out  "
+          className="size-8 rounded-full flex items-center justify-center bg-transparent hover:bg-gray-100 hover:text-green transition-all duration-150 ease-in-out  "
           to={"https://instagram.com"}
           target="_blank"
         >

@@ -18,7 +18,12 @@ const ProductListPage = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 16;
 
-  const [filters, setFilters] = useState({ categories: [], brands: [], minPrice: 0, maxPrice: 99999 });
+  const [filters, setFilters] = useState({
+    categories: [],
+    brands: [],
+    minPrice: 0,
+    maxPrice: 99999,
+  });
   const [sortedItemOne, setSortedItemOne] = useState("Newest");
   const [sortedItemTwo, setSortedItemTwo] = useState("Price Low-to-High");
   const [isSortOneOpen, setIsSortOneOpen] = useState(false);
@@ -39,21 +44,30 @@ const ProductListPage = () => {
   const filtered = allProducts.filter((p) => {
     const price = parseFloat(p.price);
     const inPrice = price >= filters.minPrice && price <= filters.maxPrice;
-    const inCategory = filters.categories.length === 0 || filters.categories.some((c) => p.type?.toLowerCase() === c.toLowerCase());
-    const inBrand = filters.brands.length === 0 || filters.brands.some((b) => p.brand?.toLowerCase() === b.toLowerCase());
+    const inCategory =
+      filters.categories.length === 0 ||
+      filters.categories.some((c) => p.type?.toLowerCase() === c.toLowerCase());
+    const inBrand =
+      filters.brands.length === 0 ||
+      filters.brands.some((b) => p.brand?.toLowerCase() === b.toLowerCase());
     return inPrice && inCategory && inBrand;
   });
 
   // sort
-  const sorted = [...filtered].sort((a, b) => {
-    if (sortedItemTwo === "Price Low-to-High") return parseFloat(a.price) - parseFloat(b.price);
-    if (sortedItemTwo === "Price High-to-Low") return parseFloat(b.price) - parseFloat(a.price);
-    return 0;
-  }).sort((a, b) => {
-    if (sortedItemOne === "Rating") return b.stars - a.stars;
-    if (sortedItemOne === "Discount") return (b.discounted ?? 0) - (a.discounted ?? 0);
-    return 0;
-  });
+  const sorted = [...filtered]
+    .sort((a, b) => {
+      if (sortedItemTwo === "Price Low-to-High")
+        return parseFloat(a.price) - parseFloat(b.price);
+      if (sortedItemTwo === "Price High-to-Low")
+        return parseFloat(b.price) - parseFloat(a.price);
+      return 0;
+    })
+    .sort((a, b) => {
+      if (sortedItemOne === "Rating") return b.stars - a.stars;
+      if (sortedItemOne === "Discount")
+        return (b.discounted ?? 0) - (a.discounted ?? 0);
+      return 0;
+    });
 
   const startIndex = (currentPage - 1) * itemsPerPage;
   const currentProducts = sorted.slice(startIndex, startIndex + itemsPerPage);
@@ -79,24 +93,48 @@ const ProductListPage = () => {
         {/* Mobile Filter Button */}
         <button
           onClick={() => setIsFilterOpen(true)}
-          className="lg:hidden fixed bottom-4 right-4 bg-orange text-white px-4 py-3 rounded-full shadow-lg z-40 flex items-center gap-2"
+          className="lg:hidden fixed bottom-4 right-4 bg-green text-white px-4 py-3 rounded-full shadow-lg z-40 flex items-center gap-2"
         >
-          <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 4a1 1 0 011-1h16a1 1 0 011 1v2.586a1 1 0 01-.293.707l-6.414 6.414a1 1 0 00-.293.707V17l-4 4v-6.586a1 1 0 00-.293-.707L3.293 7.207A1 1 0 013 6.5V4z" />
+          <svg
+            className="w-5 h-5"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={2}
+              d="M3 4a1 1 0 011-1h16a1 1 0 011 1v2.586a1 1 0 01-.293.707l-6.414 6.414a1 1 0 00-.293.707V17l-4 4v-6.586a1 1 0 00-.293-.707L3.293 7.207A1 1 0 013 6.5V4z"
+            />
           </svg>
           Filter
         </button>
 
         {/* Mobile Filter Overlay */}
         {isFilterOpen && (
-          <div className="lg:hidden fixed inset-0 bg-black bg-opacity-50 z-50" onClick={() => setIsFilterOpen(false)}>
-            <div className="absolute right-0 top-0 h-full w-80 bg-white overflow-y-auto" onClick={(e) => e.stopPropagation()}>
+          <div
+            className="lg:hidden fixed inset-0 bg-black bg-opacity-50 z-50"
+            onClick={() => setIsFilterOpen(false)}
+          >
+            <div
+              className="absolute right-0 top-0 h-full w-80 bg-white overflow-y-auto"
+              onClick={(e) => e.stopPropagation()}
+            >
               <div className="p-4 border-b flex justify-between items-center">
                 <h3 className="text-lg font-semibold">Filters</h3>
-                <button onClick={() => setIsFilterOpen(false)} className="text-2xl">&times;</button>
+                <button
+                  onClick={() => setIsFilterOpen(false)}
+                  className="text-2xl"
+                >
+                  &times;
+                </button>
               </div>
               <div className="p-4">
-                <FilterLayout onFilterChange={handleFilterChange} allProducts={allProducts} />
+                <FilterLayout
+                  onFilterChange={handleFilterChange}
+                  allProducts={allProducts}
+                />
               </div>
             </div>
           </div>
@@ -104,7 +142,10 @@ const ProductListPage = () => {
 
         {/* Desktop Filter */}
         <div className="hidden lg:block w-[355px]">
-          <FilterLayout onFilterChange={handleFilterChange} allProducts={allProducts} />
+          <FilterLayout
+            onFilterChange={handleFilterChange}
+            allProducts={allProducts}
+          />
         </div>
 
         <div className="w-full lg:w-auto">
@@ -114,23 +155,51 @@ const ProductListPage = () => {
             </h2>
             <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center mb-6 lg:mb-12 gap-4 sm:gap-0">
               <p className="font-normal font-montserrat text-sm lg:text-base leading-5 lg:leading-6">
-                Showing {sorted.length === 0 ? 0 : startIndex + 1} - {Math.min(startIndex + itemsPerPage, sorted.length)} of {sorted.length} results.
+                Showing {sorted.length === 0 ? 0 : startIndex + 1} -{" "}
+                {Math.min(startIndex + itemsPerPage, sorted.length)} of{" "}
+                {sorted.length} results.
               </p>
               <div className="flex flex-wrap sm:flex-nowrap justify-between items-center gap-3 lg:gap-6">
-                <div className="flex justify-between items-center relative cursor-pointer" onClick={() => setIsSortOneOpen(!isSortOneOpen)}>
-                  <span className="text-black font-normal text-sm lg:text-base leading-5 lg:leading-6 pr-2 lg:pr-4">Sort by</span>
-                  <span className="font-montserrat font-bold text-sm lg:text-base leading-5 lg:leading-6 text-orange mr-6 lg:mr-12 text-left">{sortedItemOne}</span>
+                <div
+                  className="flex justify-between items-center relative cursor-pointer"
+                  onClick={() => setIsSortOneOpen(!isSortOneOpen)}
+                >
+                  <span className="text-black font-normal text-sm lg:text-base leading-5 lg:leading-6 pr-2 lg:pr-4">
+                    Sort by
+                  </span>
+                  <span className="font-montserrat font-bold text-sm lg:text-base leading-5 lg:leading-6 text-green mr-6 lg:mr-12 text-left">
+                    {sortedItemOne}
+                  </span>
                   <div className="absolute left-17 top-full z-50 text-sm font-medium">
-                    <Dropdown data={sortOneOptions} ref={sortOneRef} isOpen={isSortOneOpen} setIsOpen={setIsSortOneOpen} setSelected={handleSortOne} />
+                    <Dropdown
+                      data={sortOneOptions}
+                      ref={sortOneRef}
+                      isOpen={isSortOneOpen}
+                      setIsOpen={setIsSortOneOpen}
+                      setSelected={handleSortOne}
+                    />
                   </div>
-                  <span><DownIcon /></span>
+                  <span>
+                    <DownIcon />
+                  </span>
                 </div>
                 <span className="bg-[#CBCBCB] w-[1px] h-6 lg:h-8 hidden sm:block"></span>
-                <div className="flex justify-between items-center relative cursor-pointer" onClick={() => setIsSortTwoOpen(!isSortTwoOpen)}>
+                <div
+                  className="flex justify-between items-center relative cursor-pointer"
+                  onClick={() => setIsSortTwoOpen(!isSortTwoOpen)}
+                >
                   <span>
-                    <span className="font-montserrat font-bold text-sm lg:text-base leading-5 lg:leading-6 text-orange mr-6 lg:mr-12 text-left">{sortedItemTwo}</span>
+                    <span className="font-montserrat font-bold text-sm lg:text-base leading-5 lg:leading-6 text-green mr-6 lg:mr-12 text-left">
+                      {sortedItemTwo}
+                    </span>
                     <div className="absolute left-0 top-full z-50 text-sm font-medium">
-                      <Dropdown data={priceOptions} ref={sortTwoRef} isOpen={isSortTwoOpen} setIsOpen={setIsSortTwoOpen} setSelected={handleSortTwo} />
+                      <Dropdown
+                        data={priceOptions}
+                        ref={sortTwoRef}
+                        isOpen={isSortTwoOpen}
+                        setIsOpen={setIsSortTwoOpen}
+                        setSelected={handleSortTwo}
+                      />
                     </div>
                   </span>
                   <DownIcon />
@@ -145,27 +214,33 @@ const ProductListPage = () => {
           </div>
 
           <div className="w-full grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-3 xl:grid-cols-4 gap-4 lg:gap-6">
-            {loading
-              ? Array.from({ length: 8 }).map((_, i) => (
-                  <div key={i} className="animate-pulse bg-gray-100 rounded-15p h-72" />
-                ))
-              : currentProducts.length > 0
-              ? currentProducts.map((item) => (
-                  <ProductLayout
-                    key={item.id}
-                    id={item.id}
-                    type={item.type}
-                    title={item.title}
-                    stars={item.stars}
-                    rating={item.rating}
-                    price={item.price}
-                    image={item.image}
-                    discounted={item.discounted}
-                    inStoke={item.inStoke}
-                  />
-                ))
-              : <p className="col-span-4 text-center font-montserrat text-lg py-12 text-[#979797]">No products found.</p>
-            }
+            {loading ? (
+              Array.from({ length: 8 }).map((_, i) => (
+                <div
+                  key={i}
+                  className="animate-pulse bg-gray-100 rounded-15p h-72"
+                />
+              ))
+            ) : currentProducts.length > 0 ? (
+              currentProducts.map((item) => (
+                <ProductLayout
+                  key={item.id}
+                  id={item.id}
+                  type={item.type}
+                  title={item.title}
+                  stars={item.stars}
+                  rating={item.rating}
+                  price={item.price}
+                  image={item.image}
+                  discounted={item.discounted}
+                  inStoke={item.inStoke}
+                />
+              ))
+            ) : (
+              <p className="col-span-4 text-center font-montserrat text-lg py-12 text-[#979797]">
+                No products found.
+              </p>
+            )}
           </div>
 
           <Pagination

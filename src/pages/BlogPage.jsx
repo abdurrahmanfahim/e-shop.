@@ -120,7 +120,7 @@ const BlogPage = () => {
                 />
               </div>
               <div className="w-full lg:w-1/2 p-6 lg:p-12 flex flex-col justify-center">
-                <span className="inline-block px-3 py-1 bg-orange text-white text-sm font-semibold rounded-full mb-4 w-fit">
+                <span className="inline-block px-3 py-1 bg-green text-white text-sm font-semibold rounded-full mb-4 w-fit">
                   Featured
                 </span>
                 <h2 className="font-poppins text-xl lg:text-3xl font-semibold leading-7 lg:leading-10 text-black mb-4">
@@ -138,7 +138,7 @@ const BlogPage = () => {
                 </div>
                 <Link
                   to={`/blog/${featuredPost.id}`}
-                  className="flex items-center gap-3 font-montserrat text-sm lg:text-base font-bold text-orange hover:underline w-fit"
+                  className="flex items-center gap-3 font-montserrat text-sm lg:text-base font-bold text-green hover:underline w-fit"
                 >
                   Read More <LongArrow />
                 </Link>
@@ -155,7 +155,7 @@ const BlogPage = () => {
               onClick={() => setSelectedCategory(category)}
               className={`px-4 lg:px-6 py-2 lg:py-3 rounded-full font-montserrat text-sm lg:text-base font-semibold transition-all ${
                 selectedCategory === category
-                  ? "bg-orange text-white"
+                  ? "bg-green text-white"
                   : "bg-gray-100 text-gray-700 hover:bg-gray-200"
               }`}
             >
@@ -181,7 +181,7 @@ const BlogPage = () => {
                       "https://via.placeholder.com/400x300/f4f4f4/666?text=Blog+Post";
                   }}
                 />
-                <span className="absolute top-4 left-4 px-3 py-1 bg-white text-orange text-xs font-semibold rounded-full">
+                <span className="absolute top-4 left-4 px-3 py-1 bg-white text-green text-xs font-semibold rounded-full">
                   {post.category}
                 </span>
               </div>
@@ -202,7 +202,7 @@ const BlogPage = () => {
                   </span>
                   <Link
                     to={`/blog/${post.id}`}
-                    className="text-orange font-semibold text-sm hover:underline"
+                    className="text-green font-semibold text-sm hover:underline"
                   >
                     Read More
                   </Link>
@@ -214,7 +214,7 @@ const BlogPage = () => {
 
         {/* Load More */}
         <div className="text-center">
-          <button className="px-8 lg:px-12 py-3 lg:py-4 bg-orange text-white font-montserrat font-semibold rounded-10p hover:bg-[#e55540] transition-colors">
+          <button className="px-8 lg:px-12 py-3 lg:py-4 bg-green text-white font-montserrat font-semibold rounded-10p hover:bg-[#e55540] transition-colors">
             Load More Posts
           </button>
         </div>

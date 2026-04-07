@@ -27,10 +27,16 @@ const ProductDetailsCard = ({ product }) => {
   };
 
   const starCount = product?.rating ? Math.round(product.rating) : 5;
-  const images = product?.images?.length ? product.images : product?.thumbnail ? [product.thumbnail] : [];
+  const images = product?.images?.length
+    ? product.images
+    : product?.thumbnail
+      ? [product.thumbnail]
+      : [];
   const originalPrice = product?.price ?? 0;
   const discountPct = product?.discountPercentage ?? 0;
-  const discountedPrice = discountPct ? (originalPrice - (originalPrice * discountPct) / 100).toFixed(2) : null;
+  const discountedPrice = discountPct
+    ? (originalPrice - (originalPrice * discountPct) / 100).toFixed(2)
+    : null;
 
   // Build accordion data from API product
   const productAccData = {
@@ -38,20 +44,29 @@ const ProductDetailsCard = ({ product }) => {
     Specification: [
       { name: "Brand", value: product?.brand ?? "N/A" },
       { name: "Category", value: product?.category ?? "N/A" },
-      { name: "Weight", value: product?.weight ? `${product.weight} kg` : "N/A" },
-      { name: "Dimensions", value: product?.dimensions ? `${product.dimensions.width} x ${product.dimensions.height} x ${product.dimensions.depth} cm` : "N/A" },
+      {
+        name: "Weight",
+        value: product?.weight ? `${product.weight} kg` : "N/A",
+      },
+      {
+        name: "Dimensions",
+        value: product?.dimensions
+          ? `${product.dimensions.width} x ${product.dimensions.height} x ${product.dimensions.depth} cm`
+          : "N/A",
+      },
       { name: "Warranty", value: product?.warrantyInformation ?? "N/A" },
       { name: "Shipping", value: product?.shippingInformation ?? "N/A" },
       { name: "Availability", value: product?.availabilityStatus ?? "N/A" },
       { name: "Return Policy", value: product?.returnPolicy ?? "N/A" },
     ],
     Return: product?.returnPolicy ?? "N/A",
-    Reviews: product?.reviews?.map((r) => ({
-      user: r.reviewerName,
-      rating: r.rating,
-      comment: r.comment,
-      date: new Date(r.date).toLocaleDateString(),
-    })) ?? [],
+    Reviews:
+      product?.reviews?.map((r) => ({
+        user: r.reviewerName,
+        rating: r.rating,
+        comment: r.comment,
+        date: new Date(r.date).toLocaleDateString(),
+      })) ?? [],
   };
 
   return (
@@ -75,7 +90,11 @@ const ProductDetailsCard = ({ product }) => {
           <div className="flex gap-2 items-center mt-1 mb-4 lg:mb-5">
             <p className="flex text-yellow">
               {[...Array(5)].map((_, i) =>
-                i < starCount ? <MdOutlineStar key={i} /> : <MdOutlineStarBorder key={i} />
+                i < starCount ? (
+                  <MdOutlineStar key={i} />
+                ) : (
+                  <MdOutlineStarBorder key={i} />
+                ),
               )}
             </p>
             <span className="font-montserrat text-sm lg:text-base font-normal leading-5 lg:leading-6">
@@ -88,7 +107,7 @@ const ProductDetailsCard = ({ product }) => {
           </h2>
 
           <div className="flex items-center gap-3 lg:gap-[18px] mt-3 mb-4 lg:mb-0">
-            <h1 className="font-poppins font-bold leading-10 lg:leading-[64px] text-2xl lg:text-[56px] text-orange">
+            <h1 className="font-poppins font-bold leading-10 lg:leading-[64px] text-2xl lg:text-[56px] text-green">
               ${discountedPrice ?? originalPrice}
             </h1>
             {discountedPrice && (
@@ -100,27 +119,44 @@ const ProductDetailsCard = ({ product }) => {
 
           <ul className="mt-4 lg:mt-12 flex flex-col gap-3 lg:gap-4">
             <li className="text-black text-base lg:text-xl leading-6 lg:leading-[30px] flex flex-col sm:flex-row">
-              <h4 className="w-full sm:w-[170px] font-poppins capitalize font-bold mb-1 sm:mb-0">Brand</h4>
+              <h4 className="w-full sm:w-[170px] font-poppins capitalize font-bold mb-1 sm:mb-0">
+                Brand
+              </h4>
               <p className="font-montserrat">{product?.brand ?? "N/A"}</p>
             </li>
             <li className="text-black text-base lg:text-xl leading-6 lg:leading-[30px] flex flex-col sm:flex-row">
-              <h4 className="w-full sm:w-[170px] font-poppins capitalize font-bold mb-1 sm:mb-0">Category</h4>
-              <p className="font-montserrat capitalize">{product?.category ?? "N/A"}</p>
+              <h4 className="w-full sm:w-[170px] font-poppins capitalize font-bold mb-1 sm:mb-0">
+                Category
+              </h4>
+              <p className="font-montserrat capitalize">
+                {product?.category ?? "N/A"}
+              </p>
             </li>
             <li className="text-black text-base lg:text-xl leading-6 lg:leading-[30px] flex flex-col sm:flex-row">
-              <h4 className="w-full sm:w-[170px] font-poppins capitalize font-bold mb-1 sm:mb-0">Stock</h4>
+              <h4 className="w-full sm:w-[170px] font-poppins capitalize font-bold mb-1 sm:mb-0">
+                Stock
+              </h4>
               <p className="font-montserrat">{product?.stock ?? "N/A"}</p>
             </li>
             <li className="text-black text-base lg:text-xl leading-6 lg:leading-[30px] flex flex-col sm:flex-row">
-              <h4 className="w-full sm:w-[170px] font-poppins capitalize font-bold mb-1 sm:mb-0">Delivery</h4>
-              <p className="font-montserrat">{product?.shippingInformation ?? "Worldwide"}</p>
+              <h4 className="w-full sm:w-[170px] font-poppins capitalize font-bold mb-1 sm:mb-0">
+                Delivery
+              </h4>
+              <p className="font-montserrat">
+                {product?.shippingInformation ?? "Worldwide"}
+              </p>
             </li>
             {product?.tags?.length > 0 && (
               <li className="text-black text-base lg:text-xl leading-6 lg:leading-[30px] flex flex-col sm:flex-row sm:justify-between">
-                <h4 className="w-full sm:w-[170px] font-poppins capitalize font-bold mb-2 sm:mb-0">Tags</h4>
+                <h4 className="w-full sm:w-[170px] font-poppins capitalize font-bold mb-2 sm:mb-0">
+                  Tags
+                </h4>
                 <div className="w-full sm:w-auto font-montserrat text-sm lg:text-base flex flex-wrap gap-x-1 gap-y-2">
                   {product.tags.map((tag) => (
-                    <span key={tag} className="py-2 px-4 font-bold border-[#979797] border bg-white rounded-[5px] capitalize">
+                    <span
+                      key={tag}
+                      className="py-2 px-4 font-bold border-[#979797] border bg-white rounded-[5px] capitalize"
+                    >
                       {tag}
                     </span>
                   ))}
@@ -181,9 +217,9 @@ const ProductDetailsCard = ({ product }) => {
             <Button text={"Buy Now"} />
             <Link
               to={"/cart"}
-              className="p-3 lg:p-[17px] border border-orange rounded-10p cursor-pointer"
+              className="p-3 lg:p-[17px] border border-green rounded-10p cursor-pointer"
             >
-              <CartIcon color="#FF624C" />
+              <CartIcon color="#023440" />
             </Link>
           </div>
         </div>

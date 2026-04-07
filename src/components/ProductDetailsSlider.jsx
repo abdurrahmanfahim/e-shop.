@@ -2,7 +2,11 @@ import { useEffect, useRef, useState } from "react";
 import Slider from "react-slick";
 import ExpandIcon from "../icons/ExpandIcon";
 
-const ProductDetailsSlider = ({ setActiveModalSrc, setIsModalOpen, images = [] }) => {
+const ProductDetailsSlider = ({
+  setActiveModalSrc,
+  setIsModalOpen,
+  images = [],
+}) => {
   const [nav1, setNav1] = useState(null);
   const [currentIndex, setCurrentIndex] = useState(0);
 
@@ -42,8 +46,10 @@ const ProductDetailsSlider = ({ setActiveModalSrc, setIsModalOpen, images = [] }
               }}
             >
               <img
-                className={`object-cover size-full border rounded-10p p-2 lg:p-3 hover:border-orange ${
-                  currentIndex === i ? "border-2 border-orange" : "border border-[#AFAFAF]"
+                className={`object-cover size-full border rounded-10p p-2 lg:p-3 hover:border-green ${
+                  currentIndex === i
+                    ? "border-2 border-green"
+                    : "border border-[#AFAFAF]"
                 }`}
                 src={src}
                 alt={`thumb-${i}`}

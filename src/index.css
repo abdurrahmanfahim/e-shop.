@@ -1,9 +1,9 @@
 @import "tailwindcss";
 
 @theme {
-  --color-orange: #ff624c;
+  --color-green: #023440;
   --color-black: #303030;
-  --color-yellow: #fed550;
+  --color-yellow: #e0be74;
   --color-lightGray: #f4f4f4;
   --color-orTen: #ffefed;
   --font-montserrat: "Montserrat";
@@ -31,13 +31,13 @@
 }
 
 .icon:hover path {
-  fill: #ff624c;
+  fill: #023440;
 }
 
 input[type="range"]::-webkit-slider-thumb {
   width: 16px;
   height: 16px;
-  background: #ff624c;
+  background: #023440;
   border-radius: 50%;
   pointer-events: auto;
   cursor: pointer;
@@ -46,7 +46,7 @@ input[type="range"]::-webkit-slider-thumb {
 input[type="range"]::-moz-range-thumb {
   width: 16px;
   height: 16px;
-  background: #ff624c;
+  background: #023440;
   border-radius: 50%;
   pointer-events: auto;
   cursor: pointer;
@@ -54,8 +54,8 @@ input[type="range"]::-moz-range-thumb {
 }
 
 .targetInput:checked + .customCheckBox {
-  background: var(--color-orange);
-  border: var(--color-orange);
+  background: var(--color-green);
+  border: var(--color-green);
 }
 
 .targetInputParen:has(.targetInput:checked) {
@@ -69,7 +69,7 @@ a:has(.icon):hover .icon path {
 .secondSlider .slick-current img {
   border-width: 2px;
   border-style: solid;
-  border-color: rgb(255, 98, 76);
+  border-color: #023440;
   border-image: initial;
 }
 

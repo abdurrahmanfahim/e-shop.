@@ -95,7 +95,7 @@ const FeatureProduct = () => {
         </h2>
         <button>
           <Link
-            className="flex items-center gap-4 font-montserrat text-base font-bold leading-6 text-orange capitalize "
+            className="flex items-center gap-4 font-montserrat text-base font-bold leading-6 text-green capitalize "
             to={"/all-products"}
           >
             View All <LongArrow />

@@ -31,14 +31,7 @@ const SpringSale = () => {
     pauseOnHover: true,
     responsive: [
       {
-        breakpoint: 1024,
-        settings: {
-          slidesToShow: 2,
-          slidesToScroll: 1,
-        },
-      },
-      {
-        breakpoint: 768,
+        breakpoint: 1279,
         settings: {
           slidesToShow: 2,
           slidesToScroll: 1,
@@ -46,7 +39,23 @@ const SpringSale = () => {
         },
       },
       {
-        breakpoint: 640,
+        breakpoint: 1139,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+          arrows: false,
+        },
+      },
+      {
+        breakpoint: 1023,
+        settings: {
+          slidesToShow: 3,
+          slidesToScroll: 1,
+          arrows: false,
+        },
+      },
+      {
+        breakpoint: 639,
         settings: {
           slidesToShow: 2,
           slidesToScroll: 1,
@@ -54,7 +63,7 @@ const SpringSale = () => {
         },
       },
       {
-        breakpoint: 450,
+        breakpoint: 449,
         settings: {
           slidesToShow: 1,
           slidesToScroll: 1,
@@ -111,7 +120,7 @@ const SpringSale = () => {
               Spring Sale
             </h1>
             <div>
-              <div className="font-['Poppins'] font-semibold leading-[30px] lg:leading-[46px] text-xl sm:text-2xl lg:text-4xl text-orange flex gap-3 lg:gap-6 text-center pt-6 lg:pt-10 pb-8 lg:pb-18 justify-center lg:justify-start ">
+              <div className="font-['Poppins'] font-semibold leading-[30px] lg:leading-[46px] text-xl sm:text-2xl lg:text-4xl text-green flex gap-3 lg:gap-6 text-center pt-6 lg:pt-10 pb-8 lg:pb-18 justify-center lg:justify-start ">
                 <p>
                   <span>
                     {timerLeft.days <= 9
@@ -162,7 +171,7 @@ const SpringSale = () => {
             </div>
           </div>
 
-          <div className="w-full lg:max-w-[992px] lg:pr-7.5 ">
+          <div className="w-full min-w-0 lg:pr-7.5">
             <Slider className="spring_sale " {...settings}>
               {products.map((item) => (
                 <ProductLayout
