@@ -1,16 +1,20 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import Container from "../components/layouts/Container";
 import ProductLayout from "../components/layouts/ProductLayout";
 import ProductDetailsCard from "../components/ProductDetailsCard";
+import ProductsContext from "../contexts/ProductsContext";
 import LongArrow from "../icons/LongArrow";
-import { fetchProducts } from "../productDetailsArrays";
 
 const ProductDetailsPage = () => {
+  const allProducts = useContext(ProductsContext);
   const { id } = useParams();
   const [product, setProduct] = useState(null);
-  const [relatedProducts, setRelatedProducts] = useState([]);
   const [loading, setLoading] = useState(true);
+
+  const relatedProducts = allProducts
+    .filter((p) => p.id !== Number(id))
+    .slice(0, 5);
 
   useEffect(() => {
     const load = async () => {
@@ -20,10 +24,6 @@ const ProductDetailsPage = () => {
         const res = await fetch(`https://dummyjson.com/products/${originalId}`);
         const data = await res.json();
         setProduct(data);
-        const related = await fetchProducts();
-        setRelatedProducts(
-          related.filter((p) => p.id !== Number(id)).slice(0, 5),
-        );
       } catch (e) {
         console.error(e);
       } finally {

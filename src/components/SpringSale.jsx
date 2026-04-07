@@ -1,10 +1,10 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import Slider from "react-slick";
 import Button from "../components/Button";
 import Container from "../components/layouts/Container";
 import ProductLayout from "../components/layouts/ProductLayout";
+import ProductsContext from "../contexts/ProductsContext";
 import NextArrow from "../icons/NextArrow";
-import { fetchProducts } from "../productDetailsArrays";
 
 function SampleNextArrow(props) {
   const { className, onClick } = props;
@@ -103,13 +103,7 @@ const SpringSale = () => {
     return () => clearInterval(timer);
   }, []);
 
-  const [products, setProducts] = useState([]);
-
-  useEffect(() => {
-    fetchProducts().then((products) => {
-      setProducts(products);
-    });
-  }, []);
+  const products = useContext(ProductsContext);
 
   return (
     <div className="bg-lightGray py-6 lg:py-16 ">

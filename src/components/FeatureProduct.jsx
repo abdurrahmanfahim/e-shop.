@@ -1,11 +1,11 @@
-import { useEffect, useState } from "react";
+import { useContext } from "react";
 import { HiOutlineChevronLeft, HiOutlineChevronRight } from "react-icons/hi";
 import { Link } from "react-router-dom";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick-theme.css";
 import "slick-carousel/slick/slick.css";
+import ProductsContext from "../contexts/ProductsContext";
 import LongArrow from "../icons/LongArrow";
-import { fetchProducts } from "../productDetailsArrays";
 import Container from "./layouts/Container";
 import ProductLayout from "./layouts/ProductLayout";
 
@@ -79,13 +79,7 @@ const FeatureProduct = () => {
     ],
   };
 
-  const [products, setProducts] = useState([]);
-
-  useEffect(() => {
-    fetchProducts().then((products) => {
-      setProducts(products);
-    });
-  }, []);
+  const products = useContext(ProductsContext);
 
   return (
     <Container>

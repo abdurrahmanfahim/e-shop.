@@ -475,46 +475,55 @@ const ELECTRONICS_CATEGORIES = [
   "mobile-accessories"
 ];
 
+let _cache = null;
+let _promise = null;
+
 const fetchProducts = async () => {
-  try {
-    const requests = ELECTRONICS_CATEGORIES.map((cat) =>
-      fetch(`https://dummyjson.com/products/category/${cat}?limit=30`).then((r) => r.json())
-    );
-    const results = await Promise.all(requests);
-    const all = results.flatMap((r) => r.products);
+  if (_cache) return _cache;
+  if (_promise) return _promise;
+  _promise = (async () => {
+    try {
+      const requests = ELECTRONICS_CATEGORIES.map((cat) =>
+        fetch(`https://dummyjson.com/products/category/${cat}?limit=30`).then((r) => r.json())
+      );
+      const results = await Promise.all(requests);
+      const all = results.flatMap((r) => r.products);
 
-    const mapped = all.map((item) => ({
-      id: item.id,
-      type: item.category,
-      brand: item.brand ?? null,
-      title: item.title,
-      stars: Math.round(item.rating),
-      rating: item.stock,
-      price: item.price.toFixed(2),
-      discounted: item.discountPercentage ? Math.round(item.discountPercentage) : null,
-      inStoke: item.stock,
-      image: item.thumbnail,
-    }));
-
-    // duplicate until we reach 160, giving each duplicate a unique id
-    const target = 160;
-    const result = [...mapped];
-    let round = 1;
-    while (result.length < target) {
-      const remaining = target - result.length;
-      const slice = mapped.slice(0, remaining).map((item) => ({
-        ...item,
-        id: item.id + round * 10000,
+      const mapped = all.map((item) => ({
+        id: item.id,
+        type: item.category,
+        brand: item.brand ?? null,
+        title: item.title,
+        stars: Math.round(item.rating),
+        rating: item.stock,
+        price: item.price.toFixed(2),
+        discounted: item.discountPercentage ? Math.round(item.discountPercentage) : null,
+        inStoke: item.stock,
+        image: item.thumbnail,
       }));
-      result.push(...slice);
-      round++;
-    }
 
-    return result;
-  } catch (error) {
-    console.error("Failed to fetch products:", error);
-    return [];
-  }
+      const target = 160;
+      const result = [...mapped];
+      let round = 1;
+      while (result.length < target) {
+        const remaining = target - result.length;
+        const slice = mapped.slice(0, remaining).map((item) => ({
+          ...item,
+          id: item.id + round * 10000,
+        }));
+        result.push(...slice);
+        round++;
+      }
+
+      _cache = result;
+      return _cache;
+    } catch (error) {
+      _promise = null;
+      console.error("Failed to fetch products:", error);
+      return [];
+    }
+  })();
+  return _promise;
 };
 
 

@@ -1,20 +1,20 @@
-import { useEffect, useRef, useState } from "react";
+import { useContext, useRef, useState } from "react";
 import Dropdown from "../components/Dropdown";
 import Container from "../components/layouts/Container";
 import FilterLayout from "../components/layouts/FilterLayout";
 import Pagination from "../components/layouts/Pagination";
 import ProductLayout from "../components/layouts/ProductLayout";
+import ProductsContext from "../contexts/ProductsContext";
 import DownIcon from "../icons/DownIcon";
 import GridView from "../icons/GridView";
 import ListView from "../icons/ListView";
-import { fetchProducts } from "../productDetailsArrays";
 
 const sortOneOptions = ["Newest", "Rating", "Discount", "Popularity"];
 const priceOptions = ["Price Low-to-High", "Price High-to-Low"];
 
 const ProductListPage = () => {
-  const [allProducts, setAllProducts] = useState([]);
-  const [loading, setLoading] = useState(true);
+  const allProducts = useContext(ProductsContext);
+  const loading = allProducts.length === 0;
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 16;
 
@@ -32,13 +32,6 @@ const ProductListPage = () => {
 
   const sortOneRef = useRef();
   const sortTwoRef = useRef();
-
-  useEffect(() => {
-    fetchProducts().then((data) => {
-      setAllProducts(data);
-      setLoading(false);
-    });
-  }, []);
 
   // filter
   const filtered = allProducts.filter((p) => {

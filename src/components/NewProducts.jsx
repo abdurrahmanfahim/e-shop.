@@ -1,9 +1,10 @@
-import { useEffect, useRef, useState } from "react";
+import { useContext, useEffect, useRef, useState } from "react";
 import { GrDown } from "react-icons/gr";
 import { Link } from "react-router-dom";
 import "slick-carousel/slick/slick-theme.css";
 import "slick-carousel/slick/slick.css";
-import { fetchProducts, filterCategories } from "../productDetailsArrays";
+import ProductsContext from "../contexts/ProductsContext";
+import { filterCategories } from "../productDetailsArrays";
 import Button from "./Button";
 import Container from "./layouts/Container";
 import ProductLayout from "./layouts/ProductLayout";
@@ -30,14 +31,7 @@ const NewProducts = () => {
     };
   }, []);
 
-  const [products, setProducts] = useState([]);
-
-  useEffect(() => {
-    fetchProducts().then((products) => {
-      setProducts(products);
-    });
-  }, []);
-
+  const products = useContext(ProductsContext);
   const currentProducts = products.slice(0, 5);
 
   return (
