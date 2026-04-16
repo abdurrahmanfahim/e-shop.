@@ -59,24 +59,24 @@
 ## TODO
 
 ### Step 1 — `chore: install axios, setup api.js`
-- [ ] `npm install axios`
-- [ ] `src/api/api.js` — axios instance with baseURL + JWT interceptor
+- [x] `npm install axios`
+- [x] `src/api/api.js` — axios instance with baseURL + JWT interceptor
 
 ### Step 2 — `feat: AuthContext (login/register/logout)`
-- [ ] `src/contexts/AuthContext.js`
-- [ ] `src/contexts/AuthContextProvider.jsx`
-- [ ] Wrap App in AuthContextProvider
-- [ ] Store token in localStorage
+- [x] `src/contexts/AuthContext.js`
+- [x] `src/contexts/AuthContextProvider.jsx`
+- [x] Wrap App in AuthContextProvider
+- [x] Store token in localStorage
 
 ### Step 3 — `feat: Login & Register pages`
-- [ ] `src/pages/LoginPage.jsx`
-- [ ] `src/pages/RegisterPage.jsx`
-- [ ] Add routes in App.jsx
-- [ ] Header UserIcon → login/profile link
+- [x] `src/pages/LoginPage.jsx`
+- [x] `src/pages/RegisterPage.jsx`
+- [x] Add routes in App.jsx
+- [x] Header UserIcon → login/profile link
 
 ### Step 4 — `feat: ProtectedRoute component`
-- [ ] `src/components/layouts/ProtectedRoute.jsx`
-- [ ] Wrap `/cart`, `/checkout`, `/orders`, `/profile` routes
+- [x] `src/components/layouts/ProtectedRoute.jsx`
+- [x] Wrap `/cart`, `/checkout`, `/orders`, `/profile` routes
 
 ### Step 5 — `feat: replace DummyJSON with own API`
 - [ ] Update `ProductsContextProvider` → fetch from `/api/products`
@@ -84,9 +84,9 @@
 - [ ] Update `ProductListPage` filter/sort → pass to API query params
 
 ### Step 6 — `feat: real Cart (API connected)`
-- [ ] `src/contexts/CartContext.js` + `CartContextProvider.jsx`
+- [x] `src/contexts/CartContext.js` + `CartContextProvider.jsx`
 - [ ] `CartPage.jsx` — fetch from `/api/cart`, add/remove/update
-- [ ] Header cart icon → show item count badge
+- [x] Header cart icon → show item count badge
 
 ### Step 7 — `feat: Checkout form submit`
 - [ ] `InformationAccPart` → collect billing data in state
@@ -100,14 +100,14 @@
 - [ ] Success toast / message
 
 ### Step 9 — `feat: Order history page`
-- [ ] `src/pages/OrdersPage.jsx`
-- [ ] Add route `/orders`
-- [ ] List orders with status badge
+- [x] `src/pages/OrdersPage.jsx`
+- [x] Add route `/orders`
+- [x] List orders with status badge
 
 ### Step 10 — `feat: Profile page`
-- [ ] `src/pages/ProfilePage.jsx`
-- [ ] Update name/address → PUT `/api/auth/profile`
-- [ ] Change password → PUT `/api/auth/password`
+- [x] `src/pages/ProfilePage.jsx`
+- [x] Update name/address → PUT `/api/auth/profile`
+- [x] Change password → PUT `/api/auth/password`
 
 ### Step 11 — `chore: commit & push all`
-- [ ] Final commit and push
+- [x] Final commit and push
