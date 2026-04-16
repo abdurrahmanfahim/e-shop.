@@ -63,7 +63,7 @@ input[type="range"]::-moz-range-thumb {
 }
 
 a:has(.icon):hover .icon path {
-  fill: #fd4830;
+  fill: #023440;
 }
 
 .secondSlider .slick-current img {
