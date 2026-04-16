@@ -30,7 +30,7 @@ export const orderSchema = Joi.object({
     city:      Joi.string().required(),
     zip:       Joi.string().allow('', null),
     notes:     Joi.string().allow('', null),
-  }).required(),
+  }).unknown(true).required(),
   shipping: Joi.object({
     recipientName:        Joi.string().required(),
     contactNumber:        Joi.string().required(),
@@ -41,9 +41,9 @@ export const orderSchema = Joi.object({
     zip:                  Joi.string().allow('', null),
     method:               Joi.string().valid('standard', 'express', 'overnight').default('standard'),
     deliveryInstructions: Joi.string().allow('', null),
-  }).required(),
+  }).unknown(true).required(),
   payment: Joi.object({
     method: Joi.string().valid('card', 'cod').default('card'),
-  }).required(),
+  }).unknown(true).required(),
   coupon: Joi.string().allow('', null),
 });
