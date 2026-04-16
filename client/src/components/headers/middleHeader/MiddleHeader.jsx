@@ -1,7 +1,7 @@
 import { useContext, useEffect, useRef, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { FiMenu } from "react-icons/fi";
-import { GoHeartFill } from "react-icons/go";
+import { GoHeart, GoHeartFill } from "react-icons/go";
 import { Link } from "react-router-dom";
 import CartIcon from "../../../icons/CartIcon";
 import SearchIcon from "../../../icons/SearchIcon";
@@ -103,7 +103,7 @@ const MiddleHeader = () => {
                 className={`flex gap-0 lg:gap-6 justify-between items-center hover:text-green relative ${activeSearchBar && "hidden"}`}
               >
                 <span className="flex justify-center relative">
-                  <GoHeartFill className="text-xl" />
+                  <GoHeart className="text-2xl" />
                   {favorites.length > 0 && (
                     <span className="absolute -top-1 -right-1 size-4 bg-green text-white text-[10px] font-bold rounded-full flex items-center justify-center">
                       {favorites.length}

@@ -29,6 +29,7 @@ const ProductListPage = () => {
   const [isSortOneOpen, setIsSortOneOpen] = useState(false);
   const [isSortTwoOpen, setIsSortTwoOpen] = useState(false);
   const [isFilterOpen, setIsFilterOpen] = useState(false);
+  const [viewMode, setViewMode] = useState("grid");
 
   const sortOneRef = useRef();
   const sortTwoRef = useRef();
@@ -199,14 +200,18 @@ const ProductListPage = () => {
                 </div>
                 <span className="bg-[#CBCBCB] w-[1px] h-6 lg:h-8 hidden sm:block"></span>
                 <div className="flex gap-2 lg:gap-3">
-                  <GridView />
-                  <ListView />
+                  <button onClick={() => setViewMode("grid")}>
+                    <GridView color={viewMode === "grid" ? "#023440" : "#303030"} />
+                  </button>
+                  <button onClick={() => setViewMode("list")}>
+                    <ListView color={viewMode === "list" ? "#023440" : "#303030"} />
+                  </button>
                 </div>
               </div>
             </div>
           </div>
 
-          <div className="w-full grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-3 xl:grid-cols-4 gap-4 lg:gap-6">
+          <div className={viewMode === "list" ? "w-full flex flex-col gap-3" : "w-full grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-3 xl:grid-cols-4 gap-4 lg:gap-6"}>
             {loading ? (
               Array.from({ length: 8 }).map((_, i) => (
                 <div
@@ -227,6 +232,7 @@ const ProductListPage = () => {
                   image={item.image}
                   discounted={item.discounted}
                   inStoke={item.inStoke}
+                  list={viewMode === "list"}
                 />
               ))
             ) : (

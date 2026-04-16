@@ -16,6 +16,7 @@ const CartPage = () => {
 
   const handleApplyCoupon = async () => {
     setCouponMsg(""); setCouponErr("");
+
     try {
       const { data } = await api.post("/coupon/validate", { code: coupon });
       const amt = data.type === "percent" ? (subtotal * data.discount) / 100 : data.discount;
@@ -26,6 +27,8 @@ const CartPage = () => {
       setDiscount(0);
     }
   };
+
+  console.log(cart)
 
   const fmt = (n) => Number(n).toLocaleString("en-US", { style: "currency", currency: "USD" });
 
