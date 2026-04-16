@@ -1,5 +1,3 @@
-import React from "react";
-
 const ListView = ({ width = 24, height = 24, color = "#303030" }) => {
   return (
     <svg
@@ -9,7 +7,10 @@ const ListView = ({ width = 24, height = 24, color = "#303030" }) => {
       viewBox="0 0 24 24"
       fill="none"
     >
-      <g opacity={color === '#303030' ? "0.25" : "1" } clip-path="url(#clip0_28_2197)">
+      <g
+        opacity={color === "#303030" ? "0.25" : "1"}
+        clipPath="url(#clip0_28_2197)"
+      >
         <path
           d="M22.5 21H1.50001C0.671548 21 0 20.3284 0 19.5C0 18.6716 0.671548 18 1.50001 18H22.5C23.3285 18 24.0001 18.6716 24.0001 19.5C24 20.3284 23.3285 21 22.5 21Z"
           fill={color}

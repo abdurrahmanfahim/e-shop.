@@ -1,13 +1,12 @@
 import React from "react";
 
-const Samsung = () => {
+const Samsung = ({ className }) => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
-      width="137"
-      height="45"
       viewBox="0 0 137 45"
       fill="none"
+      className={className}
     >
       <g clipPath="url(#clip0_27_299)">
         <path

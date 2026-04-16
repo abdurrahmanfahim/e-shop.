@@ -5,6 +5,7 @@ import Container from "../components/layouts/Container";
 import ProductLayout from "../components/layouts/ProductLayout";
 import ProductsContext from "../contexts/ProductsContext";
 import NextArrow from "../icons/NextArrow";
+import { Link } from "react-router-dom";
 
 function SampleNextArrow(props) {
   const { className, onClick } = props;
@@ -161,29 +162,34 @@ const SpringSale = () => {
               </div>
             </div>
             <div className="flex justify-center lg:justify-start">
-              <Button text={"Shop Now"} />
+              <Link to="/all-products">
+                <Button text={"Shop Now"} />
+              </Link>
             </div>
           </div>
 
           <div className="w-full min-w-0 lg:pr-7.5">
-            <Slider className="spring_sale " {...settings}>
-              {products.map((item) => (
-                <ProductLayout
-                  v2={true}
-                  title={item.title}
-                  stars={item.stars}
-                  type={item.type}
-                  rating={item.rating}
-                  price={item.price}
-                  image={item.image}
-                  discounted={20}
-                  inStoke={100}
-                />
+            <Slider className="spring_sale" {...settings}>
+              {products.map((item, i) => (
+                <div key={i} className="px-3">
+                  <ProductLayout
+                    v2={true}
+                    id={item.id}
+                    title={item.title}
+                    stars={item.stars}
+                    type={item.type}
+                    rating={item.rating}
+                    price={item.price}
+                    image={item.image}
+                    discounted={20}
+                    inStoke={100}
+                  />
+                </div>
               ))}
             </Slider>
           </div>
-          <div className=" absolute bottom-0 left-0 hidden lg:block ">
-            <img src="/images/shapes/dots_two.svg" alt="" />
+          <div className="absolute bottom-0 left-0 hidden lg:block min-[1420px]:block min-[1139px]:hidden">
+            <img src="/images/shapes/dots_two.svg" alt="dots-shape" />
           </div>
         </div>
       </Container>

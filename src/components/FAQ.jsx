@@ -3,6 +3,7 @@ import { faqs } from "../productDetailsArrays";
 import Button from "./Button";
 import AccordionItem from "./layouts/AccordionItem";
 import Container from "./layouts/Container";
+import { Link } from "react-router-dom";
 
 const FAQ = () => {
   const [openIndex, setOpenIndex] = useState(false);
@@ -33,7 +34,9 @@ const FAQ = () => {
               questions?
             </p>
             <div className="flex justify-center lg:justify-start">
-              <Button text={"Ask A Question"} />
+              <Link to="/contact">
+                <Button text={"Ask A Question"} />
+              </Link>
             </div>
           </div>
           <div className="absolute top-12 lg:top-16 right-0 hidden lg:block">

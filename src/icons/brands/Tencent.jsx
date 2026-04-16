@@ -1,13 +1,12 @@
 import React from "react";
 
-const Tencent = () => {
+const Tencent = ({ className }) => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
-      width="184"
-      height="25"
       viewBox="0 0 184 25"
       fill="none"
+      className={className}
     >
       <g clipPath="url(#clip0_27_321)">
         <path

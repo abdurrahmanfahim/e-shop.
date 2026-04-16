@@ -11,45 +11,12 @@ const Brands = () => {
   return (
     <Container>
       <Marquee speed={60}>
-        <div className="flex items-center justify-between py-8 md:py-12 lg:py-[100px]">
-          <div className="ml-12 sm:ml-24 lg:ml-[200px]">
-            <Samsung />
-          </div>
-
-          <div className="ml-12 sm:ml-24 lg:ml-[200px]">
-            <OpenAi />
-          </div>
-
-          <div className="ml-12 sm:ml-24 lg:ml-[200px]">
-            <Amazon />
-          </div>
-
-          <div className="ml-12 sm:ml-24 lg:ml-[200px]">
-            <Tencent />
-          </div>
-
-          <div className="ml-12 sm:ml-24 lg:ml-[200px]">
-            <Spotify />
-          </div>
-          <div className="ml-12 sm:ml-24 lg:ml-[200px]">
-            <Samsung />
-          </div>
-
-          <div className="ml-12 sm:ml-24 lg:ml-[200px]">
-            <OpenAi />
-          </div>
-
-          <div className="ml-12 sm:ml-24 lg:ml-[200px]">
-            <Amazon />
-          </div>
-
-          <div className="ml-12 sm:ml-24 lg:ml-[200px]">
-            <Tencent />
-          </div>
-
-          <div className="ml-12 sm:ml-24 lg:ml-[200px]">
-            <Spotify />
-          </div>
+        <div className="flex items-center py-6 sm:py-10 lg:py-[100px]">
+          {[Samsung, OpenAi, Amazon, Tencent, Spotify, Samsung, OpenAi, Amazon, Tencent, Spotify].map((Brand, i) => (
+            <div key={i} className="mx-6 sm:mx-12 lg:mx-[100px] flex items-center">
+              <Brand className="w-16 sm:w-24 lg:w-auto h-auto" />
+            </div>
+          ))}
         </div>
       </Marquee>
     </Container>

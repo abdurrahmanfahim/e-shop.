@@ -96,24 +96,25 @@ const FeatureProduct = () => {
           </Link>
         </button>
       </div>
-      <div className="relative  ">
+      <div className="relative ">
         <Slider
           className="w-full pb-6 lg:pb-20 feature_product_slide"
           {...settings}
         >
           {products.map((item, index) => (
-            <ProductLayout
-              key={index}
-              id={item.id}
-              image={item.image}
-              type={item.type}
-              title={item.title}
-              stars={item.stars}
-              rating={item.rating}
-              price={item.price}
-              discounted={item.discounted}
-              inStoke={item.inStoke}
-            />
+            <div key={index} className="px-2">
+              <ProductLayout
+                id={item.id}
+                image={item.image}
+                type={item.type}
+                title={item.title}
+                stars={item.stars}
+                rating={item.rating}
+                price={item.price}
+                discounted={item.discounted}
+                inStoke={item.inStoke}
+              />
+            </div>
           ))}
         </Slider>
       </div>

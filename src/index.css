@@ -18,11 +18,11 @@
 }
 
 .feature_product_slide.slick-slider .slick-track {
-  @apply flex gap-1;
+  /* @apply flex; */
 }
 
 .spring_sale.slick-slider .slick-track {
-  @apply flex gap-2 lg:gap-6;
+  /* @apply flex gap-10 lg:gap-6; */
 }
 
 .slick-prev:before,

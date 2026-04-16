@@ -3,6 +3,7 @@ import { Link, useParams } from "react-router-dom";
 import Container from "../components/layouts/Container";
 import ProductLayout from "../components/layouts/ProductLayout";
 import ProductDetailsCard from "../components/ProductDetailsCard";
+import ProductDetailsSkeleton from "../components/ProductDetailsSkeleton";
 import ProductsContext from "../contexts/ProductsContext";
 import LongArrow from "../icons/LongArrow";
 
@@ -36,7 +37,7 @@ const ProductDetailsPage = () => {
   if (loading)
     return (
       <Container>
-        <div className="py-20 text-center font-poppins text-xl">Loading...</div>
+        <ProductDetailsSkeleton />
       </Container>
     );
   if (!product)

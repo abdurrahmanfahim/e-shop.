@@ -1,13 +1,12 @@
 import React from "react";
 
-const Spotify = () => {
+const Spotify = ({ className }) => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
-      width="123"
-      height="39"
       viewBox="0 0 123 39"
       fill="none"
+      className={className}
     >
       <g clipPath="url(#clip0_27_331)">
         <path

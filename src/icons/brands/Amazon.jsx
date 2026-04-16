@@ -1,13 +1,12 @@
 import React from "react";
 
-const Amazon = () => {
+const Amazon = ({ className }) => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
-      width="120"
-      height="37"
       viewBox="0 0 120 37"
       fill="none"
+      className={className}
     >
       <g clipPath="url(#clip0_27_312)">
         <path

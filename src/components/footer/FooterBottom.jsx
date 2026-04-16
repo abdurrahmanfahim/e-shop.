@@ -10,7 +10,7 @@ import {
 const FooterBottom = () => {
   return (
     <div className="mt-12 lg:mt-[100px] mb-12 lg:mb-20">
-      <div className="flex justify-between flex-wrap font-montserrat text-black mb-12 lg:mb-20 gap-6 ">
+      <div className="flex justify-between flex-wrap font-montserrat text-black mb-3 md:mb-12 lg:mb-20 gap-6 ">
         <div className="flex flex-col gap-4 justify-between max-sm:text-center grow ">
           <Link to={"/"}>
             <img
@@ -83,7 +83,7 @@ const FooterBottom = () => {
           </div>
         </div>
 
-        <div className="flex flex-col gap-6 text-center lg:text-left grow">
+        <div className="flex flex-col gap-2 lg:gap-6 text-center lg:text-left grow">
           <div className="mb-6 lg:mb-0">
             <h4 className="font-semibold leading-[30px] font-poppins mb-4 lg:mb-6 text-lg lg:text-xl ">
               Payments

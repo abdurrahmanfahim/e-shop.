@@ -1,5 +1,6 @@
 import { useTranslation } from "react-i18next";
 import Button from "../Button";
+import { Link } from "react-router-dom";
 
 const FooterTop = () => {
   const { t } = useTranslation();
@@ -27,7 +28,9 @@ const FooterTop = () => {
       />
       <br />
       <div className="flex justify-center lg:justify-start">
-        <Button text={btnText} />
+        <Link to="/contact">
+          <Button text={btnText} />
+        </Link>
       </div>
     </div>
   );

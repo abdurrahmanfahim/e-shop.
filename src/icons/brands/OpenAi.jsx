@@ -1,13 +1,12 @@
 import React from "react";
 
-const OpenAi = () => {
+const OpenAi = ({ className }) => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
-      width="161"
-      height="39"
       viewBox="0 0 161 39"
       fill="none"
+      className={className}
     >
       <g clipPath="url(#clip0_27_310)">
         <path

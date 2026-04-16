@@ -99,12 +99,14 @@ const NewProducts = () => {
         ))}
       </div>
       <div className="flex justify-center pb-6 md:pb-12 lg:pb-20 ">
-        <Button
-          text="Load More"
-          border="#023440 1px solid "
-          bg="transparent"
-          color="#023440"
-        />
+        <Link to="/all-products">
+          <Button
+            text="Load More"
+            border="#023440 1px solid "
+            bg="transparent"
+            color="#023440"
+          />
+        </Link>
       </div>
     </Container>
   );
