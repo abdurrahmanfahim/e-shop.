@@ -108,7 +108,7 @@ server/
 - [x] Step 10 — `chore: README`
 - [x] Step 11 — `chore: push to GitHub`
 - [x] Step 12 — `feat: Joi validation schemas + fix admin route conflict`
-- [ ] Step 13 — `feat: frontend integration (replace DummyJSON with own API)`
-- [ ] Step 14 — `feat: AuthContext + protected routes in frontend`
-- [ ] Step 15 — `feat: wire up Cart, Checkout, Contact forms`
-- [ ] Step 16 — `feat: admin dashboard routes`
+- [x] Step 13 — `feat: admin dashboard, user management, product reviews, coupon, password update`
+- [ ] Step 14 — `feat: frontend integration (replace DummyJSON with own API)`
+- [ ] Step 15 — `feat: AuthContext + protected routes in frontend`
+- [ ] Step 16 — `feat: wire up Cart, Checkout, Contact forms`
