@@ -116,10 +116,7 @@ const BlogPage = () => {
                   src={featuredPost.image}
                   alt={featuredPost.title}
                   className="w-full h-64 lg:h-96 object-cover"
-                  onError={(e) => {
-                    e.target.src =
-                      "https://via.placeholder.com/600x400/f4f4f4/666?text=Featured+Post";
-                  }}
+                  onError={(e) => { e.target.onerror = null; e.target.src = '/images/sliderSmall.png'; }}
                 />
               </div>
               <div className="w-full lg:w-1/2 p-6 lg:p-12 flex flex-col justify-center">
@@ -179,10 +176,7 @@ const BlogPage = () => {
                   src={post.image}
                   alt={post.title}
                   className="w-full h-48 lg:h-56 object-cover"
-                  onError={(e) => {
-                    e.target.src =
-                      "https://via.placeholder.com/400x300/f4f4f4/666?text=Blog+Post";
-                  }}
+                  onError={(e) => { e.target.onerror = null; e.target.src = '/images/sliderSmall.png'; }}
                 />
                 <span className="absolute top-4 left-4 px-3 py-1 bg-white text-green text-xs font-semibold rounded-full">
                   {post.category}
