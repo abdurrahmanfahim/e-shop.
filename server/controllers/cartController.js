@@ -1,10 +1,15 @@
 import Cart from '../models/Cart.js';
 
+const POPULATE = 'items.product';
+const FIELDS = 'title thumbnail price category';
+
 const getOrCreate = (userId) => Cart.findOneAndUpdate({ user: userId }, {}, { upsert: true, new: true });
+
+const populated = (userId) => Cart.findOne({ user: userId }).populate(POPULATE, FIELDS);
 
 export const getCart = async (req, res, next) => {
   try {
-    const cart = await Cart.findOne({ user: req.user._id }).populate('items.product', 'title thumbnail price');
+    const cart = await populated(req.user._id);
     res.json(cart || { items: [] });
   } catch (err) { next(err); }
 };
@@ -17,7 +22,7 @@ export const addItem = async (req, res, next) => {
     if (idx > -1) cart.items[idx].quantity += quantity;
     else cart.items.push({ product, quantity, variant, price });
     await cart.save();
-    res.json(cart);
+    res.json(await populated(req.user._id));
   } catch (err) { next(err); }
 };
 
@@ -30,7 +35,7 @@ export const updateItem = async (req, res, next) => {
     if (!item) return res.status(404).json({ message: 'Item not found' });
     item.quantity = quantity;
     await cart.save();
-    res.json(cart);
+    res.json(await populated(req.user._id));
   } catch (err) { next(err); }
 };
 
@@ -40,13 +45,13 @@ export const removeItem = async (req, res, next) => {
     if (!cart) return res.status(404).json({ message: 'Cart not found' });
     cart.items = cart.items.filter(i => i._id.toString() !== req.params.itemId);
     await cart.save();
-    res.json(cart);
+    res.json(await populated(req.user._id));
   } catch (err) { next(err); }
 };
 
 export const clearCart = async (req, res, next) => {
   try {
     await Cart.findOneAndUpdate({ user: req.user._id }, { items: [] });
-    res.json({ message: 'Cart cleared' });
+    res.json({ items: [] });
   } catch (err) { next(err); }
 };
