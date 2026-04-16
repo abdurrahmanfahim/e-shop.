@@ -1,6 +1,7 @@
-import { useRef, useState } from "react";
+import { useContext, useRef, useState } from "react";
 import { MdOutlineStar, MdOutlineStarBorder } from "react-icons/md";
-import { Link } from "react-router-dom";
+import { GoHeart, GoHeartFill } from "react-icons/go";
+import { Link, useNavigate } from "react-router-dom";
 import CartIcon from "../icons/CartIcon";
 import MinusIcon from "../icons/MinusIcon";
 import PlusIcon from "../icons/PlusIcon";
@@ -11,18 +12,39 @@ import Button from "./Button";
 import ImageModal from "./ImageModal";
 import ProductDetailsAcc from "./ProductDetailsAcc";
 import ProductDetailsSlider from "./ProductDetailsSlider";
+import CartContext from "../contexts/CartContext";
+import FavoritesContext from "../contexts/FavoritesContext";
+import AuthContext from "../contexts/AuthContext";
 
 const ProductDetailsCard = ({ product }) => {
+  const { addItem } = useContext(CartContext);
+  const { toggleFavorite, isFavorite } = useContext(FavoritesContext);
+  const { user } = useContext(AuthContext);
+  const navigate = useNavigate();
   const [activeModalSrc, setActiveModalSrc] = useState("");
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [quantity, setQuantity] = useState(0);
+  const [quantity, setQuantity] = useState(1);
+  const [adding, setAdding] = useState(false);
   const imageModalRef = useRef(null);
 
   const handleQuantity = (value) => {
     if (value === "minus") {
-      if (quantity > 0) setQuantity((q) => q - 1);
+      if (quantity > 1) setQuantity((q) => q - 1);
     } else {
       setQuantity((q) => q + 1);
+    }
+  };
+
+  const handleAddToCart = async () => {
+    if (!user) return navigate("/login");
+    setAdding(true);
+    try {
+      await addItem(
+        { _id: product._id, price: discountedPrice ?? originalPrice, title: product.title, thumbnail: product.thumbnail },
+        quantity
+      );
+    } finally {
+      setAdding(false);
     }
   };
 
@@ -214,7 +236,15 @@ const ProductDetailsCard = ({ product }) => {
             </button>
           </div>
           <div className="flex items-center gap-3 lg:gap-4">
-            <Button text={"Buy Now"} />
+            <Button text={adding ? "Adding..." : "Add to Cart"} onClick={handleAddToCart} />
+            <button
+              onClick={() => toggleFavorite({ id: product._id, title: product.title, price: discountedPrice ?? originalPrice, image: product.thumbnail, type: product.category })}
+              className="p-3 lg:p-[17px] border border-green rounded-10p cursor-pointer hover:bg-lightGray transition-all"
+            >
+              {isFavorite(product._id)
+                ? <GoHeartFill className="text-red-500 text-xl" />
+                : <GoHeart className="text-green text-xl" />}
+            </button>
             <Link
               to={"/cart"}
               className="p-3 lg:p-[17px] border border-green rounded-10p cursor-pointer"

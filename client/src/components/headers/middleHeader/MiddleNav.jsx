@@ -11,6 +11,9 @@ const links = [
   },
   { to: "/all-products", label: "Best Seller" },
   { to: "/all-products", label: "New Arrival" },
+  { to: "/favorites", label: "Favorites ❤️" },
+  { to: "/orders", label: "My Orders" },
+  { to: "/profile", label: "Profile" },
   { to: "/blog", label: "Blog" },
   { to: "/contact", label: "Contact" },
 ];
