@@ -24,3 +24,23 @@ export const login = async (req, res, next) => {
 export const getMe = async (req, res) => {
   res.json(req.user);
 };
+
+export const updateProfile = async (req, res, next) => {
+  try {
+    const { name, address } = req.body;
+    const user = await User.findByIdAndUpdate(req.user._id, { name, address }, { new: true }).select('-password');
+    res.json(user);
+  } catch (err) { next(err); }
+};
+
+export const updatePassword = async (req, res, next) => {
+  try {
+    const { currentPassword, newPassword } = req.body;
+    const user = await User.findById(req.user._id);
+    if (!(await user.matchPassword(currentPassword)))
+      return res.status(401).json({ message: 'Current password incorrect' });
+    user.password = newPassword;
+    await user.save();
+    res.json({ message: 'Password updated' });
+  } catch (err) { next(err); }
+};
