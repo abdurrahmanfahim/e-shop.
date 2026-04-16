@@ -28,8 +28,6 @@ const CartPage = () => {
     }
   };
 
-  console.log(cart)
-
   const fmt = (n) => Number(n).toLocaleString("en-US", { style: "currency", currency: "USD" });
 
   if (loading) return (

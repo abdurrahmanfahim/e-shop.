@@ -32,7 +32,10 @@ const NewProducts = () => {
   }, []);
 
   const products = useContext(ProductsContext);
-  const currentProducts = products.slice(0, 5);
+  const filteredProducts = selectedProduct === "All Categories"
+    ? products
+    : products.filter((p) => p.type?.toLowerCase().includes(selectedProduct.toLowerCase().split(" ")[0]));
+  const currentProducts = filteredProducts.slice(0, 5);
 
   return (
     <Container>
@@ -43,10 +46,7 @@ const NewProducts = () => {
         <div className="relative">
           <button
             className="flex flex-col md:flex-row items-center md:gap-4 font-montserrat text-base font-bold text-green cursor-pointer leading-11 "
-            onClick={() => {
-              setIsCatRefOpen(true);
-              console.log(isCatRefOpen);
-            }}
+            onClick={() => setIsCatRefOpen(true)}
             ref={categoriesRef && categoriesRef}
           >
             <span className="text-black font-normal text-base leading-6 pr-4 hidden md:block">
@@ -74,7 +74,7 @@ const NewProducts = () => {
                       setSelectedProduct(item.name);
                     }}
                   >
-                    <Link to={"#"}>{item.name}</Link>
+                    <Link to="/all-products">{item.name}</Link>
                   </li>
                 ))}
               </ul>

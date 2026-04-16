@@ -78,14 +78,12 @@ const BestSeller = () => {
             <h2 className="text-black font-['Poppins'] font-semibold leading-[30px] lg:leading-[46px] text-2xl lg:text-4xl capitalize">
               Best Seller
             </h2>
-            <button>
-              <Link
-                className="flex items-center gap-4 font-montserrat text-sm lg:text-base font-bold leading-6 text-green capitalize "
+            <Link
+                className="flex items-center gap-4 font-montserrat text-sm lg:text-base font-bold leading-6 text-green capitalize"
                 to={"/all-products"}
               >
                 View All <LongArrow />
               </Link>
-            </button>
           </div>
           <div className="grid grid-cols-2 sm:grid-cols-3 gap-2 sm:gap-4 lg:gap-x-5.5">
             {currentProducts.map((item, index) => (
