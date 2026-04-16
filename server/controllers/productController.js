@@ -39,7 +39,7 @@ export const createProduct = async (req, res, next) => {
 
 export const updateProduct = async (req, res, next) => {
   try {
-    const product = await Product.findByIdAndUpdate(req.params.id, req.body, { new: true, runValidators: true });
+    const product = await Product.findByIdAndUpdate(req.params.id, req.body, { returnDocument: 'after', runValidators: true });
     if (!product) return res.status(404).json({ message: 'Product not found' });
     res.json(product);
   } catch (err) { next(err); }

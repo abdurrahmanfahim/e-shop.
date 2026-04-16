@@ -48,7 +48,7 @@ export const deleteUser = async (req, res, next) => {
 
 export const updateUserRole = async (req, res, next) => {
   try {
-    const user = await User.findByIdAndUpdate(req.params.id, { role: req.body.role }, { new: true }).select('-password');
+    const user = await User.findByIdAndUpdate(req.params.id, { role: req.body.role }, { returnDocument: 'after' }).select('-password');
     if (!user) return res.status(404).json({ message: 'User not found' });
     res.json(user);
   } catch (err) { next(err); }

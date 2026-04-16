@@ -3,7 +3,7 @@ import Cart from '../models/Cart.js';
 const POPULATE = 'items.product';
 const FIELDS = 'title thumbnail price category';
 
-const getOrCreate = (userId) => Cart.findOneAndUpdate({ user: userId }, {}, { upsert: true, new: true });
+const getOrCreate = (userId) => Cart.findOneAndUpdate({ user: userId }, {}, { upsert: true, returnDocument: 'after' });
 
 const populated = (userId) => Cart.findOne({ user: userId }).populate(POPULATE, FIELDS);
 
