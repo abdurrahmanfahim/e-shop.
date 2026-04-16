@@ -1,0 +1,93 @@
+/* eslint-disable no-unused-vars */
+import { useState, useRef, useEffect } from "react";
+import { FiMenu } from "react-icons/fi";
+import { GrDown } from "react-icons/gr";
+import { Link } from "react-router-dom";
+import { useTranslation } from "react-i18next";
+import Dropdown from "../../Dropdown";
+import { products, categories } from "../../../productDetailsArrays";
+
+const BottomLeft = () => {
+
+  const [isCatRefOpen, setIsCatRefOpen] = useState(false);
+  const [isProRefOpen, setIsProRefOpen] = useState(false);
+  const [selectedCategory, setSelectedCategory] = useState("");
+  const [selectedProduct, setSelectedProduct] = useState("");
+  const categoriesRef = useRef(null);
+  const productsRef = useRef(null);
+
+  useEffect(() => {
+    const handleClickOutSide = (event) => {
+      if (
+        categoriesRef.current &&
+        !categoriesRef.current.contains(event.target)
+      ) {
+        setIsCatRefOpen(false);
+      }
+      if (productsRef.current && !productsRef.current.contains(event.target)) {
+        setIsProRefOpen(false);
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutSide);
+
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutSide);
+    };
+  }, []);
+  const { t } = useTranslation();
+
+  return (
+    <ul className="flex gap-14 xl:gap-20 leading-18 ">
+      <li className="relative " ref={categoriesRef && categoriesRef}>
+        <button
+          className="flex gap-4 items-center"
+          onClick={() => setIsCatRefOpen(true)}
+        >
+          <FiMenu className="text-2xl" />
+          {t("All_Categories")}
+        </button>
+
+        <div className={`w-54 absolute left-0 top-full text-sm font-medium ${isCatRefOpen && ' border-t border-white'}`}>
+          <Dropdown
+            data={categories}
+            ref={categoriesRef}
+            isOpen={isCatRefOpen}
+            setIsOpen={setIsCatRefOpen}
+            setSelected={setSelectedCategory}
+          />
+        </div>
+        
+      </li>
+
+      <li className="flex gap-4 relative  " ref={productsRef && productsRef}>
+        <button
+          className="flex gap-2 item-center"
+          onClick={() => setIsProRefOpen(true)}
+        >
+          {t("Products")}
+          <GrDown className="text-sm self-center " />
+        </button>
+
+        <div className={`w-48 absolute left-0 top-full text-sm font-medium z-50 ${isProRefOpen && 'border-t border-white'}`}>
+          <Dropdown
+            data={products}
+            ref={productsRef}
+            isOpen={isProRefOpen}
+            setIsOpen={setIsProRefOpen}
+            setSelected={setSelectedProduct}
+            isLink={true}
+          />
+        </div>
+      </li>
+      <li className="">
+        <Link to={"/blog"}>{t("Blog")}</Link>
+      </li>
+      <li className="">
+        <Link to={"/contact"}>{t("Contact")}</Link>
+      </li>
+    </ul>
+  );
+};
+
+export default BottomLeft;
