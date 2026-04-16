@@ -1,17 +1,21 @@
+import cors from 'cors';
+import dns from 'dns';
 import 'dotenv/config';
 import express from 'express';
-import cors from 'cors';
-import helmet from 'helmet';
 import rateLimit from 'express-rate-limit';
+import helmet from 'helmet';
 import connectDB from './config/db.js';
 import errorHandler from './middleware/errorHandler.js';
-import authRoutes from './routes/authRoutes.js';
-import productRoutes from './routes/productRoutes.js';
-import cartRoutes from './routes/cartRoutes.js';
-import orderRoutes from './routes/orderRoutes.js';
-import contactRoutes from './routes/contactRoutes.js';
 import adminRoutes from './routes/adminRoutes.js';
+import authRoutes from './routes/authRoutes.js';
+import cartRoutes from './routes/cartRoutes.js';
+import contactRoutes from './routes/contactRoutes.js';
 import couponRoutes from './routes/couponRoutes.js';
+import orderRoutes from './routes/orderRoutes.js';
+import productRoutes from './routes/productRoutes.js';
+
+// Set DNS server to 1.1.1.1 (Cloudflare)
+dns.setServers(['1.1.1.1', '1.0.0.1']);
 
 connectDB();
 

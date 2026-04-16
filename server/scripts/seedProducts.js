@@ -4,8 +4,11 @@ import Product from '../models/Product.js';
 
 const CATEGORIES = ['laptops', 'smartphones', 'tablets', 'mobile-accessories'];
 
+const ALLOWED_CATEGORIES = new Set(CATEGORIES);
+
 const fetchCategory = async (cat) => {
-  const res = await fetch(`https://dummyjson.com/products/category/${cat}?limit=30`);
+  if (!ALLOWED_CATEGORIES.has(cat)) throw new Error(`Invalid category: ${cat}`);
+  const res = await fetch(`https://dummyjson.com/products/category/${encodeURIComponent(cat)}?limit=30`);
   const data = await res.json();
   return data.products;
 };

@@ -1,11 +1,12 @@
 import Product from '../models/Product.js';
+import escapeRegExp from 'escape-string-regexp';
 
 export const getProducts = async (req, res, next) => {
   try {
     const { category, brand, minPrice, maxPrice, sort, search, page = 1, limit = 16 } = req.query;
     const filter = {};
     if (category) filter.category = category;
-    if (brand) filter.brand = new RegExp(brand, 'i');
+    if (brand) filter.brand = new RegExp(escapeRegExp(brand), 'i');
     if (minPrice || maxPrice) filter.price = { ...(minPrice && { $gte: +minPrice }), ...(maxPrice && { $lte: +maxPrice }) };
     if (search) filter.$text = { $search: search };
 
