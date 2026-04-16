@@ -102,7 +102,7 @@ const ProductLayout = ({
                   <h3 className="font-poppins text-green font-semibold leading-[30px] text-lg sm:text-2xl inline-block ">
                     ${getDiscountedPrice(price, discounted)}
                   </h3>
-                  <span className="font-montserrat text-sm sm:text-base font-normal text-[#979797] line-through ml-2.5 ">
+                  <span className="font-montserrat text-xs sm:text-base font-normal text-[#979797] line-through ml-2.5 ">
                     ${price}
                   </span>
                 </>

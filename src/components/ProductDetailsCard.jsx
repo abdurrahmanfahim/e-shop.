@@ -106,12 +106,12 @@ const ProductDetailsCard = ({ product }) => {
             {product?.title}
           </h2>
 
-          <div className="flex items-center gap-3 lg:gap-[18px] mt-3 mb-4 lg:mb-0">
-            <h1 className="font-poppins font-bold leading-10 lg:leading-[64px] text-2xl lg:text-[56px] text-green">
+          <div className="flex items-center gap-3 lg:gap-[18px] mt-3 mb-4 lg:mb-0 min-w-0">
+            <h1 className="font-poppins font-bold leading-10 lg:leading-[64px] text-2xl lg:text-[56px] text-green shrink-0">
               ${discountedPrice ?? originalPrice}
             </h1>
             {discountedPrice && (
-              <span className="font-montserrat text-lg lg:text-xl leading-6 lg:leading-[30px] text-black opacity-50 block mt-1 lg:mt-2.5 relative after:[''] after:absolute after:w-full after:h-[1px] after:bg-black after:left-0 after:top-1/2">
+              <span className="font-montserrat text-sm lg:text-xl leading-6 lg:leading-[30px] text-black opacity-50 block mt-1 lg:mt-2.5 relative after:content-[''] after:absolute after:w-full after:h-[1px] after:bg-black after:left-0 after:top-1/2 truncate">
                 ${originalPrice}
               </span>
             )}
