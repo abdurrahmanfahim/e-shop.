@@ -29,6 +29,7 @@ export const orderSchema = Joi.object({
     state:     Joi.string().required(),
     city:      Joi.string().required(),
     zip:       Joi.string().allow('', null),
+    notes:     Joi.string().allow('', null),
   }).required(),
   shipping: Joi.object({
     recipientName:        Joi.string().required(),
