@@ -1,0 +1,84 @@
+@import "tailwindcss";
+
+@theme {
+  --color-green: #023440;
+  --color-black: #303030;
+  --color-yellow: #e0be74;
+  --color-lightGray: #f4f4f4;
+  --color-orTen: #ffefed;
+  --font-montserrat: "Montserrat";
+  --font-poppins: "Poppins";
+
+  --radius-10p: 10px;
+  --radius-15p: 15px;
+}
+
+.brand.slick-slider .slick-track {
+  @apply flex justify-center gap-[198px];
+}
+
+.feature_product_slide.slick-slider .slick-track {
+  /* @apply flex; */
+}
+
+.spring_sale.slick-slider .slick-track {
+  /* @apply flex gap-10 lg:gap-6; */
+}
+
+.slick-prev:before,
+.slick-next:before {
+  display: none;
+}
+
+.icon:hover path {
+  fill: #023440;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+  width: 16px;
+  height: 16px;
+  background: #023440;
+  border-radius: 50%;
+  pointer-events: auto;
+  cursor: pointer;
+  -webkit-appearance: none;
+}
+input[type="range"]::-moz-range-thumb {
+  width: 16px;
+  height: 16px;
+  background: #023440;
+  border-radius: 50%;
+  pointer-events: auto;
+  cursor: pointer;
+  -webkit-appearance: none;
+}
+
+.targetInput:checked + .customCheckBox {
+  background: var(--color-green);
+  border: var(--color-green);
+}
+
+.targetInputParen:has(.targetInput:checked) {
+  font-weight: 700;
+}
+
+a:has(.icon):hover .icon path {
+  fill: #fd4830;
+}
+
+.secondSlider .slick-current img {
+  border-width: 2px;
+  border-style: solid;
+  border-color: #023440;
+  border-image: initial;
+}
+
+.countInput {
+  -moz-appearance: textfield;
+}
+
+.countInput::-webkit-outer-spin-button,
+.countInput::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}

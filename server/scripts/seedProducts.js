@@ -1,0 +1,48 @@
+import 'dotenv/config';
+import mongoose from 'mongoose';
+import Product from '../models/Product.js';
+
+const CATEGORIES = ['laptops', 'smartphones', 'tablets', 'mobile-accessories'];
+
+const fetchCategory = async (cat) => {
+  const res = await fetch(`https://dummyjson.com/products/category/${cat}?limit=30`);
+  const data = await res.json();
+  return data.products;
+};
+
+const seed = async () => {
+  await mongoose.connect(process.env.MONGO_URI);
+  console.log('Connected to MongoDB');
+
+  await Product.deleteMany({});
+  console.log('Cleared existing products');
+
+  const all = (await Promise.all(CATEGORIES.map(fetchCategory))).flat();
+
+  const products = all.map(p => ({
+    title:               p.title,
+    description:         p.description,
+    category:            p.category,
+    brand:               p.brand,
+    price:               p.price,
+    discountPercentage:  p.discountPercentage,
+    stock:               p.stock,
+    tags:                p.tags,
+    images:              p.images,
+    thumbnail:           p.thumbnail,
+    rating:              p.rating,
+    reviews:             p.reviews?.map(r => ({ reviewerName: r.reviewerName, rating: r.rating, comment: r.comment, date: r.date })),
+    weight:              p.weight,
+    dimensions:          p.dimensions,
+    warrantyInformation: p.warrantyInformation,
+    shippingInformation: p.shippingInformation,
+    availabilityStatus:  p.availabilityStatus,
+    returnPolicy:        p.returnPolicy,
+  }));
+
+  await Product.insertMany(products);
+  console.log(`Seeded ${products.length} products`);
+  process.exit(0);
+};
+
+seed().catch(err => { console.error(err); process.exit(1); });
