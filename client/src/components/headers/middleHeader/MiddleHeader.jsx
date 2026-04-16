@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useContext, useEffect, useRef, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { FiMenu } from "react-icons/fi";
 import { Link } from "react-router-dom";
@@ -7,15 +7,15 @@ import SearchIcon from "../../../icons/SearchIcon";
 import UserIcon from "../../../icons/UserIcon";
 import Container from "../../layouts/Container";
 import MiddleNav from "./MiddleNav";
+import AuthContext from "../../../contexts/AuthContext";
+import CartContext from "../../../contexts/CartContext";
 
 const MiddleHeader = () => {
   const { t } = useTranslation();
-  // eslint-disable-next-line no-unused-vars
-  const [notification, setNotification] = useState(true);
-
+  const { user } = useContext(AuthContext);
+  const { itemCount } = useContext(CartContext);
   const [activeSearchBar, setActiveSearchBar] = useState(false);
   const [mobileNavOpen, setMobileNavOpen] = useState(false);
-
   const searchRef = useRef();
 
   useEffect(() => {
@@ -77,43 +77,37 @@ const MiddleHeader = () => {
             >
               <Link
                 to={"/cart"}
-                className={`flex gap-0 lg:gap-6 justify-between items-center hover:text-green  `}
+                className={`flex gap-0 lg:gap-6 justify-between items-center hover:text-green relative`}
               >
-                <span
-                  className={`flex justify-center ${
-                    notification &&
-                    "after:content-[''] after:size-1.5 after:absolute after:bg-green after:rounded-full after:-right-1 after:-top-1"
-                  } `}
-                >
+                <span className="flex justify-center relative">
                   <CartIcon className="cart-icon" hoverColor={"#023440"} />
+                  {itemCount > 0 && (
+                    <span className="absolute -top-1 -right-1 size-4 bg-green text-white text-[10px] font-bold rounded-full flex items-center justify-center">
+                      {itemCount}
+                    </span>
+                  )}
                 </span>
                 <span>
-                  <p className="text-base font-normal leading-6 capitalize hidden lg:block ">
-                    {t("Cart")}
-                  </p>
-                  <span className="font-bold text-base leading-6 capitalize hidden lg:block  ">
-                    {t("Price")}
-                  </span>
+                  <p className="text-base font-normal leading-6 capitalize hidden lg:block">{t("Cart")}</p>
+                  <span className="font-bold text-base leading-6 capitalize hidden lg:block">{t("Price")}</span>
                 </span>
               </Link>
 
-              <span
-                className={`w-[1px] h-6 sm:h-8 bg-[#CBCBCB] hidden sm:block `}
-              ></span>
+              <span className={`w-[1px] h-6 sm:h-8 bg-[#CBCBCB] hidden sm:block`}></span>
 
               <Link
-                to={"/checkout"}
-                className={`flex gap-0 lg:gap-6 justify-between items-center hover:text-green  `}
+                to={user ? "/profile" : "/login"}
+                className={`flex gap-0 lg:gap-6 justify-between items-center hover:text-green`}
               >
-                <span className="flex justify-center ">
+                <span className="flex justify-center">
                   <UserIcon />
                 </span>
                 <span>
-                  <p className="text-base font-normal leading-6 capitalize hidden lg:block ">
-                    {t("User")}
+                  <p className="text-base font-normal leading-6 capitalize hidden lg:block">
+                    {user ? user.name.split(' ')[0] : t("User")}
                   </p>
-                  <span className="font-bold text-base leading-6 capitalize hidden lg:block  ">
-                    {t("Account")}
+                  <span className="font-bold text-base leading-6 capitalize hidden lg:block">
+                    {user ? 'Profile' : t("Account")}
                   </span>
                 </span>
               </Link>
