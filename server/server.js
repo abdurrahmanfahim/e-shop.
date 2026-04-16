@@ -23,6 +23,8 @@ const app = express();
 
 app.use(helmet());
 app.use(cors({ origin: process.env.CLIENT_URL, credentials: true }));
+// CSRF note: This API uses JWT Bearer tokens (stateless), not cookies.
+// CSRF attacks require cookie-based sessions, so no CSRF middleware is needed.
 app.use(express.json());
 app.use(rateLimit({ windowMs: 15 * 60 * 1000, max: 100 }));
 
