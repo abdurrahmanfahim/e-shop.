@@ -17,22 +17,21 @@ const OrderSummary = ({ title = "Order Summary", children, shippingCost = 0 }) =
           {items.length === 0 ? (
             <p className="font-montserrat text-sm text-black/50">Your cart is empty.</p>
           ) : (
-            items.map((item) => (
-              <div key={item._id}>
-                <ul className="font-montserrat text-sm lg:text-lg xl:text-xl text-black leading-[20px] lg:leading-[25px] xl:leading-[30px] flex justify-between items-start gap-2">
-                  <li className="flex-1 line-clamp-2">
-                    <p>{item.product?.title || item.title}</p>
-                  </li>
-                  <li className="shrink-0">
-                    <b>×{item.quantity}</b>
-                  </li>
-                  <li className="shrink-0 text-right">
-                    <b>{fmt(item.price * item.quantity)}</b>
-                  </li>
-                </ul>
-                <hr className="w-full border-t border-t-[#C3C3C3] mt-4" />
+            <div className="flex flex-col gap-0">
+              {/* header row */}
+              <div className="grid grid-cols-[1fr_3rem_6rem] gap-x-3 font-montserrat text-xs font-bold uppercase text-black/40 pb-3 border-b border-[#C3C3C3] mb-2">
+                <span>Item</span>
+                <span className="text-center">Qty</span>
+                <span className="text-right">Price</span>
               </div>
-            ))
+              {items.map((item) => (
+                <div key={item._id} className="grid grid-cols-[1fr_3rem_6rem] gap-x-3 items-start py-4 border-b border-[#C3C3C3] font-montserrat text-base lg:text-lg text-black">
+                  <p className="line-clamp-2 leading-6">{item.product?.title || item.title}</p>
+                  <p className="text-center font-bold">{item.quantity}</p>
+                  <p className="text-right font-bold">{fmt(item.price * item.quantity)}</p>
+                </div>
+              ))}
+            </div>
           )}
 
           <div className="bg-white p-4 lg:p-6 rounded-10p relative before:content-[''] before:absolute before:-top-6 before:bg-lightGray before:w-full before:h-1.5 before:left-0">

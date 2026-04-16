@@ -81,7 +81,7 @@ const ShippingAccPart = ({ shipping, setShipping, setActive, shippingCost = 9.99
                 <div key={m.key}>
                   <button
                     onClick={() => set("method", m.key)}
-                    className={`w-full font-montserrat text-base lg:text-lg text-black flex justify-between items-center p-2 rounded-10p transition-all ${shipping.method === m.key ? "bg-green/5 border border-green" : "hover:bg-lightGray"}`}
+                    className={`w-full font-montserrat text-base lg:text-lg text-black flex justify-between items-center p-2 rounded-10p transition-colors ${shipping.method === m.key ? "bg-green/5 border border-green" : "border border-transparent hover:bg-lightGray"}`}
                   >
                     <div className="text-left">
                       <h6 className="font-semibold">{m.label}</h6>
