@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import Button from "../components/Button";
 import FormInput from "../components/FormInput";
@@ -5,8 +6,30 @@ import Container from "../components/layouts/Container";
 import EnvelopeFooter from "../icons/EnvelopeFooter";
 import LocationFooter from "../icons/LocationFooter";
 import PhoneFooter from "../icons/PhoneFooter";
+import api from "../api/api";
 
 const Contact = () => {
+  const [form, setForm] = useState({ name: "", phone: "", email: "", message: "" });
+  const [success, setSuccess] = useState("");
+  const [error, setError] = useState("");
+  const [loading, setLoading] = useState(false);
+
+  const set = (key, val) => setForm((prev) => ({ ...prev, [key]: val }));
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setSuccess(""); setError(""); setLoading(true);
+    try {
+      await api.post("/contact", form);
+      setSuccess("Message sent successfully! We'll get back to you soon.");
+      setForm({ name: "", phone: "", email: "", message: "" });
+    } catch (err) {
+      setError(err.response?.data?.message || "Failed to send message.");
+    } finally {
+      setLoading(false);
+    }
+  };
+
   return (
     <Container>
       <div className="mt-6 lg:mt-8">
@@ -25,7 +48,6 @@ const Contact = () => {
         </div>
 
         <div className="flex flex-col lg:flex-row gap-8 lg:gap-12 mt-8 lg:mt-12 mb-12 lg:mb-20">
-          {/* Form */}
           <div className="w-full lg:flex-1">
             <h2 className="font-poppins text-2xl lg:text-4xl font-semibold leading-8 lg:leading-[46px] text-black mb-2">
               Contact Us
@@ -34,103 +56,60 @@ const Contact = () => {
               Have any questions for us? Don't hesitate to contact us.
             </p>
 
-            <div className="flex flex-col gap-4 lg:gap-6">
-              <FormInput
-                label="Name"
-                star={true}
-                placeholder="Amelia Robert Watson"
-              />
+            {success && <p className="font-montserrat text-sm text-green mb-4 p-3 bg-green/10 rounded-10p">{success}</p>}
+            {error && <p className="font-montserrat text-sm text-red-500 mb-4 p-3 bg-red-50 rounded-10p">{error}</p>}
 
+            <form onSubmit={handleSubmit} className="flex flex-col gap-4 lg:gap-6">
+              <FormInput label="Name" star={true} placeholder="Amelia Robert Watson" value={form.name} onChange={(e) => set("name", e.target.value)} name="name" />
               <div className="flex flex-col sm:flex-row gap-4">
                 <div className="w-full sm:w-1/2">
-                  <FormInput
-                    label="Phone Number"
-                    star={true}
-                    placeholder="+123 456 7890"
-                    inpType="tel"
-                  />
+                  <FormInput label="Phone Number" placeholder="+123 456 7890" inpType="tel" value={form.phone} onChange={(e) => set("phone", e.target.value)} name="phone" />
                 </div>
                 <div className="w-full sm:w-1/2">
-                  <FormInput
-                    label="Email Address"
-                    star={true}
-                    placeholder="amelia.watson@eshop.com"
-                    inpType="email"
-                  />
+                  <FormInput label="Email Address" star={true} placeholder="amelia.watson@eshop.com" inpType="email" value={form.email} onChange={(e) => set("email", e.target.value)} name="email" />
                 </div>
               </div>
-
-              <FormInput
-                textAria={true}
-                label="Message"
-                star={true}
-                placeholder="Enter your message ..."
-                height="180px"
-              />
-
+              <FormInput textAria={true} label="Message" star={true} placeholder="Enter your message ..." height="180px" value={form.message} onChange={(e) => set("message", e.target.value)} name="message" />
               <div>
-                <Button text="Submit" className="w-full sm:w-auto" />
+                <Button text={loading ? "Sending..." : "Submit"} className="w-full sm:w-auto" />
               </div>
-            </div>
+            </form>
           </div>
 
-          {/* Info Card */}
           <div className="w-full lg:w-[420px] xl:w-[500px] shrink-0">
             <div className="bg-lightGray rounded-[25px] p-6 lg:p-10 h-full">
-              <h3 className="font-poppins text-xl lg:text-2xl leading-7 lg:leading-[30px] font-semibold text-black mb-3 lg:mb-4">
-                Let's Keep in Touch!
-              </h3>
+              <h3 className="font-poppins text-xl lg:text-2xl font-semibold text-black mb-3 lg:mb-4">Let's Keep in Touch!</h3>
               <p className="font-montserrat text-black text-base lg:text-xl leading-6 lg:leading-[30px] mb-6 lg:mb-10">
-                We would love to hear from you. Contact us for any inquiries you
-                might have for us.
+                We would love to hear from you. Contact us for any inquiries you might have for us.
               </p>
-
-              <ul className="text-sm lg:text-base leading-5 lg:leading-6 font-bold flex flex-col gap-4 font-montserrat">
+              <ul className="text-sm lg:text-base font-bold flex flex-col gap-4 font-montserrat">
                 <li className="relative pl-8">
                   <Link className="hover:text-green" to="tel:+15551234567">
-                    <span className="absolute top-1/2 -translate-y-1/2 left-0 text-[#646464]">
-                      <PhoneFooter />
-                    </span>
+                    <span className="absolute top-1/2 -translate-y-1/2 left-0 text-[#646464]"><PhoneFooter /></span>
                     +1 (555) 123-4567
                   </Link>
                 </li>
                 <li className="relative pl-8">
-                  <Link
-                    className="hover:text-green"
-                    to="mailto:information@eshop.com"
-                  >
-                    <span className="absolute top-1/2 -translate-y-1/2 left-0 text-[#646464]">
-                      <EnvelopeFooter />
-                    </span>
+                  <Link className="hover:text-green" to="mailto:information@eshop.com">
+                    <span className="absolute top-1/2 -translate-y-1/2 left-0 text-[#646464]"><EnvelopeFooter /></span>
                     information@eshop.com
                   </Link>
                 </li>
                 <li className="relative pl-8">
-                  <Link
-                    className="hover:text-green"
-                    to="https://maps.app.goo.gl/GLKtcy2x3Lo6XxJq5"
-                    target="_blank"
-                  >
-                    <span className="absolute top-1/2 -translate-y-1/2 left-0 text-xl text-[#646464]">
-                      <LocationFooter />
-                    </span>
+                  <Link className="hover:text-green" to="https://maps.app.goo.gl/GLKtcy2x3Lo6XxJq5" target="_blank">
+                    <span className="absolute top-1/2 -translate-y-1/2 left-0 text-xl text-[#646464]"><LocationFooter /></span>
                     123 Main Street, Suite 105, Anytown USA
                   </Link>
                 </li>
               </ul>
-
               <div className="mt-8 lg:mt-12">
-                <h5 className="font-bold text-lg lg:text-xl leading-7 lg:leading-[30px] font-montserrat text-black inline-block">
+                <h5 className="font-bold text-lg lg:text-xl font-montserrat text-black inline-block">
                   Opening Hours
-                  <span className="h-1 w-full block mt-1 bg-green"></span>
+                  <span className="h-1 w-full block mt-1 bg-green" />
                 </h5>
-                <ul className="font-montserrat text-sm lg:text-base leading-5 lg:leading-6 text-black flex flex-col gap-2 mt-4 lg:mt-6">
-                  <li>
-                    <b>MON to FRI:</b> <time>08:00 AM - 04:00 PM</time>
-                  </li>
-                  <li>
-                    <b>SAT to SUN:</b> <time>10:00 AM - 02:00 PM</time>
-                  </li>
+                <ul className="font-montserrat text-sm lg:text-base text-black flex flex-col gap-2 mt-4 lg:mt-6">
+                  <li><b>MON to FRI:</b> <time>08:00 AM - 04:00 PM</time></li>
+                  <li><b>SAT to SUN:</b> <time>10:00 AM - 02:00 PM</time></li>
                 </ul>
               </div>
             </div>
