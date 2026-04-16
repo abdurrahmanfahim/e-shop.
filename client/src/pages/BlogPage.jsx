@@ -5,6 +5,7 @@ import LongArrow from "../icons/LongArrow";
 
 const BlogPage = () => {
   const [selectedCategory, setSelectedCategory] = useState("All");
+  const [visibleCount, setVisibleCount] = useState(5);
 
   const categories = ["All", "Technology", "Reviews", "News", "Guides"];
 
@@ -82,6 +83,8 @@ const BlogPage = () => {
       ? blogPosts
       : blogPosts.filter((post) => post.category === selectedCategory);
 
+  const visiblePosts = filteredPosts.slice(1, visibleCount + 1);
+  const hasMore = visibleCount + 1 < filteredPosts.length;
   const featuredPost = blogPosts[0];
 
   return (
@@ -137,7 +140,7 @@ const BlogPage = () => {
                   <span>{featuredPost.readTime}</span>
                 </div>
                 <Link
-                  to={`/blog/${featuredPost.id}`}
+                  to={`/blog`}
                   className="flex items-center gap-3 font-montserrat text-sm lg:text-base font-bold text-green hover:underline w-fit"
                 >
                   Read More <LongArrow />
@@ -166,7 +169,7 @@ const BlogPage = () => {
 
         {/* Blog Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 mb-12 lg:mb-16">
-          {filteredPosts.slice(1).map((post) => (
+          {visiblePosts.map((post) => (
             <article
               key={post.id}
               className="bg-white rounded-15p overflow-hidden shadow-sm hover:shadow-lg transition-shadow"
@@ -201,7 +204,7 @@ const BlogPage = () => {
                     {post.date}
                   </span>
                   <Link
-                    to={`/blog/${post.id}`}
+                    to="/blog"
                     className="text-green font-semibold text-sm hover:underline"
                   >
                     Read More
@@ -214,9 +217,16 @@ const BlogPage = () => {
 
         {/* Load More */}
         <div className="text-center">
-          <button className="px-8 lg:px-12 py-3 lg:py-4 bg-green text-white font-montserrat font-semibold rounded-10p hover:bg-[#e55540] transition-colors">
-            Load More Posts
-          </button>
+          {hasMore ? (
+            <button
+              onClick={() => setVisibleCount((c) => c + 3)}
+              className="px-8 lg:px-12 py-3 lg:py-4 bg-green text-white font-montserrat font-semibold rounded-10p hover:opacity-90 transition-all"
+            >
+              Load More Posts
+            </button>
+          ) : (
+            <p className="font-montserrat text-sm text-black/40">All posts loaded.</p>
+          )}
         </div>
       </div>
     </Container>

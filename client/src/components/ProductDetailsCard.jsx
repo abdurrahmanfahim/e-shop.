@@ -247,7 +247,8 @@ const ProductDetailsCard = ({ product }) => {
             </button>
             <Link
               to={"/cart"}
-              className="p-3 lg:p-[17px] border border-green rounded-10p cursor-pointer"
+              className="p-3 lg:p-[17px] border border-green rounded-10p cursor-pointer hover:bg-lightGray transition-all"
+              title="View Cart"
             >
               <CartIcon color="#023440" />
             </Link>
@@ -256,7 +257,7 @@ const ProductDetailsCard = ({ product }) => {
       </div>
 
       <div className="mt-12 lg:mt-[100px]">
-        <ProductDetailsAcc productData={productAccData} />
+        <ProductDetailsAcc productData={productAccData} productId={product._id} />
       </div>
     </div>
   );

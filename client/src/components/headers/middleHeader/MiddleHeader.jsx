@@ -2,7 +2,7 @@ import { useContext, useEffect, useRef, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { FiMenu } from "react-icons/fi";
 import { GoHeart, GoHeartFill } from "react-icons/go";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import CartIcon from "../../../icons/CartIcon";
 import SearchIcon from "../../../icons/SearchIcon";
 import UserIcon from "../../../icons/UserIcon";
@@ -17,9 +17,19 @@ const MiddleHeader = () => {
   const { user } = useContext(AuthContext);
   const { itemCount } = useContext(CartContext);
   const { favorites } = useContext(FavoritesContext);
+  const navigate = useNavigate();
   const [activeSearchBar, setActiveSearchBar] = useState(false);
+  const [searchQuery, setSearchQuery] = useState("");
   const [mobileNavOpen, setMobileNavOpen] = useState(false);
   const searchRef = useRef();
+
+  const handleSearch = (e) => {
+    if (e.key === "Enter" && searchQuery.trim()) {
+      navigate(`/all-products?search=${encodeURIComponent(searchQuery.trim())}`);
+      setActiveSearchBar(false);
+      setSearchQuery("");
+    }
+  };
 
   useEffect(() => {
     const handleClickOutSide = (event) => {
@@ -51,9 +61,12 @@ const MiddleHeader = () => {
             {/* SearchBar start here */}
             <div className="relative w-auto " ref={searchRef}>
               <input
-                className={`w-[calc(100vw-2rem)] sm:max-w-[280px] lg:max-w-[332px] text-[#646464] font-normal font-montserrat text-xs sm:text-sm leading-5 py-2.5 lg:py-4.5 px-3.5 lg:px-6 rounded-10p border border-[#979797] bg-white capitalize "
-                type="text sm:block  ${activeSearchBar ? "block" : "hidden"} `}
+                className={`w-[calc(100vw-2rem)] sm:max-w-[280px] lg:max-w-[332px] text-[#646464] font-normal font-montserrat text-xs sm:text-sm leading-5 py-2.5 lg:py-4.5 px-3.5 lg:px-6 rounded-10p border border-[#979797] bg-white ${activeSearchBar ? "block" : "hidden"} sm:block`}
+                type="text"
                 placeholder="Search Products ..."
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+                onKeyDown={handleSearch}
               />
               <span
                 className={`absolute -right-0 top-1/2 -translate-y-1/2 sm:right-6 scale-170 sm:scale-100 block ${

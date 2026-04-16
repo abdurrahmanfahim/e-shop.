@@ -11,9 +11,6 @@ const Dashboard = () => {
 
   const pass = "e-shop@admin";
   const newDate = new Date(date).getTime();
-  setSpringSaleEnd(newDate);
-
-  console.log(newDate);
 
   return (
     <Container>

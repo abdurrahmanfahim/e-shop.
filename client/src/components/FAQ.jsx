@@ -40,7 +40,7 @@ const FAQ = () => {
             </div>
           </div>
           <div className="absolute top-12 lg:top-16 right-0 hidden lg:block">
-            <img src="./images/shapes/dots.svg" alt="" />
+            <img src="/images/shapes/dots.svg" alt="" />
           </div>
         </div>
       </Container>

@@ -1,4 +1,5 @@
-import { useContext, useRef, useState } from "react";
+import { useContext, useRef, useState, useEffect } from "react";
+import { useSearchParams } from "react-router-dom";
 import Dropdown from "../components/Dropdown";
 import Container from "../components/layouts/Container";
 import FilterLayout from "../components/layouts/FilterLayout";
@@ -14,6 +15,8 @@ const priceOptions = ["Price Low-to-High", "Price High-to-Low"];
 
 const ProductListPage = () => {
   const allProducts = useContext(ProductsContext);
+  const [searchParams] = useSearchParams();
+  const searchQuery = searchParams.get("search") || "";
   const loading = allProducts.length === 0;
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 16;
@@ -49,7 +52,11 @@ const ProductListPage = () => {
     const inBrand =
       filters.brands.length === 0 ||
       filters.brands.some((b) => p.brand?.toLowerCase() === b.toLowerCase());
-    return inPrice && inCategory && inBrand;
+    const inSearch = !searchQuery ||
+      p.title?.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      p.type?.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      p.brand?.toLowerCase().includes(searchQuery.toLowerCase());
+    return inPrice && inCategory && inBrand && inSearch;
   });
 
   // sort
