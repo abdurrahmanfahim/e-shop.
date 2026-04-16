@@ -1,5 +1,4 @@
 import cors from 'cors';
-import dns from 'dns';
 import 'dotenv/config';
 import express from 'express';
 import rateLimit from 'express-rate-limit';
@@ -14,8 +13,6 @@ import couponRoutes from './routes/couponRoutes.js';
 import orderRoutes from './routes/orderRoutes.js';
 import productRoutes from './routes/productRoutes.js';
 
-// Set DNS server to 1.1.1.1 (Cloudflare)
-dns.setServers(['1.1.1.1', '1.0.0.1']);
 
 connectDB();
 
