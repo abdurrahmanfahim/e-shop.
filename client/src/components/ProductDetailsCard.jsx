@@ -189,70 +189,64 @@ const ProductDetailsCard = ({ product }) => {
         </div>
       </div>
 
-      <div className="flex flex-col lg:flex-row lg:justify-between lg:items-center mt-8 lg:mt-16 gap-6">
-        <div className="flex flex-col xs:flex-row flex-wrap sm:flex-row gap-4 sm:gap-6 lg:gap-12">
-          <div className="flex gap-4 lg:gap-6 items-center">
-            <Shipping />
-            <div className="text-black font-montserrat text-sm lg:text-base leading-5 lg:leading-6">
-              <h6 className="font-bold">Free Shipping</h6>
-              <p className="font-normal">Worldwide available</p>
+      <div className="mt-8 lg:mt-16 border-y border-[#EBEBEB] py-6 lg:py-10">
+        <div className="grid grid-cols-3 gap-0">
+          {[
+            { icon: <Shipping />, title: "Free Shipping", desc: "Worldwide available" },
+            { icon: <Shield />, title: "100% Guaranteed", desc: "Receive product first" },
+            { icon: <Transparent />, title: "Return Available", desc: "See return policy" },
+          ].map((item, i) => (
+            <div key={item.title} className={`flex gap-3 items-center px-4 lg:px-8 ${i !== 0 ? "border-l border-[#EBEBEB]" : ""}`}>
+              <div className="flex-shrink-0 size-9 lg:size-12 flex items-center justify-center bg-green/10 rounded-full p-2">
+                {item.icon}
+              </div>
+              <div className="text-black font-montserrat">
+                <h6 className="font-bold text-xs sm:text-sm lg:text-base leading-5">{item.title}</h6>
+                <p className="font-normal text-xs lg:text-sm text-black/60 mt-0.5 hidden sm:block">{item.desc}</p>
+              </div>
             </div>
-          </div>
-          <div className="flex gap-4 lg:gap-6 items-center">
-            <Shield />
-            <div className="text-black font-montserrat text-sm lg:text-base leading-5 lg:leading-6">
-              <h6 className="font-bold">100% Guaranteed</h6>
-              <p className="font-normal">Receive product first</p>
-            </div>
-          </div>
-          <div className="flex gap-4 lg:gap-6 items-center">
-            <Transparent />
-            <div className="text-black font-montserrat text-sm lg:text-base leading-5 lg:leading-6">
-              <h6 className="font-bold">Return Available</h6>
-              <p className="font-normal">See return policy</p>
-            </div>
-          </div>
+          ))}
         </div>
+      </div>
 
-        <div className="flex flex-col sm:flex-row gap-4 lg:gap-12 items-center sm:items-start lg:items-center">
-          <div className="flex gap-4 lg:gap-12 items-center">
-            <button
-              className="size-12 lg:size-[56px] p-3 lg:p-4 rounded-full hover:bg-lightGray"
-              onClick={() => handleQuantity("minus")}
-            >
-              <MinusIcon />
-            </button>
-            <input
-              className="countInput w-16 lg:w-21 font-poppins text-2xl lg:text-4xl font-semibold leading-8 lg:leading-[46px] placeholder:text-black text-center outline-0 [appearance:textfield]"
-              type="number"
-              value={quantity}
-              readOnly
-            />
-            <button
-              className="size-12 lg:size-[56px] p-3 lg:p-4 rounded-full hover:bg-lightGray"
-              onClick={() => handleQuantity("plus")}
-            >
-              <PlusIcon />
-            </button>
-          </div>
-          <div className="flex items-center gap-3 lg:gap-4">
-            <Button text={adding ? "Adding..." : "Add to Cart"} onClick={handleAddToCart} />
-            <button
-              onClick={() => toggleFavorite({ id: product._id, title: product.title, price: discountedPrice ?? originalPrice, image: product.thumbnail, type: product.category })}
-              className="p-3 lg:p-[17px] border border-green rounded-10p cursor-pointer hover:bg-lightGray transition-all"
-            >
-              {isFavorite(product._id)
-                ? <GoHeartFill className="text-red-500 text-xl" />
-                : <GoHeart className="text-green text-xl" />}
-            </button>
-            <Link
-              to={"/cart"}
-              className="p-3 lg:p-[17px] border border-green rounded-10p cursor-pointer hover:bg-lightGray transition-all"
-              title="View Cart"
-            >
-              <CartIcon color="#023440" />
-            </Link>
-          </div>
+      <div className="flex flex-col sm:flex-row gap-4 lg:gap-12 items-center mt-6 lg:mt-10">
+        <div className="flex gap-4 lg:gap-12 items-center">
+          <button
+            className="size-12 lg:size-[56px] p-3 lg:p-4 rounded-full hover:bg-lightGray"
+            onClick={() => handleQuantity("minus")}
+          >
+            <MinusIcon />
+          </button>
+          <input
+            className="countInput w-16 lg:w-21 font-poppins text-2xl lg:text-4xl font-semibold leading-8 lg:leading-[46px] placeholder:text-black text-center outline-0 [appearance:textfield]"
+            type="number"
+            value={quantity}
+            readOnly
+          />
+          <button
+            className="size-12 lg:size-[56px] p-3 lg:p-4 rounded-full hover:bg-lightGray"
+            onClick={() => handleQuantity("plus")}
+          >
+            <PlusIcon />
+          </button>
+        </div>
+        <div className="flex items-center gap-3 lg:gap-4">
+          <Button text={adding ? "Adding..." : "Add to Cart"} onClick={handleAddToCart} />
+          <button
+            onClick={() => toggleFavorite({ id: product._id, title: product.title, price: discountedPrice ?? originalPrice, image: product.thumbnail, type: product.category })}
+            className="p-3 lg:p-[17px] border border-green rounded-10p cursor-pointer hover:bg-lightGray transition-all"
+          >
+            {isFavorite(product._id)
+              ? <GoHeartFill className="text-red-500 text-2xl" />
+              : <GoHeart className="text-green text-2xl" />}
+          </button>
+          <Link
+            to={"/cart"}
+            className="p-3 lg:p-[17px] border border-green rounded-10p cursor-pointer hover:bg-lightGray transition-all"
+            title="View Cart"
+          >
+            <CartIcon color="#023440" />
+          </Link>
         </div>
       </div>
 

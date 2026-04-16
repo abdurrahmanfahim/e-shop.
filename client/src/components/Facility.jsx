@@ -14,18 +14,22 @@ const iconMap = {
 
 const Facility = () => {
   return (
-    <div className="mb-6 lg:mb-20">
+    <div className="py-8 lg:py-14 border-y border-[#EBEBEB]">
       <Container>
-        <div className="flex justify-center sm:justify-between flex-wrap items-center gap-4 lg:gap-6 mx-auto">
-          {facilityData.map((item) => (
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-0">
+          {facilityData.map((item, i) => (
             <div
               key={item.title}
-              className="flex w-full sm:w-[calc(50%-8px)] lg:flex-1 gap-3 lg:gap-6 items-center text-start lg:text-left"
+              className={`flex gap-3 lg:gap-5 items-start lg:items-center px-0 lg:px-8 ${
+                i !== 0 ? "lg:border-l lg:border-[#EBEBEB]" : ""
+              }`}
             >
-              <div className="flex-shrink-0">{iconMap[item.icon]}</div>
-              <div className="text-black font-montserrat text-sm lg:text-base leading-5 lg:leading-6">
-                <h6 className="font-bold">{item.title}</h6>
-                <p className="font-normal line-clamp-2">{item.description}</p>
+              <div className="flex-shrink-0 size-10 lg:size-12 flex items-center justify-center bg-green/10 rounded-full p-2">
+                {iconMap[item.icon]}
+              </div>
+              <div className="text-black font-montserrat">
+                <h6 className="font-bold text-sm lg:text-base leading-5 lg:leading-6">{item.title}</h6>
+                <p className="font-normal text-xs lg:text-sm leading-4 lg:leading-5 text-black/60 mt-0.5 line-clamp-2">{item.description}</p>
               </div>
             </div>
           ))}
