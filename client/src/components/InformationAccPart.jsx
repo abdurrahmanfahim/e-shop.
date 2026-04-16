@@ -1,14 +1,52 @@
+import { useState } from "react";
 import FormInput from "./FormInput";
 import Button from "./Button";
 import OrderSummary from "./OrderSummary";
 
-const InformationAccPart = ({ billing, setBilling, setActive }) => {
-  const set = (key, val) => setBilling((prev) => ({ ...prev, [key]: val }));
+const REQUIRED = ["firstName", "lastName", "phone", "email", "address", "country", "state", "city"];
+
+const InformationAccPart = ({ billing, setBilling, setActive, shippingCost = 0 }) => {
+  const [errors, setErrors] = useState({});
+  const set = (key, val) => {
+    setBilling((prev) => ({ ...prev, [key]: val }));
+    if (errors[key]) setErrors((prev) => ({ ...prev, [key]: "" }));
+  };
+
+  const validate = () => {
+    const newErrors = {};
+    REQUIRED.forEach((key) => {
+      if (!billing[key]?.trim()) newErrors[key] = "This field is required";
+    });
+    if (billing.email && !/\S+@\S+\.\S+/.test(billing.email)) newErrors.email = "Invalid email address";
+    setErrors(newErrors);
+    if (Object.keys(newErrors).length > 0) {
+      const firstKey = REQUIRED.find((k) => newErrors[k]);
+      const el = document.querySelector(`[name="${firstKey}"]`);
+      if (el) el.scrollIntoView({ behavior: "smooth", block: "center" });
+    }
+    return Object.keys(newErrors).length === 0;
+  };
 
   const handleNext = () => {
+    if (!validate()) return;
     setActive("Shipping");
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
+
+  const field = (label, name, opts = {}) => (
+    <div className={opts.full ? "w-full" : "w-full sm:w-[calc(50%-8px)] lg:w-[424px]"}>
+      <FormInput
+        label={label}
+        star={REQUIRED.includes(name)}
+        placeholder={opts.placeholder || ""}
+        inpType={opts.type || "text"}
+        value={billing[name] || ""}
+        onChange={(e) => set(name, e.target.value)}
+        name={name}
+      />
+      {errors[name] && <p className="font-montserrat text-xs text-red-500 mt-1">{errors[name]}</p>}
+    </div>
+  );
 
   return (
     <div className="flex flex-col lg:flex-row gap-8 lg:gap-0 lg:justify-between w-full">
@@ -16,42 +54,22 @@ const InformationAccPart = ({ billing, setBilling, setActive }) => {
         <h2 className="font-poppins text-2xl lg:text-4xl font-semibold leading-[30px] lg:leading-[46px] text-black mb-2">
           Billing Details
         </h2>
-
         <div className="mt-6 lg:mt-8 flex flex-wrap gap-x-4 gap-y-6 lg:gap-y-8 w-full lg:w-[870px]">
-          <div className="w-full sm:w-[calc(50%-8px)] lg:w-[424px]">
-            <FormInput label="First Name" star={true} placeholder="Amelia" value={billing.firstName || ""} onChange={(e) => set("firstName", e.target.value)} name="firstName" />
-          </div>
-          <div className="w-full sm:w-[calc(50%-8px)] lg:w-[424px]">
-            <FormInput label="Last Name" star={true} placeholder="Watson" value={billing.lastName || ""} onChange={(e) => set("lastName", e.target.value)} name="lastName" />
-          </div>
-          <div className="w-full sm:w-[calc(50%-8px)] lg:w-[424px]">
-            <FormInput label="Phone Number" star={true} placeholder="+123 456 7890" inpType="tel" value={billing.phone || ""} onChange={(e) => set("phone", e.target.value)} name="phone" />
-          </div>
-          <div className="w-full sm:w-[calc(50%-8px)] lg:w-[424px]">
-            <FormInput label="Email Address" star={true} placeholder="amelia@eshop.com" inpType="email" value={billing.email || ""} onChange={(e) => set("email", e.target.value)} name="email" />
-          </div>
-          <div className="w-full">
-            <FormInput label="Address" star={true} placeholder="Home Address, St. 12345" value={billing.address || ""} onChange={(e) => set("address", e.target.value)} name="address" />
-          </div>
-          <div className="w-full sm:w-[calc(50%-8px)] lg:w-[424px]">
-            <FormInput label="Country" star={true} placeholder="United States" value={billing.country || ""} onChange={(e) => set("country", e.target.value)} name="country" />
-          </div>
-          <div className="w-full sm:w-[calc(50%-8px)] lg:w-[424px]">
-            <FormInput label="State" star={true} placeholder="California" value={billing.state || ""} onChange={(e) => set("state", e.target.value)} name="state" />
-          </div>
-          <div className="w-full sm:w-[calc(50%-8px)] lg:w-[424px]">
-            <FormInput label="City" star={true} placeholder="Los Angeles" value={billing.city || ""} onChange={(e) => set("city", e.target.value)} name="city" />
-          </div>
-          <div className="w-full sm:w-[calc(50%-8px)] lg:w-[424px]">
-            <FormInput label="ZIP Code" placeholder="90210" value={billing.zip || ""} onChange={(e) => set("zip", e.target.value)} name="zip" />
-          </div>
+          {field("First Name", "firstName", { placeholder: "Amelia" })}
+          {field("Last Name", "lastName", { placeholder: "Watson" })}
+          {field("Phone Number", "phone", { placeholder: "+123 456 7890", type: "tel" })}
+          {field("Email Address", "email", { placeholder: "amelia@eshop.com", type: "email" })}
+          {field("Address", "address", { placeholder: "Home Address, St. 12345", full: true })}
+          {field("Country", "country", { placeholder: "United States" })}
+          {field("State", "state", { placeholder: "California" })}
+          {field("City", "city", { placeholder: "Los Angeles" })}
+          {field("ZIP Code", "zip", { placeholder: "90210" })}
           <div className="w-full">
             <FormInput textAria={true} label="Order Notes" placeholder="Enter your order notes ..." height="173px" value={billing.notes || ""} onChange={(e) => set("notes", e.target.value)} name="notes" />
           </div>
         </div>
       </div>
-
-      <OrderSummary>
+      <OrderSummary shippingCost={shippingCost}>
         <Button text="Continue to Shipping" className="w-full" flexGrow={true} onClick={handleNext} />
       </OrderSummary>
     </div>

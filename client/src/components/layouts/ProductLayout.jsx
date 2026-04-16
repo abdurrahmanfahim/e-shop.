@@ -50,7 +50,7 @@ const ProductLayout = ({
   if (list) return (
     <Link
       to={`/product-details/${id}`}
-      className="flex gap-4 lg:gap-6 p-4 lg:p-6 bg-white border border-transparent rounded-10p hover:border-[#C3C3C3] transition-all duration-300 text-black group"
+      className="flex gap-4 lg:gap-6 p-4 lg:p-6 w-full bg-white border border-[#C3C3C3] rounded-10p hover:border-black/40 transition-all duration-300 text-black group"
     >
       <div className="relative shrink-0 w-28 sm:w-36 lg:w-44 aspect-square">
         <img className="object-contain size-full" src={image} alt={title} />

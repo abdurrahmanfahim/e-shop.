@@ -29,7 +29,12 @@ const ProductListPage = () => {
   const [isSortOneOpen, setIsSortOneOpen] = useState(false);
   const [isSortTwoOpen, setIsSortTwoOpen] = useState(false);
   const [isFilterOpen, setIsFilterOpen] = useState(false);
-  const [viewMode, setViewMode] = useState("grid");
+  const [viewMode, setViewMode] = useState(() => localStorage.getItem('viewMode') || 'grid');
+
+  const handleViewMode = (mode) => {
+    setViewMode(mode);
+    localStorage.setItem('viewMode', mode);
+  };
 
   const sortOneRef = useRef();
   const sortTwoRef = useRef();
@@ -142,7 +147,7 @@ const ProductListPage = () => {
           />
         </div>
 
-        <div className="w-full lg:w-auto">
+        <div className="w-full lg:flex-1 min-w-0">
           <div>
             <h2 className="text-black font-['Poppins'] font-semibold leading-8 lg:leading-[46px] text-2xl lg:text-4xl capitalize mb-4 lg:mb-6">
               Products
@@ -200,10 +205,10 @@ const ProductListPage = () => {
                 </div>
                 <span className="bg-[#CBCBCB] w-[1px] h-6 lg:h-8 hidden sm:block"></span>
                 <div className="flex gap-2 lg:gap-3">
-                  <button onClick={() => setViewMode("grid")}>
+                  <button onClick={() => handleViewMode("grid")}>
                     <GridView color={viewMode === "grid" ? "#023440" : "#303030"} />
                   </button>
-                  <button onClick={() => setViewMode("list")}>
+                  <button onClick={() => handleViewMode("list")}>
                     <ListView color={viewMode === "list" ? "#023440" : "#303030"} />
                   </button>
                 </div>
