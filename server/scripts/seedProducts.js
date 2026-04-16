@@ -1,6 +1,9 @@
 import 'dotenv/config';
 import mongoose from 'mongoose';
+import dns from 'dns';
 import Product from '../models/Product.js';
+
+dns.setServers(['1.1.1.1', '1.0.0.1']);
 
 const CATEGORIES = ['laptops', 'smartphones', 'tablets', 'mobile-accessories'];
 
@@ -14,7 +17,11 @@ const fetchCategory = async (cat) => {
 };
 
 const seed = async () => {
-  await mongoose.connect(process.env.MONGO_URI);
+  await mongoose.connect(process.env.MONGO_URI, {
+    serverSelectionTimeoutMS: 10000,
+    socketTimeoutMS: 45000,
+    family: 4,
+  });
   console.log('Connected to MongoDB');
 
   await Product.deleteMany({});
