@@ -19,7 +19,19 @@ connectDB();
 const app = express();
 
 app.use(helmet());
-app.use(cors({ origin: process.env.CLIENT_URL, credentials: true }));
+const allowedOrigins = [
+  process.env.CLIENT_URL,
+  'http://localhost:5173',
+  'http://localhost:5174',
+].filter(Boolean);
+
+app.use(cors({
+  origin: (origin, cb) => {
+    if (!origin || allowedOrigins.includes(origin)) cb(null, true);
+    else cb(new Error('Not allowed by CORS'));
+  },
+  credentials: true,
+}));
 // CSRF note: This API uses JWT Bearer tokens (stateless), not cookies.
 // CSRF attacks require cookie-based sessions, so no CSRF middleware is needed.
 app.use(express.json());
