@@ -1,29 +1,50 @@
 import { MdCall } from "react-icons/md";
 import { BsEnvelopeFill } from "react-icons/bs";
 import { IoLocationSharp } from "react-icons/io5";
+import { FaFacebookF, FaInstagram, FaTwitter } from "react-icons/fa";
 import { Link } from "react-router-dom";
-import { footerCategories, footerContact, footerLinks, footerSocials, footerSupports } from "../../productDetailsArrays";
+import { footerCategories, footerContact, footerLinks, footerSupports } from "../../productDetailsArrays";
 
-const iconMap = {
-  phone:    <MdCall className="text-base" />,
-  email:    <BsEnvelopeFill className="text-base" />,
-  location: <IoLocationSharp className="text-base" />,
+const contactIcon = (label) => {
+  if (label.includes("+")) return <MdCall className="text-sm shrink-0" />;
+  if (label.includes("@")) return <BsEnvelopeFill className="text-sm shrink-0" />;
+  return <IoLocationSharp className="text-sm shrink-0" />;
 };
 
 const FooterBottom = () => {
   return (
-    <div className="mt-12 lg:mt-[100px] mb-12 lg:mb-20">
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 font-montserrat text-black mb-12 lg:mb-20 gap-8 lg:gap-6">
-        {/* Logo + Contact */}
-        <div className="flex flex-col gap-4 justify-between text-center sm:text-left">
-          <Link to="/"><img className="mx-auto sm:mx-0" src="/images/logo.png" alt="footerLogo" /></Link>
-          <ul className="flex flex-col gap-3 flex-wrap font-normal text-sm lg:text-base leading-6">
+    <div className="bg-green rounded-2xl lg:rounded-3xl mt-4 lg:mt-6 px-6 sm:px-10 lg:px-16 pt-10 lg:pt-14 pb-6 lg:pb-8">
+
+      {/* Main grid */}
+      <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-6 mb-10 lg:mb-14">
+
+        {/* Brand */}
+        <div className="col-span-2 sm:col-span-2 lg:col-span-1 flex flex-col gap-5">
+          <Link to="/">
+            <img src="/images/logo.png" alt="logo" className="brightness-0 invert h-8 w-auto" />
+          </Link>
+          <p className="font-montserrat text-sm text-white/60 leading-6 max-w-[240px]">
+            Your one-stop shop for the latest electronics and gadgets.
+          </p>
+          <ul className="flex flex-col gap-3">
             {footerContact.map((item) => (
-              <li key={item.label} className="relative pl-6">
-                <Link className="hover:text-green flex items-center justify-center sm:justify-start gap-2" to={item.to}>
-                  <span className="absolute top-1/2 -translate-y-1/2 left-0 text-[#646464]">
-                    {item.label.includes("+") ? iconMap.phone : item.label.includes("@") ? iconMap.email : iconMap.location}
-                  </span>
+              <li key={item.label}>
+                <Link to={item.to} className="flex items-start gap-2 font-montserrat text-sm text-white/70 hover:text-white transition-colors">
+                  <span className="mt-0.5 text-white/50">{contactIcon(item.label)}</span>
+                  <span>{item.label}</span>
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        {/* Links */}
+        <div>
+          <h4 className="font-poppins font-semibold text-white text-base mb-4 lg:mb-6">Links</h4>
+          <ul className="flex flex-col gap-3">
+            {footerLinks.map((item) => (
+              <li key={item.label}>
+                <Link to={item.to} className="font-montserrat text-sm text-white/60 hover:text-white transition-colors">
                   {item.label}
                 </Link>
               </li>
@@ -31,58 +52,63 @@ const FooterBottom = () => {
           </ul>
         </div>
 
-        {/* Links + Supports + Categories */}
-        <div className="sm:col-span-2 lg:col-span-1 flex justify-between gap-8 lg:gap-12">
-          {[
-            { title: "Links", data: footerLinks },
-            { title: "Supports", data: footerSupports },
-          ].map(({ title, data }) => (
-            <div key={title}>
-              <h4 className="font-semibold leading-[30px] font-poppins mb-4 lg:mb-6 text-lg lg:text-xl">{title}</h4>
-              <ul className="text-black font-normal text-sm lg:text-base leading-6 flex flex-col gap-3">
-                {data.map((item) => (
-                  <li key={item.label}><Link className="hover:text-green" to={item.to}>{item.label}</Link></li>
-                ))}
-              </ul>
-            </div>
-          ))}
-        </div>
-
-        {/* Categories */}
+        {/* Support */}
         <div>
-          <h4 className="font-semibold leading-[30px] font-poppins mb-4 lg:mb-6 text-lg lg:text-xl">Categories</h4>
-          <ul className="text-black font-normal text-sm lg:text-base leading-6 flex flex-col gap-3">
-            {footerCategories.map((item) => (
-              <li key={item.label}><Link className="hover:text-green" to={item.to}>{item.label}</Link></li>
+          <h4 className="font-poppins font-semibold text-white text-base mb-4 lg:mb-6">Support</h4>
+          <ul className="flex flex-col gap-3">
+            {footerSupports.map((item) => (
+              <li key={item.label}>
+                <Link to={item.to} className="font-montserrat text-sm text-white/60 hover:text-white transition-colors">
+                  {item.label}
+                </Link>
+              </li>
             ))}
           </ul>
         </div>
 
-        {/* Payments + Follow */}
-        <div className="flex flex-col gap-6 text-center sm:text-left">
-          <div>
-            <h4 className="font-semibold leading-[30px] font-poppins mb-4 lg:mb-6 text-lg lg:text-xl">Payments</h4>
-            <img className="mx-auto sm:mx-0 w-fit" src="/images/payment.png" alt="payment gateway" />
-          </div>
-          <div>
-            <h4 className="font-semibold leading-[30px] font-poppins mb-4 lg:mb-6 text-lg lg:text-xl">Follow Us</h4>
-            <ul className="text-black font-normal text-sm lg:text-base leading-6 justify-center flex md:flex-col gap-3">
-              {footerSocials.map((item) => (
-                <li key={item.label}><Link className="hover:text-green" to={item.to}>{item.label}</Link></li>
-              ))}
-            </ul>
-          </div>
+        {/* Categories */}
+        <div>
+          <h4 className="font-poppins font-semibold text-white text-base mb-4 lg:mb-6">Categories</h4>
+          <ul className="flex flex-col gap-3">
+            {footerCategories.map((item) => (
+              <li key={item.label}>
+                <Link to={item.to} className="font-montserrat text-sm text-white/60 hover:text-white transition-colors">
+                  {item.label}
+                </Link>
+              </li>
+            ))}
+          </ul>
         </div>
       </div>
 
-      <hr className="border-t border-[#CBCBCB] h-[1px]" />
-      <div className="flex flex-col lg:flex-row justify-between text-[#646464] font-montserrat font-normal text-xs lg:text-sm leading-5 pt-2 gap-2 lg:gap-0 text-center lg:text-left">
-        <p>Copyright © {new Date().getFullYear()} E-Shop. All Rights Reserved.</p>
-        <p>
-          <Link className="hover:text-green" to="#">Privacy Policy</Link>{" "}|{" "}
-          <Link className="hover:text-green" to="#">Terms & Condition</Link>{" "}|{" "}
-          <Link className="hover:text-green" to="#">Sitemap</Link>
+      {/* Divider */}
+      <div className="border-t border-white/10 pt-6 flex flex-col sm:flex-row justify-between items-center gap-4">
+
+        {/* Payment */}
+        <img src="/images/payment.png" alt="payment" className="h-6 brightness-0 invert opacity-60" />
+
+        {/* Copyright */}
+        <p className="font-montserrat text-xs text-white/40 text-center order-last sm:order-none">
+          © {new Date().getFullYear()} eGearX. All Rights Reserved.
         </p>
+
+        {/* Socials */}
+        <div className="flex items-center gap-3">
+          {[
+            { icon: <FaFacebookF />, to: "https://facebook.com" },
+            { icon: <FaTwitter />, to: "https://twitter.com" },
+            { icon: <FaInstagram />, to: "https://instagram.com" },
+          ].map((s, i) => (
+            <Link
+              key={i}
+              to={s.to}
+              target="_blank"
+              className="size-8 rounded-full border border-white/20 flex items-center justify-center text-white/60 hover:text-white hover:border-white/50 transition-all text-sm"
+            >
+              {s.icon}
+            </Link>
+          ))}
+        </div>
       </div>
     </div>
   );

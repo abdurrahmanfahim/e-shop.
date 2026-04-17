@@ -1,15 +1,16 @@
-import React from 'react'
-import Container from '../layouts/Container'
-import FooterTop from './FooterTop'
-import FooterBottom from './FooterBottom'
+import Container from '../layouts/Container';
+import FooterTop from './FooterTop';
+import FooterBottom from './FooterBottom';
 
 const Footer = () => {
   return (
-    <Container>
-      <FooterTop />
-      <FooterBottom />
-    </Container>
-  )
-}
+    <div className="mt-12 lg:mt-20 pb-6">
+      <Container>
+        <FooterTop />
+        <FooterBottom />
+      </Container>
+    </div>
+  );
+};
 
-export default Footer
+export default Footer;

@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import { useNavigate } from "react-router-dom";
-import Button from "../Button";
+import { HiArrowRight } from "react-icons/hi";
 
 const FooterTop = () => {
   const { t } = useTranslation();
@@ -14,27 +14,33 @@ const FooterTop = () => {
   };
 
   return (
-    <div
-      className="py-12 lg:py-[114px] px-6 lg:px-[100px] rounded-2xl lg:rounded-3xl text-center lg:text-left"
-      style={{ background: "linear-gradient(90deg,rgba(244, 244, 244, 1) 35%, rgba(217, 217, 217, 1) 50%)" }}
-    >
-      <h2 className="font-['Poppins'] text-2xl lg:text-4xl font-semibold leading-[30px] lg:leading-[46px]">
-        {t("Get_Our_Updates")}
-      </h2>
-      <p className="font-montserrat text-lg lg:text-xl font-normal leading-[26px] lg:leading-[30px] w-full lg:w-[490px] pt-3 lg:pt-4 pb-6 lg:pb-8 mx-auto lg:mx-0">
-        {t("Newsletter_Description")}
-      </p>
-      <input
-        className="text-[#626262] font-montserrat font-normal text-sm leading-5 p-4 lg:p-6 rounded-10p border border-[#979797] w-full sm:w-[494px] bg-white mb-4"
-        type="email"
-        placeholder="Enter your email address ..."
-        value={email}
-        onChange={(e) => setEmail(e.target.value)}
-        onKeyDown={(e) => e.key === "Enter" && handleSubscribe()}
-      />
-      <br />
-      <div className="flex justify-center lg:justify-start">
-        <Button text={t("Subscribe")} onClick={handleSubscribe} />
+    <div className="bg-green rounded-2xl lg:rounded-3xl px-6 sm:px-10 lg:px-16 py-10 lg:py-14">
+      <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-6 lg:gap-12">
+        <div className="text-center lg:text-left">
+          <h2 className="font-poppins text-2xl lg:text-3xl font-semibold text-white leading-tight mb-2">
+            {t("Get_Our_Updates")}
+          </h2>
+          <p className="font-montserrat text-sm lg:text-base text-white/70 max-w-md mx-auto lg:mx-0">
+            {t("Newsletter_Description")}
+          </p>
+        </div>
+
+        <div className="flex flex-col sm:flex-row gap-3 w-full lg:w-auto lg:min-w-[480px]">
+          <input
+            className="flex-1 font-montserrat text-sm text-black placeholder:text-black/40 px-5 py-3 lg:py-4 rounded-10p bg-white outline-none border-2 border-transparent focus:border-white/30"
+            type="email"
+            placeholder="Enter your email address ..."
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            onKeyDown={(e) => e.key === "Enter" && handleSubscribe()}
+          />
+          <button
+            onClick={handleSubscribe}
+            className="flex items-center justify-center gap-2 font-montserrat font-bold text-sm lg:text-base text-green bg-white px-6 py-3 lg:py-4 rounded-10p hover:bg-white/90 transition-all whitespace-nowrap"
+          >
+            {t("Subscribe")} <HiArrowRight />
+          </button>
+        </div>
       </div>
     </div>
   );
