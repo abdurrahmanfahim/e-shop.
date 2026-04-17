@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import { useNavigate } from "react-router-dom";
 import { HiArrowRight } from "react-icons/hi";
+import toast from 'react-hot-toast';
 
 const FooterTop = () => {
   const { t } = useTranslation();
@@ -9,7 +10,15 @@ const FooterTop = () => {
   const [email, setEmail] = useState("");
 
   const handleSubscribe = () => {
-    if (!email.trim()) return;
+    if (!email.trim()) {
+      toast.error('Please enter your email address.');
+      return;
+    }
+    if (!/\S+@\S+\.\S+/.test(email)) {
+      toast.error('Please enter a valid email address.');
+      return;
+    }
+    toast.success('Redirecting to contact page...');
     navigate(`/contact?email=${encodeURIComponent(email)}`);
   };
 

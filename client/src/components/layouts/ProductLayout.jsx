@@ -7,6 +7,7 @@ import { Link, useNavigate } from "react-router-dom";
 import CartContext from "../../contexts/CartContext";
 import FavoritesContext from "../../contexts/FavoritesContext";
 import AuthContext from "../../contexts/AuthContext";
+import toast from 'react-hot-toast';
 
 const ProductLayout = ({
   v2 = false,
@@ -44,6 +45,17 @@ const ProductLayout = ({
   const handleFavorite = (e) => {
     e.preventDefault(); e.stopPropagation();
     toggleFavorite({ id, title, price: finalPrice, image, type });
+  };
+
+  const handleShare = async (e) => {
+    e.preventDefault(); e.stopPropagation();
+    const url = `${window.location.origin}/product-details/${id}`;
+    if (navigator.share) {
+      try { await navigator.share({ title, url }); } catch {}
+    } else {
+      await navigator.clipboard.writeText(url);
+      toast.success('Link copied to clipboard!');
+    }
   };
 
   // ── LIST VIEW ──────────────────────────────────────────────
@@ -156,14 +168,14 @@ const ProductLayout = ({
             </span>
           )}
         </div>
-        <div className="flex absolute justify-center gap-3 sm:gap-[18px] left-1/2 -translate-x-1/2 -bottom-8 sm:-bottom-10 group-hover:bottom-[6px] opacity-0 group-hover:opacity-100 transition-all duration-300 ease-in-out">
+        <div className="flex absolute justify-center gap-3 sm:gap-[18px] left-1/2 -translate-x-1/2 -bottom-8 sm:-bottom-10 group-hover:bottom-[6px] opacity-100 lg:opacity-0 lg:group-hover:opacity-100 transition-all duration-300 ease-in-out">
           <button onClick={handleAddToCart} className={`size-10 sm:size-[50px] rounded-full text-green bg-white hover:text-white hover:bg-green flex items-center justify-center text-lg sm:text-xl transition-all border border-green ${adding ? 'opacity-50' : ''}`}>
             <BsCart3 />
           </button>
           <button onClick={handleFavorite} className="size-10 sm:size-[50px] rounded-full text-green bg-white hover:text-white hover:bg-green flex items-center justify-center text-lg sm:text-xl transition-all border border-green">
             {isFavorite(id) ? <GoHeartFill className="text-red-500" /> : <GoHeart />}
           </button>
-          <button onClick={(e) => { e.preventDefault(); e.stopPropagation(); }} className="size-10 sm:size-[50px] rounded-full text-green bg-white hover:text-white hover:bg-green flex items-center justify-center text-lg sm:text-xl transition-all border border-green">
+          <button onClick={handleShare} className="size-10 sm:size-[50px] rounded-full text-green bg-white hover:text-white hover:bg-green flex items-center justify-center text-lg sm:text-xl transition-all border border-green">
             <IoShareSocialOutline />
           </button>
         </div>
