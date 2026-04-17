@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import toast from 'react-hot-toast';
 import FavoritesContext from './FavoritesContext';
 
 const FavoritesContextProvider = ({ children }) => {
@@ -17,6 +18,9 @@ const FavoritesContextProvider = ({ children }) => {
         ? prev.filter((p) => p.id !== product.id)
         : [...prev, product];
       localStorage.setItem('favorites', JSON.stringify(updated));
+      toast(exists ? '💔 Removed from favorites' : '❤️ Added to favorites', {
+        style: { fontFamily: 'Montserrat', fontSize: '14px' },
+      });
       return updated;
     });
   };

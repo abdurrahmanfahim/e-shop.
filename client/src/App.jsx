@@ -1,4 +1,6 @@
 import { Route, Routes } from "react-router-dom";
+import { Toaster } from "react-hot-toast";
+
 import CommonLayout from "./components/layouts/CommonLayot";
 import ProtectedRoute from "./components/layouts/ProtectedRoute";
 import BlogPage from "./pages/BlogPage";
@@ -26,6 +28,7 @@ function App() {
         <CartContextProvider>
           <FavoritesContextProvider>
             <ProductsContextProvider>
+              <Toaster position="bottom-right" toastOptions={{ duration: 2500, style: { fontFamily: 'Montserrat', fontSize: '14px' } }} />
               <Routes>
                 <Route path="/" element={<CommonLayout />}>
                   <Route index element={<HomePage />} />

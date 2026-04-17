@@ -1,4 +1,5 @@
 import { useState, useEffect, useContext } from 'react';
+import toast from 'react-hot-toast';
 import CartContext from './CartContext';
 import AuthContext from './AuthContext';
 import api from '../api/api';
@@ -24,8 +25,13 @@ const CartContextProvider = ({ children }) => {
   useEffect(() => { fetchCart(); }, [user]);
 
   const addItem = async (product, quantity = 1, variant = '') => {
-    const { data } = await api.post('/cart', { product: product._id, quantity, variant, price: product.price });
-    setCart(data);
+    try {
+      const { data } = await api.post('/cart', { product: product._id, quantity, variant, price: product.price });
+      setCart(data);
+      toast.success('Added to cart!');
+    } catch {
+      toast.error('Failed to add to cart.');
+    }
   };
 
   const updateItem = async (itemId, quantity) => {
@@ -36,6 +42,7 @@ const CartContextProvider = ({ children }) => {
   const removeItem = async (itemId) => {
     const { data } = await api.delete(`/cart/${itemId}`);
     setCart(data);
+    toast.success('Item removed.');
   };
 
   const clearCart = async () => {
