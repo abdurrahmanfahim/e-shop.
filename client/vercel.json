@@ -12,6 +12,10 @@
         {
           "key": "Cache-Control",
           "value": "no-store"
+        },
+        {
+          "key": "Permissions-Policy",
+          "value": "web-share=()"
         }
       ]
     }
