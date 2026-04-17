@@ -4,7 +4,7 @@ import Button from "../components/Button";
 import Container from "../components/layouts/Container";
 import ProductLayout from "../components/layouts/ProductLayout";
 import ProductsContext from "../contexts/ProductsContext";
-import NextArrow from "../icons/NextArrow";
+import { HiChevronRight } from "react-icons/hi";
 import { Link } from "react-router-dom";
 
 function SampleNextArrow(props) {
@@ -14,7 +14,9 @@ function SampleNextArrow(props) {
       className={`${className} grid place-items-center mr-5 !top-[46.5%]`}
       onClick={onClick}
     >
-      <NextArrow />
+      <div className="size-[72px] rounded-full bg-lightGray border border-black/20 flex items-center justify-center">
+        <HiChevronRight className="text-2xl text-black" />
+      </div>
     </div>
   );
 }

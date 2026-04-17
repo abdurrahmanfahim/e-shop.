@@ -3,9 +3,9 @@ import { Link } from "react-router-dom";
 import Button from "../components/Button";
 import FormInput from "../components/FormInput";
 import Container from "../components/layouts/Container";
-import EnvelopeFooter from "../icons/EnvelopeFooter";
-import LocationFooter from "../icons/LocationFooter";
-import PhoneFooter from "../icons/PhoneFooter";
+import { MdCall } from "react-icons/md";
+import { BsEnvelopeFill } from "react-icons/bs";
+import { IoLocationSharp } from "react-icons/io5";
 import api from "../api/api";
 
 const Contact = () => {
@@ -85,19 +85,19 @@ const Contact = () => {
               <ul className="text-sm lg:text-base font-bold flex flex-col gap-4 font-montserrat">
                 <li className="relative pl-8">
                   <Link className="hover:text-green" to="tel:+15551234567">
-                    <span className="absolute top-1/2 -translate-y-1/2 left-0 text-[#646464]"><PhoneFooter /></span>
+                    <span className="absolute top-1/2 -translate-y-1/2 left-0 text-[#646464]"><MdCall className="text-base" /></span>
                     +1 (555) 123-4567
                   </Link>
                 </li>
                 <li className="relative pl-8">
                   <Link className="hover:text-green" to="mailto:information@eshop.com">
-                    <span className="absolute top-1/2 -translate-y-1/2 left-0 text-[#646464]"><EnvelopeFooter /></span>
+                    <span className="absolute top-1/2 -translate-y-1/2 left-0 text-[#646464]"><BsEnvelopeFill className="text-base" /></span>
                     information@eshop.com
                   </Link>
                 </li>
                 <li className="relative pl-8">
                   <Link className="hover:text-green" to="https://maps.app.goo.gl/GLKtcy2x3Lo6XxJq5" target="_blank">
-                    <span className="absolute top-1/2 -translate-y-1/2 left-0 text-xl text-[#646464]"><LocationFooter /></span>
+                    <span className="absolute top-1/2 -translate-y-1/2 left-0 text-[#646464]"><IoLocationSharp className="text-base" /></span>
                     123 Main Street, Suite 105, Anytown USA
                   </Link>
                 </li>

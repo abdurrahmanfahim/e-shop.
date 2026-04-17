@@ -6,9 +6,9 @@ import { facilityData } from "../productDetailsArrays";
 import Container from "./layouts/Container";
 
 const iconMap = {
-  HeadPhone: <HeadPhone />,
-  Shield: <Shield />,
-  Shipping: <Shipping />,
+  HeadPhone:   <HeadPhone />,
+  Shield:      <Shield />,
+  Shipping:    <Shipping />,
   Transparent: <Transparent />,
 };
 
@@ -20,9 +20,7 @@ const Facility = () => {
           {facilityData.map((item, i) => (
             <div
               key={item.title}
-              className={`flex gap-3 lg:gap-5 items-start lg:items-center px-0 lg:px-8 ${
-                i !== 0 ? "lg:border-l lg:border-[#EBEBEB]" : ""
-              }`}
+              className={`flex gap-3 lg:gap-5 items-start lg:items-center px-0 lg:px-8 ${i !== 0 ? "lg:border-l lg:border-[#EBEBEB]" : ""}`}
             >
               <div className="flex-shrink-0 size-10 lg:size-12 flex items-center justify-center bg-green/10 rounded-full p-2">
                 {iconMap[item.icon]}

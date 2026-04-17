@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import Slider from "react-slick";
-import ExpandIcon from "../icons/ExpandIcon";
+import { MdOutlineOpenInFull } from "react-icons/md";
 
 const ProductDetailsSlider = ({
   setActiveModalSrc,
@@ -66,7 +66,7 @@ const ProductDetailsSlider = ({
           setIsModalOpen(true);
         }}
       >
-        <ExpandIcon />
+        <MdOutlineOpenInFull className="text-lg text-black" />
       </span>
     </div>
   );
